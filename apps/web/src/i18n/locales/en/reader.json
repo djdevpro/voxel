@@ -1,0 +1,82 @@
+{
+  "region": "Reading pane",
+  "placeholder": {
+    "title": "No conversation selected",
+    "hint": "<j>J</j> <k>K</k> to navigate · <help>?</help> for help"
+  },
+  "toolbar": {
+    "back": "Back to list",
+    "more": "More actions",
+    "print": "Print",
+    "source": "Show original",
+    "unsubscribe": "Unsubscribe",
+    "createFilter": "Create a filter…"
+  },
+  "openError": "Couldn't open the conversation",
+  "reply": "Reply",
+  "replyAll": "Reply all",
+  "forward": "Forward",
+  "olderMessages_one": "{{count}} older message",
+  "olderMessages_other": "{{count}} older messages",
+  "messageFrom": "Message from {{name}}",
+  "unknownSender": "(unknown)",
+  "toLine": "To {{list}}",
+  "ccLine": "Cc {{list}}",
+  "nobody": "(nobody)",
+  "details": {
+    "from": "From",
+    "to": "To",
+    "cc": "Cc",
+    "replyTo": "Reply to",
+    "date": "Date"
+  },
+  "images": {
+    "blocked": "Remote images are hidden to protect your privacy.",
+    "show": "Show images",
+    "always": "Always for this sender",
+    "alwaysToast": "Images will always be shown for {{email}}",
+    "showInline_one": "Show {{count}} embedded image",
+    "showInline_other": "Show {{count}} embedded images"
+  },
+  "sourceTitle": "Original message",
+  "sourceError": "Couldn't load the original message: {{message}}",
+  "unsubscribeOpened": "Unsubscribe page opened in a new tab",
+  "frameTitle": "Message content",
+  "print": {
+    "from": "From: {{list}}",
+    "to": "To: {{list}}"
+  },
+  "attachments": {
+    "count_one": "{{count}} attachment",
+    "count_other": "{{count}} attachments",
+    "defaultName": "attachment-{{n}}",
+    "file": "file",
+    "preview": "Preview {{name}}",
+    "download": "Download {{name}}",
+    "downloadButton": "Download"
+  },
+  "block": {
+    "address": "Block {{address}}",
+    "domain": "Block domain {{domain}}",
+    "done": "{{who}} is blocked: future messages will go to Spam.",
+    "moved": "{{count}} message(s) moved",
+    "undo": "Undo",
+    "pending": "Blocking will apply once the auto-reply is turned off.",
+    "failed": "Could not block",
+    "unblocked": "{{who}} is unblocked"
+  },
+  "forwardAttachment": "Forward as attachment",
+  "receipt": {
+    "title": "Read receipt",
+    "asks": "The sender asks for a read receipt ({{email}}).",
+    "send": "Send",
+    "ignore": "Ignore",
+    "sent": "Read receipt sent to {{email}}",
+    "failed": "Could not send the read receipt",
+    "offline": "You are offline: the read receipt can be sent once you are back online.",
+    "subject": "Read: {{subject}}",
+    "body": "Your message\n\n  To: {{to}}\n  Subject: {{subject}}\n  Sent: {{date}}\n\nwas displayed on {{read}}.\nThis only means the message was opened, not that it was read or understood.",
+    "outboxIgnore": "Read receipt ignored",
+    "outboxSend": "Read receipt: {{subject}}"
+  }
+}

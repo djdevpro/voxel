@@ -1,0 +1,67 @@
+{
+  "actions": {
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "close": "Fermer",
+    "retry": "Réessayer",
+    "ok": "OK",
+    "undo": "Annuler",
+    "more": "Plus",
+    "refresh": "Actualiser",
+    "save": "Enregistrer",
+    "back": "Retour",
+    "copy": "Copier",
+    "copied": "Copié"
+  },
+  "errors": {
+    "generic": "Erreur"
+  },
+  "time": {
+    "justNow": "à l’instant"
+  },
+  "offline": {
+    "banner": "Hors ligne — les actions seront synchronisées",
+    "offline": "Hors ligne",
+    "pending_one": "{{count}} en attente",
+    "pending_other": "{{count}} en attente",
+    "pending_many": "{{count}} en attente",
+    "pendingActions_one": "{{count}} action en attente",
+    "pendingActions_other": "{{count}} actions en attente",
+    "pendingActions_many": "{{count}} actions en attente",
+    "backOnline": "De nouveau en ligne",
+    "synced_one": "{{count}} action synchronisée",
+    "synced_other": "{{count}} actions synchronisées",
+    "synced_many": "{{count}} actions synchronisées",
+    "failed_one": "{{count}} action a échoué",
+    "failed_other": "{{count}} actions ont échoué",
+    "failed_many": "{{count}} actions ont échoué"
+  },
+  "nav": {
+    "main": "Navigation principale",
+    "menu": "Menu",
+    "inbox": "Réception",
+    "folders": "Dossiers",
+    "compose": "Écrire",
+    "search": "Rechercher",
+    "settings": "Réglages"
+  },
+  "noAccounts": {
+    "title": "Ajoutez votre première boîte",
+    "description": "Connectez-vous à une boîte pour commencer. Vos identifiants sont chiffrés sur le serveur.",
+    "add": "Ajouter une boîte"
+  },
+  "slider": {
+    "delay": "Délai"
+  },
+  "title": {
+    "folder": "{{folder}} — {{mailbox}} · {{app}}",
+    "folderUnread": "({{n}}) {{folder}} — {{mailbox}} · {{app}}",
+    "thread": "{{subject}} · {{app}}",
+    "signIn": "Connexion · {{app}}"
+  },
+  "routing": {
+    "threadNotFound": "Cette conversation est introuvable. Elle a peut-être été supprimée ou déplacée.",
+    "folderNotFound": "Ce dossier n’existe plus. Retour à la réception."
+  }
+}

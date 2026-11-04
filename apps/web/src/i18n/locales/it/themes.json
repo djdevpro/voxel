@@ -1,0 +1,42 @@
+{
+  "porcelain": {
+    "name": "Porcellana",
+    "description": "Grigi caldi, calmo e luminoso"
+  },
+  "graphite": {
+    "name": "Grafite",
+    "description": "Neutro freddo, contrasto netto"
+  },
+  "nord": {
+    "name": "Nord",
+    "description": "Blu artici e brina"
+  },
+  "rose-pine": {
+    "name": "Rosé Pine",
+    "description": "Alba morbida, luce lunare soffusa"
+  },
+  "catppuccin": {
+    "name": "Catppuccin",
+    "description": "Pastelli Latte e Mocha"
+  },
+  "solarized": {
+    "name": "Solarized",
+    "description": "La classica palette di precisione"
+  },
+  "sepia": {
+    "name": "Seppia",
+    "description": "Toni carta per le letture lunghe"
+  },
+  "forest": {
+    "name": "Foresta",
+    "description": "Verdi profondi e quieti"
+  },
+  "ocean": {
+    "name": "Oceano",
+    "description": "Blu limpidi e profondi"
+  },
+  "midnight": {
+    "name": "Mezzanotte",
+    "description": "Nero assoluto, chiaro molto morbido"
+  }
+}

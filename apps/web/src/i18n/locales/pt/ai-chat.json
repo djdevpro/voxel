@@ -1,0 +1,83 @@
+{
+  "bar": {
+    "placeholder": "Pesquisar ou perguntar à IA…",
+    "ask": "Perguntar à IA: “{{text}}”",
+    "search": "Pesquisar “{{text}}”",
+    "openChat": "Conversar",
+    "resume": "Retomar a conversa"
+  },
+  "header": {
+    "title": "Assistente",
+    "newChat": "Nova conversa",
+    "close": "Fechar"
+  },
+  "conversation": {
+    "label": "Conversa com o assistente",
+    "scrollToEnd": "Ir para a última mensagem"
+  },
+  "empty": {
+    "greeting": "Olá, {{name}}",
+    "greetingAnonymous": "Olá",
+    "subtitle": "Encontre um e-mail, resuma o seu dia, escreva a alguém.",
+    "tip": "Os operadores from:, is:unread… continuam a funcionar na barra para uma pesquisa clássica."
+  },
+  "input": {
+    "placeholder": "Escreva ao assistente…",
+    "send": "Enviar",
+    "stop": "Parar",
+    "dictate": "Ditar",
+    "stopDictation": "Parar o ditado"
+  },
+  "reasoning": {
+    "running": "A pensar…",
+    "done": "Raciocínio"
+  },
+  "tools": {
+    "search": "Pesquisa: {{criteria}}",
+    "latest": "Últimos e-mails",
+    "from": "de “{{value}}”",
+    "to": "para “{{value}}”",
+    "subject": "assunto “{{value}}”",
+    "text": "“{{value}}”",
+    "since": "desde {{date}}",
+    "until": "até {{date}}",
+    "unread": "não lidos",
+    "read": "lidos",
+    "flagged": "sinalizados",
+    "attachments": "com anexo",
+    "folder": "em {{folder}}",
+    "mailbox": "caixa {{mailbox}}",
+    "count_one": "{{count}} resultado",
+    "count_other": "{{count}} resultados",
+    "readTitle": "Leitura: “{{subject}}”",
+    "contactsTitle": "Contactos: “{{query}}”",
+    "contactsCount_one": "{{count}} encontrado",
+    "contactsCount_other": "{{count}} encontrados",
+    "composeTitle": "Rascunho aberto para {{to}}",
+    "openTitle": "Conversa aberta: “{{subject}}”"
+  },
+  "results": {
+    "count_one": "{{count}} e-mail",
+    "count_other": "{{count}} e-mails",
+    "showMore_one": "Ver mais {{count}}",
+    "showMore_other": "Ver mais {{count}}",
+    "showInList": "Ver na lista",
+    "none": "Nenhum e-mail encontrado."
+  },
+  "contacts": {
+    "write": "Escrever",
+    "emails": "Os seus e-mails",
+    "pick": "{{name}} <{{email}}>",
+    "emailsPrompt": "Mostre-me os e-mails de {{name}} <{{email}}>",
+    "none": "Nenhum contacto encontrado."
+  },
+  "message": {
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "regenerate": "Gerar de novo"
+  },
+  "error": {
+    "retry": "Tentar de novo",
+    "settings": "Definições de IA"
+  }
+}

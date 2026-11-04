@@ -1,0 +1,126 @@
+{
+  "title": {
+    "new": "Nuovo messaggio",
+    "reply": "Risposta",
+    "forward": "Inoltro"
+  },
+  "send": "Invia",
+  "sendTooltip": "Invia ({{shortcut}})",
+  "attach": "Allega file",
+  "formatting": "Formattazione",
+  "saving": "Salvataggio…",
+  "discardDraft": "Elimina bozza",
+  "dropFiles": "Rilascia i file per allegarli",
+  "remove": "Rimuovi {{name}}",
+  "inline": {
+    "reply": "Rispondi",
+    "replyAll": "Rispondi a tutti",
+    "forward": "Inoltra",
+    "openWindow": "Apri in una finestra",
+    "discard": "Elimina risposta"
+  },
+  "fields": {
+    "from": "Da",
+    "to": "A",
+    "cc": "Cc",
+    "bcc": "Ccn",
+    "subject": "Oggetto",
+    "account": "Casella di invio",
+    "identity": "Identità di invio",
+    "identityPlaceholder": "Identità"
+  },
+  "recipients": {
+    "label": "Destinatari {{field}}"
+  },
+  "signature": {
+    "add": "Aggiungi firma",
+    "remove": "Rimuovi firma"
+  },
+  "quote": {
+    "show": "Mostra messaggio citato",
+    "hide": "Nascondi messaggio citato",
+    "wrote": "Il {{date}}, {{who}} ha scritto:",
+    "unknownSender": "Sconosciuto"
+  },
+  "forwarded": {
+    "header": "Messaggio inoltrato",
+    "from": "Da:",
+    "date": "Data:",
+    "subject": "Oggetto:",
+    "to": "A:",
+    "cc": "Cc:",
+    "fileName": "messaggio"
+  },
+  "schedule": {
+    "options": "Opzioni di invio",
+    "title": "Programma invio",
+    "tomorrowMorning": "Domani mattina",
+    "mondayMorning": "Lunedì mattina"
+  },
+  "confirm": {
+    "noSubject": "Inviare senza oggetto?",
+    "deleteDraft": "Eliminare questa bozza?"
+  },
+  "toasts": {
+    "uploading": "Attendi, alcuni allegati sono ancora in caricamento",
+    "noIdentity": "Nessuna identità di invio per questa casella",
+    "noRecipient": "Aggiungi almeno un destinatario",
+    "invalidAddress": "Indirizzo non valido: {{email}}",
+    "attachFailed": "Impossibile allegare «{{name}}»",
+    "draftDeleted": "Bozza eliminata",
+    "draftSaved": "Bozza salvata",
+    "futureDate": "Scegli una data futura"
+  },
+  "editor": {
+    "placeholder": "Scrivi il tuo messaggio…",
+    "label": "Corpo del messaggio",
+    "linkPrompt": "Indirizzo del link",
+    "bold": "Grassetto ({{mod}}+B)",
+    "italic": "Corsivo ({{mod}}+I)",
+    "underline": "Sottolineato ({{mod}}+U)",
+    "strike": "Barrato",
+    "bulletList": "Elenco puntato",
+    "orderedList": "Elenco numerato",
+    "quote": "Citazione",
+    "code": "Codice",
+    "link": "Link ({{mod}}+K)",
+    "clear": "Cancella formattazione",
+    "undo": "Annulla ({{mod}}+Z)",
+    "redo": "Ripeti"
+  },
+  "window": {
+    "label": "Composizione",
+    "fullscreenLabel": "Composizione a schermo intero",
+    "expand": "Espandi",
+    "minimize": "Riduci a icona",
+    "fullscreen": "Schermo intero",
+    "exitFullscreen": "Esci da schermo intero",
+    "closeKeep": "Chiudi (la bozza viene conservata)"
+  },
+  "outbox": {
+    "send": "Invio: {{subject}}",
+    "draft": "Bozza",
+    "draftDeleted": "Bozza eliminata"
+  },
+  "errors": {
+    "noDrafts": "Cartella Bozze non trovata"
+  },
+  "templates": {
+    "insert": "Inserisci un modello",
+    "shortcut": "Alt+T",
+    "title": "Modelli di risposta",
+    "empty": "Nessun modello",
+    "manage": "Gestisci i modelli…"
+  },
+  "options": {
+    "title": "Opzioni di invio",
+    "priority": "Priorità",
+    "priorities": {
+      "high": "Alta",
+      "normal": "Normale",
+      "low": "Bassa"
+    },
+    "receipt": "Richiedi conferma di lettura",
+    "language": "Lingua del correttore"
+  }
+}

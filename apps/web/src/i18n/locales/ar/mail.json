@@ -1,0 +1,268 @@
+{
+  "noSubject": "(بدون موضوع)",
+  "roles": {
+    "inbox": "الوارد",
+    "flagged": "المميّزة",
+    "drafts": "المسودات",
+    "sent": "المرسلة",
+    "scheduled": "المجدولة",
+    "archive": "الأرشيف",
+    "junk": "البريد العشوائي",
+    "trash": "المهملات"
+  },
+  "actions": {
+    "archive": "أرشفة",
+    "delete": "حذف",
+    "spam": "الإبلاغ عن بريد عشوائي",
+    "notSpam": "ليس بريدًا عشوائيًا",
+    "markRead": "تعليم كمقروء",
+    "markUnread": "تعليم كغير مقروء",
+    "flag": "تمييز",
+    "unflag": "إزالة التمييز",
+    "moveTo": "نقل إلى",
+    "markAllRead": "تعليم الكل كمقروء"
+  },
+  "toasts": {
+    "archived_zero": "لم تتم أرشفة أي محادثة",
+    "archived_one": "تمت أرشفة المحادثة",
+    "archived_two": "تمت أرشفة محادثتين",
+    "archived_few": "تمت أرشفة {{count}} محادثات",
+    "archived_many": "تمت أرشفة {{count}} محادثة",
+    "archived_other": "تمت أرشفة {{count}} محادثة",
+    "trashed_zero": "لم يتم نقل أي محادثة إلى المهملات",
+    "trashed_one": "تم نقل المحادثة إلى المهملات",
+    "trashed_two": "تم نقل محادثتين إلى المهملات",
+    "trashed_few": "تم نقل {{count}} محادثات إلى المهملات",
+    "trashed_many": "تم نقل {{count}} محادثة إلى المهملات",
+    "trashed_other": "تم نقل {{count}} محادثة إلى المهملات",
+    "spammed_zero": "لم يتم الإبلاغ عن أي محادثة",
+    "spammed_one": "تم الإبلاغ عنها كبريد عشوائي",
+    "spammed_two": "تم الإبلاغ عن محادثتين كبريد عشوائي",
+    "spammed_few": "تم الإبلاغ عن {{count}} محادثات كبريد عشوائي",
+    "spammed_many": "تم الإبلاغ عن {{count}} محادثة كبريد عشوائي",
+    "spammed_other": "تم الإبلاغ عن {{count}} محادثة كبريد عشوائي",
+    "movedToInbox": "تم النقل إلى الوارد",
+    "movedTo": "تم النقل إلى «{{name}}»",
+    "destroyed_zero": "لم يتم حذف أي محادثة",
+    "destroyed_one": "تم حذف المحادثة نهائيًا",
+    "destroyed_two": "تم حذف محادثتين نهائيًا",
+    "destroyed_few": "تم حذف {{count}} محادثات نهائيًا",
+    "destroyed_many": "تم حذف {{count}} محادثة نهائيًا",
+    "destroyed_other": "تم حذف {{count}} محادثة نهائيًا",
+    "markedRead": "تم التعليم كمقروء",
+    "markedUnread": "تم التعليم كغير مقروء",
+    "pendingSync": "في انتظار المزامنة",
+    "changePending": "التعديل في انتظار المزامنة",
+    "view": "عرض"
+  },
+  "errors": {
+    "move": "تعذّر النقل",
+    "delete": "تعذّر الحذف",
+    "update": "تعذّر التحديث",
+    "undo": "تعذّر التراجع",
+    "action": "تعذّر تنفيذ الإجراء",
+    "createFolder": "تعذّر إنشاء المجلد",
+    "rename": "تعذّرت إعادة التسمية",
+    "archiveOffline": "سيتم إنشاء مجلد الأرشيف عند عودة الاتصال",
+    "archiveCreate": "تعذّر إنشاء مجلد الأرشيف",
+    "destinationNotFound": "مجلد الوجهة غير موجود"
+  },
+  "outbox": {
+    "undo": "تراجع",
+    "destroy": "حذف نهائي",
+    "read": "مقروء"
+  },
+  "confirm": {
+    "destroyTitle_zero": "حذف المحادثات نهائيًا؟",
+    "destroyTitle_one": "حذف هذه المحادثة نهائيًا؟",
+    "destroyTitle_two": "حذف هاتين المحادثتين نهائيًا؟",
+    "destroyTitle_few": "حذف {{count}} محادثات نهائيًا؟",
+    "destroyTitle_many": "حذف {{count}} محادثة نهائيًا؟",
+    "destroyTitle_other": "حذف {{count}} محادثة نهائيًا؟",
+    "irreversible": "لا يمكن التراجع عن هذا الإجراء."
+  },
+  "sidebar": {
+    "compose": "رسالة جديدة",
+    "folders": "المجلدات",
+    "systemFolders": "مجلدات النظام",
+    "newFolder": "مجلد جديد",
+    "folderName": "اسم المجلد",
+    "expand": "توسيع",
+    "collapse": "طي",
+    "actionsFor": "إجراءات لـ {{name}}",
+    "rename": "إعادة تسمية",
+    "newSubfolder": "مجلد فرعي جديد",
+    "color": "اللون",
+    "noColor": "بدون لون",
+    "colorValue": "اللون {{color}}",
+    "markedRead_zero": "لم يتم تعليم أي رسالة كمقروءة",
+    "markedRead_one": "تم تعليم رسالة واحدة كمقروءة",
+    "markedRead_two": "تم تعليم رسالتين كمقروءتين",
+    "markedRead_few": "تم تعليم {{count}} رسائل كمقروءة",
+    "markedRead_many": "تم تعليم {{count}} رسالة كمقروءة",
+    "markedRead_other": "تم تعليم {{count}} رسالة كمقروءة",
+    "noUnread": "لا توجد رسائل غير مقروءة",
+    "deleteTitle": "حذف المجلد «{{name}}»؟",
+    "deleteDesc": "سيتم نقل الرسائل التي يحتويها إلى المهملات.",
+    "deleteDescChildren": "سيتم حذف مجلداته الفرعية أيضًا. وسيتم نقل الرسائل إلى المهملات.",
+    "deleteConfirm": "حذف المجلد",
+    "deleting": "جارٍ حذف المجلد…",
+    "folderCreated": "تم إنشاء المجلد «{{name}}»",
+    "folderDeleted": "تم حذف المجلد «{{name}}»",
+    "otherAccountDrop": "لا يمكن نقل محادثات من صندوق بريد آخر إلى هنا",
+    "cannotMoveHere": "لا يمكن نقل المحادثات إلى هنا",
+    "hideFolder": "إخفاء من الشريط الجانبي",
+    "folderHidden": "تم إخفاء «{{name}}»",
+    "manageFolders": "إدارة المجلدات…",
+    "emptyFolder": "إفراغ…"
+  },
+  "list": {
+    "region": "قائمة المحادثات",
+    "conversations": "المحادثات",
+    "results": "النتائج",
+    "folder": "مجلد",
+    "allMailboxes": "كل صناديق البريد",
+    "selectAll": "تحديد الكل",
+    "selected_zero": "محددة",
+    "selected_one": "محددة",
+    "selected_two": "محددتان",
+    "selected_few": "محددة",
+    "selected_many": "محددة",
+    "selected_other": "محددة",
+    "multiAccountSelection": "التحديد يشمل عدة صناديق بريد",
+    "clearSelection": "إلغاء التحديد",
+    "quick": {
+      "unread": "غير المقروءة",
+      "unreadLong": "غير المقروءة",
+      "flagged": "المميّزة",
+      "flaggedLong": "المميّزة",
+      "attachment": "مرفقات",
+      "attachmentLong": "مع مرفقات"
+    },
+    "oldestFirst": "الأقدم أولًا",
+    "newestFirst": "الأحدث أولًا",
+    "loadError": "تعذّر تحميل الرسائل",
+    "serverDown": "الخادم لا يستجيب.",
+    "partialError": "{{accounts}}: تعذّر التحميل",
+    "end": "نهاية القائمة"
+  },
+  "empty": {
+    "search": {
+      "title": "لا توجد نتائج",
+      "description": "جرّب كلمات أخرى أو أزل أحد عوامل التصفية."
+    },
+    "inbox": {
+      "title": "صندوق الوارد فارغ",
+      "description": "لقد اطّلعت على كل شيء. استمتع بالهدوء."
+    },
+    "flagged": {
+      "title": "لا توجد رسائل مميّزة",
+      "description": "اضغط S لتمييز محادثة مهمة."
+    },
+    "drafts": {
+      "title": "لا توجد مسودات",
+      "description": "ستظهر هنا الرسائل التي تكتبها."
+    },
+    "sent": {
+      "title": "لا توجد رسائل مرسلة"
+    },
+    "archive": {
+      "title": "الأرشيف فارغ",
+      "description": "أرشف باستخدام E لتبقي صندوق الوارد مرتبًا."
+    },
+    "junk": {
+      "title": "لا يوجد بريد عشوائي",
+      "description": "لا شيء مريب حاليًا."
+    },
+    "trash": {
+      "title": "المهملات فارغة"
+    },
+    "folder": {
+      "title": "المجلد فارغ"
+    }
+  },
+  "row": {
+    "to": "إلى: {{names}}",
+    "noRecipient": "(بدون مستلمين)",
+    "unknownSender": "(مرسل غير معروف)",
+    "draft": "مسودة",
+    "unread": "غير مقروءة",
+    "attachment": "مرفق",
+    "flagged": "مميّزة",
+    "select": "تحديد",
+    "conversations_zero": "لا محادثات",
+    "conversations_one": "محادثة واحدة",
+    "conversations_two": "محادثتان",
+    "conversations_few": "{{count}} محادثات",
+    "conversations_many": "{{count}} محادثة",
+    "conversations_other": "{{count}} محادثة"
+  },
+  "search": {
+    "placeholder": "بحث",
+    "label": "البحث في الرسائل",
+    "removeFilter": "إزالة عامل التصفية",
+    "clear": "مسح البحث",
+    "filters": "عوامل التصفية",
+    "operators": {
+      "from": "من",
+      "to": "إلى",
+      "subject": "الموضوع",
+      "has": "يحتوي على",
+      "is": "الحالة",
+      "before": "قبل",
+      "after": "بعد",
+      "in": "في"
+    },
+    "chips": {
+      "attachment": "مع مرفق",
+      "unread": "غير المقروءة",
+      "read": "المقروءة",
+      "flagged": "المميّزة",
+      "keyValue": "{{key}}: {{value}}"
+    },
+    "aliases": {
+      "from": "من",
+      "to": "إلى,الى",
+      "subject": "الموضوع,موضوع",
+      "has": "يحتوي,مع",
+      "is": "الحالة,حالة",
+      "before": "قبل",
+      "after": "بعد",
+      "in": "في",
+      "has_attachment": "مرفق,مرفقات",
+      "is_unread": "غير-مقروءة,غيرمقروءة",
+      "is_read": "مقروءة",
+      "is_flagged": "مميزة,مميّزة",
+      "in_inbox": "الوارد",
+      "in_sent": "المرسلة",
+      "in_drafts": "المسودات,مسودة",
+      "in_archive": "الأرشيف,أرشيف",
+      "in_trash": "المهملات",
+      "in_junk": "عشوائي"
+    }
+  },
+  "quota": {
+    "title": "التخزين",
+    "usage": "{{used}} من {{limit}}",
+    "warnToast": "{{mailbox}}: التخزين ممتلئ بنسبة {{percent}}٪"
+  },
+  "priority": {
+    "high": "أولوية عالية",
+    "low": "أولوية منخفضة"
+  },
+  "transfer": {
+    "export": "تصدير (.mbox)",
+    "import": "استيراد رسائل (.eml، .mbox)…",
+    "exporting": "تصدير «{{name}}»: {{done}} / {{total}}",
+    "cancel": "إلغاء",
+    "cancelled": "أُلغي",
+    "exported": "تم تصدير «{{name}}». الرسائل: {{count}}",
+    "exportFailed": "فشل التصدير",
+    "importing": "الاستيراد إلى «{{name}}»: {{count}}",
+    "imported": "تم الاستيراد إلى «{{name}}». الرسائل: {{count}}",
+    "importFailedSome": "لم تُستورد: {{count}}",
+    "importFailed": "فشل الاستيراد",
+    "importWaiting": "الاستيراد إلى «{{name}}» متوقف مؤقتًا: يحدّ الخادم من عمليات الرفع. يُستأنف نحو {{time}}. الرسائل المستوردة: {{count}}",
+    "importSkipped": "موجودة مسبقًا، تم تخطيها: {{count}}"
+  }
+}

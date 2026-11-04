@@ -1,0 +1,47 @@
+{
+  "nav": "Riepiloghi",
+  "title": "Riepiloghi",
+  "subtitle": "Una sintesi quotidiana delle tue email",
+  "list": {
+    "region": "Riepiloghi giornalieri",
+    "today": "Oggi",
+    "yesterday": "Ieri",
+    "emails_one": "{{count}} email",
+    "emails_other": "{{count}} email",
+    "generating": "Scrittura del riepilogo…"
+  },
+  "actions": {
+    "today": "Riepiloga oggi",
+    "regenerate": "Rigenera",
+    "copy": "Copia",
+    "copied": "Riepilogo copiato",
+    "delete": "Elimina",
+    "deleteTitle": "Eliminare questo riepilogo?",
+    "configure": "Configura l'IA",
+    "stop": "Interrompi"
+  },
+  "empty": {
+    "title": "Ancora nessun riepilogo",
+    "description": "Ogni giorno l'IA riassume le email ricevute: prima ciò che richiede un'azione, poi il resto. Lo spam viene ignorato.",
+    "day": "Nessuna email ricevuta quel giorno."
+  },
+  "notReady": {
+    "title": "Ricevi un riepilogo ogni giorno",
+    "description": "Configura un fornitore di IA per ricevere ogni giorno un riepilogo delle tue email."
+  },
+  "reader": {
+    "region": "Riepilogo",
+    "pick": "Scegli un giorno a sinistra",
+    "back": "Torna ai riepiloghi",
+    "generatedAt": "Generato alle {{time}}",
+    "sources": "Conversazioni riassunte ({{count}})",
+    "collecting": "Lettura delle tue email…",
+    "read_one": "{{count}} email letta",
+    "read_other": "{{count}} email lette"
+  },
+  "error": {
+    "retry": "Riprova",
+    "settings": "Impostazioni IA"
+  },
+  "fallbackTitle": "Riepilogo del {{date}}"
+}

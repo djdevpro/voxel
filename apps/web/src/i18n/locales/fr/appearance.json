@@ -1,0 +1,77 @@
+{
+  "collection": {
+    "title": "Thème",
+    "description": "Les couleurs de toute l’appli. Chaque thème a une variante claire et une sombre, qui suivent le mode ci-dessous.",
+    "label": "Collection de thèmes"
+  },
+  "mode": {
+    "title": "Mode",
+    "description": "Clair, sombre, ou selon le réglage du système.",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "language": {
+    "title": "Langue",
+    "description": "Langue de l’interface, des dates et des nombres."
+  },
+  "density": {
+    "title": "Densité",
+    "description": "Hauteur des lignes de la liste des messages.",
+    "comfortable": "Confortable",
+    "compact": "Compacte"
+  },
+  "readingPane": {
+    "title": "Volet de lecture",
+    "description": "Position du message ouvert.",
+    "right": "À droite",
+    "bottom": "En bas",
+    "none": "Aucun"
+  },
+  "accentHint": "La couleur d’accent se règle pour chaque boîte dans l’onglet « Boîtes » et l’emporte sur celle du thème.",
+  "reading": {
+    "undoSend": {
+      "title": "Délai d’annulation d’envoi",
+      "label": "Délai d’annulation d’envoi en secondes",
+      "description_one": "Vous disposez de {{count}} seconde pour annuler après avoir cliqué sur Envoyer.",
+      "description_other": "Vous disposez de {{count}} secondes pour annuler après avoir cliqué sur Envoyer.",
+      "description_many": "Vous disposez de {{count}} secondes pour annuler après avoir cliqué sur Envoyer.",
+      "value": "{{count}} s"
+    },
+    "remoteImages": {
+      "title": "Images distantes",
+      "description": "Les images hébergées à l’extérieur peuvent servir à vous pister. Vous pouvez les afficher au cas par cas.",
+      "block": "Bloquer",
+      "allow": "Toujours afficher"
+    },
+    "trusted": {
+      "title": "Expéditeurs de confiance",
+      "description_one": "{{count}} expéditeur dont les images sont toujours affichées.",
+      "description_other": "{{count}} expéditeurs dont les images sont toujours affichées.",
+      "description_many": "{{count}} expéditeurs dont les images sont toujours affichées.",
+      "reset": "Réinitialiser"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Notification du navigateur à l’arrivée d’un message en Réception.",
+      "denied": "Notifications refusées par le navigateur"
+    },
+    "mailto": {
+      "title": "Application de messagerie par défaut",
+      "description": "Ouvrir dans Voxel les liens « mailto: » des autres sites. Votre navigateur demande confirmation.",
+      "button": "Utiliser pour les liens e-mail",
+      "done": "Confirmez dans votre navigateur pour terminer.",
+      "unsupported": "Votre navigateur ne permet pas aux sites de gérer les liens e-mail."
+    },
+    "receipts": {
+      "title": "Accusés de lecture",
+      "description": "Quand un expéditeur demande un accusé de lecture.",
+      "ask": "Demander",
+      "always": "Toujours envoyer",
+      "never": "Jamais"
+    }
+  },
+  "shortcuts": {
+    "hint": "Appuyez sur « ? » n’importe où pour afficher cette aide."
+  }
+}

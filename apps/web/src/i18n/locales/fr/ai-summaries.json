@@ -1,0 +1,47 @@
+{
+  "nav": "Résumés",
+  "title": "Résumés",
+  "subtitle": "Une synthèse quotidienne de vos e-mails",
+  "list": {
+    "region": "Résumés quotidiens",
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "emails_one": "{{count}} e-mail",
+    "emails_other": "{{count}} e-mails",
+    "generating": "Rédaction du résumé…"
+  },
+  "actions": {
+    "today": "Résumer aujourd'hui",
+    "regenerate": "Régénérer",
+    "copy": "Copier",
+    "copied": "Résumé copié",
+    "delete": "Supprimer",
+    "deleteTitle": "Supprimer ce résumé ?",
+    "configure": "Configurer l'IA",
+    "stop": "Arrêter"
+  },
+  "empty": {
+    "title": "Aucun résumé pour l'instant",
+    "description": "Chaque jour, l'IA résume les e-mails reçus : d'abord ce qui demande une action, puis le reste. Le spam est ignoré.",
+    "day": "Aucun e-mail reçu ce jour-là."
+  },
+  "notReady": {
+    "title": "Recevez un résumé chaque jour",
+    "description": "Configurez un fournisseur d'IA pour recevoir un résumé de vos e-mails chaque jour."
+  },
+  "reader": {
+    "region": "Résumé",
+    "pick": "Choisissez un jour à gauche",
+    "back": "Retour aux résumés",
+    "generatedAt": "Généré à {{time}}",
+    "sources": "Conversations résumées ({{count}})",
+    "collecting": "Lecture de vos e-mails…",
+    "read_one": "{{count}} e-mail lu",
+    "read_other": "{{count}} e-mails lus"
+  },
+  "error": {
+    "retry": "Réessayer",
+    "settings": "Paramètres IA"
+  },
+  "fallbackTitle": "Résumé du {{date}}"
+}

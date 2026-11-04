@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Collection « forest » — Forêt — verts profonds
+   Fichier généré depuis une palette de base puis relu ; peut être retouché à la main.
+   Clair : [data-theme='forest']   Sombre : [data-theme='forest'].dark
+   Contrastes WCAG AA vérifiés (texte principal/secondaire ≥ 4,5:1, texte sur accent ≥ 4,5:1).
+   ========================================================================== */
+
+[data-theme='forest'] {
+  color-scheme: light;
+
+  /* Accent par défaut de la collection (l’accent de la boîte active, posé en style inline sur <html>, reste prioritaire) */
+  --voxel-accent: #2d7a4c;
+  --voxel-on-accent: #ffffff;
+  --voxel-accent-soft: color-mix(in oklab, var(--voxel-accent) 11%, transparent);
+  --voxel-accent-softer: color-mix(in oklab, var(--voxel-accent) 6%, transparent);
+  --voxel-accent-strong: color-mix(in oklab, var(--voxel-accent) 82%, var(--voxel-text-1));
+  --voxel-accent-ring: color-mix(in oklab, var(--voxel-accent) 45%, transparent);
+
+  /* Surfaces */
+  --voxel-app: #f1f4ef;
+  --voxel-rail: #e6ebe2;
+  --voxel-sidebar: #f1f4ef;
+  --voxel-panel: #fbfcfa;
+  --voxel-row-hover: #edf1ea;
+  --voxel-row-selected: color-mix(in oklab, var(--voxel-accent) 8%, var(--voxel-panel));
+  --voxel-row-unread: var(--voxel-panel);
+
+  /* Lignes */
+  --voxel-line: #dbe3d6;
+  --voxel-line-strong: #c4cfbd;
+
+  /* Textes */
+  --voxel-text-1: #17221a;
+  --voxel-text-2: #435347;
+  --voxel-text-3: #6f7f73;
+
+  /* Ombres et voile */
+  --voxel-shadow-float: 0 1px 2px rgb(23 34 26 / 0.06), 0 8px 24px -6px rgb(23 34 26 / 0.14), 0 24px 56px -12px rgb(23 34 26 / 0.16);
+  --voxel-shadow-soft: 0 1px 2px rgb(23 34 26 / 0.05), 0 2px 8px -2px rgb(23 34 26 / 0.06);
+  --voxel-overlay: rgb(23 34 26 / 0.32);
+
+  /* États */
+  --voxel-danger: #b42318;
+  --voxel-success: #2d7a4c;
+  --voxel-warn: #9a5b0c;
+  --voxel-flag: #c99512;
+
+  /* Boutons : aplat d’accent sobre en clair */
+  --voxel-btn-primary-bg: var(--voxel-accent);
+  --voxel-btn-primary-fg: var(--voxel-on-accent);
+  --voxel-btn-primary-icon: var(--voxel-on-accent);
+  --voxel-btn-primary-border: color-mix(in oklab, var(--voxel-accent) 82%, var(--voxel-text-1));
+  --voxel-btn-primary-hover: color-mix(in oklab, var(--voxel-accent) 90%, var(--voxel-text-1));
+  --voxel-btn-secondary-bg: var(--voxel-panel);
+  --voxel-btn-secondary-fg: var(--voxel-text-1);
+  --voxel-btn-secondary-border: var(--voxel-line-strong);
+  --voxel-btn-secondary-hover: var(--voxel-row-hover);
+
+  /* shadcn */
+  --background: #fbfcfa;
+  --foreground: #17221a;
+  --card: #fbfcfa;
+  --card-foreground: #17221a;
+  --popover: #ffffff;
+  --popover-foreground: #17221a;
+  --primary: #17221a;
+  --primary-foreground: #fbfcfa;
+  --secondary: #eef2eb;
+  --secondary-foreground: #17221a;
+  --muted: #eef2eb;
+  --muted-foreground: #4d5d51;
+  --accent: #edf1ea;
+  --accent-foreground: #17221a;
+  --destructive: #b42318;
+  --border: #dbe3d6;
+  --input: #c4cfbd;
+  --ring: var(--voxel-accent-ring);
+}
+
+[data-theme='forest'].dark {
+  color-scheme: dark;
+
+  /* Accent par défaut de la collection (l’accent de la boîte active, posé en style inline sur <html>, reste prioritaire) */
+  --voxel-accent: #62c08a;
+  --voxel-on-accent: #08170e;
+  --voxel-accent-soft: color-mix(in oklab, var(--voxel-accent) 14%, transparent);
+  --voxel-accent-softer: color-mix(in oklab, var(--voxel-accent) 8%, transparent);
+  --voxel-accent-strong: color-mix(in oklab, var(--voxel-accent) 70%, white);
+  --voxel-accent-ring: color-mix(in oklab, var(--voxel-accent) 55%, transparent);
+
+  /* Surfaces */
+  --voxel-app: #0e1510;
+  --voxel-rail: #0a100c;
+  --voxel-sidebar: #0e1510;
+  --voxel-panel: #141d17;
+  --voxel-row-hover: #1a261e;
+  --voxel-row-selected: color-mix(in oklab, var(--voxel-accent) 14%, var(--voxel-panel));
+  --voxel-row-unread: var(--voxel-panel);
+
+  /* Lignes */
+  --voxel-line: #26352b;
+  --voxel-line-strong: #344739;
+
+  /* Textes */
+  --voxel-text-1: #e3ece5;
+  --voxel-text-2: #a8b8ad;
+  --voxel-text-3: #82948a;
+
+  /* Ombres et voile */
+  --voxel-shadow-float: 0 0 0 1px rgb(255 255 255 / 0.02), 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 28px -6px rgb(0 0 0 / 0.55), 0 28px 64px -12px rgb(0 0 0 / 0.5);
+  --voxel-shadow-soft: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 8px -2px rgb(0 0 0 / 0.35);
+  --voxel-overlay: rgb(0 0 0 / 0.55);
+
+  /* États */
+  --voxel-danger: #f08a7e;
+  --voxel-success: #62c08a;
+  --voxel-warn: #e6b450;
+  --voxel-flag: #e6b450;
+
+  /* Boutons : surface teintée par l’accent + bordure fine (jamais d’aplat clair éblouissant) */
+  --voxel-btn-primary-bg: color-mix(in oklab, var(--voxel-accent) 16%, var(--voxel-panel));
+  --voxel-btn-primary-fg: var(--voxel-text-1);
+  --voxel-btn-primary-icon: var(--voxel-accent-strong);
+  --voxel-btn-primary-border: color-mix(in oklab, var(--voxel-accent) 40%, var(--voxel-line-strong));
+  --voxel-btn-primary-hover: color-mix(in oklab, var(--voxel-accent) 24%, var(--voxel-panel));
+  --voxel-btn-secondary-bg: color-mix(in oklab, var(--voxel-text-1) 5%, var(--voxel-panel));
+  --voxel-btn-secondary-fg: var(--voxel-text-1);
+  --voxel-btn-secondary-border: var(--voxel-line-strong);
+  --voxel-btn-secondary-hover: color-mix(in oklab, var(--voxel-text-1) 9%, var(--voxel-panel));
+
+  /* shadcn */
+  --background: #141d17;
+  --foreground: #e3ece5;
+  --card: #16201a;
+  --card-foreground: #e3ece5;
+  --popover: #19241d;
+  --popover-foreground: #e3ece5;
+  --primary: color-mix(in oklab, var(--voxel-accent) 24%, var(--voxel-panel));
+  --primary-foreground: #e3ece5;
+  --secondary: #1e2a22;
+  --secondary-foreground: #e3ece5;
+  --muted: #1e2a22;
+  --muted-foreground: #a8b8ad;
+  --accent: #1a261e;
+  --accent-foreground: #e3ece5;
+  --destructive: #f08a7e;
+  --border: #26352b;
+  --input: #344739;
+  --ring: var(--voxel-accent-ring);
+}

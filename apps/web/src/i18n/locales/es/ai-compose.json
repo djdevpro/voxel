@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "label": "Asistente de redacción",
+    "custom": "Instrucción libre…",
+    "manage": "Gestionar prompts…",
+    "shortcut": "Alt+I"
+  },
+  "panel": {
+    "writing": "Redactando…",
+    "replace": "Reemplazar",
+    "replaceSelection": "Reemplazar la selección",
+    "insert": "Insertar debajo",
+    "retry": "Reintentar",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "stop": "Detener",
+    "close": "Cerrar",
+    "customPlaceholder": "¿Qué quieres hacer? Ej.: añade una fórmula de cortesía",
+    "replaced": "Texto reemplazado",
+    "stale": "El borrador ha cambiado: inserta el texto en su lugar",
+    "undo": "Deshacer",
+    "settings": "Ajustes de IA"
+  },
+  "dictation": {
+    "start": "Dictar",
+    "stop": "Detener el dictado",
+    "listening": "Escuchando…",
+    "connecting": "Conectando…"
+  }
+}

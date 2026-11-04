@@ -1,0 +1,84 @@
+{
+  "region": "Lecture",
+  "placeholder": {
+    "title": "Aucune conversation sélectionnée",
+    "hint": "<j>J</j> <k>K</k> pour naviguer · <help>?</help> pour l’aide"
+  },
+  "toolbar": {
+    "back": "Retour à la liste",
+    "more": "Plus d’actions",
+    "print": "Imprimer",
+    "source": "Afficher la source",
+    "unsubscribe": "Se désinscrire",
+    "createFilter": "Créer un filtre…"
+  },
+  "openError": "Impossible d’ouvrir la conversation",
+  "reply": "Répondre",
+  "replyAll": "Répondre à tous",
+  "forward": "Transférer",
+  "olderMessages_one": "{{count}} message plus ancien",
+  "olderMessages_other": "{{count}} messages plus anciens",
+  "olderMessages_many": "{{count}} messages plus anciens",
+  "messageFrom": "Message de {{name}}",
+  "unknownSender": "(inconnu)",
+  "toLine": "À {{list}}",
+  "ccLine": "Cc {{list}}",
+  "nobody": "(aucun)",
+  "details": {
+    "from": "De",
+    "to": "À",
+    "cc": "Cc",
+    "replyTo": "Répondre à",
+    "date": "Date"
+  },
+  "images": {
+    "blocked": "Images distantes masquées pour protéger votre vie privée.",
+    "show": "Afficher les images",
+    "always": "Toujours pour cet expéditeur",
+    "alwaysToast": "Images toujours affichées pour {{email}}",
+    "showInline_one": "Afficher {{count}} image intégrée",
+    "showInline_other": "Afficher {{count}} images intégrées"
+  },
+  "sourceTitle": "Source du message",
+  "sourceError": "Impossible de charger la source : {{message}}",
+  "unsubscribeOpened": "Page de désinscription ouverte dans un nouvel onglet",
+  "frameTitle": "Contenu du message",
+  "print": {
+    "from": "De : {{list}}",
+    "to": "À : {{list}}"
+  },
+  "attachments": {
+    "count_one": "{{count}} pièce jointe",
+    "count_other": "{{count}} pièces jointes",
+    "count_many": "{{count}} pièces jointes",
+    "defaultName": "piece-jointe-{{n}}",
+    "file": "fichier",
+    "preview": "Aperçu de {{name}}",
+    "download": "Télécharger {{name}}",
+    "downloadButton": "Télécharger"
+  },
+  "block": {
+    "address": "Bloquer {{address}}",
+    "domain": "Bloquer le domaine {{domain}}",
+    "done": "{{who}} est bloqué : ses prochains messages iront dans Spam.",
+    "moved": "{{count}} message(s) déplacé(s)",
+    "undo": "Annuler",
+    "pending": "Le blocage s’appliquera quand le répondeur sera désactivé.",
+    "failed": "Blocage impossible",
+    "unblocked": "{{who}} est débloqué"
+  },
+  "forwardAttachment": "Transférer en pièce jointe",
+  "receipt": {
+    "title": "Accusé de lecture",
+    "asks": "L’expéditeur demande un accusé de lecture ({{email}}).",
+    "send": "Envoyer",
+    "ignore": "Ignorer",
+    "sent": "Accusé de lecture envoyé à {{email}}",
+    "failed": "Impossible d’envoyer l’accusé de lecture",
+    "offline": "Vous êtes hors ligne : l’accusé pourra être envoyé au retour du réseau.",
+    "subject": "Lu : {{subject}}",
+    "body": "Votre message\n\n  À : {{to}}\n  Objet : {{subject}}\n  Envoyé : {{date}}\n\na été affiché le {{read}}.\nCela signifie seulement qu’il a été ouvert, pas qu’il a été lu ou compris.",
+    "outboxIgnore": "Accusé de lecture ignoré",
+    "outboxSend": "Accusé de lecture : {{subject}}"
+  }
+}

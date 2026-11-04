@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "label": "Writing assistant",
+    "custom": "Custom instruction…",
+    "manage": "Manage prompts…",
+    "shortcut": "Alt+I"
+  },
+  "panel": {
+    "writing": "Writing…",
+    "replace": "Replace",
+    "replaceSelection": "Replace selection",
+    "insert": "Insert below",
+    "retry": "Try again",
+    "copy": "Copy",
+    "copied": "Copied",
+    "stop": "Stop",
+    "close": "Close",
+    "customPlaceholder": "What do you want to do? E.g. add a polite closing",
+    "replaced": "Text replaced",
+    "stale": "The draft has changed: insert the text instead",
+    "undo": "Undo",
+    "settings": "AI settings"
+  },
+  "dictation": {
+    "start": "Dictate",
+    "stop": "Stop dictation",
+    "listening": "Listening…",
+    "connecting": "Connecting…"
+  }
+}

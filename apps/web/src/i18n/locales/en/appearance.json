@@ -1,0 +1,75 @@
+{
+  "collection": {
+    "title": "Theme",
+    "description": "Colors for the whole app. Each theme has a light and a dark variant that follow the mode below.",
+    "label": "Theme collection"
+  },
+  "mode": {
+    "title": "Mode",
+    "description": "Light, dark, or follow your system setting.",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "title": "Language",
+    "description": "Language of the interface, dates and numbers."
+  },
+  "density": {
+    "title": "Density",
+    "description": "Height of the rows in the message list.",
+    "comfortable": "Comfortable",
+    "compact": "Compact"
+  },
+  "readingPane": {
+    "title": "Reading pane",
+    "description": "Where the open message is shown.",
+    "right": "Right",
+    "bottom": "Bottom",
+    "none": "None"
+  },
+  "accentHint": "The accent color is set for each mailbox in the “Mailboxes” tab and takes precedence over the theme’s accent.",
+  "reading": {
+    "undoSend": {
+      "title": "Undo send delay",
+      "label": "Undo send delay in seconds",
+      "description_one": "You have {{count}} second to undo after clicking Send.",
+      "description_other": "You have {{count}} seconds to undo after clicking Send.",
+      "value": "{{count}} s"
+    },
+    "remoteImages": {
+      "title": "Remote images",
+      "description": "Externally hosted images can be used to track you. You can still show them case by case.",
+      "block": "Block",
+      "allow": "Always show"
+    },
+    "trusted": {
+      "title": "Trusted senders",
+      "description_one": "{{count}} sender whose images are always shown.",
+      "description_other": "{{count}} senders whose images are always shown.",
+      "reset": "Reset"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Browser notification when a message arrives in the Inbox.",
+      "denied": "Notifications are blocked by the browser"
+    },
+    "mailto": {
+      "title": "Default email app",
+      "description": "Open “mailto:” links from other sites in Voxel. Your browser asks for confirmation.",
+      "button": "Use for email links",
+      "done": "Confirm in your browser to finish.",
+      "unsupported": "Your browser doesn’t let websites handle email links."
+    },
+    "receipts": {
+      "title": "Read receipts",
+      "description": "When a sender asks for a read receipt.",
+      "ask": "Ask",
+      "always": "Always send",
+      "never": "Never"
+    }
+  },
+  "shortcuts": {
+    "hint": "Press “?” anywhere to show this help."
+  }
+}

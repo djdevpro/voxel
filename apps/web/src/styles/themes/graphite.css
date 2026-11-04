@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Collection « graphite » — Graphite — neutre froid
+   Fichier généré depuis une palette de base puis relu ; peut être retouché à la main.
+   Clair : [data-theme='graphite']   Sombre : [data-theme='graphite'].dark
+   Contrastes WCAG AA vérifiés (texte principal/secondaire ≥ 4,5:1, texte sur accent ≥ 4,5:1).
+   ========================================================================== */
+
+[data-theme='graphite'] {
+  color-scheme: light;
+
+  /* Accent par défaut de la collection (l’accent de la boîte active, posé en style inline sur <html>, reste prioritaire) */
+  --voxel-accent: #2563eb;
+  --voxel-on-accent: #ffffff;
+  --voxel-accent-soft: color-mix(in oklab, var(--voxel-accent) 11%, transparent);
+  --voxel-accent-softer: color-mix(in oklab, var(--voxel-accent) 6%, transparent);
+  --voxel-accent-strong: color-mix(in oklab, var(--voxel-accent) 82%, var(--voxel-text-1));
+  --voxel-accent-ring: color-mix(in oklab, var(--voxel-accent) 45%, transparent);
+
+  /* Surfaces */
+  --voxel-app: #f4f5f7;
+  --voxel-rail: #eaecf0;
+  --voxel-sidebar: #f4f5f7;
+  --voxel-panel: #ffffff;
+  --voxel-row-hover: #f1f3f6;
+  --voxel-row-selected: color-mix(in oklab, var(--voxel-accent) 8%, var(--voxel-panel));
+  --voxel-row-unread: var(--voxel-panel);
+
+  /* Lignes */
+  --voxel-line: #e1e4e9;
+  --voxel-line-strong: #cdd2d9;
+
+  /* Textes */
+  --voxel-text-1: #15181e;
+  --voxel-text-2: #4a5160;
+  --voxel-text-3: #788192;
+
+  /* Ombres et voile */
+  --voxel-shadow-float: 0 1px 2px rgb(17 24 39 / 0.06), 0 8px 24px -6px rgb(17 24 39 / 0.14), 0 24px 56px -12px rgb(17 24 39 / 0.16);
+  --voxel-shadow-soft: 0 1px 2px rgb(17 24 39 / 0.05), 0 2px 8px -2px rgb(17 24 39 / 0.06);
+  --voxel-overlay: rgb(17 24 39 / 0.32);
+
+  /* États */
+  --voxel-danger: #c81e1e;
+  --voxel-success: #15803d;
+  --voxel-warn: #b45309;
+  --voxel-flag: #d99a0b;
+
+  /* Boutons : aplat d’accent sobre en clair */
+  --voxel-btn-primary-bg: var(--voxel-accent);
+  --voxel-btn-primary-fg: var(--voxel-on-accent);
+  --voxel-btn-primary-icon: var(--voxel-on-accent);
+  --voxel-btn-primary-border: color-mix(in oklab, var(--voxel-accent) 82%, var(--voxel-text-1));
+  --voxel-btn-primary-hover: color-mix(in oklab, var(--voxel-accent) 90%, var(--voxel-text-1));
+  --voxel-btn-secondary-bg: var(--voxel-panel);
+  --voxel-btn-secondary-fg: var(--voxel-text-1);
+  --voxel-btn-secondary-border: var(--voxel-line-strong);
+  --voxel-btn-secondary-hover: var(--voxel-row-hover);
+
+  /* shadcn */
+  --background: #ffffff;
+  --foreground: #15181e;
+  --card: #ffffff;
+  --card-foreground: #15181e;
+  --popover: #ffffff;
+  --popover-foreground: #15181e;
+  --primary: #15181e;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f3f6;
+  --secondary-foreground: #15181e;
+  --muted: #f1f3f6;
+  --muted-foreground: #5d6574;
+  --accent: #f1f3f6;
+  --accent-foreground: #15181e;
+  --destructive: #c81e1e;
+  --border: #e1e4e9;
+  --input: #cdd2d9;
+  --ring: var(--voxel-accent-ring);
+}
+
+[data-theme='graphite'].dark {
+  color-scheme: dark;
+
+  /* Accent par défaut de la collection (l’accent de la boîte active, posé en style inline sur <html>, reste prioritaire) */
+  --voxel-accent: #6ea8fe;
+  --voxel-on-accent: #0b1220;
+  --voxel-accent-soft: color-mix(in oklab, var(--voxel-accent) 14%, transparent);
+  --voxel-accent-softer: color-mix(in oklab, var(--voxel-accent) 8%, transparent);
+  --voxel-accent-strong: color-mix(in oklab, var(--voxel-accent) 70%, white);
+  --voxel-accent-ring: color-mix(in oklab, var(--voxel-accent) 55%, transparent);
+
+  /* Surfaces */
+  --voxel-app: #111214;
+  --voxel-rail: #0c0d0f;
+  --voxel-sidebar: #111214;
+  --voxel-panel: #18191c;
+  --voxel-row-hover: #202125;
+  --voxel-row-selected: color-mix(in oklab, var(--voxel-accent) 14%, var(--voxel-panel));
+  --voxel-row-unread: var(--voxel-panel);
+
+  /* Lignes */
+  --voxel-line: #2d2f35;
+  --voxel-line-strong: #3d4048;
+
+  /* Textes */
+  --voxel-text-1: #e8eaee;
+  --voxel-text-2: #a9afba;
+  --voxel-text-3: #848b98;
+
+  /* Ombres et voile */
+  --voxel-shadow-float: 0 0 0 1px rgb(255 255 255 / 0.02), 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 28px -6px rgb(0 0 0 / 0.55), 0 28px 64px -12px rgb(0 0 0 / 0.5);
+  --voxel-shadow-soft: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 8px -2px rgb(0 0 0 / 0.35);
+  --voxel-overlay: rgb(0 0 0 / 0.55);
+
+  /* États */
+  --voxel-danger: #f87171;
+  --voxel-success: #4ade80;
+  --voxel-warn: #fbbf24;
+  --voxel-flag: #f0b429;
+
+  /* Boutons : surface teintée par l’accent + bordure fine (jamais d’aplat clair éblouissant) */
+  --voxel-btn-primary-bg: color-mix(in oklab, var(--voxel-accent) 16%, var(--voxel-panel));
+  --voxel-btn-primary-fg: var(--voxel-text-1);
+  --voxel-btn-primary-icon: var(--voxel-accent-strong);
+  --voxel-btn-primary-border: color-mix(in oklab, var(--voxel-accent) 40%, var(--voxel-line-strong));
+  --voxel-btn-primary-hover: color-mix(in oklab, var(--voxel-accent) 24%, var(--voxel-panel));
+  --voxel-btn-secondary-bg: color-mix(in oklab, var(--voxel-text-1) 5%, var(--voxel-panel));
+  --voxel-btn-secondary-fg: var(--voxel-text-1);
+  --voxel-btn-secondary-border: var(--voxel-line-strong);
+  --voxel-btn-secondary-hover: color-mix(in oklab, var(--voxel-text-1) 9%, var(--voxel-panel));
+
+  /* shadcn */
+  --background: #18191c;
+  --foreground: #e8eaee;
+  --card: #1b1c1f;
+  --card-foreground: #e8eaee;
+  --popover: #1e1f23;
+  --popover-foreground: #e8eaee;
+  --primary: color-mix(in oklab, var(--voxel-accent) 24%, var(--voxel-panel));
+  --primary-foreground: #e8eaee;
+  --secondary: #24262a;
+  --secondary-foreground: #e8eaee;
+  --muted: #24262a;
+  --muted-foreground: #a3a9b4;
+  --accent: #202125;
+  --accent-foreground: #e8eaee;
+  --destructive: #f87171;
+  --border: #2d2f35;
+  --input: #3d4048;
+  --ring: var(--voxel-accent-ring);
+}

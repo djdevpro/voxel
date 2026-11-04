@@ -1,0 +1,86 @@
+{
+  "rail": {
+    "label": "Buzones",
+    "all": "Todos los buzones",
+    "add": "Añadir un buzón",
+    "palette": "Paleta de comandos",
+    "lightTheme": "Tema claro",
+    "darkTheme": "Tema oscuro",
+    "settings": "Ajustes",
+    "accountMenu": "Menú de la cuenta {{email}}",
+    "needsReconnect": "hay que volver a iniciar sesión",
+    "unread_one": "{{count}} sin leer",
+    "unread_other": "{{count}} sin leer",
+    "unread_many": "{{count}} sin leer"
+  },
+  "menu": {
+    "rename": "Cambiar nombre",
+    "color": "Color",
+    "settings": "Ajustes del buzón",
+    "add": "Añadir otro buzón",
+    "logout": "Cerrar sesión en este buzón",
+    "logoutAll": "Cerrar sesión en todos"
+  },
+  "rename": {
+    "title": "Cambiar nombre del buzón",
+    "label": "Nombre visible",
+    "placeholder": "Trabajo, Personal…"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  },
+  "add": {
+    "title": "Añadir un buzón",
+    "text": "Inicia sesión en otro buzón para usarlo junto a los que ya tienes abiertos.",
+    "reconnectTitle": "Volver a iniciar sesión",
+    "reconnectText": "El servidor de correo rechazó las credenciales guardadas de {{email}}. Introduce la contraseña actual.",
+    "added": "{{email}} añadido",
+    "reconnected": "{{email}} reconectado"
+  },
+  "reconnect": {
+    "title": "Vuelve a iniciar sesión en {{email}}",
+    "text": "El servidor de correo rechazó la contraseña. Puede que haya cambiado.",
+    "action": "Iniciar sesión",
+    "dismiss": "Descartar"
+  },
+  "logout": {
+    "confirmTitle": "¿Cerrar sesión en {{email}}?",
+    "confirmText": "Su caché, sus borradores locales y sus acciones pendientes se borrarán de este dispositivo. No se elimina nada en el servidor de correo.",
+    "confirm": "Cerrar sesión",
+    "done": "Sesión cerrada en {{email}}"
+  },
+  "logoutAll": {
+    "confirmTitle": "¿Cerrar sesión en todos los buzones?",
+    "confirmText": "Tu sesión termina y se borra todo lo guardado en caché en este dispositivo.",
+    "confirm": "Cerrar todo"
+  },
+  "toast": {
+    "updateFailed": "No se pudo guardar el cambio",
+    "logoutFailed": "No se pudo cerrar la sesión"
+  },
+  "section": {
+    "intro": "Buzones abiertos en esta sesión. Las credenciales se cifran en el servidor y nunca vuelven al navegador. El orden define los atajos Ctrl+1…9.",
+    "details": "Detalles",
+    "displayName": "Nombre visible",
+    "displayNameHint": "Compartido entre tus dispositivos.",
+    "color": "Color de acento",
+    "capabilities": "Admite:",
+    "test": "Probar conexión",
+    "testOk": "Conexión correcta",
+    "testFail": "Error de conexión",
+    "storedOnDevice": "Contraseña guardada en este dispositivo, cifrada",
+    "manageAccount": "Gestionar mi cuenta"
+  },
+  "capability": {
+    "vacation": "respuesta automática",
+    "sieve": "filtros",
+    "contacts": "contactos",
+    "submissionDelay": "envío programado",
+    "quota": "cuota"
+  },
+  "notification": {
+    "newMessage": "Mensaje nuevo",
+    "noSubject": "(sin asunto)"
+  }
+}

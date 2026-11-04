@@ -1,0 +1,14 @@
+{
+  "invalid_credentials": "Incorrect email address or password.",
+  "rate_limited": "Too many attempts. Wait a few minutes and try again.",
+  "upstream_unreachable": "The mail server can't be reached right now.",
+  "upstream_auth": "The mail server rejected the password. Sign in to this mailbox again.",
+  "not_found": "Not found.",
+  "forbidden": "You don't have access to this.",
+  "validation": "Some information is missing or invalid.",
+  "internal": "Something went wrong on the server. Try again.",
+  "network": "You're offline or the server can't be reached.",
+  "unknown": "Unexpected error (HTTP {{status}}).",
+  "discovery_failed": "We couldn't find the settings for this address. Use the advanced settings.",
+  "domain_not_allowed": "This server does not accept addresses from this domain."
+}

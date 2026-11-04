@@ -1,0 +1,81 @@
+{
+  "groups": {
+    "navigation": "التنقل",
+    "actions": "الإجراءات",
+    "application": "التطبيق",
+    "calendar": "التقويم"
+  },
+  "items": {
+    "next": "المحادثة التالية",
+    "previous": "المحادثة السابقة",
+    "open": "فتح",
+    "backToList": "العودة إلى القائمة",
+    "goInbox": "الانتقال إلى الوارد",
+    "goFlagged": "الانتقال إلى المميّزة",
+    "goDrafts": "الانتقال إلى المسودات",
+    "goSent": "الانتقال إلى المرسلة",
+    "switchMailbox": "تبديل صندوق البريد",
+    "allMailboxes": "كل صناديق البريد",
+    "compose": "رسالة جديدة",
+    "archive": "أرشفة",
+    "delete": "حذف",
+    "spam": "الإبلاغ عن بريد عشوائي",
+    "flag": "تمييز / إزالة التمييز",
+    "markRead": "تعليم كمقروء",
+    "markUnread": "تعليم كغير مقروء",
+    "select": "تحديد المحادثة",
+    "reply": "رد",
+    "replyAll": "رد على الكل",
+    "forward": "إعادة توجيه",
+    "send": "إرسال",
+    "search": "بحث",
+    "palette": "لوحة الأوامر",
+    "help": "مساعدة الاختصارات",
+    "escape": "إغلاق / إلغاء التحديد",
+    "goContacts": "الانتقال إلى جهات الاتصال",
+    "goCalendar": "الانتقال إلى التقويم",
+    "calToday": "اليوم",
+    "calNext": "الفترة التالية",
+    "calPrevious": "الفترة السابقة",
+    "calMonth": "عرض الشهر",
+    "calWeek": "عرض الأسبوع",
+    "calDay": "عرض اليوم",
+    "calAgenda": "عرض القائمة",
+    "calNew": "حدث جديد"
+  },
+  "keys": {
+    "enter": "Enter",
+    "esc": "Esc"
+  },
+  "help": {
+    "title": "اختصارات لوحة المفاتيح",
+    "description": "مستوحاة من Gmail. معطّلة أثناء الكتابة."
+  },
+  "palette": {
+    "title": "لوحة الأوامر",
+    "placeholder": "ابحث عن أمر أو مجلد أو صندوق بريد…",
+    "empty": "لا توجد نتائج",
+    "groups": {
+      "search": "البحث",
+      "actions": "الإجراءات",
+      "goTo": "الانتقال إلى",
+      "mailboxes": "صناديق البريد",
+      "appearance": "المظهر",
+      "session": "الجلسة"
+    },
+    "searchFor": "البحث عن «{{query}}» في الرسائل",
+    "searchKeyword": "بحث",
+    "folderKeyword": "مجلد",
+    "mailboxKeyword": "صندوق",
+    "settings": "الإعدادات",
+    "themeLight": "المظهر الفاتح",
+    "themeDark": "المظهر الداكن",
+    "themeSystem": "مظهر النظام",
+    "densityComfortable": "كثافة مريحة",
+    "densityCompact": "كثافة مضغوطة",
+    "paneRight": "جزء القراءة على اليمين",
+    "paneBottom": "جزء القراءة في الأسفل",
+    "paneNone": "بدون جزء القراءة",
+    "logout": "تسجيل الخروج"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "rail": {
+    "label": "Mailboxes",
+    "all": "All mailboxes",
+    "add": "Add a mailbox",
+    "palette": "Command palette",
+    "lightTheme": "Light theme",
+    "darkTheme": "Dark theme",
+    "settings": "Settings",
+    "accountMenu": "Account menu for {{email}}",
+    "needsReconnect": "sign-in required",
+    "unread_one": "{{count}} unread",
+    "unread_other": "{{count}} unread"
+  },
+  "menu": {
+    "rename": "Rename",
+    "color": "Color",
+    "settings": "Mailbox settings",
+    "add": "Add another mailbox",
+    "logout": "Sign out of this mailbox",
+    "logoutAll": "Sign out of all mailboxes"
+  },
+  "rename": {
+    "title": "Rename mailbox",
+    "label": "Display name",
+    "placeholder": "Work, Personal…"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "add": {
+    "title": "Add a mailbox",
+    "text": "Sign in to another mailbox to use it alongside your current ones.",
+    "reconnectTitle": "Sign in again",
+    "reconnectText": "The mail server rejected the saved credentials for {{email}}. Enter the current password.",
+    "added": "{{email}} added",
+    "reconnected": "{{email}} reconnected"
+  },
+  "reconnect": {
+    "title": "Sign in again to {{email}}",
+    "text": "The mail server rejected the password. It may have changed.",
+    "action": "Sign in",
+    "dismiss": "Dismiss"
+  },
+  "logout": {
+    "confirmTitle": "Sign out of {{email}}?",
+    "confirmText": "Its cache, local drafts and pending actions will be erased from this device. Nothing is deleted on the mail server.",
+    "confirm": "Sign out",
+    "done": "Signed out of {{email}}"
+  },
+  "logoutAll": {
+    "confirmTitle": "Sign out of all mailboxes?",
+    "confirmText": "Your session ends and everything cached on this device is erased.",
+    "confirm": "Sign out of all"
+  },
+  "toast": {
+    "updateFailed": "Couldn't save the change",
+    "logoutFailed": "Couldn't sign out"
+  },
+  "section": {
+    "intro": "Mailboxes open in this session. Credentials are encrypted on the server and never come back to the browser. The order sets the Ctrl+1…9 shortcuts.",
+    "details": "Details",
+    "displayName": "Display name",
+    "displayNameHint": "Shared across your devices.",
+    "color": "Accent color",
+    "capabilities": "Supports:",
+    "test": "Test connection",
+    "testOk": "Connection OK",
+    "testFail": "Connection failed",
+    "storedOnDevice": "Password stored on this device, encrypted",
+    "manageAccount": "Manage my account"
+  },
+  "capability": {
+    "vacation": "auto-reply",
+    "sieve": "filters",
+    "contacts": "contacts",
+    "submissionDelay": "scheduled send",
+    "quota": "quota"
+  },
+  "notification": {
+    "newMessage": "New message",
+    "noSubject": "(no subject)"
+  }
+}

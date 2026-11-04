@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Collection « catppuccin » — Catppuccin — Latte / Mocha
+   Fichier généré depuis une palette de base puis relu ; peut être retouché à la main.
+   Clair : [data-theme='catppuccin']   Sombre : [data-theme='catppuccin'].dark
+   Contrastes WCAG AA vérifiés (texte principal/secondaire ≥ 4,5:1, texte sur accent ≥ 4,5:1).
+   ========================================================================== */
+
+[data-theme='catppuccin'] {
+  color-scheme: light;
+
+  /* Accent par défaut de la collection (l’accent de la boîte active, posé en style inline sur <html>, reste prioritaire) */
+  --voxel-accent: #8839ef;
+  --voxel-on-accent: #ffffff;
+  --voxel-accent-soft: color-mix(in oklab, var(--voxel-accent) 11%, transparent);
+  --voxel-accent-softer: color-mix(in oklab, var(--voxel-accent) 6%, transparent);
+  --voxel-accent-strong: color-mix(in oklab, var(--voxel-accent) 82%, var(--voxel-text-1));
+  --voxel-accent-ring: color-mix(in oklab, var(--voxel-accent) 45%, transparent);
+
+  /* Surfaces */
+  --voxel-app: #e6e9ef;
+  --voxel-rail: #dce0e8;
+  --voxel-sidebar: #e6e9ef;
+  --voxel-panel: #eff1f5;
+  --voxel-row-hover: #e9ecf2;
+  --voxel-row-selected: color-mix(in oklab, var(--voxel-accent) 8%, var(--voxel-panel));
+  --voxel-row-unread: var(--voxel-panel);
+
+  /* Lignes */
+  --voxel-line: #d5d9e2;
+  --voxel-line-strong: #bcc0cc;
+
+  /* Textes */
+  --voxel-text-1: #4c4f69;
+  --voxel-text-2: #5c5f77;
+  --voxel-text-3: #7c7f93;
+
+  /* Ombres et voile */
+  --voxel-shadow-float: 0 1px 2px rgb(76 79 105 / 0.06), 0 8px 24px -6px rgb(76 79 105 / 0.14), 0 24px 56px -12px rgb(76 79 105 / 0.16);
+  --voxel-shadow-soft: 0 1px 2px rgb(76 79 105 / 0.05), 0 2px 8px -2px rgb(76 79 105 / 0.06);
+  --voxel-overlay: rgb(76 79 105 / 0.32);
+
+  /* États */
+  --voxel-danger: #c00d34;
+  --voxel-success: #2f7a1f;
+  --voxel-warn: #a8630f;
+  --voxel-flag: #df8e1d;
+
+  /* Boutons : aplat d’accent sobre en clair */
+  --voxel-btn-primary-bg: var(--voxel-accent);
+  --voxel-btn-primary-fg: var(--voxel-on-accent);
+  --voxel-btn-primary-icon: var(--voxel-on-accent);
+  --voxel-btn-primary-border: color-mix(in oklab, var(--voxel-accent) 82%, var(--voxel-text-1));
+  --voxel-btn-primary-hover: color-mix(in oklab, var(--voxel-accent) 90%, var(--voxel-text-1));
+  --voxel-btn-secondary-bg: var(--voxel-panel);
+  --voxel-btn-secondary-fg: var(--voxel-text-1);
+  --voxel-btn-secondary-border: var(--voxel-line-strong);
+  --voxel-btn-secondary-hover: var(--voxel-row-hover);
+
+  /* shadcn */
+  --background: #eff1f5;
+  --foreground: #4c4f69;
+  --card: #f4f5f8;
+  --card-foreground: #4c4f69;
+  --popover: #f4f5f8;
+  --popover-foreground: #4c4f69;
+  --primary: #4c4f69;
+  --primary-foreground: #eff1f5;
+  --secondary: #e6e9ef;
+  --secondary-foreground: #4c4f69;
+  --muted: #e6e9ef;
+  --muted-foreground: #5c5f77;
+  --accent: #e9ecf2;
+  --accent-foreground: #4c4f69;
+  --destructive: #c00d34;
+  --border: #d5d9e2;
+  --input: #bcc0cc;
+  --ring: var(--voxel-accent-ring);
+}
+
+[data-theme='catppuccin'].dark {
+  color-scheme: dark;
+
+  /* Accent par défaut de la collection (l’accent de la boîte active, posé en style inline sur <html>, reste prioritaire) */
+  --voxel-accent: #cba6f7;
+  --voxel-on-accent: #1e1e2e;
+  --voxel-accent-soft: color-mix(in oklab, var(--voxel-accent) 14%, transparent);
+  --voxel-accent-softer: color-mix(in oklab, var(--voxel-accent) 8%, transparent);
+  --voxel-accent-strong: color-mix(in oklab, var(--voxel-accent) 70%, white);
+  --voxel-accent-ring: color-mix(in oklab, var(--voxel-accent) 55%, transparent);
+
+  /* Surfaces */
+  --voxel-app: #181825;
+  --voxel-rail: #11111b;
+  --voxel-sidebar: #181825;
+  --voxel-panel: #1e1e2e;
+  --voxel-row-hover: #262637;
+  --voxel-row-selected: color-mix(in oklab, var(--voxel-accent) 14%, var(--voxel-panel));
+  --voxel-row-unread: var(--voxel-panel);
+
+  /* Lignes */
+  --voxel-line: #313244;
+  --voxel-line-strong: #45475a;
+
+  /* Textes */
+  --voxel-text-1: #cdd6f4;
+  --voxel-text-2: #a6adc8;
+  --voxel-text-3: #868ba4;
+
+  /* Ombres et voile */
+  --voxel-shadow-float: 0 0 0 1px rgb(255 255 255 / 0.02), 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 28px -6px rgb(0 0 0 / 0.55), 0 28px 64px -12px rgb(0 0 0 / 0.5);
+  --voxel-shadow-soft: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 8px -2px rgb(0 0 0 / 0.35);
+  --voxel-overlay: rgb(0 0 0 / 0.55);
+
+  /* États */
+  --voxel-danger: #f38ba8;
+  --voxel-success: #a6e3a1;
+  --voxel-warn: #f9e2af;
+  --voxel-flag: #fab387;
+
+  /* Boutons : surface teintée par l’accent + bordure fine (jamais d’aplat clair éblouissant) */
+  --voxel-btn-primary-bg: color-mix(in oklab, var(--voxel-accent) 16%, var(--voxel-panel));
+  --voxel-btn-primary-fg: var(--voxel-text-1);
+  --voxel-btn-primary-icon: var(--voxel-accent-strong);
+  --voxel-btn-primary-border: color-mix(in oklab, var(--voxel-accent) 40%, var(--voxel-line-strong));
+  --voxel-btn-primary-hover: color-mix(in oklab, var(--voxel-accent) 24%, var(--voxel-panel));
+  --voxel-btn-secondary-bg: color-mix(in oklab, var(--voxel-text-1) 5%, var(--voxel-panel));
+  --voxel-btn-secondary-fg: var(--voxel-text-1);
+  --voxel-btn-secondary-border: var(--voxel-line-strong);
+  --voxel-btn-secondary-hover: color-mix(in oklab, var(--voxel-text-1) 9%, var(--voxel-panel));
+
+  /* shadcn */
+  --background: #1e1e2e;
+  --foreground: #cdd6f4;
+  --card: #1e1e2e;
+  --card-foreground: #cdd6f4;
+  --popover: #232334;
+  --popover-foreground: #cdd6f4;
+  --primary: color-mix(in oklab, var(--voxel-accent) 24%, var(--voxel-panel));
+  --primary-foreground: #cdd6f4;
+  --secondary: #313244;
+  --secondary-foreground: #cdd6f4;
+  --muted: #313244;
+  --muted-foreground: #a6adc8;
+  --accent: #262637;
+  --accent-foreground: #cdd6f4;
+  --destructive: #f38ba8;
+  --border: #313244;
+  --input: #45475a;
+  --ring: var(--voxel-accent-ring);
+}

@@ -1,0 +1,126 @@
+{
+  "title": {
+    "new": "Nova mensagem",
+    "reply": "Resposta",
+    "forward": "Encaminhamento"
+  },
+  "send": "Enviar",
+  "sendTooltip": "Enviar ({{shortcut}})",
+  "attach": "Anexar arquivos",
+  "formatting": "Formatação",
+  "saving": "Salvando…",
+  "discardDraft": "Descartar rascunho",
+  "dropFiles": "Solte os arquivos para anexá-los",
+  "remove": "Remover {{name}}",
+  "inline": {
+    "reply": "Responder",
+    "replyAll": "Responder a todos",
+    "forward": "Encaminhar",
+    "openWindow": "Abrir em uma janela",
+    "discard": "Descartar resposta"
+  },
+  "fields": {
+    "from": "De",
+    "to": "Para",
+    "cc": "Cc",
+    "bcc": "Cco",
+    "subject": "Assunto",
+    "account": "Caixa de envio",
+    "identity": "Identidade de envio",
+    "identityPlaceholder": "Identidade"
+  },
+  "recipients": {
+    "label": "Destinatários {{field}}"
+  },
+  "signature": {
+    "add": "Adicionar assinatura",
+    "remove": "Remover assinatura"
+  },
+  "quote": {
+    "show": "Mostrar mensagem citada",
+    "hide": "Ocultar mensagem citada",
+    "wrote": "Em {{date}}, {{who}} escreveu:",
+    "unknownSender": "Desconhecido"
+  },
+  "forwarded": {
+    "header": "Mensagem encaminhada",
+    "from": "De:",
+    "date": "Data:",
+    "subject": "Assunto:",
+    "to": "Para:",
+    "cc": "Cc:",
+    "fileName": "mensagem"
+  },
+  "schedule": {
+    "options": "Opções de envio",
+    "title": "Programar envio",
+    "tomorrowMorning": "Amanhã de manhã",
+    "mondayMorning": "Segunda-feira de manhã"
+  },
+  "confirm": {
+    "noSubject": "Enviar sem assunto?",
+    "deleteDraft": "Excluir este rascunho?"
+  },
+  "toasts": {
+    "uploading": "Aguarde, ainda há anexos sendo enviados",
+    "noIdentity": "Nenhuma identidade de envio para esta caixa",
+    "noRecipient": "Adicione pelo menos um destinatário",
+    "invalidAddress": "Endereço inválido: {{email}}",
+    "attachFailed": "Não foi possível anexar “{{name}}”",
+    "draftDeleted": "Rascunho excluído",
+    "draftSaved": "Rascunho salvo",
+    "futureDate": "Escolha uma data futura"
+  },
+  "editor": {
+    "placeholder": "Escreva sua mensagem…",
+    "label": "Corpo da mensagem",
+    "linkPrompt": "Endereço do link",
+    "bold": "Negrito ({{mod}}+B)",
+    "italic": "Itálico ({{mod}}+I)",
+    "underline": "Sublinhado ({{mod}}+U)",
+    "strike": "Tachado",
+    "bulletList": "Lista com marcadores",
+    "orderedList": "Lista numerada",
+    "quote": "Citação",
+    "code": "Código",
+    "link": "Link ({{mod}}+K)",
+    "clear": "Limpar formatação",
+    "undo": "Desfazer ({{mod}}+Z)",
+    "redo": "Refazer"
+  },
+  "window": {
+    "label": "Escrever mensagem",
+    "fullscreenLabel": "Escrever mensagem em tela cheia",
+    "expand": "Expandir",
+    "minimize": "Minimizar",
+    "fullscreen": "Tela cheia",
+    "exitFullscreen": "Sair da tela cheia",
+    "closeKeep": "Fechar (o rascunho é mantido)"
+  },
+  "outbox": {
+    "send": "Envio: {{subject}}",
+    "draft": "Rascunho",
+    "draftDeleted": "Rascunho excluído"
+  },
+  "errors": {
+    "noDrafts": "Pasta Rascunhos não encontrada"
+  },
+  "templates": {
+    "insert": "Inserir um modelo",
+    "shortcut": "Alt+T",
+    "title": "Modelos de resposta",
+    "empty": "Ainda não há modelos",
+    "manage": "Gerir modelos…"
+  },
+  "options": {
+    "title": "Opções de envio",
+    "priority": "Prioridade",
+    "priorities": {
+      "high": "Alta",
+      "normal": "Normal",
+      "low": "Baixa"
+    },
+    "receipt": "Pedir confirmação de leitura",
+    "language": "Idioma do corretor"
+  }
+}

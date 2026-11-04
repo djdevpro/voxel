@@ -1,0 +1,79 @@
+{
+  "actions": {
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "delete": "حذف",
+    "close": "إغلاق",
+    "retry": "إعادة المحاولة",
+    "ok": "موافق",
+    "undo": "تراجع",
+    "more": "المزيد",
+    "refresh": "تحديث",
+    "save": "حفظ",
+    "back": "رجوع",
+    "copy": "نسخ",
+    "copied": "تم النسخ"
+  },
+  "errors": {
+    "generic": "خطأ"
+  },
+  "time": {
+    "justNow": "الآن"
+  },
+  "offline": {
+    "banner": "غير متصل — ستتم مزامنة الإجراءات عند عودة الاتصال",
+    "offline": "غير متصل",
+    "pending_zero": "لا شيء قيد الانتظار",
+    "pending_one": "إجراء واحد قيد الانتظار",
+    "pending_two": "إجراءان قيد الانتظار",
+    "pending_few": "{{count}} إجراءات قيد الانتظار",
+    "pending_many": "{{count}} إجراءً قيد الانتظار",
+    "pending_other": "{{count}} إجراء قيد الانتظار",
+    "pendingActions_zero": "لا توجد إجراءات قيد الانتظار",
+    "pendingActions_one": "إجراء واحد قيد الانتظار",
+    "pendingActions_two": "إجراءان قيد الانتظار",
+    "pendingActions_few": "{{count}} إجراءات قيد الانتظار",
+    "pendingActions_many": "{{count}} إجراءً قيد الانتظار",
+    "pendingActions_other": "{{count}} إجراء قيد الانتظار",
+    "backOnline": "عاد الاتصال",
+    "synced_zero": "لم تتم مزامنة أي إجراء",
+    "synced_one": "تمت مزامنة إجراء واحد",
+    "synced_two": "تمت مزامنة إجراءين",
+    "synced_few": "تمت مزامنة {{count}} إجراءات",
+    "synced_many": "تمت مزامنة {{count}} إجراءً",
+    "synced_other": "تمت مزامنة {{count}} إجراء",
+    "failed_zero": "لم يفشل أي إجراء",
+    "failed_one": "فشل إجراء واحد",
+    "failed_two": "فشل إجراءان",
+    "failed_few": "فشلت {{count}} إجراءات",
+    "failed_many": "فشل {{count}} إجراءً",
+    "failed_other": "فشل {{count}} إجراء"
+  },
+  "nav": {
+    "main": "التنقل الرئيسي",
+    "menu": "القائمة",
+    "inbox": "الوارد",
+    "folders": "المجلدات",
+    "compose": "كتابة",
+    "search": "بحث",
+    "settings": "الإعدادات"
+  },
+  "noAccounts": {
+    "title": "أضف أول صندوق بريد",
+    "description": "سجّل الدخول إلى صندوق بريد للبدء. بيانات الاعتماد الخاصة بك مشفّرة على الخادم.",
+    "add": "إضافة صندوق بريد"
+  },
+  "slider": {
+    "delay": "المهلة"
+  },
+  "title": {
+    "folder": "{{folder}} — {{mailbox}} · {{app}}",
+    "folderUnread": "({{n}}) {{folder}} — {{mailbox}} · {{app}}",
+    "thread": "{{subject}} · {{app}}",
+    "signIn": "تسجيل الدخول · {{app}}"
+  },
+  "routing": {
+    "threadNotFound": "تعذّر العثور على هذه المحادثة. ربما حُذفت أو نُقلت.",
+    "folderNotFound": "هذا المجلد لم يعد موجودًا. العودة إلى البريد الوارد."
+  }
+}

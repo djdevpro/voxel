@@ -1,0 +1,85 @@
+{
+  "rail": {
+    "label": "Postfächer",
+    "all": "Alle Postfächer",
+    "add": "Postfach hinzufügen",
+    "palette": "Befehlspalette",
+    "lightTheme": "Helles Design",
+    "darkTheme": "Dunkles Design",
+    "settings": "Einstellungen",
+    "accountMenu": "Kontomenü für {{email}}",
+    "needsReconnect": "erneute Anmeldung nötig",
+    "unread_one": "{{count}} ungelesen",
+    "unread_other": "{{count}} ungelesen"
+  },
+  "menu": {
+    "rename": "Umbenennen",
+    "color": "Farbe",
+    "settings": "Postfach-Einstellungen",
+    "add": "Weiteres Postfach hinzufügen",
+    "logout": "Von diesem Postfach abmelden",
+    "logoutAll": "Von allen Postfächern abmelden"
+  },
+  "rename": {
+    "title": "Postfach umbenennen",
+    "label": "Anzeigename",
+    "placeholder": "Arbeit, Privat …"
+  },
+  "common": {
+    "cancel": "Abbrechen",
+    "save": "Speichern"
+  },
+  "add": {
+    "title": "Postfach hinzufügen",
+    "text": "Melden Sie sich bei einem weiteren Postfach an, um es neben den bereits geöffneten zu nutzen.",
+    "reconnectTitle": "Erneut anmelden",
+    "reconnectText": "Der Mailserver hat die gespeicherten Zugangsdaten für {{email}} abgelehnt. Geben Sie das aktuelle Passwort ein.",
+    "added": "{{email}} hinzugefügt",
+    "reconnected": "{{email}} wieder verbunden"
+  },
+  "reconnect": {
+    "title": "Erneut bei {{email}} anmelden",
+    "text": "Der Mailserver hat das Passwort abgelehnt. Vielleicht wurde es geändert.",
+    "action": "Anmelden",
+    "dismiss": "Ausblenden"
+  },
+  "logout": {
+    "confirmTitle": "Von {{email}} abmelden?",
+    "confirmText": "Cache, lokale Entwürfe und ausstehende Aktionen werden von diesem Gerät gelöscht. Auf dem Mailserver wird nichts gelöscht.",
+    "confirm": "Abmelden",
+    "done": "Von {{email}} abgemeldet"
+  },
+  "logoutAll": {
+    "confirmTitle": "Von allen Postfächern abmelden?",
+    "confirmText": "Ihre Sitzung endet und alle zwischengespeicherten Daten auf diesem Gerät werden gelöscht.",
+    "confirm": "Überall abmelden"
+  },
+  "toast": {
+    "updateFailed": "Änderung konnte nicht gespeichert werden",
+    "logoutFailed": "Abmeldung fehlgeschlagen"
+  },
+  "section": {
+    "intro": "In dieser Sitzung geöffnete Postfächer. Zugangsdaten werden auf dem Server verschlüsselt und gelangen nie zurück in den Browser. Die Reihenfolge bestimmt die Kürzel Strg+1…9.",
+    "details": "Details",
+    "displayName": "Anzeigename",
+    "displayNameHint": "Wird zwischen Ihren Geräten geteilt.",
+    "color": "Akzentfarbe",
+    "capabilities": "Unterstützt:",
+    "test": "Verbindung testen",
+    "testOk": "Verbindung OK",
+    "testFail": "Verbindung fehlgeschlagen",
+    "storedOnDevice": "Passwort verschlüsselt auf diesem Gerät gespeichert",
+    "manageAccount": "Mein Konto verwalten"
+  },
+  "capability": {
+    "vacation": "Abwesenheitsnotiz",
+    "sieve": "Filter",
+    "contacts": "Kontakte",
+    "submissionDelay": "geplanter Versand",
+    "quota": "Kontingent"
+  },
+  "notification": {
+    "newMessage": "Neue Nachricht",
+    "noSubject": "(kein Betreff)"
+  }
+}

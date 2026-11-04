@@ -1,0 +1,86 @@
+{
+  "rail": {
+    "label": "Caixas de correio",
+    "all": "Todas as caixas",
+    "add": "Adicionar uma caixa",
+    "palette": "Paleta de comandos",
+    "lightTheme": "Tema claro",
+    "darkTheme": "Tema escuro",
+    "settings": "Definições",
+    "accountMenu": "Menu da conta {{email}}",
+    "needsReconnect": "é preciso iniciar sessão novamente",
+    "unread_one": "{{count}} por ler",
+    "unread_other": "{{count}} por ler",
+    "unread_many": "{{count}} por ler"
+  },
+  "menu": {
+    "rename": "Mudar o nome",
+    "color": "Cor",
+    "settings": "Definições da caixa",
+    "add": "Adicionar outra caixa",
+    "logout": "Terminar sessão nesta caixa",
+    "logoutAll": "Terminar sessão em todas"
+  },
+  "rename": {
+    "title": "Mudar o nome da caixa",
+    "label": "Nome apresentado",
+    "placeholder": "Trabalho, Pessoal…"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  },
+  "add": {
+    "title": "Adicionar uma caixa",
+    "text": "Inicie sessão noutra caixa para a usar juntamente com as que já tem abertas.",
+    "reconnectTitle": "Iniciar sessão novamente",
+    "reconnectText": "O servidor de e-mail recusou as credenciais guardadas de {{email}}. Introduza a palavra-passe atual.",
+    "added": "{{email}} adicionada",
+    "reconnected": "{{email}} ligada novamente"
+  },
+  "reconnect": {
+    "title": "Inicie sessão novamente em {{email}}",
+    "text": "O servidor de e-mail recusou a palavra-passe. Pode ter sido alterada.",
+    "action": "Iniciar sessão",
+    "dismiss": "Ignorar"
+  },
+  "logout": {
+    "confirmTitle": "Terminar sessão em {{email}}?",
+    "confirmText": "A cache, os rascunhos locais e as ações pendentes serão apagados deste dispositivo. Nada é eliminado no servidor de e-mail.",
+    "confirm": "Terminar sessão",
+    "done": "Sessão terminada em {{email}}"
+  },
+  "logoutAll": {
+    "confirmTitle": "Terminar sessão em todas as caixas?",
+    "confirmText": "A sua sessão termina e tudo o que está em cache neste dispositivo é apagado.",
+    "confirm": "Terminar todas"
+  },
+  "toast": {
+    "updateFailed": "Não foi possível guardar a alteração",
+    "logoutFailed": "Não foi possível terminar a sessão"
+  },
+  "section": {
+    "intro": "Caixas abertas nesta sessão. As credenciais são cifradas no servidor e nunca regressam ao navegador. A ordem define os atalhos Ctrl+1…9.",
+    "details": "Detalhes",
+    "displayName": "Nome apresentado",
+    "displayNameHint": "Partilhado entre os seus dispositivos.",
+    "color": "Cor de destaque",
+    "capabilities": "Suporta:",
+    "test": "Testar ligação",
+    "testOk": "Ligação OK",
+    "testFail": "Falha na ligação",
+    "storedOnDevice": "Senha guardada neste dispositivo, criptografada",
+    "manageAccount": "Gerir a minha conta"
+  },
+  "capability": {
+    "vacation": "resposta automática",
+    "sieve": "filtros",
+    "contacts": "contactos",
+    "submissionDelay": "envio agendado",
+    "quota": "quota"
+  },
+  "notification": {
+    "newMessage": "Nova mensagem",
+    "noSubject": "(sem assunto)"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "invalid_credentials": "Endereço de e-mail ou palavra-passe incorretos.",
+  "rate_limited": "Demasiadas tentativas. Aguarde alguns minutos e tente novamente.",
+  "upstream_unreachable": "Neste momento não é possível contactar o servidor de e-mail.",
+  "upstream_auth": "O servidor de e-mail recusou a palavra-passe. Inicie sessão novamente nesta caixa.",
+  "not_found": "Não encontrado.",
+  "forbidden": "Não tem acesso a isto.",
+  "validation": "Há informações em falta ou inválidas.",
+  "internal": "Ocorreu um erro no servidor. Tente novamente.",
+  "network": "Está offline ou não é possível contactar o servidor.",
+  "unknown": "Erro inesperado (HTTP {{status}}).",
+  "discovery_failed": "Não encontrámos as definições deste endereço. Use as definições avançadas.",
+  "domain_not_allowed": "Este servidor não aceita endereços deste domínio."
+}

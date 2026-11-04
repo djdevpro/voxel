@@ -1,0 +1,9 @@
+{
+  "jmap": {
+    "example.com": "https://mail.example.com/jmap/session",
+    "example.org": "https://mail.example.com/jmap/session"
+  },
+  "accountPortal": {
+    "example.com": "https://mail.example.com/account"
+  }
+}

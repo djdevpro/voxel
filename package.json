@@ -1,0 +1,20 @@
+{
+  "name": "voxel",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:server": "npm -w @voxel/server run dev",
+    "dev:web": "npm -w @voxel/web run dev",
+    "dev:mock": "npm -w @voxel/web run dev:mock",
+    "dev:demo": "npm -w @voxel/web run dev:demo",
+    "build": "npm -w @voxel/web run build && npm -w @voxel/server run build",
+    "typecheck": "npm run -ws --if-present typecheck",
+    "test": "node --test \"packages/jmap/test/*.test.ts\" && npm -w @voxel/server test"
+  }
+}

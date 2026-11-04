@@ -1,0 +1,174 @@
+{
+  "nav": "Calendário",
+  "untitled": "(Sem título)",
+  "repeating": "Evento periódico",
+  "more_one": "mais {{count}}",
+  "more_other": "mais {{count}}",
+  "actions": {
+    "new": "Novo evento",
+    "today": "Hoje",
+    "previous": "Período anterior",
+    "next": "Período seguinte",
+    "cancel": "Cancelar",
+    "create": "Criar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "backToMail": "Voltar ao correio"
+  },
+  "views": {
+    "label": "Vista",
+    "month": "Mês",
+    "week": "Semana",
+    "day": "Dia",
+    "agenda": "Lista"
+  },
+  "calendars": {
+    "title": "Calendários",
+    "description": "Escolha os calendários a mostrar.",
+    "none": "Nenhum calendário",
+    "export": "Exportar «{{name}}» (.ics)"
+  },
+  "empty": {
+    "title": "Nada previsto",
+    "range": "Nenhum evento neste período."
+  },
+  "unavailable": {
+    "title": "Sem calendário",
+    "description": "Nenhuma das suas caixas oferece calendário."
+  },
+  "dialog": {
+    "newTitle": "Novo evento",
+    "editTitle": "Evento",
+    "description": "Título, data, repetição, lembretes e participantes do evento."
+  },
+  "fields": {
+    "title": "Título",
+    "titlePlaceholder": "Adicionar um título",
+    "calendar": "Calendário",
+    "allDay": "Dia inteiro",
+    "start": "Início",
+    "startTime": "Hora de início",
+    "end": "Fim",
+    "endTime": "Hora de fim",
+    "timeZone": "Fuso horário",
+    "repeat": "Repetição",
+    "reminders": "Lembretes",
+    "location": "Local",
+    "description": "Descrição",
+    "participants": "Participantes",
+    "availability": "Disponibilidade"
+  },
+  "repeat": {
+    "none": "Não se repete",
+    "daily": "Todos os dias",
+    "weekly": "Todas as semanas",
+    "monthly": "Todos os meses",
+    "yearly": "Todos os anos",
+    "custom": "Regra personalizada",
+    "customHint": "Esta repetição foi criada noutro lado; é mantida tal como está.",
+    "every": "A cada",
+    "onDays": "Repetir a",
+    "never": "Sem fim",
+    "until": "Até",
+    "after": "Número",
+    "untilDate": "Última data",
+    "times": "vezes"
+  },
+  "reminders": {
+    "add": "Adicionar um lembrete",
+    "atStart": "No início",
+    "remove": "Remover o lembrete «{{label}}»",
+    "minutes_one": "{{count}} minuto antes",
+    "minutes_other": "{{count}} minutos antes",
+    "hours_one": "{{count}} hora antes",
+    "hours_other": "{{count}} horas antes",
+    "days_one": "{{count}} dia antes",
+    "days_other": "{{count}} dias antes"
+  },
+  "participants": {
+    "placeholder": "nome@exemplo.pt",
+    "add": "Adicionar participante",
+    "remove": "Remover {{email}}",
+    "noInvites": "Esta caixa não pode enviar convites: os participantes ficam apenas guardados no evento."
+  },
+  "availability": {
+    "busy": "Ocupado",
+    "free": "Livre"
+  },
+  "errors": {
+    "endBeforeStart": "O fim é anterior ao início.",
+    "badEmail": "Um endereço de participante não é válido.",
+    "badUntil": "Escolha uma última data posterior ao início.",
+    "noDays": "Escolha pelo menos um dia da semana."
+  },
+  "scope": {
+    "editTitle": "Alterar um evento periódico",
+    "deleteTitle": "Eliminar um evento periódico",
+    "description": "Aplicar só a este evento ou a toda a série?",
+    "this": "Este evento",
+    "all": "Toda a série"
+  },
+  "delete": {
+    "title": "Eliminar este evento?",
+    "description": "«{{title}}» será retirado do calendário.",
+    "confirm": "Eliminar"
+  },
+  "toast": {
+    "created": "Evento criado",
+    "saved": "Evento guardado",
+    "deleted": "Evento eliminado",
+    "queued": "Guardado offline: será enviado quando a ligação voltar.",
+    "exported_one": "{{count}} evento exportado",
+    "exported_other": "{{count}} eventos exportados"
+  },
+  "import": {
+    "open": "Importar (.ics)",
+    "title": "Importar eventos",
+    "description": "Adicione os eventos de um ficheiro .ics a um dos seus calendários.",
+    "into": "Calendário",
+    "choose": "Escolher um ficheiro .ics",
+    "reading": "A ler o ficheiro…",
+    "found_one": "{{count}} evento encontrado",
+    "found_other": "{{count}} eventos encontrados",
+    "duplicate": "Já existe",
+    "duplicates_one": "{{count}} evento já está no seu calendário:",
+    "duplicates_other": "{{count}} eventos já estão no seu calendário:",
+    "skip": "Ignorar",
+    "replace": "Substituir",
+    "both": "Manter ambos",
+    "run": "Importar",
+    "done": "Importação concluída: {{created}} adicionados, {{replaced}} substituídos, {{skipped}} ignorados.",
+    "empty": "Nenhum evento neste ficheiro.",
+    "tooLarge": "O ficheiro é demasiado grande (10 MB no máximo)."
+  },
+  "invite": {
+    "label": "Convite",
+    "loading": "A ler o convite…",
+    "cancelled": "Evento cancelado",
+    "reply": "Resposta a um convite",
+    "organizer": "Organizador: {{name}}",
+    "conflict": "Sobrepõe-se a «{{title}}»",
+    "inCalendar": "No seu calendário",
+    "inCalendarStatus": "No seu calendário · {{status}}",
+    "accept": "Aceitar",
+    "maybe": "Talvez",
+    "decline": "Recusar",
+    "add": "Adicionar ao calendário",
+    "show": "Ver no calendário",
+    "added": "Adicionado ao seu calendário.",
+    "replySent": "A sua resposta foi enviada ao organizador.",
+    "replyNotSent": "Adicionado ao seu calendário; o servidor não enviou a sua resposta.",
+    "imapNote": "Esta caixa não pode responder a convites: o evento só pode ser adicionado ao seu calendário."
+  },
+  "status": {
+    "needs-action": "sem resposta",
+    "accepted": "aceite",
+    "tentative": "talvez",
+    "declined": "recusado",
+    "delegated": "delegado"
+  },
+  "reminder": {
+    "body": "Começa {{when}}",
+    "open": "Abrir"
+  }
+}

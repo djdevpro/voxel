@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "label": "Assistant d'écriture",
+    "custom": "Instruction libre…",
+    "manage": "Gérer les prompts…",
+    "shortcut": "Alt+I"
+  },
+  "panel": {
+    "writing": "Rédaction…",
+    "replace": "Remplacer",
+    "replaceSelection": "Remplacer la sélection",
+    "insert": "Insérer dessous",
+    "retry": "Réessayer",
+    "copy": "Copier",
+    "copied": "Copié",
+    "stop": "Arrêter",
+    "close": "Fermer",
+    "customPlaceholder": "Que voulez-vous faire ? Ex. : ajoute une formule de politesse",
+    "replaced": "Texte remplacé",
+    "stale": "Le brouillon a changé : insérez plutôt le texte",
+    "undo": "Annuler",
+    "settings": "Paramètres IA"
+  },
+  "dictation": {
+    "start": "Dicter",
+    "stop": "Arrêter la dictée",
+    "listening": "À l'écoute…",
+    "connecting": "Connexion…"
+  }
+}

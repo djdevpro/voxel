@@ -1,0 +1,81 @@
+{
+  "groups": {
+    "navigation": "Navegação",
+    "actions": "Ações",
+    "application": "Aplicativo",
+    "calendar": "Calendário"
+  },
+  "items": {
+    "next": "Próxima conversa",
+    "previous": "Conversa anterior",
+    "open": "Abrir",
+    "backToList": "Voltar para a lista",
+    "goInbox": "Ir para a caixa de entrada",
+    "goFlagged": "Ir para as sinalizadas",
+    "goDrafts": "Ir para os rascunhos",
+    "goSent": "Ir para os enviados",
+    "switchMailbox": "Trocar de caixa",
+    "allMailboxes": "Todas as caixas",
+    "compose": "Nova mensagem",
+    "archive": "Arquivar",
+    "delete": "Excluir",
+    "spam": "Denunciar spam",
+    "flag": "Sinalizar / remover sinalização",
+    "markRead": "Marcar como lida",
+    "markUnread": "Marcar como não lida",
+    "select": "Selecionar a conversa",
+    "reply": "Responder",
+    "replyAll": "Responder a todos",
+    "forward": "Encaminhar",
+    "send": "Enviar",
+    "search": "Pesquisar",
+    "palette": "Paleta de comandos",
+    "help": "Ajuda dos atalhos",
+    "escape": "Fechar / desmarcar",
+    "goContacts": "Ir para os contactos",
+    "goCalendar": "Ir para o calendário",
+    "calToday": "Hoje",
+    "calNext": "Período seguinte",
+    "calPrevious": "Período anterior",
+    "calMonth": "Vista de mês",
+    "calWeek": "Vista de semana",
+    "calDay": "Vista de dia",
+    "calAgenda": "Vista de lista",
+    "calNew": "Novo evento"
+  },
+  "keys": {
+    "enter": "Enter",
+    "esc": "Esc"
+  },
+  "help": {
+    "title": "Atalhos de teclado",
+    "description": "Inspirados no Gmail. Desativados enquanto você digita."
+  },
+  "palette": {
+    "title": "Paleta de comandos",
+    "placeholder": "Pesquise um comando, uma pasta ou uma caixa…",
+    "empty": "Nenhum resultado",
+    "groups": {
+      "search": "Pesquisa",
+      "actions": "Ações",
+      "goTo": "Ir para",
+      "mailboxes": "Caixas",
+      "appearance": "Aparência",
+      "session": "Sessão"
+    },
+    "searchFor": "Pesquisar “{{query}}” nas mensagens",
+    "searchKeyword": "pesquisar",
+    "folderKeyword": "pasta",
+    "mailboxKeyword": "caixa",
+    "settings": "Configurações",
+    "themeLight": "Tema claro",
+    "themeDark": "Tema escuro",
+    "themeSystem": "Tema do sistema",
+    "densityComfortable": "Densidade confortável",
+    "densityCompact": "Densidade compacta",
+    "paneRight": "Painel de leitura à direita",
+    "paneBottom": "Painel de leitura embaixo",
+    "paneNone": "Sem painel de leitura",
+    "logout": "Sair"
+  }
+}

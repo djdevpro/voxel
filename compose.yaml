@@ -1,0 +1,27 @@
+# Exemple de déploiement : un conteneur derrière un proxy HTTPS (ici Traefik, à adapter au vôtre).
+#   cp config.example.json config.json   # domaines de vos boîtes → serveur JMAP
+#   VOXEL_HOST=webmail.example.com docker compose up -d --build
+# Le volume ne garde que le petit stockage de la passerelle IMAP (aucun identifiant).
+name: voxel
+services:
+  voxel:
+    build: .
+    image: voxel:latest
+    restart: unless-stopped
+    environment:
+      PORT: "8080"
+      VOXEL_TRUST_PROXY: "1"
+      # facultatif : domaines autorisés sur la passerelle IMAP, vide = tous
+      VOXEL_ALLOWED_EMAIL_DOMAINS: ${VOXEL_ALLOWED_EMAIL_DOMAINS:-}
+    volumes:
+      - data:/data
+      - ./config.json:/app/apps/web/dist/config.json:ro
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.voxel.rule=Host(`${VOXEL_HOST:?VOXEL_HOST manquant}`)
+      - traefik.http.routers.voxel.entrypoints=websecure
+      - traefik.http.routers.voxel.tls.certresolver=${VOXEL_CERT_RESOLVER:-letsencrypt}
+      - traefik.http.services.voxel.loadbalancer.server.port=8080
+
+volumes:
+  data:

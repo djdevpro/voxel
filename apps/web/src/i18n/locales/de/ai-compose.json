@@ -1,0 +1,30 @@
+{
+  "menu": {
+    "label": "Schreibassistent",
+    "custom": "Eigene Anweisung…",
+    "manage": "Prompts verwalten…",
+    "shortcut": "Alt+I"
+  },
+  "panel": {
+    "writing": "Wird geschrieben…",
+    "replace": "Ersetzen",
+    "replaceSelection": "Auswahl ersetzen",
+    "insert": "Darunter einfügen",
+    "retry": "Erneut versuchen",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "stop": "Stoppen",
+    "close": "Schließen",
+    "customPlaceholder": "Was möchtest du tun? Z. B.: eine Grußformel hinzufügen",
+    "replaced": "Text ersetzt",
+    "stale": "Der Entwurf hat sich geändert: Fügen Sie den Text stattdessen ein",
+    "undo": "Rückgängig",
+    "settings": "KI-Einstellungen"
+  },
+  "dictation": {
+    "start": "Diktieren",
+    "stop": "Diktat beenden",
+    "listening": "Hört zu…",
+    "connecting": "Verbindung wird hergestellt…"
+  }
+}

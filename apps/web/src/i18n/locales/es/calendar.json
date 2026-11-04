@@ -1,0 +1,174 @@
+{
+  "nav": "Calendario",
+  "untitled": "(Sin título)",
+  "repeating": "Evento periódico",
+  "more_one": "{{count}} más",
+  "more_other": "{{count}} más",
+  "actions": {
+    "new": "Nuevo evento",
+    "today": "Hoy",
+    "previous": "Periodo anterior",
+    "next": "Periodo siguiente",
+    "cancel": "Cancelar",
+    "create": "Crear",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "backToMail": "Volver al correo"
+  },
+  "views": {
+    "label": "Vista",
+    "month": "Mes",
+    "week": "Semana",
+    "day": "Día",
+    "agenda": "Lista"
+  },
+  "calendars": {
+    "title": "Calendarios",
+    "description": "Elija los calendarios que se muestran.",
+    "none": "Ningún calendario",
+    "export": "Exportar «{{name}}» (.ics)"
+  },
+  "empty": {
+    "title": "Nada previsto",
+    "range": "No hay eventos en este periodo."
+  },
+  "unavailable": {
+    "title": "Sin calendario",
+    "description": "Ninguno de sus buzones ofrece calendario."
+  },
+  "dialog": {
+    "newTitle": "Nuevo evento",
+    "editTitle": "Evento",
+    "description": "Título, fecha, repetición, recordatorios y participantes del evento."
+  },
+  "fields": {
+    "title": "Título",
+    "titlePlaceholder": "Añadir un título",
+    "calendar": "Calendario",
+    "allDay": "Todo el día",
+    "start": "Inicio",
+    "startTime": "Hora de inicio",
+    "end": "Fin",
+    "endTime": "Hora de fin",
+    "timeZone": "Zona horaria",
+    "repeat": "Repetición",
+    "reminders": "Recordatorios",
+    "location": "Lugar",
+    "description": "Descripción",
+    "participants": "Participantes",
+    "availability": "Disponibilidad"
+  },
+  "repeat": {
+    "none": "No se repite",
+    "daily": "Cada día",
+    "weekly": "Cada semana",
+    "monthly": "Cada mes",
+    "yearly": "Cada año",
+    "custom": "Regla personalizada",
+    "customHint": "Esta repetición se creó en otro lugar; se conserva tal cual.",
+    "every": "Cada",
+    "onDays": "Repetir el",
+    "never": "Sin fin",
+    "until": "Hasta",
+    "after": "Número",
+    "untilDate": "Última fecha",
+    "times": "veces"
+  },
+  "reminders": {
+    "add": "Añadir un recordatorio",
+    "atStart": "Al inicio",
+    "remove": "Quitar el recordatorio «{{label}}»",
+    "minutes_one": "{{count}} minuto antes",
+    "minutes_other": "{{count}} minutos antes",
+    "hours_one": "{{count}} hora antes",
+    "hours_other": "{{count}} horas antes",
+    "days_one": "{{count}} día antes",
+    "days_other": "{{count}} días antes"
+  },
+  "participants": {
+    "placeholder": "nombre@ejemplo.com",
+    "add": "Añadir participante",
+    "remove": "Quitar {{email}}",
+    "noInvites": "Este buzón no puede enviar invitaciones: los participantes solo se guardan en el evento."
+  },
+  "availability": {
+    "busy": "Ocupado",
+    "free": "Libre"
+  },
+  "errors": {
+    "endBeforeStart": "El fin es anterior al inicio.",
+    "badEmail": "Una dirección de participante no es válida.",
+    "badUntil": "Elija una última fecha posterior al inicio.",
+    "noDays": "Elija al menos un día de la semana."
+  },
+  "scope": {
+    "editTitle": "Modificar un evento periódico",
+    "deleteTitle": "Eliminar un evento periódico",
+    "description": "¿Aplicar solo a este evento o a toda la serie?",
+    "this": "Este evento",
+    "all": "Toda la serie"
+  },
+  "delete": {
+    "title": "¿Eliminar este evento?",
+    "description": "«{{title}}» se quitará del calendario.",
+    "confirm": "Eliminar"
+  },
+  "toast": {
+    "created": "Evento creado",
+    "saved": "Evento guardado",
+    "deleted": "Evento eliminado",
+    "queued": "Guardado sin conexión: se enviará cuando vuelva la conexión.",
+    "exported_one": "{{count}} evento exportado",
+    "exported_other": "{{count}} eventos exportados"
+  },
+  "import": {
+    "open": "Importar (.ics)",
+    "title": "Importar eventos",
+    "description": "Añada los eventos de un archivo .ics a uno de sus calendarios.",
+    "into": "Calendario",
+    "choose": "Elegir un archivo .ics",
+    "reading": "Leyendo el archivo…",
+    "found_one": "{{count}} evento encontrado",
+    "found_other": "{{count}} eventos encontrados",
+    "duplicate": "Ya existe",
+    "duplicates_one": "{{count}} evento ya está en su calendario:",
+    "duplicates_other": "{{count}} eventos ya están en su calendario:",
+    "skip": "Omitir",
+    "replace": "Reemplazar",
+    "both": "Conservar ambos",
+    "run": "Importar",
+    "done": "Importación terminada: {{created}} añadidos, {{replaced}} reemplazados, {{skipped}} omitidos.",
+    "empty": "No hay eventos en este archivo.",
+    "tooLarge": "El archivo es demasiado grande (10 MB como máximo)."
+  },
+  "invite": {
+    "label": "Invitación",
+    "loading": "Leyendo la invitación…",
+    "cancelled": "Evento cancelado",
+    "reply": "Respuesta a una invitación",
+    "organizer": "Organizador: {{name}}",
+    "conflict": "Coincide con «{{title}}»",
+    "inCalendar": "En su calendario",
+    "inCalendarStatus": "En su calendario · {{status}}",
+    "accept": "Aceptar",
+    "maybe": "Quizás",
+    "decline": "Rechazar",
+    "add": "Añadir al calendario",
+    "show": "Ver en el calendario",
+    "added": "Añadido a su calendario.",
+    "replySent": "Su respuesta se envió al organizador.",
+    "replyNotSent": "Añadido a su calendario; el servidor no envió su respuesta.",
+    "imapNote": "Este buzón no puede responder a invitaciones: el evento solo puede añadirse a su calendario."
+  },
+  "status": {
+    "needs-action": "sin respuesta",
+    "accepted": "aceptado",
+    "tentative": "quizás",
+    "declined": "rechazado",
+    "delegated": "delegado"
+  },
+  "reminder": {
+    "body": "Empieza {{when}}",
+    "open": "Abrir"
+  }
+}

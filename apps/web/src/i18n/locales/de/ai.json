@@ -1,0 +1,209 @@
+{
+  "nav": "KI",
+  "errors": {
+    "not_configured": "Die KI ist noch nicht eingerichtet. Wählen Sie unter Einstellungen → KI einen Anbieter und ein Modell.",
+    "missing_key": "Kein API-Schlüssel für {{provider}}. Fügen Sie ihn unter Einstellungen → KI hinzu.",
+    "network": "{{host}} ist vom Browser aus nicht erreichbar. Der Server ist vielleicht nicht verfügbar oder lässt keine Anfragen von dieser Website zu (CORS).",
+    "auth": "{{provider}} hat den API-Schlüssel abgelehnt.",
+    "not_found": "Modell oder Adresse bei {{provider}} nicht gefunden.",
+    "rate_limited": "Zu viele Anfragen: {{provider}} bittet, einen Moment zu warten.",
+    "server": "{{provider}} hat einen Fehler gemeldet ({{status}}).",
+    "bad_request": "{{provider}} hat die Anfrage abgelehnt: {{detail}}",
+    "tools_unsupported": "Dieses Modell unterstützt keine Werkzeuge.",
+    "aborted": "Angehalten.",
+    "unknown": "Bei der KI ist etwas schiefgelaufen."
+  },
+  "templates": {
+    "fix": "Rechtschreibung korrigieren",
+    "improve": "Stil verbessern",
+    "shorter": "Kürzen",
+    "formal": "Förmlicher",
+    "friendly": "Freundlicher",
+    "reply": "Antwort entwerfen",
+    "dictation": "Diktat bereinigen",
+    "translate_en": "Ins Englische übersetzen",
+    "today": "Heutige E-Mails zusammenfassen",
+    "waiting": "Was wartet auf meine Antwort?",
+    "attachments": "Anhänge dieser Woche",
+    "from_person": "E-Mails von jemandem…"
+  },
+  "presets": {
+    "openai": "OpenAI",
+    "anthropic": "Anthropic (Claude)",
+    "hetzner": "Hetzner",
+    "ollama": "Ollama (lokal)",
+    "custom": "OpenAI-kompatibel",
+    "demo": "Demo (simulierte KI)"
+  },
+  "model": {
+    "none": "Kein Modell",
+    "manage": "Modelle verwalten…",
+    "pick": "Modell wählen",
+    "default": "Standard"
+  },
+  "dictation": {
+    "unsupported": "Dieser Browser unterstützt kein Diktat.",
+    "denied": "Der Zugriff auf das Mikrofon wurde verweigert.",
+    "failed": "Diktat beendet: {{detail}}"
+  },
+  "settings": {
+    "tabs": {
+      "general": "Allgemein",
+      "models": "Modelle",
+      "prompts": "Prompts",
+      "summaries": "Zusammenfassungen",
+      "dictation": "Diktat"
+    },
+    "general": {
+      "enable": "KI-Assistenten aktivieren",
+      "enableHint": "Suche im Dialog, Schreibhilfe, tägliche Zusammenfassungen und Symbol in der Leiste.",
+      "language": "Antwortsprache",
+      "languageAuto": "Sprache der Oberfläche ({{name}})",
+      "ready": "Bereit: {{model}} über {{provider}}",
+      "test": "Testen",
+      "testOk": "Antwort in {{ms}} ms · Werkzeuge unterstützt",
+      "testOkNoTools": "Antwort in {{ms}} ms · keine Werkzeuge: Die Suche nutzt den vereinfachten Modus",
+      "notReady": "Wählen Sie einen Anbieter und ein Modell, um zu beginnen.",
+      "configure": "Einrichten",
+      "privacy": "Ihre Schlüssel sind verschlüsselt und verlassen dieses Gerät nicht. Anfragen gehen direkt von Ihrem Browser an den gewählten Anbieter: Der Voxel-Server sieht weder Ihre Schlüssel noch Ihre Unterhaltungen mit der KI."
+    },
+    "providers": {
+      "intro": "Verbinden Sie einen KI-Anbieter. Unterstützt werden OpenAI-kompatible APIs (OpenAI, Hetzner, Ollama, vLLM…) und Anthropic.",
+      "presetHelp": {
+        "hetzner": "OpenAI-kompatibel. Fügen Sie die API-URL und Ihr Token ein.",
+        "openai": "api.openai.com, Schlüssel sk-…",
+        "anthropic": "Claude-Modelle, Schlüssel sk-ant-…",
+        "ollama": "Lokale Modelle, ohne Schlüssel (Ollama muss diesen Ursprung erlauben: OLLAMA_ORIGINS)",
+        "custom": "vLLM, LM Studio, OpenRouter…",
+        "demo": "Simulierte Antworten zum Ausprobieren der Oberfläche (Entwicklung)"
+      },
+      "key": {
+        "saved": "Schlüssel gespeichert",
+        "missing": "Schlüssel fehlt",
+        "none": "Ohne Schlüssel"
+      },
+      "modelCount_one": "{{count}} Modell",
+      "modelCount_other": "{{count}} Modelle",
+      "remove": "Anbieter entfernen",
+      "removeTitle": "{{name}} entfernen?",
+      "removeText": "Sein Schlüssel und seine Modelle werden von diesem Gerät gelöscht.",
+      "name": "Name",
+      "baseUrl": "Basis-URL",
+      "baseUrlHint": "Adresse der OpenAI-kompatiblen API, endet meist auf /v1.",
+      "baseUrlHintAnthropic": "Lassen Sie https://api.anthropic.com/v1.",
+      "apiKey": "API-Schlüssel",
+      "models": "Modelle",
+      "addModel": "Modell hinzufügen…",
+      "removeModel": "{{model}} entfernen",
+      "fetch": "Modelle abrufen",
+      "fetched_one": "{{count}} Modell gefunden",
+      "fetched_other": "{{count}} Modelle gefunden",
+      "noModelList": "Dieser Server veröffentlicht seine Liste nicht: Fügen Sie die Modelle von Hand hinzu.",
+      "test": "Testen",
+      "testOk": "✓ {{ms}} ms · Werkzeuge unterstützt",
+      "testOkNoTools": "✓ {{ms}} ms · ohne Werkzeuge",
+      "advanced": "Erweitert",
+      "extraBody": "Zusätzliche Parameter (JSON)",
+      "extraBodyHint": "Werden in jede Anfrage eingefügt. Beispiel für Qwen ohne Denkmodus: {\"chat_template_kwargs\":{\"enable_thinking\":false}}",
+      "devProxy": "Entwicklungs-Proxy (umgeht CORS)",
+      "devProxyHint": "Läuft über den lokalen Vite-Server. Existiert nicht in der Produktion.",
+      "add": "Anbieter hinzufügen",
+      "defaultModel": "Standardmodell",
+      "feature": {
+        "chat": "Dialog und Suche",
+        "writing": "Schreiben",
+        "summary": "Zusammenfassungen"
+      },
+      "sameAsDefault": "Wie das Standardmodell"
+    },
+    "secret": {
+      "saved": "Schlüssel gespeichert",
+      "optional": "(optional)",
+      "show": "Schlüssel anzeigen",
+      "hide": "Schlüssel verbergen",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "replace": "Ersetzen",
+      "clear": "Löschen",
+      "hint": "Auf diesem Gerät verschlüsselt."
+    },
+    "prompts": {
+      "systemTitle": "System-Prompts",
+      "intro": "Diese Anweisungen leiten die KI. Sie sind für bessere Ergebnisse auf Englisch, aber Sie können sie in Ihrer Sprache schreiben.",
+      "variables": "Variablen:",
+      "vars": {
+        "language": "Antwortsprache (Sprache der Oberfläche oder die unter „Allgemein“ gewählte)",
+        "date": "Lokales Datum und Uhrzeit",
+        "user": "Ihre Postfächer: Name <Adresse>, getrennt durch „; “",
+        "mailboxes": "Eine Zeile pro Postfach: - Name <Adresse>",
+        "mailbox_style": "Schreibstil des verwendeten Postfachs (unten)"
+      },
+      "keys": {
+        "base": {
+          "title": "Für alle Funktionen",
+          "description": "Wird vor jedem anderen Prompt gesendet: Identität, Datum, Sicherheitsregeln."
+        },
+        "chat": {
+          "title": "Suche und Dialog",
+          "description": "Der Assistent in der Nachrichtenliste, mit seinen Werkzeugen."
+        },
+        "writing": {
+          "title": "Schreiben",
+          "description": "Die Schaltfläche ✨ im Editor."
+        },
+        "summary": {
+          "title": "Tägliche Zusammenfassung",
+          "description": "Die Übersicht der täglich empfangenen E-Mails."
+        },
+        "planner": {
+          "title": "Vereinfachte Suche (Modelle ohne Werkzeuge)",
+          "description": "Wandelt die Frage in eine Suche um, wenn das Modell keine Werkzeuge aufrufen kann."
+        }
+      },
+      "modified": "Geändert",
+      "reset": "Wiederherstellen",
+      "styleTitle": "Schreibstil pro Postfach",
+      "mailbox": "Postfach",
+      "stylePlaceholder": "Beispiel: professioneller und herzlicher Ton, Sie-Form, kurze Sätze, keine Emojis.",
+      "styleHint": "Wird den Schreibanweisungen hinzugefügt, wenn Sie aus diesem Postfach schreiben.",
+      "templatesTitle": "Prompt-Vorlagen",
+      "scope": {
+        "compose": "Editor",
+        "chat": "Dialog"
+      },
+      "moveUp": "Nach oben",
+      "moveDown": "Nach unten",
+      "newTemplate": "Neue Vorlage",
+      "resetTemplates": "Standardvorlagen wiederherstellen",
+      "resetTemplatesTitle": "Standardvorlagen wiederherstellen?",
+      "resetTemplatesText": "Ihre Änderungen und die von Ihnen erstellten Vorlagen gehen verloren.",
+      "name": "Name",
+      "usedIn": "Verwendet in",
+      "prompt": "Prompt",
+      "send": "Direkt senden",
+      "replyOnly": "Nur beim Antworten oder Weiterleiten",
+      "delete": "Löschen",
+      "deleteTitle": "Vorlage „{{name}}“ löschen?"
+    },
+    "summaries": {
+      "auto": "Automatische Tageszusammenfassung",
+      "autoHint": "Wird beim Öffnen von „Zusammenfassungen“ erstellt, falls noch nicht vorhanden.",
+      "maxEmails": "Maximale Anzahl an E-Mails",
+      "maxChars": "Maximale Länge pro E-Mail",
+      "chars": "Zeichen",
+      "includeRead": "Bereits gelesene E-Mails einbeziehen",
+      "mailboxes": "Zusammengefasste Postfächer",
+      "never": "Spam, Papierkorb, Entwürfe und gesendete E-Mails werden nie zusammengefasst."
+    },
+    "dictation": {
+      "enable": "Sprachdiktat",
+      "enableHint": "Mikrofonschaltfläche im Editor und im Dialog, Live-Transkription durch Deepgram.",
+      "key": "Deepgram-API-Schlüssel",
+      "createKey": "Schlüssel erstellen",
+      "model": "Modell",
+      "language": "Sprache",
+      "langAuto": "Sprache der Nachricht",
+      "langMulti": "Automatische Erkennung (mehrere Sprachen)"
+    }
+  }
+}

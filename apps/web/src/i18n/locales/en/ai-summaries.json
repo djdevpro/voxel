@@ -1,0 +1,47 @@
+{
+  "nav": "Summaries",
+  "title": "Summaries",
+  "subtitle": "A daily digest of your emails",
+  "list": {
+    "region": "Daily summaries",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "emails_one": "{{count}} email",
+    "emails_other": "{{count}} emails",
+    "generating": "Writing the summary…"
+  },
+  "actions": {
+    "today": "Summarize today",
+    "regenerate": "Regenerate",
+    "copy": "Copy",
+    "copied": "Summary copied",
+    "delete": "Delete",
+    "deleteTitle": "Delete this summary?",
+    "configure": "Set up AI",
+    "stop": "Stop"
+  },
+  "empty": {
+    "title": "No summaries yet",
+    "description": "Each day, the AI summarizes the emails you received: what needs action first, then the rest. Spam is ignored.",
+    "day": "No emails received that day."
+  },
+  "notReady": {
+    "title": "Get a daily summary",
+    "description": "Set up an AI provider to receive a summary of your emails every day."
+  },
+  "reader": {
+    "region": "Summary",
+    "pick": "Pick a day on the left",
+    "back": "Back to summaries",
+    "generatedAt": "Generated at {{time}}",
+    "sources": "Summarized conversations ({{count}})",
+    "collecting": "Reading your emails…",
+    "read_one": "{{count}} email read",
+    "read_other": "{{count}} emails read"
+  },
+  "error": {
+    "retry": "Retry",
+    "settings": "AI settings"
+  },
+  "fallbackTitle": "Summary of {{date}}"
+}

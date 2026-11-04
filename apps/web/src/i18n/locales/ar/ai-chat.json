@@ -1,0 +1,99 @@
+{
+  "bar": {
+    "placeholder": "ابحث أو اسأل الذكاء الاصطناعي…",
+    "ask": "اسأل الذكاء الاصطناعي: «{{text}}»",
+    "search": "ابحث عن «{{text}}»",
+    "openChat": "محادثة",
+    "resume": "استئناف المحادثة"
+  },
+  "header": {
+    "title": "المساعد",
+    "newChat": "محادثة جديدة",
+    "close": "إغلاق"
+  },
+  "conversation": {
+    "label": "محادثة مع المساعد",
+    "scrollToEnd": "الانتقال إلى آخر رسالة"
+  },
+  "empty": {
+    "greeting": "مرحبًا {{name}}",
+    "greetingAnonymous": "مرحبًا",
+    "subtitle": "اعثر على رسالة، لخّص يومك، اكتب إلى شخص ما.",
+    "tip": "لا تزال عوامل التصفية مثل from: و is:unread تعمل في الشريط للبحث التقليدي."
+  },
+  "input": {
+    "placeholder": "اكتب إلى المساعد…",
+    "send": "إرسال",
+    "stop": "إيقاف",
+    "dictate": "إملاء",
+    "stopDictation": "إيقاف الإملاء"
+  },
+  "reasoning": {
+    "running": "يفكر…",
+    "done": "التفكير"
+  },
+  "tools": {
+    "search": "بحث: {{criteria}}",
+    "latest": "أحدث الرسائل",
+    "from": "من «{{value}}»",
+    "to": "إلى «{{value}}»",
+    "subject": "الموضوع «{{value}}»",
+    "text": "«{{value}}»",
+    "since": "منذ {{date}}",
+    "until": "حتى {{date}}",
+    "unread": "غير مقروءة",
+    "read": "مقروءة",
+    "flagged": "مميّزة",
+    "attachments": "بمرفق",
+    "folder": "في {{folder}}",
+    "mailbox": "صندوق {{mailbox}}",
+    "readTitle": "قراءة: «{{subject}}»",
+    "contactsTitle": "جهات الاتصال: «{{query}}»",
+    "composeTitle": "فُتحت مسودة إلى {{to}}",
+    "openTitle": "فُتحت المحادثة: «{{subject}}»",
+    "count_zero": "لا نتائج",
+    "count_one": "نتيجة واحدة",
+    "count_two": "نتيجتان",
+    "count_few": "{{count}} نتائج",
+    "count_many": "{{count}} نتيجة",
+    "count_other": "{{count}} نتيجة",
+    "contactsCount_zero": "لا شيء",
+    "contactsCount_one": "جهة واحدة",
+    "contactsCount_two": "جهتان",
+    "contactsCount_few": "{{count}} جهات",
+    "contactsCount_many": "{{count}} جهة",
+    "contactsCount_other": "{{count}} جهة"
+  },
+  "results": {
+    "showMore_zero": "عرض {{count}} أخرى",
+    "showMore_one": "عرض نتيجة أخرى",
+    "showMore_two": "عرض نتيجتين أخريين",
+    "showMore_few": "عرض {{count}} نتائج أخرى",
+    "showMore_many": "عرض {{count}} نتيجة أخرى",
+    "showMore_other": "عرض {{count}} نتيجة أخرى",
+    "showInList": "عرض في القائمة",
+    "none": "لم يُعثر على أي رسالة.",
+    "count_zero": "لا رسائل",
+    "count_one": "رسالة واحدة",
+    "count_two": "رسالتان",
+    "count_few": "{{count}} رسائل",
+    "count_many": "{{count}} رسالة",
+    "count_other": "{{count}} رسالة"
+  },
+  "contacts": {
+    "write": "كتابة",
+    "emails": "رسائله",
+    "pick": "{{name}} <{{email}}>",
+    "emailsPrompt": "أرني الرسائل من {{name}} <{{email}}>",
+    "none": "لم يُعثر على أي جهة اتصال."
+  },
+  "message": {
+    "copy": "نسخ",
+    "copied": "تم النسخ",
+    "regenerate": "إعادة التوليد"
+  },
+  "error": {
+    "retry": "إعادة المحاولة",
+    "settings": "إعدادات الذكاء الاصطناعي"
+  }
+}

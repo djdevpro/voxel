@@ -1,0 +1,86 @@
+{
+  "rail": {
+    "label": "Caselle di posta",
+    "all": "Tutte le caselle",
+    "add": "Aggiungi una casella",
+    "palette": "Tavolozza dei comandi",
+    "lightTheme": "Tema chiaro",
+    "darkTheme": "Tema scuro",
+    "settings": "Impostazioni",
+    "accountMenu": "Menu dell’account {{email}}",
+    "needsReconnect": "nuovo accesso necessario",
+    "unread_one": "{{count}} da leggere",
+    "unread_other": "{{count}} da leggere",
+    "unread_many": "{{count}} da leggere"
+  },
+  "menu": {
+    "rename": "Rinomina",
+    "color": "Colore",
+    "settings": "Impostazioni della casella",
+    "add": "Aggiungi un’altra casella",
+    "logout": "Esci da questa casella",
+    "logoutAll": "Esci da tutte le caselle"
+  },
+  "rename": {
+    "title": "Rinomina la casella",
+    "label": "Nome visualizzato",
+    "placeholder": "Lavoro, Personale…"
+  },
+  "common": {
+    "cancel": "Annulla",
+    "save": "Salva"
+  },
+  "add": {
+    "title": "Aggiungi una casella",
+    "text": "Accedi a un’altra casella per usarla insieme a quelle già aperte.",
+    "reconnectTitle": "Accedi di nuovo",
+    "reconnectText": "Il server di posta ha rifiutato le credenziali salvate per {{email}}. Inserisci la password attuale.",
+    "added": "{{email}} aggiunta",
+    "reconnected": "{{email}} ricollegata"
+  },
+  "reconnect": {
+    "title": "Accedi di nuovo a {{email}}",
+    "text": "Il server di posta ha rifiutato la password. Forse è stata cambiata.",
+    "action": "Accedi",
+    "dismiss": "Ignora"
+  },
+  "logout": {
+    "confirmTitle": "Uscire da {{email}}?",
+    "confirmText": "Cache, bozze locali e azioni in sospeso verranno cancellate da questo dispositivo. Nulla viene eliminato sul server di posta.",
+    "confirm": "Esci",
+    "done": "Uscito da {{email}}"
+  },
+  "logoutAll": {
+    "confirmTitle": "Uscire da tutte le caselle?",
+    "confirmText": "La sessione termina e tutto ciò che è in cache su questo dispositivo viene cancellato.",
+    "confirm": "Esci da tutto"
+  },
+  "toast": {
+    "updateFailed": "Impossibile salvare la modifica",
+    "logoutFailed": "Impossibile uscire"
+  },
+  "section": {
+    "intro": "Caselle aperte in questa sessione. Le credenziali sono cifrate sul server e non tornano mai al browser. L’ordine definisce le scorciatoie Ctrl+1…9.",
+    "details": "Dettagli",
+    "displayName": "Nome visualizzato",
+    "displayNameHint": "Condiviso tra i tuoi dispositivi.",
+    "color": "Colore di accento",
+    "capabilities": "Supporta:",
+    "test": "Verifica connessione",
+    "testOk": "Connessione OK",
+    "testFail": "Connessione non riuscita",
+    "storedOnDevice": "Password salvata su questo dispositivo, cifrata",
+    "manageAccount": "Gestisci il mio account"
+  },
+  "capability": {
+    "vacation": "risposta automatica",
+    "sieve": "filtri",
+    "contacts": "contatti",
+    "submissionDelay": "invio programmato",
+    "quota": "quota"
+  },
+  "notification": {
+    "newMessage": "Nuovo messaggio",
+    "noSubject": "(nessun oggetto)"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "porcelain": {
+    "name": "Porcelain",
+    "description": "Warm greys, calm and bright"
+  },
+  "graphite": {
+    "name": "Graphite",
+    "description": "Cool neutral, crisp contrast"
+  },
+  "nord": {
+    "name": "Nord",
+    "description": "Arctic blues and frost"
+  },
+  "rose-pine": {
+    "name": "Rosé Pine",
+    "description": "Soft dawn, muted moonlight"
+  },
+  "catppuccin": {
+    "name": "Catppuccin",
+    "description": "Pastel Latte and Mocha"
+  },
+  "solarized": {
+    "name": "Solarized",
+    "description": "The classic precision palette"
+  },
+  "sepia": {
+    "name": "Sepia",
+    "description": "Paper tones for long reads"
+  },
+  "forest": {
+    "name": "Forest",
+    "description": "Deep, quiet greens"
+  },
+  "ocean": {
+    "name": "Ocean",
+    "description": "Clear and deep blues"
+  },
+  "midnight": {
+    "name": "Midnight",
+    "description": "True black, very soft light"
+  }
+}

@@ -1,0 +1,615 @@
+/* ==========================================================================
+   Voxel — jetons de design
+   --voxel-*  : jetons propres à l'appli (mouvement, surfaces, accent par boîte)
+   shadcn  : variables standard (background, foreground, primary…)
+
+   Couleurs : définies par les collections de thèmes (./themes/<id>.css), chacune
+   en clair [data-theme='<id>'] et en sombre [data-theme='<id>'].dark. Sans
+   data-theme, la collection « porcelain » s'applique. Une collection redéfinit
+   tous les jetons de couleur :
+     --voxel-accent / --voxel-on-accent / --voxel-accent-soft|softer|strong|ring
+     --voxel-app --voxel-rail --voxel-sidebar --voxel-panel --voxel-row-hover|selected|unread
+     --voxel-line --voxel-line-strong --voxel-text-1|2|3
+     --voxel-shadow-float --voxel-shadow-soft --voxel-overlay
+     --voxel-danger --voxel-success --voxel-warn --voxel-flag
+     --voxel-btn-primary-bg|fg|icon|border|hover --voxel-btn-secondary-bg|fg|border|hover
+     + variables shadcn (background … input, ring)
+   L'accent de la boîte active, posé en style inline sur <html>, l'emporte sur
+   l'accent par défaut de la collection.
+   ========================================================================== */
+
+@import './themes/porcelain.css';
+@import './themes/graphite.css';
+@import './themes/nord.css';
+@import './themes/rose-pine.css';
+@import './themes/catppuccin.css';
+@import './themes/solarized.css';
+@import './themes/sepia.css';
+@import './themes/forest.css';
+@import './themes/ocean.css';
+@import './themes/midnight.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Mouvement */
+  --voxel-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --voxel-dur-fast: 120ms;
+  --voxel-dur: 160ms;
+  --voxel-dur-slow: 220ms;
+
+  /* Densité */
+  --voxel-row-h: 68px;
+
+  /* shadcn (hors couleurs) */
+  --radius: 0.625rem;
+}
+
+[data-density='compact'] {
+  --voxel-row-h: 52px;
+}
+
+/* --------------------------------------------------------------------------
+   Jetons dérivés, communs à toutes les collections (calculés depuis les jetons
+   de la collection active ; aucune collection n'a à les redéfinir).
+   - Éléments flottants (menus, popovers, listes, dialogues, feuilles) :
+     bordure 1 px + ombre douce ; en sombre la bordure monte d'un cran et un
+     liseré clair en haut détache la surface du fond.
+   - Survol des éléments de menu, info-bulles, bouton désactivé.
+   -------------------------------------------------------------------------- */
+:root {
+  --voxel-float-border: var(--voxel-line);
+  --voxel-float-highlight: inset 0 0 0 0 transparent;
+  --voxel-float-shadow: var(--voxel-float-highlight), var(--voxel-shadow-float);
+  --voxel-menu-hover: color-mix(in oklab, var(--voxel-text-1) 6%, transparent);
+  --voxel-tooltip-bg: var(--voxel-text-1);
+  --voxel-tooltip-fg: var(--voxel-panel);
+  --voxel-tooltip-border: transparent;
+  --voxel-btn-primary-highlight: inset 0 1px 0 rgb(255 255 255 / 0.16);
+  --voxel-btn-primary-active: color-mix(in oklab, var(--voxel-btn-primary-hover) 88%, var(--voxel-text-1));
+  --voxel-btn-disabled-bg: color-mix(in oklab, var(--voxel-text-1) 5%, var(--voxel-panel));
+  --voxel-btn-disabled-fg: var(--voxel-text-3);
+  --voxel-btn-disabled-border: var(--voxel-line);
+  --voxel-btn-danger-bg: var(--voxel-danger);
+  --voxel-btn-danger-fg: #fff;
+  --voxel-btn-danger-border: color-mix(in oklab, var(--voxel-danger) 80%, var(--voxel-text-1));
+  --voxel-btn-danger-hover: color-mix(in oklab, var(--voxel-danger) 90%, var(--voxel-text-1));
+  /* bouton tonal (« Nouveau message ») : teinte d'accent légère, jamais d'aplat saturé */
+  --voxel-btn-tonal-bg: color-mix(in oklab, var(--voxel-accent) 11%, var(--voxel-panel));
+  --voxel-btn-tonal-fg: var(--voxel-text-1);
+  --voxel-btn-tonal-icon: var(--voxel-accent-strong);
+  --voxel-btn-tonal-border: color-mix(in oklab, var(--voxel-accent) 26%, var(--voxel-line));
+  --voxel-btn-tonal-hover: color-mix(in oklab, var(--voxel-accent) 17%, var(--voxel-panel));
+  --voxel-btn-tonal-active: color-mix(in oklab, var(--voxel-accent) 23%, var(--voxel-panel));
+}
+.dark {
+  --voxel-btn-tonal-bg: var(--voxel-btn-primary-bg);
+  --voxel-btn-tonal-fg: var(--voxel-btn-primary-fg);
+  --voxel-btn-tonal-icon: var(--voxel-btn-primary-icon);
+  --voxel-btn-tonal-border: var(--voxel-btn-primary-border);
+  --voxel-btn-tonal-hover: var(--voxel-btn-primary-hover);
+  --voxel-btn-tonal-active: var(--voxel-btn-primary-active);
+  --voxel-float-border: var(--voxel-line-strong);
+  --voxel-float-highlight: inset 0 1px 0 0 rgb(255 255 255 / 0.045);
+  --voxel-menu-hover: color-mix(in oklab, var(--voxel-text-1) 8%, transparent);
+  --voxel-tooltip-bg: color-mix(in oklab, var(--voxel-text-1) 12%, var(--voxel-panel));
+  --voxel-tooltip-fg: var(--voxel-text-1);
+  --voxel-tooltip-border: var(--voxel-line-strong);
+  --voxel-btn-primary-highlight: inset 0 1px 0 rgb(255 255 255 / 0.04);
+  --voxel-btn-primary-active: color-mix(in oklab, var(--voxel-accent) 30%, var(--voxel-panel));
+  --voxel-btn-disabled-bg: color-mix(in oklab, var(--voxel-text-1) 4%, var(--voxel-panel));
+  --voxel-btn-danger-bg: color-mix(in oklab, var(--voxel-danger) 16%, var(--voxel-panel));
+  --voxel-btn-danger-fg: color-mix(in oklab, var(--voxel-danger) 70%, var(--voxel-text-1));
+  --voxel-btn-danger-border: color-mix(in oklab, var(--voxel-danger) 42%, var(--voxel-line-strong));
+  --voxel-btn-danger-hover: color-mix(in oklab, var(--voxel-danger) 24%, var(--voxel-panel));
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
+  --ease-voxel: var(--voxel-ease);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-app: var(--voxel-app);
+  --color-rail: var(--voxel-rail);
+  --color-sidebar: var(--voxel-sidebar);
+  --color-panel: var(--voxel-panel);
+  --color-line: var(--voxel-line);
+  --color-line-strong: var(--voxel-line-strong);
+  --color-row-hover: var(--voxel-row-hover);
+  --color-row-selected: var(--voxel-row-selected);
+  --color-text-1: var(--voxel-text-1);
+  --color-text-2: var(--voxel-text-2);
+  --color-text-3: var(--voxel-text-3);
+  --color-voxel-accent: var(--voxel-accent);
+  --color-voxel-accent-soft: var(--voxel-accent-soft);
+  --color-voxel-accent-softer: var(--voxel-accent-softer);
+  --color-voxel-accent-strong: var(--voxel-accent-strong);
+  --color-danger: var(--voxel-danger);
+  --color-success: var(--voxel-success);
+  --color-flag: var(--voxel-flag);
+  --color-warn: var(--voxel-warn);
+  --color-on-accent: var(--voxel-on-accent);
+  --color-btn-primary: var(--voxel-btn-primary-bg);
+  --color-btn-primary-fg: var(--voxel-btn-primary-fg);
+  --color-btn-primary-border: var(--voxel-btn-primary-border);
+  --color-btn-secondary: var(--voxel-btn-secondary-bg);
+  --color-btn-secondary-fg: var(--voxel-btn-secondary-fg);
+  --color-btn-secondary-border: var(--voxel-btn-secondary-border);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-float: var(--voxel-shadow-float);
+  --shadow-soft: var(--voxel-shadow-soft);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-app text-text-1 font-sans antialiased;
+    font-size: 14px;
+    line-height: 1.5;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--voxel-accent) 24%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--voxel-accent-ring);
+    outline-offset: 2px;
+  }
+  button,
+  [role='button'] {
+    cursor: default;
+  }
+  /* Barres de défilement discrètes */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--voxel-text-3) 35%, transparent) transparent;
+  }
+}
+
+/* Transitions shadcn/Radix alignées sur la courbe maison */
+[data-slot$='-content'],
+[data-slot='dialog-overlay'],
+[data-slot='alert-dialog-overlay'] {
+  --tw-ease: var(--voxel-ease);
+  --tw-duration: 160ms;
+  --tw-animation-duration: 160ms;
+  --tw-enter-scale: 0.97;
+  --tw-exit-scale: 0.97;
+}
+[data-slot='dialog-overlay'],
+[data-slot='alert-dialog-overlay'] {
+  background: var(--voxel-overlay) !important;
+  backdrop-filter: blur(2px);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility voxel-transition {
+  transition-duration: var(--voxel-dur);
+  transition-timing-function: var(--voxel-ease);
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+}
+
+/* Squelettes : balayage doux */
+@keyframes voxel-shimmer {
+  0% {
+    background-position: -240px 0;
+  }
+  100% {
+    background-position: 240px 0;
+  }
+}
+.voxel-skeleton {
+  background: linear-gradient(90deg, var(--voxel-line) 0%, color-mix(in oklab, var(--voxel-line) 45%, transparent) 50%, var(--voxel-line) 100%);
+  background-size: 480px 100%;
+  animation: voxel-shimmer 1.4s linear infinite;
+  border-radius: 6px;
+}
+
+/* Éditeur Tiptap */
+.voxel-prose {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--voxel-text-1);
+  outline: none;
+}
+.voxel-prose p {
+  margin: 0 0 0.5em;
+}
+.voxel-prose p:last-child {
+  margin-bottom: 0;
+}
+.voxel-prose ul,
+.voxel-prose ol {
+  padding-left: 1.4em;
+  margin: 0.25em 0 0.6em;
+}
+.voxel-prose ul {
+  list-style: disc;
+}
+.voxel-prose ol {
+  list-style: decimal;
+}
+.voxel-prose blockquote {
+  border-left: 2px solid var(--voxel-line-strong);
+  padding-left: 0.9em;
+  color: var(--voxel-text-2);
+  margin: 0.4em 0;
+}
+.voxel-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--muted);
+  border-radius: 4px;
+  padding: 0.1em 0.3em;
+}
+.voxel-prose pre {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--muted);
+  border-radius: 8px;
+  padding: 0.7em 0.9em;
+  overflow-x: auto;
+}
+.voxel-prose a {
+  color: var(--voxel-accent-strong);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.voxel-prose img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+.voxel-prose h1,
+.voxel-prose h2,
+.voxel-prose h3 {
+  font-weight: 600;
+  margin: 0.6em 0 0.3em;
+}
+.voxel-prose p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--voxel-text-3);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.voxel-prose hr {
+  border: none;
+  border-top: 1px solid var(--voxel-line);
+  margin: 1em 0;
+}
+
+/* Corps texte brut d'un mail */
+.voxel-plain {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.voxel-plain a {
+  color: var(--voxel-accent-strong);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.voxel-plain .voxel-quote {
+  color: var(--voxel-text-3);
+}
+
+/* Sonner */
+[data-sonner-toaster] {
+  --normal-bg: var(--popover);
+  --normal-border: var(--voxel-float-border);
+  --normal-text: var(--voxel-text-1);
+  font-family: var(--font-sans) !important;
+}
+[data-sonner-toast] {
+  box-shadow: var(--voxel-float-shadow) !important;
+  border-radius: 12px !important;
+  font-size: 13.5px !important;
+}
+/* Toasts : même courbe et mêmes durées que le reste de l'appli (sonner anime en 400 ms par défaut) */
+[data-sonner-toast] {
+  transition:
+    transform var(--voxel-dur-slow) var(--voxel-ease),
+    opacity var(--voxel-dur-slow) var(--voxel-ease),
+    height var(--voxel-dur-slow) var(--voxel-ease),
+    box-shadow var(--voxel-dur) var(--voxel-ease) !important;
+}
+[data-sonner-toast][data-swiping='true'] {
+  transition: none !important;
+}
+[data-sonner-toast] [data-button] {
+  background: var(--voxel-btn-primary-bg) !important;
+  color: var(--voxel-btn-primary-fg) !important;
+  border: 1px solid var(--voxel-btn-primary-border) !important;
+  border-radius: 7px !important;
+  font-weight: 500 !important;
+  transition: background-color var(--voxel-dur) var(--voxel-ease) !important;
+}
+[data-sonner-toast] [data-button]:hover {
+  background: var(--voxel-btn-primary-hover) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .voxel-skeleton {
+    animation: none;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+.voxel-theme-switching,
+.voxel-theme-switching * {
+  transition: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Changement de collection de thèmes (setThemeId dans src/lib/themes.ts)
+   - View Transitions API : fondu croisé de toute la page (220 ms).
+   - Repli sans View Transitions : la classe .voxel-theme-fade, posée ~220 ms sur
+     <html>, fait glisser les couleurs en 180 ms.
+   prefers-reduced-motion : setThemeId applique le thème sans animation.
+   -------------------------------------------------------------------------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: var(--voxel-ease);
+}
+.voxel-theme-fade,
+.voxel-theme-fade * {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow !important;
+  transition-duration: 180ms !important;
+  transition-timing-function: var(--voxel-ease) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Boutons sobres (passe de design)
+   À appliquer aux composants : className="voxel-btn-primary" (ex. « Nouveau
+   message », « Envoyer », validations de dialogues) ou "voxel-btn-secondary".
+   Fournit couleurs, bordure 1 px, survol, focus et état désactivé ; la taille,
+   le rayon et l'espacement restent ceux du composant (classes Tailwind).
+   - Clair  : aplat d'accent, texte --voxel-on-accent (contraste AA vérifié).
+   - Sombre : surface légèrement teintée par l'accent + bordure fine, texte
+     --voxel-text-1 et icônes accent : jamais d'aplat clair éblouissant.
+   Jetons : --voxel-btn-primary-bg|fg|icon|border|hover, --voxel-btn-secondary-*.
+   Couleurs Tailwind associées : bg-btn-primary, text-btn-primary-fg,
+   border-btn-primary-border, bg-btn-secondary…, text-on-accent.
+   -------------------------------------------------------------------------- */
+@utility voxel-btn-primary {
+  background-color: var(--voxel-btn-primary-bg);
+  color: var(--voxel-btn-primary-fg);
+  border: 1px solid var(--voxel-btn-primary-border);
+  box-shadow: var(--voxel-btn-primary-highlight), var(--voxel-shadow-soft);
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: var(--voxel-dur);
+  transition-timing-function: var(--voxel-ease);
+  & svg {
+    color: var(--voxel-btn-primary-icon);
+    transition: color var(--voxel-dur) var(--voxel-ease);
+  }
+  &:hover:not(:disabled, [aria-disabled='true']) {
+    background-color: var(--voxel-btn-primary-hover);
+  }
+  &:active:not(:disabled, [aria-disabled='true']) {
+    background-color: var(--voxel-btn-primary-active);
+    box-shadow: none;
+    transform: translateY(0.5px);
+    transition-duration: var(--voxel-dur-fast);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--voxel-accent-ring);
+    outline-offset: 2px;
+  }
+  &:disabled,
+  &[aria-disabled='true'] {
+    background-color: var(--voxel-btn-disabled-bg);
+    border-color: var(--voxel-btn-disabled-border);
+    color: var(--voxel-btn-disabled-fg);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  &:disabled svg,
+  &[aria-disabled='true'] svg {
+    color: var(--voxel-btn-disabled-fg);
+  }
+}
+@utility voxel-btn-tonal {
+  background-color: var(--voxel-btn-tonal-bg);
+  color: var(--voxel-btn-tonal-fg);
+  border: 1px solid var(--voxel-btn-tonal-border);
+  box-shadow: var(--voxel-btn-primary-highlight), var(--voxel-shadow-soft);
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: var(--voxel-dur);
+  transition-timing-function: var(--voxel-ease);
+  & svg {
+    color: var(--voxel-btn-tonal-icon);
+  }
+  &:hover:not(:disabled, [aria-disabled='true']) {
+    background-color: var(--voxel-btn-tonal-hover);
+  }
+  &:active:not(:disabled, [aria-disabled='true']) {
+    background-color: var(--voxel-btn-tonal-active);
+    box-shadow: none;
+    transform: translateY(0.5px);
+    transition-duration: var(--voxel-dur-fast);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--voxel-accent-ring);
+    outline-offset: 2px;
+  }
+}
+@utility voxel-btn-secondary {
+  background-color: var(--voxel-btn-secondary-bg);
+  color: var(--voxel-btn-secondary-fg);
+  border: 1px solid var(--voxel-btn-secondary-border);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 0.03);
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: var(--voxel-dur);
+  transition-timing-function: var(--voxel-ease);
+  & svg {
+    color: var(--voxel-text-2);
+  }
+  &:hover:not(:disabled, [aria-disabled='true']) {
+    background-color: var(--voxel-btn-secondary-hover);
+  }
+  &:active:not(:disabled, [aria-disabled='true']) {
+    transform: translateY(0.5px);
+    box-shadow: none;
+    transition-duration: var(--voxel-dur-fast);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--voxel-accent-ring);
+    outline-offset: 2px;
+  }
+  &:disabled,
+  &[aria-disabled='true'] {
+    color: var(--voxel-btn-disabled-fg);
+    border-color: var(--voxel-btn-disabled-border);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+@utility voxel-btn-danger {
+  background-color: var(--voxel-btn-danger-bg);
+  color: var(--voxel-btn-danger-fg);
+  border: 1px solid var(--voxel-btn-danger-border);
+  box-shadow: var(--voxel-btn-primary-highlight), var(--voxel-shadow-soft);
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: var(--voxel-dur);
+  transition-timing-function: var(--voxel-ease);
+  &:hover:not(:disabled, [aria-disabled='true']) {
+    background-color: var(--voxel-btn-danger-hover);
+  }
+  &:active:not(:disabled, [aria-disabled='true']) {
+    transform: translateY(0.5px);
+    box-shadow: none;
+  }
+  &:focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--voxel-danger) 55%, transparent);
+    outline-offset: 2px;
+  }
+  &:disabled {
+    background-color: var(--voxel-btn-disabled-bg);
+    border-color: var(--voxel-btn-disabled-border);
+    color: var(--voxel-btn-disabled-fg);
+    box-shadow: none;
+  }
+}
+
+/* Signature dans la fenêtre de rédaction */
+.voxel-prose.voxel-sig {
+  font-size: 13px;
+  color: var(--voxel-text-2);
+}
+.voxel-prose.voxel-sig p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Monogramme (components/common/Logo.tsx)
+   -------------------------------------------------------------------------- */
+.voxel-logo {
+  --logo-tile: var(--voxel-text-1);
+  --logo-edge: var(--voxel-text-1);
+  --logo-ink: var(--voxel-app);
+}
+.dark .voxel-logo {
+  --logo-tile: color-mix(in oklab, var(--voxel-text-1) 10%, var(--voxel-panel));
+  --logo-edge: var(--voxel-line-strong);
+  --logo-ink: var(--voxel-text-1);
+}
+.voxel-logo-tile {
+  fill: var(--logo-tile);
+  stroke: var(--logo-edge);
+  stroke-width: 1;
+}
+.voxel-logo-ink {
+  fill: none;
+  stroke: var(--logo-ink);
+}
+.voxel-logo-dot {
+  fill: var(--voxel-accent);
+  stroke: var(--logo-tile);
+}
+
+/* --------------------------------------------------------------------------
+   Écran de connexion / choix du compte (components/auth/AuthScreen.tsx)
+   - fond : lueur d'accent venue du haut + trame de points estompée vers les bords ;
+   - carte : surface panneau, bordure 1 px, ombre douce (+ liseré clair en sombre).
+   -------------------------------------------------------------------------- */
+.voxel-auth-backdrop {
+  background:
+    radial-gradient(60% 46% at 50% -6%, color-mix(in oklab, var(--voxel-accent) 13%, transparent), transparent 72%),
+    radial-gradient(color-mix(in oklab, var(--voxel-text-1) 9%, transparent) 1px, transparent 1.2px) 0 0 / 22px 22px;
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 34%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(70% 60% at 50% 34%, #000 30%, transparent 100%);
+}
+.dark .voxel-auth-backdrop {
+  background:
+    radial-gradient(60% 46% at 50% -6%, color-mix(in oklab, var(--voxel-accent) 16%, transparent), transparent 72%),
+    radial-gradient(color-mix(in oklab, var(--voxel-text-1) 7%, transparent) 1px, transparent 1.2px) 0 0 / 22px 22px;
+}
+.voxel-auth-card {
+  background: var(--voxel-panel);
+  border-color: var(--voxel-line);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.04),
+    0 12px 32px -12px rgb(0 0 0 / 0.1);
+}
+.dark .voxel-auth-card {
+  border-color: var(--voxel-line-strong);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.04),
+    0 1px 2px rgb(0 0 0 / 0.4),
+    0 16px 40px -14px rgb(0 0 0 / 0.6);
+}

@@ -1,0 +1,81 @@
+{
+  "groups": {
+    "navigation": "Navigation",
+    "actions": "Actions",
+    "application": "Application",
+    "calendar": "Agenda"
+  },
+  "items": {
+    "next": "Conversation suivante",
+    "previous": "Conversation précédente",
+    "open": "Ouvrir",
+    "backToList": "Retour à la liste",
+    "goInbox": "Aller à la réception",
+    "goFlagged": "Aller aux suivis",
+    "goDrafts": "Aller aux brouillons",
+    "goSent": "Aller aux envoyés",
+    "switchMailbox": "Changer de boîte",
+    "allMailboxes": "Toutes les boîtes",
+    "compose": "Nouveau message",
+    "archive": "Archiver",
+    "delete": "Supprimer",
+    "spam": "Signaler comme spam",
+    "flag": "Suivre / ne plus suivre",
+    "markRead": "Marquer comme lu",
+    "markUnread": "Marquer comme non lu",
+    "select": "Sélectionner la conversation",
+    "reply": "Répondre",
+    "replyAll": "Répondre à tous",
+    "forward": "Transférer",
+    "send": "Envoyer",
+    "search": "Rechercher",
+    "palette": "Palette de commandes",
+    "help": "Aide des raccourcis",
+    "escape": "Fermer / désélectionner",
+    "goContacts": "Aller aux contacts",
+    "goCalendar": "Aller à l'agenda",
+    "calToday": "Aujourd'hui",
+    "calNext": "Période suivante",
+    "calPrevious": "Période précédente",
+    "calMonth": "Vue mois",
+    "calWeek": "Vue semaine",
+    "calDay": "Vue jour",
+    "calAgenda": "Vue liste",
+    "calNew": "Nouvel événement"
+  },
+  "keys": {
+    "enter": "Entrée",
+    "esc": "Échap"
+  },
+  "help": {
+    "title": "Raccourcis clavier",
+    "description": "Inspirés de Gmail. Désactivés pendant la saisie."
+  },
+  "palette": {
+    "title": "Palette de commandes",
+    "placeholder": "Rechercher une commande, un dossier, une boîte…",
+    "empty": "Aucun résultat",
+    "groups": {
+      "search": "Recherche",
+      "actions": "Actions",
+      "goTo": "Aller à",
+      "mailboxes": "Boîtes",
+      "appearance": "Apparence",
+      "session": "Session"
+    },
+    "searchFor": "Rechercher « {{query}} » dans les messages",
+    "searchKeyword": "rechercher",
+    "folderKeyword": "dossier",
+    "mailboxKeyword": "boîte",
+    "settings": "Paramètres",
+    "themeLight": "Thème clair",
+    "themeDark": "Thème sombre",
+    "themeSystem": "Thème du système",
+    "densityComfortable": "Densité confortable",
+    "densityCompact": "Densité compacte",
+    "paneRight": "Volet de lecture à droite",
+    "paneBottom": "Volet de lecture en bas",
+    "paneNone": "Sans volet de lecture",
+    "logout": "Se déconnecter"
+  }
+}

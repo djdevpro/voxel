@@ -1,0 +1,63 @@
+{
+  "actions": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "close": "Close",
+    "retry": "Retry",
+    "ok": "OK",
+    "undo": "Undo",
+    "more": "More",
+    "refresh": "Refresh",
+    "save": "Save",
+    "back": "Back",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "errors": {
+    "generic": "Error"
+  },
+  "time": {
+    "justNow": "just now"
+  },
+  "offline": {
+    "banner": "Offline — your actions will sync when you're back",
+    "offline": "Offline",
+    "pending_one": "{{count}} pending",
+    "pending_other": "{{count}} pending",
+    "pendingActions_one": "{{count}} action pending",
+    "pendingActions_other": "{{count}} actions pending",
+    "backOnline": "Back online",
+    "synced_one": "{{count}} action synced",
+    "synced_other": "{{count}} actions synced",
+    "failed_one": "{{count}} action failed",
+    "failed_other": "{{count}} actions failed"
+  },
+  "nav": {
+    "main": "Main navigation",
+    "menu": "Menu",
+    "inbox": "Inbox",
+    "folders": "Folders",
+    "compose": "Write",
+    "search": "Search",
+    "settings": "Settings"
+  },
+  "noAccounts": {
+    "title": "Add your first mailbox",
+    "description": "Sign in to a mailbox to get started. Your credentials are encrypted on the server.",
+    "add": "Add a mailbox"
+  },
+  "slider": {
+    "delay": "Delay"
+  },
+  "title": {
+    "folder": "{{folder}} — {{mailbox}} · {{app}}",
+    "folderUnread": "({{n}}) {{folder}} — {{mailbox}} · {{app}}",
+    "thread": "{{subject}} · {{app}}",
+    "signIn": "Sign in · {{app}}"
+  },
+  "routing": {
+    "threadNotFound": "This conversation can no longer be found. It may have been deleted or moved.",
+    "folderNotFound": "This folder no longer exists. Back to the inbox."
+  }
+}

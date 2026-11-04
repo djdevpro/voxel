@@ -1,0 +1,67 @@
+{
+  "actions": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Excluir",
+    "close": "Fechar",
+    "retry": "Tentar novamente",
+    "ok": "OK",
+    "undo": "Desfazer",
+    "more": "Mais",
+    "refresh": "Atualizar",
+    "save": "Salvar",
+    "back": "Voltar",
+    "copy": "Copiar",
+    "copied": "Copiado"
+  },
+  "errors": {
+    "generic": "Erro"
+  },
+  "time": {
+    "justNow": "agora mesmo"
+  },
+  "offline": {
+    "banner": "Sem conexão — as ações serão sincronizadas quando você voltar",
+    "offline": "Sem conexão",
+    "pending_one": "{{count}} pendente",
+    "pending_other": "{{count}} pendentes",
+    "pending_many": "{{count}} pendentes",
+    "pendingActions_one": "{{count}} ação pendente",
+    "pendingActions_other": "{{count}} ações pendentes",
+    "pendingActions_many": "{{count}} ações pendentes",
+    "backOnline": "Conectado novamente",
+    "synced_one": "{{count}} ação sincronizada",
+    "synced_other": "{{count}} ações sincronizadas",
+    "synced_many": "{{count}} ações sincronizadas",
+    "failed_one": "{{count}} ação falhou",
+    "failed_other": "{{count}} ações falharam",
+    "failed_many": "{{count}} ações falharam"
+  },
+  "nav": {
+    "main": "Navegação principal",
+    "menu": "Menu",
+    "inbox": "Entrada",
+    "folders": "Pastas",
+    "compose": "Escrever",
+    "search": "Pesquisar",
+    "settings": "Configurações"
+  },
+  "noAccounts": {
+    "title": "Adicione sua primeira caixa de correio",
+    "description": "Entre em uma caixa de correio para começar. Suas credenciais são criptografadas no servidor.",
+    "add": "Adicionar uma caixa"
+  },
+  "slider": {
+    "delay": "Atraso"
+  },
+  "title": {
+    "folder": "{{folder}} — {{mailbox}} · {{app}}",
+    "folderUnread": "({{n}}) {{folder}} — {{mailbox}} · {{app}}",
+    "thread": "{{subject}} · {{app}}",
+    "signIn": "Iniciar sessão · {{app}}"
+  },
+  "routing": {
+    "threadNotFound": "Não foi possível encontrar esta conversa. Pode ter sido eliminada ou movida.",
+    "folderNotFound": "Esta pasta já não existe. A voltar à caixa de entrada."
+  }
+}

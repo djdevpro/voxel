@@ -1,0 +1,42 @@
+{
+  "name": "@voxel/jmap",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Client JMAP typé et isomorphe (RFC 8620 / 8621)",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./vcard": {
+      "types": "./src/vcard.ts",
+      "default": "./src/vcard.ts"
+    },
+    "./jscontact": {
+      "types": "./src/jscontact.ts",
+      "default": "./src/jscontact.ts"
+    },
+    "./jscalendar": {
+      "types": "./src/jscalendar.ts",
+      "default": "./src/jscalendar.ts"
+    },
+    "./ical": {
+      "types": "./src/ical.ts",
+      "default": "./src/ical.ts"
+    },
+    "./recurrence": {
+      "types": "./src/recurrence.ts",
+      "default": "./src/recurrence.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "ical.js": "^2.2.1"
+  }
+}

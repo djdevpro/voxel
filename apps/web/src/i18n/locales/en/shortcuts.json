@@ -1,0 +1,81 @@
+{
+  "groups": {
+    "navigation": "Navigation",
+    "actions": "Actions",
+    "application": "Application",
+    "calendar": "Calendar"
+  },
+  "items": {
+    "next": "Next conversation",
+    "previous": "Previous conversation",
+    "open": "Open",
+    "backToList": "Back to list",
+    "goInbox": "Go to Inbox",
+    "goFlagged": "Go to Flagged",
+    "goDrafts": "Go to Drafts",
+    "goSent": "Go to Sent",
+    "switchMailbox": "Switch mailbox",
+    "allMailboxes": "All mailboxes",
+    "compose": "New message",
+    "archive": "Archive",
+    "delete": "Delete",
+    "spam": "Report spam",
+    "flag": "Flag / unflag",
+    "markRead": "Mark as read",
+    "markUnread": "Mark as unread",
+    "select": "Select conversation",
+    "reply": "Reply",
+    "replyAll": "Reply all",
+    "forward": "Forward",
+    "send": "Send",
+    "search": "Search",
+    "palette": "Command palette",
+    "help": "Keyboard shortcuts help",
+    "escape": "Close / deselect",
+    "goContacts": "Go to Contacts",
+    "goCalendar": "Go to calendar",
+    "calToday": "Today",
+    "calNext": "Next period",
+    "calPrevious": "Previous period",
+    "calMonth": "Month view",
+    "calWeek": "Week view",
+    "calDay": "Day view",
+    "calAgenda": "List view",
+    "calNew": "New event"
+  },
+  "keys": {
+    "enter": "Enter",
+    "esc": "Esc"
+  },
+  "help": {
+    "title": "Keyboard shortcuts",
+    "description": "Inspired by Gmail. Disabled while typing."
+  },
+  "palette": {
+    "title": "Command palette",
+    "placeholder": "Search for a command, folder or mailbox…",
+    "empty": "No results",
+    "groups": {
+      "search": "Search",
+      "actions": "Actions",
+      "goTo": "Go to",
+      "mailboxes": "Mailboxes",
+      "appearance": "Appearance",
+      "session": "Session"
+    },
+    "searchFor": "Search messages for “{{query}}”",
+    "searchKeyword": "search",
+    "folderKeyword": "folder",
+    "mailboxKeyword": "mailbox",
+    "settings": "Settings",
+    "themeLight": "Light theme",
+    "themeDark": "Dark theme",
+    "themeSystem": "System theme",
+    "densityComfortable": "Comfortable density",
+    "densityCompact": "Compact density",
+    "paneRight": "Reading pane on the right",
+    "paneBottom": "Reading pane at the bottom",
+    "paneNone": "No reading pane",
+    "logout": "Sign out"
+  }
+}

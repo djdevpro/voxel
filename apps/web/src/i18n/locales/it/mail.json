@@ -1,0 +1,244 @@
+{
+  "noSubject": "(nessun oggetto)",
+  "roles": {
+    "inbox": "In arrivo",
+    "flagged": "Contrassegnati",
+    "drafts": "Bozze",
+    "sent": "Inviati",
+    "scheduled": "Programmati",
+    "archive": "Archivio",
+    "junk": "Spam",
+    "trash": "Cestino"
+  },
+  "actions": {
+    "archive": "Archivia",
+    "delete": "Elimina",
+    "spam": "Segnala come spam",
+    "notSpam": "Non è spam",
+    "markRead": "Segna come letto",
+    "markUnread": "Segna come non letto",
+    "flag": "Contrassegna",
+    "unflag": "Rimuovi contrassegno",
+    "moveTo": "Sposta in",
+    "markAllRead": "Segna tutto come letto"
+  },
+  "toasts": {
+    "archived_one": "Conversazione archiviata",
+    "archived_other": "{{count}} conversazioni archiviate",
+    "archived_many": "{{count}} conversazioni archiviate",
+    "trashed_one": "Conversazione spostata nel cestino",
+    "trashed_other": "{{count}} conversazioni spostate nel cestino",
+    "trashed_many": "{{count}} conversazioni spostate nel cestino",
+    "spammed_one": "Segnalato come spam",
+    "spammed_other": "{{count}} conversazioni segnalate come spam",
+    "spammed_many": "{{count}} conversazioni segnalate come spam",
+    "movedToInbox": "Spostato in Posta in arrivo",
+    "movedTo": "Spostato in «{{name}}»",
+    "destroyed_one": "Conversazione eliminata definitivamente",
+    "destroyed_other": "{{count}} conversazioni eliminate definitivamente",
+    "destroyed_many": "{{count}} conversazioni eliminate definitivamente",
+    "markedRead": "Segnato come letto",
+    "markedUnread": "Segnato come non letto",
+    "pendingSync": "in attesa di sincronizzazione",
+    "changePending": "Modifica in attesa di sincronizzazione",
+    "view": "Vedi"
+  },
+  "errors": {
+    "move": "Impossibile spostare",
+    "delete": "Impossibile eliminare",
+    "update": "Impossibile aggiornare",
+    "undo": "Impossibile annullare",
+    "action": "Azione non riuscita",
+    "createFolder": "Impossibile creare la cartella",
+    "rename": "Impossibile rinominare",
+    "archiveOffline": "La cartella Archivio verrà creata quando tornerai online",
+    "archiveCreate": "Impossibile creare la cartella Archivio",
+    "destinationNotFound": "Cartella di destinazione non trovata"
+  },
+  "outbox": {
+    "undo": "Annullamento",
+    "destroy": "Eliminazione definitiva",
+    "read": "Letto"
+  },
+  "confirm": {
+    "destroyTitle_one": "Eliminare definitivamente questa conversazione?",
+    "destroyTitle_other": "Eliminare definitivamente {{count}} conversazioni?",
+    "destroyTitle_many": "Eliminare definitivamente {{count}} conversazioni?",
+    "irreversible": "Questa azione è irreversibile."
+  },
+  "sidebar": {
+    "compose": "Nuovo messaggio",
+    "folders": "Cartelle",
+    "systemFolders": "Cartelle di sistema",
+    "newFolder": "Nuova cartella",
+    "folderName": "Nome della cartella",
+    "expand": "Espandi",
+    "collapse": "Comprimi",
+    "actionsFor": "Azioni per {{name}}",
+    "rename": "Rinomina",
+    "newSubfolder": "Nuova sottocartella",
+    "color": "Colore",
+    "noColor": "Nessun colore",
+    "colorValue": "Colore {{color}}",
+    "markedRead_one": "{{count}} messaggio segnato come letto",
+    "markedRead_other": "{{count}} messaggi segnati come letti",
+    "markedRead_many": "{{count}} messaggi segnati come letti",
+    "noUnread": "Nessun messaggio non letto",
+    "deleteTitle": "Eliminare la cartella «{{name}}»?",
+    "deleteDesc": "I messaggi che contiene verranno spostati nel cestino.",
+    "deleteDescChildren": "Verranno eliminate anche le sue sottocartelle. I messaggi verranno spostati nel cestino.",
+    "deleteConfirm": "Elimina cartella",
+    "deleting": "Eliminazione della cartella…",
+    "folderCreated": "Cartella «{{name}}» creata",
+    "folderDeleted": "Cartella «{{name}}» eliminata",
+    "otherAccountDrop": "Le conversazioni di un'altra casella non possono essere spostate qui",
+    "cannotMoveHere": "Impossibile spostare le conversazioni qui",
+    "hideFolder": "Nascondi dalla barra laterale",
+    "folderHidden": "«{{name}}» è nascosta",
+    "manageFolders": "Gestisci cartelle…",
+    "emptyFolder": "Svuota…"
+  },
+  "list": {
+    "region": "Elenco delle conversazioni",
+    "conversations": "Conversazioni",
+    "results": "Risultati",
+    "folder": "Cartella",
+    "allMailboxes": "Tutte le caselle",
+    "selectAll": "Seleziona tutto",
+    "selected_one": "selezionata",
+    "selected_other": "selezionate",
+    "selected_many": "selezionate",
+    "multiAccountSelection": "La selezione riguarda più caselle",
+    "clearSelection": "Annulla selezione",
+    "quick": {
+      "unread": "Non letti",
+      "unreadLong": "Non letti",
+      "flagged": "Contrassegnati",
+      "flaggedLong": "Contrassegnati",
+      "attachment": "Allegati",
+      "attachmentLong": "Con allegati"
+    },
+    "oldestFirst": "Prima i meno recenti",
+    "newestFirst": "Prima i più recenti",
+    "loadError": "Impossibile caricare i messaggi",
+    "serverDown": "Il server non risponde.",
+    "partialError": "{{accounts}}: caricamento non riuscito",
+    "end": "Fine dell'elenco"
+  },
+  "empty": {
+    "search": {
+      "title": "Nessun risultato",
+      "description": "Prova altre parole chiave o rimuovi un filtro."
+    },
+    "inbox": {
+      "title": "Posta in arrivo vuota",
+      "description": "Sei in pari. Goditi la calma."
+    },
+    "flagged": {
+      "title": "Nessun messaggio contrassegnato",
+      "description": "Premi S per contrassegnare una conversazione importante."
+    },
+    "drafts": {
+      "title": "Nessuna bozza",
+      "description": "I messaggi che stai scrivendo appariranno qui."
+    },
+    "sent": {
+      "title": "Nessun messaggio inviato"
+    },
+    "archive": {
+      "title": "Archivio vuoto",
+      "description": "Archivia con E per mantenere ordinata la posta in arrivo."
+    },
+    "junk": {
+      "title": "Nessuno spam",
+      "description": "Niente di sospetto per ora."
+    },
+    "trash": {
+      "title": "Cestino vuoto"
+    },
+    "folder": {
+      "title": "Cartella vuota"
+    }
+  },
+  "row": {
+    "to": "A: {{names}}",
+    "noRecipient": "(nessun destinatario)",
+    "unknownSender": "(mittente sconosciuto)",
+    "draft": "Bozza",
+    "unread": "non letto",
+    "attachment": "Allegato",
+    "flagged": "Contrassegnato",
+    "select": "Seleziona",
+    "conversations_one": "{{count}} conversazione",
+    "conversations_other": "{{count}} conversazioni",
+    "conversations_many": "{{count}} conversazioni"
+  },
+  "search": {
+    "placeholder": "Cerca",
+    "label": "Cerca nei messaggi",
+    "removeFilter": "Rimuovi filtro",
+    "clear": "Cancella ricerca",
+    "filters": "Filtri",
+    "operators": {
+      "from": "Da",
+      "to": "A",
+      "subject": "Oggetto",
+      "has": "Contiene",
+      "is": "Stato",
+      "before": "Prima del",
+      "after": "Dopo il",
+      "in": "In"
+    },
+    "chips": {
+      "attachment": "Con allegato",
+      "unread": "Non letti",
+      "read": "Letti",
+      "flagged": "Contrassegnati",
+      "keyValue": "{{key}}: {{value}}"
+    },
+    "aliases": {
+      "from": "da",
+      "to": "a",
+      "subject": "oggetto",
+      "has": "con,ha",
+      "is": "stato",
+      "before": "prima",
+      "after": "dopo",
+      "in": "cartella",
+      "has_attachment": "allegato,allegati",
+      "is_unread": "non-letto,nonletto,non-letti",
+      "is_read": "letto,letti",
+      "is_flagged": "contrassegnato,contrassegnati",
+      "in_inbox": "arrivo,posta-in-arrivo",
+      "in_sent": "inviati",
+      "in_drafts": "bozze,bozza",
+      "in_archive": "archivio",
+      "in_trash": "cestino",
+      "in_junk": "indesiderata"
+    }
+  },
+  "quota": {
+    "title": "Spazio",
+    "usage": "{{used}} di {{limit}}",
+    "warnToast": "{{mailbox}}: spazio pieno al {{percent}} %"
+  },
+  "priority": {
+    "high": "Priorità alta",
+    "low": "Priorità bassa"
+  },
+  "transfer": {
+    "export": "Esporta (.mbox)",
+    "import": "Importa messaggi (.eml, .mbox)…",
+    "exporting": "Esportazione di «{{name}}»: {{done}} / {{total}}",
+    "cancel": "Annulla",
+    "cancelled": "Annullato",
+    "exported": "«{{name}}» esportata. Messaggi: {{count}}",
+    "exportFailed": "Esportazione non riuscita",
+    "importing": "Importazione in «{{name}}»: {{count}}",
+    "imported": "Importati in «{{name}}». Messaggi: {{count}}",
+    "importFailedSome": "Non importati: {{count}}",
+    "importFailed": "Importazione non riuscita",
+    "importWaiting": "Importazione in «{{name}}» in pausa: il server limita i caricamenti. Riprende verso le {{time}}. Messaggi importati: {{count}}",
+    "importSkipped": "Già presenti, ignorati: {{count}}"
+  }
+}

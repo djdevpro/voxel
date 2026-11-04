@@ -1,0 +1,209 @@
+{
+  "nav": "AI",
+  "errors": {
+    "not_configured": "AI is not set up yet. Choose a provider and a model in Settings → AI.",
+    "missing_key": "No API key for {{provider}}. Add it in Settings → AI.",
+    "network": "Could not reach {{host}} from the browser. The server may be down, or it does not allow requests from this site (CORS).",
+    "auth": "{{provider}} refused the API key.",
+    "not_found": "Model or address not found on {{provider}}.",
+    "rate_limited": "Too many requests: {{provider}} asks to wait a moment.",
+    "server": "{{provider}} returned an error ({{status}}).",
+    "bad_request": "{{provider}} rejected the request: {{detail}}",
+    "tools_unsupported": "This model does not support tools.",
+    "aborted": "Stopped.",
+    "unknown": "Something went wrong with the AI."
+  },
+  "templates": {
+    "fix": "Fix spelling & grammar",
+    "improve": "Improve writing",
+    "shorter": "Make it shorter",
+    "formal": "More formal",
+    "friendly": "Friendlier",
+    "reply": "Draft a reply",
+    "dictation": "Clean up dictation",
+    "translate_en": "Translate to English",
+    "today": "Summarize today's emails",
+    "waiting": "What needs my reply?",
+    "attachments": "Attachments this week",
+    "from_person": "Emails from someone…"
+  },
+  "presets": {
+    "openai": "OpenAI",
+    "anthropic": "Anthropic (Claude)",
+    "hetzner": "Hetzner",
+    "ollama": "Ollama (local)",
+    "custom": "OpenAI-compatible",
+    "demo": "Demo (simulated AI)"
+  },
+  "model": {
+    "none": "No model",
+    "manage": "Manage models…",
+    "pick": "Choose a model",
+    "default": "Default"
+  },
+  "dictation": {
+    "unsupported": "Dictation is not supported by this browser.",
+    "denied": "Microphone access was denied.",
+    "failed": "Dictation stopped: {{detail}}"
+  },
+  "settings": {
+    "tabs": {
+      "general": "General",
+      "models": "Models",
+      "prompts": "Prompts",
+      "summaries": "Summaries",
+      "dictation": "Dictation"
+    },
+    "general": {
+      "enable": "Enable the AI assistant",
+      "enableHint": "Chat search, writing help, daily summaries and the rail icon.",
+      "language": "Response language",
+      "languageAuto": "Interface language ({{name}})",
+      "ready": "Ready: {{model}} via {{provider}}",
+      "test": "Test",
+      "testOk": "Response in {{ms}} ms · tools supported",
+      "testOkNoTools": "Response in {{ms}} ms · no tools: search will use the simplified mode",
+      "notReady": "Choose a provider and a model to get started.",
+      "configure": "Set up",
+      "privacy": "Your keys are encrypted and never leave this device. Requests go straight from your browser to the provider you chose: the Voxel server sees neither your keys nor your conversations with the AI."
+    },
+    "providers": {
+      "intro": "Connect an AI provider. OpenAI-compatible APIs (OpenAI, Hetzner, Ollama, vLLM…) and Anthropic are supported.",
+      "presetHelp": {
+        "hetzner": "OpenAI-compatible. Paste the API URL and your token.",
+        "openai": "api.openai.com, sk-… key",
+        "anthropic": "Claude models, sk-ant-… key",
+        "ollama": "Local models, no key (Ollama must allow this origin: OLLAMA_ORIGINS)",
+        "custom": "vLLM, LM Studio, OpenRouter…",
+        "demo": "Simulated answers to try the interface (development)"
+      },
+      "key": {
+        "saved": "Key saved",
+        "missing": "Key missing",
+        "none": "No key"
+      },
+      "modelCount_one": "{{count}} model",
+      "modelCount_other": "{{count}} models",
+      "remove": "Remove provider",
+      "removeTitle": "Remove {{name}}?",
+      "removeText": "Its key and its models are deleted from this device.",
+      "name": "Name",
+      "baseUrl": "Base URL",
+      "baseUrlHint": "Address of the OpenAI-compatible API, usually ending in /v1.",
+      "baseUrlHintAnthropic": "Leave https://api.anthropic.com/v1.",
+      "apiKey": "API key",
+      "models": "Models",
+      "addModel": "Add a model…",
+      "removeModel": "Remove {{model}}",
+      "fetch": "Fetch models",
+      "fetched_one": "{{count}} model found",
+      "fetched_other": "{{count}} models found",
+      "noModelList": "This server does not publish its list: add the models by hand.",
+      "test": "Test",
+      "testOk": "✓ {{ms}} ms · tools supported",
+      "testOkNoTools": "✓ {{ms}} ms · no tools",
+      "advanced": "Advanced",
+      "extraBody": "Extra parameters (JSON)",
+      "extraBodyHint": "Merged into every request. Example for Qwen without thinking: {\"chat_template_kwargs\":{\"enable_thinking\":false}}",
+      "devProxy": "Development proxy (bypasses CORS)",
+      "devProxyHint": "Goes through the local Vite server. Does not exist in production.",
+      "add": "Add a provider",
+      "defaultModel": "Default model",
+      "feature": {
+        "chat": "Chat and search",
+        "writing": "Writing",
+        "summary": "Summaries"
+      },
+      "sameAsDefault": "Same as the default model"
+    },
+    "secret": {
+      "saved": "Key saved",
+      "optional": "(optional)",
+      "show": "Show key",
+      "hide": "Hide key",
+      "save": "Save",
+      "cancel": "Cancel",
+      "replace": "Replace",
+      "clear": "Clear",
+      "hint": "Encrypted on this device."
+    },
+    "prompts": {
+      "systemTitle": "System prompts",
+      "intro": "These instructions guide the AI. They are in English for better results, but you can write them in your own language.",
+      "variables": "Variables:",
+      "vars": {
+        "language": "Response language (interface language, or the one chosen in General)",
+        "date": "Local date and time",
+        "user": "Your mailboxes: Name <address>, separated by “; ”",
+        "mailboxes": "One line per mailbox: - Name <address>",
+        "mailbox_style": "Writing style of the mailbox in use (below)"
+      },
+      "keys": {
+        "base": {
+          "title": "Common to all features",
+          "description": "Sent before every other prompt: identity, date, safety rules."
+        },
+        "chat": {
+          "title": "Search and chat",
+          "description": "The assistant in the message list, with its tools."
+        },
+        "writing": {
+          "title": "Writing",
+          "description": "The ✨ button of the editor."
+        },
+        "summary": {
+          "title": "Daily summary",
+          "description": "The digest of the emails received each day."
+        },
+        "planner": {
+          "title": "Simplified search (models without tools)",
+          "description": "Turns the question into a search when the model cannot call tools."
+        }
+      },
+      "modified": "Modified",
+      "reset": "Restore",
+      "styleTitle": "Writing style per mailbox",
+      "mailbox": "Mailbox",
+      "stylePlaceholder": "Example: professional and warm tone, formal address, short sentences, no emoji.",
+      "styleHint": "Added to the writing instructions when you write from this mailbox.",
+      "templatesTitle": "Prompt templates",
+      "scope": {
+        "compose": "Editor",
+        "chat": "Chat"
+      },
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "newTemplate": "New template",
+      "resetTemplates": "Restore default templates",
+      "resetTemplatesTitle": "Restore the default templates?",
+      "resetTemplatesText": "Your changes and the templates you created will be lost.",
+      "name": "Name",
+      "usedIn": "Used in",
+      "prompt": "Prompt",
+      "send": "Send directly",
+      "replyOnly": "Only when replying or forwarding",
+      "delete": "Delete",
+      "deleteTitle": "Delete the template “{{name}}”?"
+    },
+    "summaries": {
+      "auto": "Automatic daily summary",
+      "autoHint": "Created when you open “Summaries” if it does not exist yet.",
+      "maxEmails": "Maximum number of emails",
+      "maxChars": "Maximum length per email",
+      "chars": "characters",
+      "includeRead": "Include emails already read",
+      "mailboxes": "Summarized mailboxes",
+      "never": "Spam, trash, drafts and sent emails are never summarized."
+    },
+    "dictation": {
+      "enable": "Voice dictation",
+      "enableHint": "Microphone button in the editor and in the chat, live transcription by Deepgram.",
+      "key": "Deepgram API key",
+      "createKey": "Create a key",
+      "model": "Model",
+      "language": "Language",
+      "langAuto": "Language of the message",
+      "langMulti": "Automatic detection (several languages)"
+    }
+  }
+}

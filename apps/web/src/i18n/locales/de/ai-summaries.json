@@ -1,0 +1,47 @@
+{
+  "nav": "Zusammenfassungen",
+  "title": "Zusammenfassungen",
+  "subtitle": "Ein täglicher Überblick über Ihre E-Mails",
+  "list": {
+    "region": "Tägliche Zusammenfassungen",
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "emails_one": "{{count}} E-Mail",
+    "emails_other": "{{count}} E-Mails",
+    "generating": "Zusammenfassung wird geschrieben…"
+  },
+  "actions": {
+    "today": "Heute zusammenfassen",
+    "regenerate": "Neu erstellen",
+    "copy": "Kopieren",
+    "copied": "Zusammenfassung kopiert",
+    "delete": "Löschen",
+    "deleteTitle": "Diese Zusammenfassung löschen?",
+    "configure": "KI einrichten",
+    "stop": "Stoppen"
+  },
+  "empty": {
+    "title": "Noch keine Zusammenfassungen",
+    "description": "Jeden Tag fasst die KI die empfangenen E-Mails zusammen: zuerst, was eine Aktion erfordert, dann den Rest. Spam wird ignoriert.",
+    "day": "An diesem Tag wurden keine E-Mails empfangen."
+  },
+  "notReady": {
+    "title": "Jeden Tag eine Zusammenfassung",
+    "description": "Richten Sie einen KI-Anbieter ein, um jeden Tag eine Zusammenfassung Ihrer E-Mails zu erhalten."
+  },
+  "reader": {
+    "region": "Zusammenfassung",
+    "pick": "Wählen Sie links einen Tag",
+    "back": "Zurück zu den Zusammenfassungen",
+    "generatedAt": "Erstellt um {{time}}",
+    "sources": "Zusammengefasste Unterhaltungen ({{count}})",
+    "collecting": "Ihre E-Mails werden gelesen…",
+    "read_one": "{{count}} E-Mail gelesen",
+    "read_other": "{{count}} E-Mails gelesen"
+  },
+  "error": {
+    "retry": "Erneut versuchen",
+    "settings": "KI-Einstellungen"
+  },
+  "fallbackTitle": "Zusammenfassung vom {{date}}"
+}

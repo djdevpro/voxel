@@ -1,0 +1,60 @@
+# Builds the container image on every push to main (and on v* tags) and publishes it to
+# ghcr.io/<owner>/<repo>. The server stack pins it by digest and Dependabot proposes each new image.
+name: Image
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: image-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  image:
+    name: Build and publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Log in to ghcr.io
+        env:
+          TOKEN: ${{ github.token }}
+          ACTOR: ${{ github.actor }}
+        run: printf '%s' "$TOKEN" | docker login ghcr.io -u "$ACTOR" --password-stdin
+      - name: Build and push
+        env:
+          REPO: ${{ github.repository }}
+          REF: ${{ github.ref }}
+          SHA: ${{ github.sha }}
+          SOURCE: ${{ github.server_url }}/${{ github.repository }}
+        run: |
+          set -euo pipefail
+          image="ghcr.io/${REPO,,}"
+          tags=(--tag "$image:sha-${SHA:0:7}")
+          case "$REF" in
+            refs/heads/main) tags+=(--tag "$image:main") ;;
+            refs/tags/v*) tags+=(--tag "$image:${REF#refs/tags/v}") ;;
+          esac
+          docker buildx create --use >/dev/null
+          docker buildx build --push "${tags[@]}" \
+            --label "org.opencontainers.image.source=$SOURCE" \
+            --label "org.opencontainers.image.revision=$SHA" \
+            --provenance=mode=max --sbom=true \
+            --cache-from "type=registry,ref=$image:buildcache" \
+            --cache-to "type=registry,ref=$image:buildcache,mode=max" \
+            --metadata-file meta.json .
+          {
+            echo "### $image"
+            echo "Digest: \`$(jq -r '."containerimage.digest"' meta.json)\`"
+          } >>"$GITHUB_STEP_SUMMARY"

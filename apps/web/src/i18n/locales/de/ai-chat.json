@@ -1,0 +1,83 @@
+{
+  "bar": {
+    "placeholder": "Suchen oder die KI fragen…",
+    "ask": "KI fragen: „{{text}}“",
+    "search": "„{{text}}“ suchen",
+    "openChat": "Chat",
+    "resume": "Unterhaltung fortsetzen"
+  },
+  "header": {
+    "title": "Assistent",
+    "newChat": "Neue Unterhaltung",
+    "close": "Schließen"
+  },
+  "conversation": {
+    "label": "Unterhaltung mit dem Assistenten",
+    "scrollToEnd": "Zur neuesten Nachricht"
+  },
+  "empty": {
+    "greeting": "Hallo {{name}}",
+    "greetingAnonymous": "Hallo",
+    "subtitle": "Finde eine E-Mail, fasse deinen Tag zusammen, schreib jemandem.",
+    "tip": "Operatoren wie from: und is:unread funktionieren in der Leiste weiterhin für die klassische Suche."
+  },
+  "input": {
+    "placeholder": "Schreib dem Assistenten…",
+    "send": "Senden",
+    "stop": "Stoppen",
+    "dictate": "Diktieren",
+    "stopDictation": "Diktat beenden"
+  },
+  "reasoning": {
+    "running": "Denkt nach…",
+    "done": "Gedankengang"
+  },
+  "tools": {
+    "search": "Suche: {{criteria}}",
+    "latest": "Neueste E-Mails",
+    "from": "von „{{value}}“",
+    "to": "an „{{value}}“",
+    "subject": "Betreff „{{value}}“",
+    "text": "„{{value}}“",
+    "since": "seit {{date}}",
+    "until": "bis {{date}}",
+    "unread": "ungelesen",
+    "read": "gelesen",
+    "flagged": "markiert",
+    "attachments": "mit Anhang",
+    "folder": "in {{folder}}",
+    "mailbox": "Postfach {{mailbox}}",
+    "count_one": "{{count}} Ergebnis",
+    "count_other": "{{count}} Ergebnisse",
+    "readTitle": "Lesen: „{{subject}}“",
+    "contactsTitle": "Kontakte: „{{query}}“",
+    "contactsCount_one": "{{count}} gefunden",
+    "contactsCount_other": "{{count}} gefunden",
+    "composeTitle": "Entwurf geöffnet für {{to}}",
+    "openTitle": "Unterhaltung geöffnet: „{{subject}}“"
+  },
+  "results": {
+    "count_one": "{{count}} E-Mail",
+    "count_other": "{{count}} E-Mails",
+    "showMore_one": "{{count}} weiteres anzeigen",
+    "showMore_other": "{{count}} weitere anzeigen",
+    "showInList": "In der Liste anzeigen",
+    "none": "Keine E-Mails gefunden."
+  },
+  "contacts": {
+    "write": "Schreiben",
+    "emails": "Ihre E-Mails",
+    "pick": "{{name}} <{{email}}>",
+    "emailsPrompt": "Zeig mir die E-Mails von {{name}} <{{email}}>",
+    "none": "Keine Kontakte gefunden."
+  },
+  "message": {
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "regenerate": "Neu generieren"
+  },
+  "error": {
+    "retry": "Erneut versuchen",
+    "settings": "KI-Einstellungen"
+  }
+}

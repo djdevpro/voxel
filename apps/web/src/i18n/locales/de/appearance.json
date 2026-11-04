@@ -1,0 +1,75 @@
+{
+  "collection": {
+    "title": "Design",
+    "description": "Die Farben der gesamten App. Jedes Design hat eine helle und eine dunkle Variante, die dem Modus unten folgen.",
+    "label": "Design-Sammlung"
+  },
+  "mode": {
+    "title": "Modus",
+    "description": "Hell, dunkel oder wie im System eingestellt.",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System"
+  },
+  "language": {
+    "title": "Sprache",
+    "description": "Sprache der Oberfläche, der Datums- und Zahlenangaben."
+  },
+  "density": {
+    "title": "Dichte",
+    "description": "Zeilenhöhe in der Nachrichtenliste.",
+    "comfortable": "Komfortabel",
+    "compact": "Kompakt"
+  },
+  "readingPane": {
+    "title": "Lesebereich",
+    "description": "Wo die geöffnete Nachricht angezeigt wird.",
+    "right": "Rechts",
+    "bottom": "Unten",
+    "none": "Keiner"
+  },
+  "accentHint": "Die Akzentfarbe wird für jedes Postfach im Tab „Postfächer“ festgelegt und hat Vorrang vor der des Designs.",
+  "reading": {
+    "undoSend": {
+      "title": "Zeit zum Rückgängigmachen",
+      "label": "Zeit zum Rückgängigmachen des Sendens in Sekunden",
+      "description_one": "Nach dem Klick auf Senden hast du {{count}} Sekunde, um es rückgängig zu machen.",
+      "description_other": "Nach dem Klick auf Senden hast du {{count}} Sekunden, um es rückgängig zu machen.",
+      "value": "{{count}} s"
+    },
+    "remoteImages": {
+      "title": "Externe Bilder",
+      "description": "Extern gehostete Bilder können zum Tracking genutzt werden. Du kannst sie im Einzelfall anzeigen.",
+      "block": "Blockieren",
+      "allow": "Immer anzeigen"
+    },
+    "trusted": {
+      "title": "Vertrauenswürdige Absender",
+      "description_one": "{{count}} Absender, dessen Bilder immer angezeigt werden.",
+      "description_other": "{{count}} Absender, deren Bilder immer angezeigt werden.",
+      "reset": "Zurücksetzen"
+    },
+    "notifications": {
+      "title": "Benachrichtigungen",
+      "description": "Browser-Benachrichtigung, wenn eine Nachricht im Posteingang eintrifft.",
+      "denied": "Benachrichtigungen werden vom Browser blockiert"
+    },
+    "mailto": {
+      "title": "Standard-E-Mail-App",
+      "description": "„mailto:“-Links anderer Websites in Voxel öffnen. Ihr Browser fragt nach einer Bestätigung.",
+      "button": "Für E-Mail-Links verwenden",
+      "done": "Bestätigen Sie im Browser, um abzuschließen.",
+      "unsupported": "Ihr Browser erlaubt Websites nicht, E-Mail-Links zu verarbeiten."
+    },
+    "receipts": {
+      "title": "Lesebestätigungen",
+      "description": "Wenn ein Absender um eine Lesebestätigung bittet.",
+      "ask": "Fragen",
+      "always": "Immer senden",
+      "never": "Nie"
+    }
+  },
+  "shortcuts": {
+    "hint": "Drücke überall „?“, um diese Hilfe anzuzeigen."
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "nav": "Kalender",
+  "untitled": "(Ohne Titel)",
+  "repeating": "Wiederkehrender Termin",
+  "more_one": "{{count}} weiterer",
+  "more_other": "{{count}} weitere",
+  "actions": {
+    "new": "Neuer Termin",
+    "today": "Heute",
+    "previous": "Vorheriger Zeitraum",
+    "next": "Nächster Zeitraum",
+    "cancel": "Abbrechen",
+    "create": "Erstellen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "backToMail": "Zurück zur Post"
+  },
+  "views": {
+    "label": "Ansicht",
+    "month": "Monat",
+    "week": "Woche",
+    "day": "Tag",
+    "agenda": "Liste"
+  },
+  "calendars": {
+    "title": "Kalender",
+    "description": "Wählen Sie die angezeigten Kalender.",
+    "none": "Kein Kalender",
+    "export": "„{{name}}“ exportieren (.ics)"
+  },
+  "empty": {
+    "title": "Nichts geplant",
+    "range": "Keine Termine in diesem Zeitraum."
+  },
+  "unavailable": {
+    "title": "Kein Kalender",
+    "description": "Keines Ihrer Postfächer bietet einen Kalender."
+  },
+  "dialog": {
+    "newTitle": "Neuer Termin",
+    "editTitle": "Termin",
+    "description": "Titel, Datum, Wiederholung, Erinnerungen und Teilnehmende des Termins."
+  },
+  "fields": {
+    "title": "Titel",
+    "titlePlaceholder": "Titel hinzufügen",
+    "calendar": "Kalender",
+    "allDay": "Ganztägig",
+    "start": "Beginn",
+    "startTime": "Beginnzeit",
+    "end": "Ende",
+    "endTime": "Endzeit",
+    "timeZone": "Zeitzone",
+    "repeat": "Wiederholung",
+    "reminders": "Erinnerungen",
+    "location": "Ort",
+    "description": "Beschreibung",
+    "participants": "Teilnehmende",
+    "availability": "Anzeigen als"
+  },
+  "repeat": {
+    "none": "Keine Wiederholung",
+    "daily": "Täglich",
+    "weekly": "Wöchentlich",
+    "monthly": "Monatlich",
+    "yearly": "Jährlich",
+    "custom": "Eigene Regel",
+    "customHint": "Diese Wiederholung wurde anderswo erstellt und bleibt unverändert.",
+    "every": "Alle",
+    "onDays": "Wiederholen am",
+    "never": "Ohne Ende",
+    "until": "Bis",
+    "after": "Anzahl",
+    "untilDate": "Letztes Datum",
+    "times": "Mal"
+  },
+  "reminders": {
+    "add": "Erinnerung hinzufügen",
+    "atStart": "Zu Beginn",
+    "remove": "Erinnerung „{{label}}“ entfernen",
+    "minutes_one": "{{count}} Minute vorher",
+    "minutes_other": "{{count}} Minuten vorher",
+    "hours_one": "{{count}} Stunde vorher",
+    "hours_other": "{{count}} Stunden vorher",
+    "days_one": "{{count}} Tag vorher",
+    "days_other": "{{count}} Tage vorher"
+  },
+  "participants": {
+    "placeholder": "name@beispiel.de",
+    "add": "Teilnehmende hinzufügen",
+    "remove": "{{email}} entfernen",
+    "noInvites": "Dieses Postfach kann keine Einladungen senden: Teilnehmende werden nur im Termin gespeichert."
+  },
+  "availability": {
+    "busy": "Beschäftigt",
+    "free": "Frei"
+  },
+  "errors": {
+    "endBeforeStart": "Das Ende liegt vor dem Beginn.",
+    "badEmail": "Eine Teilnehmeradresse ist ungültig.",
+    "badUntil": "Wählen Sie ein letztes Datum nach dem Beginn.",
+    "noDays": "Wählen Sie mindestens einen Wochentag."
+  },
+  "scope": {
+    "editTitle": "Wiederkehrenden Termin ändern",
+    "deleteTitle": "Wiederkehrenden Termin löschen",
+    "description": "Nur auf diesen Termin oder auf die ganze Serie anwenden?",
+    "this": "Dieser Termin",
+    "all": "Ganze Serie"
+  },
+  "delete": {
+    "title": "Diesen Termin löschen?",
+    "description": "„{{title}}“ wird aus dem Kalender entfernt.",
+    "confirm": "Löschen"
+  },
+  "toast": {
+    "created": "Termin erstellt",
+    "saved": "Termin gespeichert",
+    "deleted": "Termin gelöscht",
+    "queued": "Offline gespeichert: wird gesendet, sobald die Verbindung zurück ist.",
+    "exported_one": "{{count}} Termin exportiert",
+    "exported_other": "{{count}} Termine exportiert"
+  },
+  "import": {
+    "open": "Importieren (.ics)",
+    "title": "Termine importieren",
+    "description": "Fügen Sie die Termine einer .ics-Datei einem Ihrer Kalender hinzu.",
+    "into": "Kalender",
+    "choose": ".ics-Datei auswählen",
+    "reading": "Datei wird gelesen …",
+    "found_one": "{{count}} Termin gefunden",
+    "found_other": "{{count}} Termine gefunden",
+    "duplicate": "Schon vorhanden",
+    "duplicates_one": "{{count}} Termin ist schon in Ihrem Kalender:",
+    "duplicates_other": "{{count}} Termine sind schon in Ihrem Kalender:",
+    "skip": "Überspringen",
+    "replace": "Ersetzen",
+    "both": "Beide behalten",
+    "run": "Importieren",
+    "done": "Import abgeschlossen: {{created}} hinzugefügt, {{replaced}} ersetzt, {{skipped}} übersprungen.",
+    "empty": "Keine Termine in dieser Datei.",
+    "tooLarge": "Die Datei ist zu groß (höchstens 10 MB)."
+  },
+  "invite": {
+    "label": "Einladung",
+    "loading": "Einladung wird gelesen …",
+    "cancelled": "Termin abgesagt",
+    "reply": "Antwort auf eine Einladung",
+    "organizer": "Organisator: {{name}}",
+    "conflict": "Überschneidet sich mit „{{title}}“",
+    "inCalendar": "In Ihrem Kalender",
+    "inCalendarStatus": "In Ihrem Kalender · {{status}}",
+    "accept": "Zusagen",
+    "maybe": "Vielleicht",
+    "decline": "Absagen",
+    "add": "Zum Kalender hinzufügen",
+    "show": "Im Kalender anzeigen",
+    "added": "Zu Ihrem Kalender hinzugefügt.",
+    "replySent": "Ihre Antwort wurde an den Organisator gesendet.",
+    "replyNotSent": "Zu Ihrem Kalender hinzugefügt; der Server hat Ihre Antwort nicht gesendet.",
+    "imapNote": "Dieses Postfach kann nicht auf Einladungen antworten: Der Termin kann nur zu Ihrem Kalender hinzugefügt werden."
+  },
+  "status": {
+    "needs-action": "noch keine Antwort",
+    "accepted": "zugesagt",
+    "tentative": "vielleicht",
+    "declined": "abgesagt",
+    "delegated": "delegiert"
+  },
+  "reminder": {
+    "body": "Beginnt {{when}}",
+    "open": "Öffnen"
+  }
+}

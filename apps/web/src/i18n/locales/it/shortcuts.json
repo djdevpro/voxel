@@ -1,0 +1,81 @@
+{
+  "groups": {
+    "navigation": "Navigazione",
+    "actions": "Azioni",
+    "application": "Applicazione",
+    "calendar": "Calendario"
+  },
+  "items": {
+    "next": "Conversazione successiva",
+    "previous": "Conversazione precedente",
+    "open": "Apri",
+    "backToList": "Torna all'elenco",
+    "goInbox": "Vai a Posta in arrivo",
+    "goFlagged": "Vai ai contrassegnati",
+    "goDrafts": "Vai alle bozze",
+    "goSent": "Vai agli inviati",
+    "switchMailbox": "Cambia casella",
+    "allMailboxes": "Tutte le caselle",
+    "compose": "Nuovo messaggio",
+    "archive": "Archivia",
+    "delete": "Elimina",
+    "spam": "Segnala come spam",
+    "flag": "Contrassegna / rimuovi contrassegno",
+    "markRead": "Segna come letto",
+    "markUnread": "Segna come non letto",
+    "select": "Seleziona la conversazione",
+    "reply": "Rispondi",
+    "replyAll": "Rispondi a tutti",
+    "forward": "Inoltra",
+    "send": "Invia",
+    "search": "Cerca",
+    "palette": "Tavolozza dei comandi",
+    "help": "Guida alle scorciatoie",
+    "escape": "Chiudi / deseleziona",
+    "goContacts": "Vai ai contatti",
+    "goCalendar": "Vai al calendario",
+    "calToday": "Oggi",
+    "calNext": "Periodo successivo",
+    "calPrevious": "Periodo precedente",
+    "calMonth": "Vista mese",
+    "calWeek": "Vista settimana",
+    "calDay": "Vista giorno",
+    "calAgenda": "Vista elenco",
+    "calNew": "Nuovo evento"
+  },
+  "keys": {
+    "enter": "Invio",
+    "esc": "Esc"
+  },
+  "help": {
+    "title": "Scorciatoie da tastiera",
+    "description": "Ispirate a Gmail. Disattivate durante la digitazione."
+  },
+  "palette": {
+    "title": "Tavolozza dei comandi",
+    "placeholder": "Cerca un comando, una cartella o una casella…",
+    "empty": "Nessun risultato",
+    "groups": {
+      "search": "Ricerca",
+      "actions": "Azioni",
+      "goTo": "Vai a",
+      "mailboxes": "Caselle",
+      "appearance": "Aspetto",
+      "session": "Sessione"
+    },
+    "searchFor": "Cerca «{{query}}» nei messaggi",
+    "searchKeyword": "cerca",
+    "folderKeyword": "cartella",
+    "mailboxKeyword": "casella",
+    "settings": "Impostazioni",
+    "themeLight": "Tema chiaro",
+    "themeDark": "Tema scuro",
+    "themeSystem": "Tema di sistema",
+    "densityComfortable": "Densità comoda",
+    "densityCompact": "Densità compatta",
+    "paneRight": "Riquadro di lettura a destra",
+    "paneBottom": "Riquadro di lettura in basso",
+    "paneNone": "Nessun riquadro di lettura",
+    "logout": "Esci"
+  }
+}

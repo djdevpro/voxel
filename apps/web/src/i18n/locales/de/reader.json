@@ -1,0 +1,82 @@
+{
+  "region": "Lesebereich",
+  "placeholder": {
+    "title": "Keine Unterhaltung ausgewählt",
+    "hint": "<j>J</j> <k>K</k> zum Navigieren · <help>?</help> für die Hilfe"
+  },
+  "toolbar": {
+    "back": "Zurück zur Liste",
+    "more": "Weitere Aktionen",
+    "print": "Drucken",
+    "source": "Original anzeigen",
+    "unsubscribe": "Abmelden",
+    "createFilter": "Filter erstellen…"
+  },
+  "openError": "Die Unterhaltung konnte nicht geöffnet werden",
+  "reply": "Antworten",
+  "replyAll": "Allen antworten",
+  "forward": "Weiterleiten",
+  "olderMessages_one": "{{count}} ältere Nachricht",
+  "olderMessages_other": "{{count}} ältere Nachrichten",
+  "messageFrom": "Nachricht von {{name}}",
+  "unknownSender": "(unbekannt)",
+  "toLine": "An {{list}}",
+  "ccLine": "Cc {{list}}",
+  "nobody": "(niemand)",
+  "details": {
+    "from": "Von",
+    "to": "An",
+    "cc": "Cc",
+    "replyTo": "Antwort an",
+    "date": "Datum"
+  },
+  "images": {
+    "blocked": "Externe Bilder werden zum Schutz deiner Privatsphäre ausgeblendet.",
+    "show": "Bilder anzeigen",
+    "always": "Immer für diesen Absender",
+    "alwaysToast": "Bilder von {{email}} werden immer angezeigt",
+    "showInline_one": "{{count}} eingebettetes Bild anzeigen",
+    "showInline_other": "{{count}} eingebettete Bilder anzeigen"
+  },
+  "sourceTitle": "Originalnachricht",
+  "sourceError": "Die Originalnachricht konnte nicht geladen werden: {{message}}",
+  "unsubscribeOpened": "Abmeldeseite in einem neuen Tab geöffnet",
+  "frameTitle": "Nachrichteninhalt",
+  "print": {
+    "from": "Von: {{list}}",
+    "to": "An: {{list}}"
+  },
+  "attachments": {
+    "count_one": "{{count}} Anhang",
+    "count_other": "{{count}} Anhänge",
+    "defaultName": "anhang-{{n}}",
+    "file": "datei",
+    "preview": "Vorschau von {{name}}",
+    "download": "{{name}} herunterladen",
+    "downloadButton": "Herunterladen"
+  },
+  "block": {
+    "address": "{{address}} blockieren",
+    "domain": "Domain {{domain}} blockieren",
+    "done": "{{who}} ist blockiert: Künftige Nachrichten landen im Spam.",
+    "moved": "{{count}} Nachricht(en) verschoben",
+    "undo": "Rückgängig",
+    "pending": "Die Blockierung greift, sobald der Abwesenheitsassistent deaktiviert ist.",
+    "failed": "Blockieren nicht möglich",
+    "unblocked": "{{who}} ist freigegeben"
+  },
+  "forwardAttachment": "Als Anhang weiterleiten",
+  "receipt": {
+    "title": "Lesebestätigung",
+    "asks": "Der Absender bittet um eine Lesebestätigung ({{email}}).",
+    "send": "Senden",
+    "ignore": "Ignorieren",
+    "sent": "Lesebestätigung an {{email}} gesendet",
+    "failed": "Lesebestätigung konnte nicht gesendet werden",
+    "offline": "Sie sind offline: Die Bestätigung kann gesendet werden, sobald Sie wieder online sind.",
+    "subject": "Gelesen: {{subject}}",
+    "body": "Ihre Nachricht\n\n  An: {{to}}\n  Betreff: {{subject}}\n  Gesendet: {{date}}\n\nwurde am {{read}} angezeigt.\nDas bedeutet nur, dass sie geöffnet wurde, nicht dass sie gelesen oder verstanden wurde.",
+    "outboxIgnore": "Lesebestätigung ignoriert",
+    "outboxSend": "Lesebestätigung: {{subject}}"
+  }
+}

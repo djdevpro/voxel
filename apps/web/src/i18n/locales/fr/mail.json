@@ -1,0 +1,244 @@
+{
+  "noSubject": "(sans objet)",
+  "roles": {
+    "inbox": "Réception",
+    "flagged": "Suivis",
+    "drafts": "Brouillons",
+    "sent": "Envoyés",
+    "scheduled": "Programmés",
+    "archive": "Archives",
+    "junk": "Spam",
+    "trash": "Corbeille"
+  },
+  "actions": {
+    "archive": "Archiver",
+    "delete": "Supprimer",
+    "spam": "Signaler comme spam",
+    "notSpam": "Pas un spam",
+    "markRead": "Marquer comme lu",
+    "markUnread": "Marquer comme non lu",
+    "flag": "Suivre",
+    "unflag": "Ne plus suivre",
+    "moveTo": "Déplacer vers",
+    "markAllRead": "Tout marquer comme lu"
+  },
+  "toasts": {
+    "archived_one": "Conversation archivée",
+    "archived_other": "{{count}} conversations archivées",
+    "archived_many": "{{count}} conversations archivées",
+    "trashed_one": "Conversation placée dans la corbeille",
+    "trashed_other": "{{count}} conversations placées dans la corbeille",
+    "trashed_many": "{{count}} conversations placées dans la corbeille",
+    "spammed_one": "Signalé comme spam",
+    "spammed_other": "{{count}} conversations signalées comme spam",
+    "spammed_many": "{{count}} conversations signalées comme spam",
+    "movedToInbox": "Déplacé dans la réception",
+    "movedTo": "Déplacé vers « {{name}} »",
+    "destroyed_one": "Conversation supprimée définitivement",
+    "destroyed_other": "{{count}} conversations supprimées définitivement",
+    "destroyed_many": "{{count}} conversations supprimées définitivement",
+    "markedRead": "Marqué comme lu",
+    "markedUnread": "Marqué comme non lu",
+    "pendingSync": "en attente de synchronisation",
+    "changePending": "Modification en attente de synchronisation",
+    "view": "Voir"
+  },
+  "errors": {
+    "move": "Déplacement impossible",
+    "delete": "Suppression impossible",
+    "update": "Mise à jour impossible",
+    "undo": "Annulation impossible",
+    "action": "Action impossible",
+    "createFolder": "Création impossible",
+    "rename": "Renommage impossible",
+    "archiveOffline": "Le dossier Archives sera créé au retour en ligne",
+    "archiveCreate": "Création du dossier Archives impossible",
+    "destinationNotFound": "Dossier de destination introuvable"
+  },
+  "outbox": {
+    "undo": "Annulation",
+    "destroy": "Suppression définitive",
+    "read": "Lu"
+  },
+  "confirm": {
+    "destroyTitle_one": "Supprimer définitivement cette conversation ?",
+    "destroyTitle_other": "Supprimer définitivement {{count}} conversations ?",
+    "destroyTitle_many": "Supprimer définitivement {{count}} conversations ?",
+    "irreversible": "Cette action est irréversible."
+  },
+  "sidebar": {
+    "compose": "Nouveau message",
+    "folders": "Dossiers",
+    "systemFolders": "Dossiers système",
+    "newFolder": "Nouveau dossier",
+    "folderName": "Nom du dossier",
+    "expand": "Déplier",
+    "collapse": "Replier",
+    "actionsFor": "Actions pour {{name}}",
+    "rename": "Renommer",
+    "newSubfolder": "Nouveau sous-dossier",
+    "color": "Couleur",
+    "noColor": "Aucune couleur",
+    "colorValue": "Couleur {{color}}",
+    "markedRead_one": "{{count}} message marqué comme lu",
+    "markedRead_other": "{{count}} messages marqués comme lus",
+    "markedRead_many": "{{count}} messages marqués comme lus",
+    "noUnread": "Aucun message non lu",
+    "deleteTitle": "Supprimer le dossier « {{name}} » ?",
+    "deleteDesc": "Les messages qu’il contient seront déplacés dans la corbeille.",
+    "deleteDescChildren": "Ses sous-dossiers seront aussi supprimés. Les messages seront déplacés dans la corbeille.",
+    "deleteConfirm": "Supprimer le dossier",
+    "deleting": "Suppression du dossier…",
+    "folderCreated": "Dossier « {{name}} » créé",
+    "folderDeleted": "Dossier « {{name}} » supprimé",
+    "otherAccountDrop": "Les conversations d’une autre boîte ne peuvent pas être déplacées ici",
+    "cannotMoveHere": "Impossible de déplacer des conversations ici",
+    "hideFolder": "Masquer de la barre latérale",
+    "folderHidden": "« {{name}} » est masqué",
+    "manageFolders": "Gérer les dossiers…",
+    "emptyFolder": "Vider…"
+  },
+  "list": {
+    "region": "Liste des conversations",
+    "conversations": "Conversations",
+    "results": "Résultats",
+    "folder": "Dossier",
+    "allMailboxes": "Toutes les boîtes",
+    "selectAll": "Tout sélectionner",
+    "selected_one": "sélectionnée",
+    "selected_other": "sélectionnées",
+    "selected_many": "sélectionnées",
+    "multiAccountSelection": "Sélection sur plusieurs boîtes",
+    "clearSelection": "Annuler la sélection",
+    "quick": {
+      "unread": "Non lus",
+      "unreadLong": "Non lus",
+      "flagged": "Suivis",
+      "flaggedLong": "Suivis",
+      "attachment": "PJ",
+      "attachmentLong": "Avec pièce jointe"
+    },
+    "oldestFirst": "Plus anciens d’abord",
+    "newestFirst": "Plus récents d’abord",
+    "loadError": "Impossible de charger les messages",
+    "serverDown": "Le serveur ne répond pas.",
+    "partialError": "{{accounts}} : chargement impossible",
+    "end": "Fin de la liste"
+  },
+  "empty": {
+    "search": {
+      "title": "Aucun résultat",
+      "description": "Essayez d’autres mots-clés ou retirez un filtre."
+    },
+    "inbox": {
+      "title": "Boîte de réception vide",
+      "description": "Vous êtes à jour. Profitez du calme."
+    },
+    "flagged": {
+      "title": "Aucun message suivi",
+      "description": "Appuyez sur S pour suivre une conversation importante."
+    },
+    "drafts": {
+      "title": "Aucun brouillon",
+      "description": "Les messages en cours de rédaction apparaîtront ici."
+    },
+    "sent": {
+      "title": "Aucun message envoyé"
+    },
+    "archive": {
+      "title": "Archives vides",
+      "description": "Archivez avec E pour garder une réception nette."
+    },
+    "junk": {
+      "title": "Aucun spam",
+      "description": "Rien de suspect pour l’instant."
+    },
+    "trash": {
+      "title": "Corbeille vide"
+    },
+    "folder": {
+      "title": "Dossier vide"
+    }
+  },
+  "row": {
+    "to": "À : {{names}}",
+    "noRecipient": "(aucun destinataire)",
+    "unknownSender": "(expéditeur inconnu)",
+    "draft": "Brouillon",
+    "unread": "non lu",
+    "attachment": "Pièce jointe",
+    "flagged": "Suivi",
+    "select": "Sélectionner",
+    "conversations_one": "{{count}} conversation",
+    "conversations_other": "{{count}} conversations",
+    "conversations_many": "{{count}} conversations"
+  },
+  "search": {
+    "placeholder": "Rechercher",
+    "label": "Rechercher dans les messages",
+    "removeFilter": "Retirer le filtre",
+    "clear": "Effacer la recherche",
+    "filters": "Filtres",
+    "operators": {
+      "from": "De",
+      "to": "À",
+      "subject": "Objet",
+      "has": "Contient",
+      "is": "État",
+      "before": "Avant",
+      "after": "Après",
+      "in": "Dans"
+    },
+    "chips": {
+      "attachment": "Avec pièce jointe",
+      "unread": "Non lus",
+      "read": "Lus",
+      "flagged": "Suivis",
+      "keyValue": "{{key}} : {{value}}"
+    },
+    "aliases": {
+      "from": "de",
+      "to": "à,a",
+      "subject": "objet",
+      "has": "avec",
+      "is": "est",
+      "before": "avant",
+      "after": "après,apres",
+      "in": "dans",
+      "has_attachment": "pj,pièce,piece,pièce-jointe,piece-jointe",
+      "is_unread": "non-lu,nonlu,non-lus",
+      "is_read": "lu,lus",
+      "is_flagged": "suivi,suivis",
+      "in_inbox": "réception,reception",
+      "in_sent": "envoyés,envoyes",
+      "in_drafts": "brouillons,brouillon",
+      "in_archive": "archives",
+      "in_trash": "corbeille",
+      "in_junk": "indésirables,indesirables"
+    }
+  },
+  "quota": {
+    "title": "Stockage",
+    "usage": "{{used}} sur {{limit}}",
+    "warnToast": "{{mailbox}} : stockage plein à {{percent}} %"
+  },
+  "priority": {
+    "high": "Priorité haute",
+    "low": "Priorité basse"
+  },
+  "transfer": {
+    "export": "Exporter (.mbox)",
+    "import": "Importer des messages (.eml, .mbox)…",
+    "exporting": "Export de « {{name}} » : {{done}} / {{total}}",
+    "cancel": "Annuler",
+    "cancelled": "Annulé",
+    "exported": "« {{name}} » exporté. Messages : {{count}}",
+    "exportFailed": "Échec de l’export",
+    "importing": "Import dans « {{name}} » : {{count}}",
+    "imported": "Importé dans « {{name}} ». Messages : {{count}}",
+    "importFailedSome": "Non importés : {{count}}",
+    "importFailed": "Échec de l’import",
+    "importWaiting": "Import dans « {{name}} » en pause : le serveur limite les envois. Reprise vers {{time}}. Messages importés : {{count}}",
+    "importSkipped": "Déjà présents, ignorés : {{count}}"
+  }
+}

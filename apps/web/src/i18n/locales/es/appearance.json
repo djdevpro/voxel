@@ -1,0 +1,77 @@
+{
+  "collection": {
+    "title": "Tema",
+    "description": "Los colores de toda la aplicación. Cada tema tiene una variante clara y otra oscura, que siguen el modo de abajo.",
+    "label": "Colección de temas"
+  },
+  "mode": {
+    "title": "Modo",
+    "description": "Claro, oscuro o según la configuración del sistema.",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "language": {
+    "title": "Idioma",
+    "description": "Idioma de la interfaz, las fechas y los números."
+  },
+  "density": {
+    "title": "Densidad",
+    "description": "Altura de las filas de la lista de mensajes.",
+    "comfortable": "Cómoda",
+    "compact": "Compacta"
+  },
+  "readingPane": {
+    "title": "Panel de lectura",
+    "description": "Dónde se muestra el mensaje abierto.",
+    "right": "A la derecha",
+    "bottom": "Abajo",
+    "none": "Ninguno"
+  },
+  "accentHint": "El color de acento se configura para cada buzón en la pestaña «Buzones» y tiene prioridad sobre el del tema.",
+  "reading": {
+    "undoSend": {
+      "title": "Plazo para deshacer el envío",
+      "label": "Plazo para deshacer el envío en segundos",
+      "description_one": "Tienes {{count}} segundo para deshacer el envío tras pulsar Enviar.",
+      "description_other": "Tienes {{count}} segundos para deshacer el envío tras pulsar Enviar.",
+      "description_many": "Tienes {{count}} segundos para deshacer el envío tras pulsar Enviar.",
+      "value": "{{count}} s"
+    },
+    "remoteImages": {
+      "title": "Imágenes remotas",
+      "description": "Las imágenes alojadas fuera pueden servir para rastrearte. Puedes mostrarlas caso por caso.",
+      "block": "Bloquear",
+      "allow": "Mostrar siempre"
+    },
+    "trusted": {
+      "title": "Remitentes de confianza",
+      "description_one": "{{count}} remitente cuyas imágenes se muestran siempre.",
+      "description_other": "{{count}} remitentes cuyas imágenes se muestran siempre.",
+      "description_many": "{{count}} remitentes cuyas imágenes se muestran siempre.",
+      "reset": "Restablecer"
+    },
+    "notifications": {
+      "title": "Notificaciones",
+      "description": "Notificación del navegador cuando llega un mensaje a la bandeja de entrada.",
+      "denied": "El navegador ha bloqueado las notificaciones"
+    },
+    "mailto": {
+      "title": "Aplicación de correo predeterminada",
+      "description": "Abre en Voxel los enlaces «mailto:» de otros sitios. Tu navegador pedirá confirmación.",
+      "button": "Usar para enlaces de correo",
+      "done": "Confirma en tu navegador para terminar.",
+      "unsupported": "Tu navegador no permite que los sitios gestionen enlaces de correo."
+    },
+    "receipts": {
+      "title": "Confirmaciones de lectura",
+      "description": "Cuando un remitente solicita una confirmación de lectura.",
+      "ask": "Preguntar",
+      "always": "Enviar siempre",
+      "never": "Nunca"
+    }
+  },
+  "shortcuts": {
+    "hint": "Pulsa «?» en cualquier momento para ver esta ayuda."
+  }
+}

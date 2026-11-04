@@ -1,0 +1,84 @@
+{
+  "region": "Lettura",
+  "placeholder": {
+    "title": "Nessuna conversazione selezionata",
+    "hint": "<j>J</j> <k>K</k> per navigare · <help>?</help> per l'aiuto"
+  },
+  "toolbar": {
+    "back": "Torna all'elenco",
+    "more": "Altre azioni",
+    "print": "Stampa",
+    "source": "Mostra originale",
+    "unsubscribe": "Annulla iscrizione",
+    "createFilter": "Crea un filtro…"
+  },
+  "openError": "Impossibile aprire la conversazione",
+  "reply": "Rispondi",
+  "replyAll": "Rispondi a tutti",
+  "forward": "Inoltra",
+  "olderMessages_one": "{{count}} messaggio meno recente",
+  "olderMessages_other": "{{count}} messaggi meno recenti",
+  "olderMessages_many": "{{count}} messaggi meno recenti",
+  "messageFrom": "Messaggio di {{name}}",
+  "unknownSender": "(sconosciuto)",
+  "toLine": "A {{list}}",
+  "ccLine": "Cc {{list}}",
+  "nobody": "(nessuno)",
+  "details": {
+    "from": "Da",
+    "to": "A",
+    "cc": "Cc",
+    "replyTo": "Rispondi a",
+    "date": "Data"
+  },
+  "images": {
+    "blocked": "Le immagini remote sono nascoste per proteggere la tua privacy.",
+    "show": "Mostra immagini",
+    "always": "Sempre per questo mittente",
+    "alwaysToast": "Le immagini di {{email}} verranno sempre mostrate",
+    "showInline_one": "Mostra {{count}} immagine incorporata",
+    "showInline_other": "Mostra {{count}} immagini incorporate"
+  },
+  "sourceTitle": "Messaggio originale",
+  "sourceError": "Impossibile caricare il messaggio originale: {{message}}",
+  "unsubscribeOpened": "Pagina di disiscrizione aperta in una nuova scheda",
+  "frameTitle": "Contenuto del messaggio",
+  "print": {
+    "from": "Da: {{list}}",
+    "to": "A: {{list}}"
+  },
+  "attachments": {
+    "count_one": "{{count}} allegato",
+    "count_other": "{{count}} allegati",
+    "count_many": "{{count}} allegati",
+    "defaultName": "allegato-{{n}}",
+    "file": "file",
+    "preview": "Anteprima di {{name}}",
+    "download": "Scarica {{name}}",
+    "downloadButton": "Scarica"
+  },
+  "block": {
+    "address": "Blocca {{address}}",
+    "domain": "Blocca il dominio {{domain}}",
+    "done": "{{who}} è bloccato: i prossimi messaggi andranno nello Spam.",
+    "moved": "{{count}} messaggio/i spostato/i",
+    "undo": "Annulla",
+    "pending": "Il blocco si applicherà quando la risposta automatica sarà disattivata.",
+    "failed": "Blocco non riuscito",
+    "unblocked": "{{who}} è sbloccato"
+  },
+  "forwardAttachment": "Inoltra come allegato",
+  "receipt": {
+    "title": "Conferma di lettura",
+    "asks": "Il mittente richiede una conferma di lettura ({{email}}).",
+    "send": "Invia",
+    "ignore": "Ignora",
+    "sent": "Conferma di lettura inviata a {{email}}",
+    "failed": "Impossibile inviare la conferma di lettura",
+    "offline": "Sei offline: la conferma potrà essere inviata al ritorno della rete.",
+    "subject": "Letto: {{subject}}",
+    "body": "Il tuo messaggio\n\n  A: {{to}}\n  Oggetto: {{subject}}\n  Inviato: {{date}}\n\nè stato visualizzato il {{read}}.\nSignifica solo che è stato aperto, non che sia stato letto o compreso.",
+    "outboxIgnore": "Conferma di lettura ignorata",
+    "outboxSend": "Conferma di lettura: {{subject}}"
+  }
+}

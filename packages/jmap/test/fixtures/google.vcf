@@ -1,0 +1,23 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Ahmed Benali
+N:Benali;Ahmed;;;
+NICKNAME:Mido
+EMAIL;TYPE=INTERNET;TYPE=WORK:ahmed.benali@entreprise.example
+EMAIL;TYPE=INTERNET:ahmed@gmail.example
+TEL;TYPE=CELL:+213 555 12 34 56
+ADR;TYPE=WORK:;;5 boulevard Mohamed V;Alger;;16000;Algérie
+ORG:Entreprise SARL
+TITLE:Ingénieur
+BDAY:1985-03-21
+URL:http\://www.entreprise.example
+CATEGORIES:myContacts,Collègues
+item1.X-ABRELATEDNAMES:Samira
+item1.X-ABLabel:_$!<Spouse>!$_
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Bureau d'accueil
+N:;;;;
+TEL;TYPE=WORK:+33 4 00 00 00 00
+END:VCARD

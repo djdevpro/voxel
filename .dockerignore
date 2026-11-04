@@ -1,0 +1,11 @@
+.git
+**/node_modules
+**/dist
+**/dev-dist
+data
+.env
+.env.*
+*.sqlite*
+*.log
+.claude
+/config.json

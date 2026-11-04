@@ -1,0 +1,126 @@
+{
+  "title": {
+    "new": "Neue Nachricht",
+    "reply": "Antwort",
+    "forward": "Weiterleitung"
+  },
+  "send": "Senden",
+  "sendTooltip": "Senden ({{shortcut}})",
+  "attach": "Dateien anhängen",
+  "formatting": "Formatierung",
+  "saving": "Wird gespeichert…",
+  "discardDraft": "Entwurf verwerfen",
+  "dropFiles": "Dateien hier ablegen, um sie anzuhängen",
+  "remove": "{{name}} entfernen",
+  "inline": {
+    "reply": "Antworten",
+    "replyAll": "Allen antworten",
+    "forward": "Weiterleiten",
+    "openWindow": "In einem Fenster öffnen",
+    "discard": "Antwort verwerfen"
+  },
+  "fields": {
+    "from": "Von",
+    "to": "An",
+    "cc": "Cc",
+    "bcc": "Bcc",
+    "subject": "Betreff",
+    "account": "Absenderpostfach",
+    "identity": "Absenderidentität",
+    "identityPlaceholder": "Identität"
+  },
+  "recipients": {
+    "label": "Empfänger ({{field}})"
+  },
+  "signature": {
+    "add": "Signatur hinzufügen",
+    "remove": "Signatur entfernen"
+  },
+  "quote": {
+    "show": "Zitierte Nachricht anzeigen",
+    "hide": "Zitierte Nachricht ausblenden",
+    "wrote": "Am {{date}} schrieb {{who}}:",
+    "unknownSender": "Unbekannt"
+  },
+  "forwarded": {
+    "header": "Weitergeleitete Nachricht",
+    "from": "Von:",
+    "date": "Datum:",
+    "subject": "Betreff:",
+    "to": "An:",
+    "cc": "Cc:",
+    "fileName": "nachricht"
+  },
+  "schedule": {
+    "options": "Sendeoptionen",
+    "title": "Senden planen",
+    "tomorrowMorning": "Morgen früh",
+    "mondayMorning": "Montag früh"
+  },
+  "confirm": {
+    "noSubject": "Ohne Betreff senden?",
+    "deleteDraft": "Diesen Entwurf löschen?"
+  },
+  "toasts": {
+    "uploading": "Bitte warten, Anhänge werden noch hochgeladen",
+    "noIdentity": "Keine Absenderidentität für dieses Postfach",
+    "noRecipient": "Füge mindestens einen Empfänger hinzu",
+    "invalidAddress": "Ungültige Adresse: {{email}}",
+    "attachFailed": "„{{name}}“ konnte nicht angehängt werden",
+    "draftDeleted": "Entwurf gelöscht",
+    "draftSaved": "Entwurf gespeichert",
+    "futureDate": "Wähle ein Datum in der Zukunft"
+  },
+  "editor": {
+    "placeholder": "Schreibe deine Nachricht…",
+    "label": "Nachrichtentext",
+    "linkPrompt": "Linkadresse",
+    "bold": "Fett ({{mod}}+B)",
+    "italic": "Kursiv ({{mod}}+I)",
+    "underline": "Unterstrichen ({{mod}}+U)",
+    "strike": "Durchgestrichen",
+    "bulletList": "Aufzählung",
+    "orderedList": "Nummerierte Liste",
+    "quote": "Zitat",
+    "code": "Code",
+    "link": "Link ({{mod}}+K)",
+    "clear": "Formatierung entfernen",
+    "undo": "Rückgängig ({{mod}}+Z)",
+    "redo": "Wiederholen"
+  },
+  "window": {
+    "label": "Nachricht verfassen",
+    "fullscreenLabel": "Nachricht verfassen (Vollbild)",
+    "expand": "Vergrößern",
+    "minimize": "Minimieren",
+    "fullscreen": "Vollbild",
+    "exitFullscreen": "Vollbild beenden",
+    "closeKeep": "Schließen (Entwurf bleibt erhalten)"
+  },
+  "outbox": {
+    "send": "Senden: {{subject}}",
+    "draft": "Entwurf",
+    "draftDeleted": "Entwurf gelöscht"
+  },
+  "errors": {
+    "noDrafts": "Entwurfsordner nicht gefunden"
+  },
+  "templates": {
+    "insert": "Textbaustein einfügen",
+    "shortcut": "Alt+T",
+    "title": "Textbausteine",
+    "empty": "Noch keine Textbausteine",
+    "manage": "Textbausteine verwalten…"
+  },
+  "options": {
+    "title": "Sendeoptionen",
+    "priority": "Priorität",
+    "priorities": {
+      "high": "Hoch",
+      "normal": "Normal",
+      "low": "Niedrig"
+    },
+    "receipt": "Lesebestätigung anfordern",
+    "language": "Sprache der Rechtschreibprüfung"
+  }
+}

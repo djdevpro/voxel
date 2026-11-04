@@ -1,0 +1,14 @@
+{
+  "invalid_credentials": "Adresse e-mail ou mot de passe incorrect.",
+  "rate_limited": "Trop de tentatives. Patientez quelques minutes puis réessayez.",
+  "upstream_unreachable": "Le serveur mail est injoignable pour le moment.",
+  "upstream_auth": "Le serveur mail a refusé le mot de passe. Reconnectez-vous à cette boîte.",
+  "not_found": "Introuvable.",
+  "forbidden": "Vous n’avez pas accès à cette ressource.",
+  "validation": "Des informations sont manquantes ou invalides.",
+  "internal": "Une erreur est survenue sur le serveur. Réessayez.",
+  "network": "Vous êtes hors ligne ou le serveur est injoignable.",
+  "unknown": "Erreur inattendue (HTTP {{status}}).",
+  "discovery_failed": "Impossible de trouver les réglages de cette adresse. Utilisez les réglages avancés.",
+  "domain_not_allowed": "Ce serveur n’accepte pas les adresses de ce domaine."
+}

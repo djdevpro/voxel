@@ -1,0 +1,244 @@
+{
+  "noSubject": "(sin asunto)",
+  "roles": {
+    "inbox": "Recibidos",
+    "flagged": "Destacados",
+    "drafts": "Borradores",
+    "sent": "Enviados",
+    "scheduled": "Programados",
+    "archive": "Archivo",
+    "junk": "Spam",
+    "trash": "Papelera"
+  },
+  "actions": {
+    "archive": "Archivar",
+    "delete": "Eliminar",
+    "spam": "Marcar como spam",
+    "notSpam": "No es spam",
+    "markRead": "Marcar como leído",
+    "markUnread": "Marcar como no leído",
+    "flag": "Destacar",
+    "unflag": "Quitar destacado",
+    "moveTo": "Mover a",
+    "markAllRead": "Marcar todo como leído"
+  },
+  "toasts": {
+    "archived_one": "Conversación archivada",
+    "archived_other": "{{count}} conversaciones archivadas",
+    "archived_many": "{{count}} conversaciones archivadas",
+    "trashed_one": "Conversación movida a la papelera",
+    "trashed_other": "{{count}} conversaciones movidas a la papelera",
+    "trashed_many": "{{count}} conversaciones movidas a la papelera",
+    "spammed_one": "Marcado como spam",
+    "spammed_other": "{{count}} conversaciones marcadas como spam",
+    "spammed_many": "{{count}} conversaciones marcadas como spam",
+    "movedToInbox": "Movido a Recibidos",
+    "movedTo": "Movido a «{{name}}»",
+    "destroyed_one": "Conversación eliminada definitivamente",
+    "destroyed_other": "{{count}} conversaciones eliminadas definitivamente",
+    "destroyed_many": "{{count}} conversaciones eliminadas definitivamente",
+    "markedRead": "Marcado como leído",
+    "markedUnread": "Marcado como no leído",
+    "pendingSync": "pendiente de sincronizar",
+    "changePending": "Cambio pendiente de sincronizar",
+    "view": "Ver"
+  },
+  "errors": {
+    "move": "No se pudo mover",
+    "delete": "No se pudo eliminar",
+    "update": "No se pudo actualizar",
+    "undo": "No se pudo deshacer",
+    "action": "No se pudo completar la acción",
+    "createFolder": "No se pudo crear la carpeta",
+    "rename": "No se pudo cambiar el nombre",
+    "archiveOffline": "La carpeta Archivo se creará cuando vuelvas a estar en línea",
+    "archiveCreate": "No se pudo crear la carpeta Archivo",
+    "destinationNotFound": "No se encontró la carpeta de destino"
+  },
+  "outbox": {
+    "undo": "Deshacer",
+    "destroy": "Eliminación definitiva",
+    "read": "Leído"
+  },
+  "confirm": {
+    "destroyTitle_one": "¿Eliminar definitivamente esta conversación?",
+    "destroyTitle_other": "¿Eliminar definitivamente {{count}} conversaciones?",
+    "destroyTitle_many": "¿Eliminar definitivamente {{count}} conversaciones?",
+    "irreversible": "Esta acción no se puede deshacer."
+  },
+  "sidebar": {
+    "compose": "Nuevo mensaje",
+    "folders": "Carpetas",
+    "systemFolders": "Carpetas del sistema",
+    "newFolder": "Nueva carpeta",
+    "folderName": "Nombre de la carpeta",
+    "expand": "Desplegar",
+    "collapse": "Contraer",
+    "actionsFor": "Acciones para {{name}}",
+    "rename": "Cambiar nombre",
+    "newSubfolder": "Nueva subcarpeta",
+    "color": "Color",
+    "noColor": "Sin color",
+    "colorValue": "Color {{color}}",
+    "markedRead_one": "{{count}} mensaje marcado como leído",
+    "markedRead_other": "{{count}} mensajes marcados como leídos",
+    "markedRead_many": "{{count}} mensajes marcados como leídos",
+    "noUnread": "No hay mensajes sin leer",
+    "deleteTitle": "¿Eliminar la carpeta «{{name}}»?",
+    "deleteDesc": "Los mensajes que contiene se moverán a la papelera.",
+    "deleteDescChildren": "También se eliminarán sus subcarpetas. Los mensajes se moverán a la papelera.",
+    "deleteConfirm": "Eliminar carpeta",
+    "deleting": "Eliminando la carpeta…",
+    "folderCreated": "Carpeta «{{name}}» creada",
+    "folderDeleted": "Carpeta «{{name}}» eliminada",
+    "otherAccountDrop": "Las conversaciones de otro buzón no se pueden mover aquí",
+    "cannotMoveHere": "No se pueden mover conversaciones aquí",
+    "hideFolder": "Ocultar de la barra lateral",
+    "folderHidden": "«{{name}}» está oculta",
+    "manageFolders": "Gestionar carpetas…",
+    "emptyFolder": "Vaciar…"
+  },
+  "list": {
+    "region": "Lista de conversaciones",
+    "conversations": "Conversaciones",
+    "results": "Resultados",
+    "folder": "Carpeta",
+    "allMailboxes": "Todos los buzones",
+    "selectAll": "Seleccionar todo",
+    "selected_one": "seleccionada",
+    "selected_other": "seleccionadas",
+    "selected_many": "seleccionadas",
+    "multiAccountSelection": "La selección abarca varios buzones",
+    "clearSelection": "Cancelar selección",
+    "quick": {
+      "unread": "No leídos",
+      "unreadLong": "No leídos",
+      "flagged": "Destacados",
+      "flaggedLong": "Destacados",
+      "attachment": "Adjuntos",
+      "attachmentLong": "Con archivos adjuntos"
+    },
+    "oldestFirst": "Más antiguos primero",
+    "newestFirst": "Más recientes primero",
+    "loadError": "No se pudieron cargar los mensajes",
+    "serverDown": "El servidor no responde.",
+    "partialError": "{{accounts}}: no se pudo cargar",
+    "end": "Fin de la lista"
+  },
+  "empty": {
+    "search": {
+      "title": "Sin resultados",
+      "description": "Prueba con otras palabras o quita un filtro."
+    },
+    "inbox": {
+      "title": "Bandeja de entrada vacía",
+      "description": "Estás al día. Disfruta de la calma."
+    },
+    "flagged": {
+      "title": "No hay mensajes destacados",
+      "description": "Pulsa S para destacar una conversación importante."
+    },
+    "drafts": {
+      "title": "No hay borradores",
+      "description": "Los mensajes que estés redactando aparecerán aquí."
+    },
+    "sent": {
+      "title": "No hay mensajes enviados"
+    },
+    "archive": {
+      "title": "El archivo está vacío",
+      "description": "Archiva con E para mantener ordenada tu bandeja."
+    },
+    "junk": {
+      "title": "No hay spam",
+      "description": "Nada sospechoso por ahora."
+    },
+    "trash": {
+      "title": "La papelera está vacía"
+    },
+    "folder": {
+      "title": "Carpeta vacía"
+    }
+  },
+  "row": {
+    "to": "Para: {{names}}",
+    "noRecipient": "(sin destinatarios)",
+    "unknownSender": "(remitente desconocido)",
+    "draft": "Borrador",
+    "unread": "no leído",
+    "attachment": "Archivo adjunto",
+    "flagged": "Destacado",
+    "select": "Seleccionar",
+    "conversations_one": "{{count}} conversación",
+    "conversations_other": "{{count}} conversaciones",
+    "conversations_many": "{{count}} conversaciones"
+  },
+  "search": {
+    "placeholder": "Buscar",
+    "label": "Buscar en los mensajes",
+    "removeFilter": "Quitar filtro",
+    "clear": "Borrar búsqueda",
+    "filters": "Filtros",
+    "operators": {
+      "from": "De",
+      "to": "Para",
+      "subject": "Asunto",
+      "has": "Contiene",
+      "is": "Estado",
+      "before": "Antes de",
+      "after": "Después de",
+      "in": "En"
+    },
+    "chips": {
+      "attachment": "Con archivo adjunto",
+      "unread": "No leídos",
+      "read": "Leídos",
+      "flagged": "Destacados",
+      "keyValue": "{{key}}: {{value}}"
+    },
+    "aliases": {
+      "from": "de",
+      "to": "para",
+      "subject": "asunto",
+      "has": "con,tiene",
+      "is": "es,estado",
+      "before": "antes",
+      "after": "después,despues",
+      "in": "en",
+      "has_attachment": "adjunto,adjuntos",
+      "is_unread": "no-leído,no-leido,noleido",
+      "is_read": "leído,leido",
+      "is_flagged": "destacado,destacados",
+      "in_inbox": "recibidos,entrada",
+      "in_sent": "enviados",
+      "in_drafts": "borradores,borrador",
+      "in_archive": "archivo,archivados",
+      "in_trash": "papelera",
+      "in_junk": "correo-no-deseado"
+    }
+  },
+  "quota": {
+    "title": "Almacenamiento",
+    "usage": "{{used}} de {{limit}}",
+    "warnToast": "{{mailbox}}: almacenamiento al {{percent}} %"
+  },
+  "priority": {
+    "high": "Prioridad alta",
+    "low": "Prioridad baja"
+  },
+  "transfer": {
+    "export": "Exportar (.mbox)",
+    "import": "Importar mensajes (.eml, .mbox)…",
+    "exporting": "Exportando «{{name}}»: {{done}} / {{total}}",
+    "cancel": "Cancelar",
+    "cancelled": "Cancelado",
+    "exported": "«{{name}}» exportada. Mensajes: {{count}}",
+    "exportFailed": "Error al exportar",
+    "importing": "Importando en «{{name}}»: {{count}}",
+    "imported": "Importado en «{{name}}». Mensajes: {{count}}",
+    "importFailedSome": "No importados: {{count}}",
+    "importFailed": "Error al importar",
+    "importWaiting": "Importación en «{{name}}» en pausa: el servidor limita las subidas. Se reanuda hacia las {{time}}. Mensajes importados: {{count}}",
+    "importSkipped": "Ya presentes, omitidos: {{count}}"
+  }
+}

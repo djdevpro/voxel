@@ -1,0 +1,81 @@
+{
+  "groups": {
+    "navigation": "Navigation",
+    "actions": "Aktionen",
+    "application": "Anwendung",
+    "calendar": "Kalender"
+  },
+  "items": {
+    "next": "Nächste Unterhaltung",
+    "previous": "Vorherige Unterhaltung",
+    "open": "Öffnen",
+    "backToList": "Zurück zur Liste",
+    "goInbox": "Zum Posteingang",
+    "goFlagged": "Zu den markierten Nachrichten",
+    "goDrafts": "Zu den Entwürfen",
+    "goSent": "Zu den gesendeten Nachrichten",
+    "switchMailbox": "Postfach wechseln",
+    "allMailboxes": "Alle Postfächer",
+    "compose": "Neue Nachricht",
+    "archive": "Archivieren",
+    "delete": "Löschen",
+    "spam": "Als Spam melden",
+    "flag": "Markieren / Markierung entfernen",
+    "markRead": "Als gelesen markieren",
+    "markUnread": "Als ungelesen markieren",
+    "select": "Unterhaltung auswählen",
+    "reply": "Antworten",
+    "replyAll": "Allen antworten",
+    "forward": "Weiterleiten",
+    "send": "Senden",
+    "search": "Suchen",
+    "palette": "Befehlspalette",
+    "help": "Hilfe zu Tastenkürzeln",
+    "escape": "Schließen / Auswahl aufheben",
+    "goContacts": "Zu den Kontakten",
+    "goCalendar": "Zum Kalender",
+    "calToday": "Heute",
+    "calNext": "Nächster Zeitraum",
+    "calPrevious": "Vorheriger Zeitraum",
+    "calMonth": "Monatsansicht",
+    "calWeek": "Wochenansicht",
+    "calDay": "Tagesansicht",
+    "calAgenda": "Listenansicht",
+    "calNew": "Neuer Termin"
+  },
+  "keys": {
+    "enter": "Eingabe",
+    "esc": "Esc"
+  },
+  "help": {
+    "title": "Tastenkürzel",
+    "description": "Von Gmail inspiriert. Während der Eingabe deaktiviert."
+  },
+  "palette": {
+    "title": "Befehlspalette",
+    "placeholder": "Befehl, Ordner oder Postfach suchen…",
+    "empty": "Keine Ergebnisse",
+    "groups": {
+      "search": "Suche",
+      "actions": "Aktionen",
+      "goTo": "Gehe zu",
+      "mailboxes": "Postfächer",
+      "appearance": "Darstellung",
+      "session": "Sitzung"
+    },
+    "searchFor": "Nachrichten nach „{{query}}“ durchsuchen",
+    "searchKeyword": "suchen",
+    "folderKeyword": "ordner",
+    "mailboxKeyword": "postfach",
+    "settings": "Einstellungen",
+    "themeLight": "Helles Design",
+    "themeDark": "Dunkles Design",
+    "themeSystem": "Systemdesign",
+    "densityComfortable": "Komfortable Dichte",
+    "densityCompact": "Kompakte Dichte",
+    "paneRight": "Lesebereich rechts",
+    "paneBottom": "Lesebereich unten",
+    "paneNone": "Kein Lesebereich",
+    "logout": "Abmelden"
+  }
+}

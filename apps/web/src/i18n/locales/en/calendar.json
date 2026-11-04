@@ -1,0 +1,174 @@
+{
+  "nav": "Calendar",
+  "untitled": "(No title)",
+  "repeating": "Repeating event",
+  "more_one": "{{count}} more",
+  "more_other": "{{count}} more",
+  "actions": {
+    "new": "New event",
+    "today": "Today",
+    "previous": "Previous period",
+    "next": "Next period",
+    "cancel": "Cancel",
+    "create": "Create",
+    "save": "Save",
+    "delete": "Delete",
+    "backToMail": "Back to mail"
+  },
+  "views": {
+    "label": "View",
+    "month": "Month",
+    "week": "Week",
+    "day": "Day",
+    "agenda": "List"
+  },
+  "calendars": {
+    "title": "Calendars",
+    "description": "Choose the calendars to show.",
+    "none": "No calendar",
+    "export": "Export “{{name}}” (.ics)"
+  },
+  "empty": {
+    "title": "Nothing scheduled",
+    "range": "No events in this period."
+  },
+  "unavailable": {
+    "title": "No calendar",
+    "description": "None of your mailboxes offers a calendar."
+  },
+  "dialog": {
+    "newTitle": "New event",
+    "editTitle": "Event",
+    "description": "Title, date, repetition, reminders and participants of the event."
+  },
+  "fields": {
+    "title": "Title",
+    "titlePlaceholder": "Add a title",
+    "calendar": "Calendar",
+    "allDay": "All day",
+    "start": "Start",
+    "startTime": "Start time",
+    "end": "End",
+    "endTime": "End time",
+    "timeZone": "Time zone",
+    "repeat": "Repeat",
+    "reminders": "Reminders",
+    "location": "Location",
+    "description": "Description",
+    "participants": "Participants",
+    "availability": "Show as"
+  },
+  "repeat": {
+    "none": "Does not repeat",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "custom": "Custom rule",
+    "customHint": "This repetition was created elsewhere; it is kept as is.",
+    "every": "Every",
+    "onDays": "Repeat on",
+    "never": "Forever",
+    "until": "Until",
+    "after": "Count",
+    "untilDate": "Last date",
+    "times": "times"
+  },
+  "reminders": {
+    "add": "Add a reminder",
+    "atStart": "At start",
+    "remove": "Remove reminder “{{label}}”",
+    "minutes_one": "{{count}} minute before",
+    "minutes_other": "{{count}} minutes before",
+    "hours_one": "{{count}} hour before",
+    "hours_other": "{{count}} hours before",
+    "days_one": "{{count}} day before",
+    "days_other": "{{count}} days before"
+  },
+  "participants": {
+    "placeholder": "name@example.com",
+    "add": "Add participant",
+    "remove": "Remove {{email}}",
+    "noInvites": "This mailbox cannot send invitations: participants are only saved in the event."
+  },
+  "availability": {
+    "busy": "Busy",
+    "free": "Free"
+  },
+  "errors": {
+    "endBeforeStart": "The end is before the start.",
+    "badEmail": "One of the participant addresses is not valid.",
+    "badUntil": "Choose a last date after the start.",
+    "noDays": "Choose at least one day of the week."
+  },
+  "scope": {
+    "editTitle": "Change a repeating event",
+    "deleteTitle": "Delete a repeating event",
+    "description": "Apply to this event only, or to the whole series?",
+    "this": "This event",
+    "all": "All events in the series"
+  },
+  "delete": {
+    "title": "Delete this event?",
+    "description": "“{{title}}” will be removed from the calendar.",
+    "confirm": "Delete"
+  },
+  "toast": {
+    "created": "Event created",
+    "saved": "Event saved",
+    "deleted": "Event deleted",
+    "queued": "Saved offline: it will be sent when the connection is back.",
+    "exported_one": "{{count}} event exported",
+    "exported_other": "{{count}} events exported"
+  },
+  "import": {
+    "open": "Import (.ics)",
+    "title": "Import events",
+    "description": "Add the events of an .ics file to one of your calendars.",
+    "into": "Calendar",
+    "choose": "Choose an .ics file",
+    "reading": "Reading the file…",
+    "found_one": "{{count}} event found",
+    "found_other": "{{count}} events found",
+    "duplicate": "Already there",
+    "duplicates_one": "{{count}} event is already in your calendar:",
+    "duplicates_other": "{{count}} events are already in your calendar:",
+    "skip": "Skip",
+    "replace": "Replace",
+    "both": "Keep both",
+    "run": "Import",
+    "done": "Import done: {{created}} added, {{replaced}} replaced, {{skipped}} skipped.",
+    "empty": "No event in this file.",
+    "tooLarge": "The file is too large (10 MB max)."
+  },
+  "invite": {
+    "label": "Invitation",
+    "loading": "Reading the invitation…",
+    "cancelled": "Event cancelled",
+    "reply": "Reply to an invitation",
+    "organizer": "Organizer: {{name}}",
+    "conflict": "Overlaps “{{title}}”",
+    "inCalendar": "In your calendar",
+    "inCalendarStatus": "In your calendar · {{status}}",
+    "accept": "Accept",
+    "maybe": "Maybe",
+    "decline": "Decline",
+    "add": "Add to calendar",
+    "show": "Show in calendar",
+    "added": "Added to your calendar.",
+    "replySent": "Your reply was sent to the organizer.",
+    "replyNotSent": "Added to your calendar; the server did not send your reply.",
+    "imapNote": "This mailbox cannot answer invitations: the event can only be added to your calendar."
+  },
+  "status": {
+    "needs-action": "no answer yet",
+    "accepted": "accepted",
+    "tentative": "maybe",
+    "declined": "declined",
+    "delegated": "delegated"
+  },
+  "reminder": {
+    "body": "Starts {{when}}",
+    "open": "Open"
+  }
+}

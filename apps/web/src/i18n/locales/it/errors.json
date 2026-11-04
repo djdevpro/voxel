@@ -1,0 +1,14 @@
+{
+  "invalid_credentials": "Indirizzo email o password errati.",
+  "rate_limited": "Troppi tentativi. Attendi qualche minuto e riprova.",
+  "upstream_unreachable": "Il server di posta al momento non è raggiungibile.",
+  "upstream_auth": "Il server di posta ha rifiutato la password. Accedi di nuovo a questa casella.",
+  "not_found": "Non trovato.",
+  "forbidden": "Non hai accesso a questa risorsa.",
+  "validation": "Alcune informazioni mancano o non sono valide.",
+  "internal": "Si è verificato un errore sul server. Riprova.",
+  "network": "Sei offline o il server non è raggiungibile.",
+  "unknown": "Errore imprevisto (HTTP {{status}}).",
+  "discovery_failed": "Impossibile trovare le impostazioni di questo indirizzo. Usa le impostazioni avanzate.",
+  "domain_not_allowed": "Questo server non accetta indirizzi di questo dominio."
+}

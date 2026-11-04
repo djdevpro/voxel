@@ -1,0 +1,174 @@
+{
+  "nav": "Agenda",
+  "untitled": "(Sans titre)",
+  "repeating": "Événement périodique",
+  "more_one": "{{count}} de plus",
+  "more_other": "{{count}} de plus",
+  "actions": {
+    "new": "Nouvel événement",
+    "today": "Aujourd'hui",
+    "previous": "Période précédente",
+    "next": "Période suivante",
+    "cancel": "Annuler",
+    "create": "Créer",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "backToMail": "Retour à la messagerie"
+  },
+  "views": {
+    "label": "Vue",
+    "month": "Mois",
+    "week": "Semaine",
+    "day": "Jour",
+    "agenda": "Liste"
+  },
+  "calendars": {
+    "title": "Agendas",
+    "description": "Choisissez les agendas à afficher.",
+    "none": "Aucun agenda",
+    "export": "Exporter « {{name}} » (.ics)"
+  },
+  "empty": {
+    "title": "Rien de prévu",
+    "range": "Aucun événement sur cette période."
+  },
+  "unavailable": {
+    "title": "Pas d’agenda",
+    "description": "Aucune de vos boîtes ne propose d’agenda."
+  },
+  "dialog": {
+    "newTitle": "Nouvel événement",
+    "editTitle": "Événement",
+    "description": "Titre, date, répétition, rappels et participants de l’événement."
+  },
+  "fields": {
+    "title": "Titre",
+    "titlePlaceholder": "Ajouter un titre",
+    "calendar": "Agenda",
+    "allDay": "Journée entière",
+    "start": "Début",
+    "startTime": "Heure de début",
+    "end": "Fin",
+    "endTime": "Heure de fin",
+    "timeZone": "Fuseau horaire",
+    "repeat": "Répétition",
+    "reminders": "Rappels",
+    "location": "Lieu",
+    "description": "Description",
+    "participants": "Participants",
+    "availability": "Disponibilité"
+  },
+  "repeat": {
+    "none": "Ne se répète pas",
+    "daily": "Tous les jours",
+    "weekly": "Toutes les semaines",
+    "monthly": "Tous les mois",
+    "yearly": "Tous les ans",
+    "custom": "Règle personnalisée",
+    "customHint": "Cette répétition a été créée ailleurs ; elle est conservée telle quelle.",
+    "every": "Tous les",
+    "onDays": "Répéter le",
+    "never": "Sans fin",
+    "until": "Jusqu’au",
+    "after": "Nombre",
+    "untilDate": "Dernière date",
+    "times": "fois"
+  },
+  "reminders": {
+    "add": "Ajouter un rappel",
+    "atStart": "Au début",
+    "remove": "Retirer le rappel « {{label}} »",
+    "minutes_one": "{{count}} minute avant",
+    "minutes_other": "{{count}} minutes avant",
+    "hours_one": "{{count}} heure avant",
+    "hours_other": "{{count}} heures avant",
+    "days_one": "{{count}} jour avant",
+    "days_other": "{{count}} jours avant"
+  },
+  "participants": {
+    "placeholder": "nom@exemple.fr",
+    "add": "Ajouter le participant",
+    "remove": "Retirer {{email}}",
+    "noInvites": "Cette boîte ne peut pas envoyer d’invitations : les participants sont seulement enregistrés dans l’événement."
+  },
+  "availability": {
+    "busy": "Occupé",
+    "free": "Libre"
+  },
+  "errors": {
+    "endBeforeStart": "La fin est avant le début.",
+    "badEmail": "Une adresse de participant n’est pas valide.",
+    "badUntil": "Choisissez une dernière date après le début.",
+    "noDays": "Choisissez au moins un jour de la semaine."
+  },
+  "scope": {
+    "editTitle": "Modifier un événement périodique",
+    "deleteTitle": "Supprimer un événement périodique",
+    "description": "Appliquer à cet événement seulement, ou à toute la série ?",
+    "this": "Cet événement",
+    "all": "Toute la série"
+  },
+  "delete": {
+    "title": "Supprimer cet événement ?",
+    "description": "« {{title}} » sera retiré de l’agenda.",
+    "confirm": "Supprimer"
+  },
+  "toast": {
+    "created": "Événement créé",
+    "saved": "Événement enregistré",
+    "deleted": "Événement supprimé",
+    "queued": "Enregistré hors ligne : envoyé au retour de la connexion.",
+    "exported_one": "{{count}} événement exporté",
+    "exported_other": "{{count}} événements exportés"
+  },
+  "import": {
+    "open": "Importer (.ics)",
+    "title": "Importer des événements",
+    "description": "Ajoutez les événements d’un fichier .ics à l’un de vos agendas.",
+    "into": "Agenda",
+    "choose": "Choisir un fichier .ics",
+    "reading": "Lecture du fichier…",
+    "found_one": "{{count}} événement trouvé",
+    "found_other": "{{count}} événements trouvés",
+    "duplicate": "Déjà présent",
+    "duplicates_one": "{{count}} événement est déjà dans votre agenda :",
+    "duplicates_other": "{{count}} événements sont déjà dans votre agenda :",
+    "skip": "Ignorer",
+    "replace": "Remplacer",
+    "both": "Garder les deux",
+    "run": "Importer",
+    "done": "Import terminé : {{created}} ajoutés, {{replaced}} remplacés, {{skipped}} ignorés.",
+    "empty": "Aucun événement dans ce fichier.",
+    "tooLarge": "Le fichier est trop gros (10 Mo au plus)."
+  },
+  "invite": {
+    "label": "Invitation",
+    "loading": "Lecture de l’invitation…",
+    "cancelled": "Événement annulé",
+    "reply": "Réponse à une invitation",
+    "organizer": "Organisateur : {{name}}",
+    "conflict": "Chevauche « {{title}} »",
+    "inCalendar": "Dans votre agenda",
+    "inCalendarStatus": "Dans votre agenda · {{status}}",
+    "accept": "Accepter",
+    "maybe": "Peut-être",
+    "decline": "Refuser",
+    "add": "Ajouter à l’agenda",
+    "show": "Voir dans l’agenda",
+    "added": "Ajouté à votre agenda.",
+    "replySent": "Votre réponse a été envoyée à l’organisateur.",
+    "replyNotSent": "Ajouté à votre agenda ; le serveur n’a pas envoyé votre réponse.",
+    "imapNote": "Cette boîte ne peut pas répondre aux invitations : l’événement peut seulement être ajouté à votre agenda."
+  },
+  "status": {
+    "needs-action": "sans réponse",
+    "accepted": "accepté",
+    "tentative": "peut-être",
+    "declined": "refusé",
+    "delegated": "délégué"
+  },
+  "reminder": {
+    "body": "Commence {{when}}",
+    "open": "Ouvrir"
+  }
+}

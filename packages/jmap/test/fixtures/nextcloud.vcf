@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Sabre//Sabre VObject 4.5.4//EN
+UID:b2f3e4d5-6a7b-4c8d-9e0f-112233445566
+FN:Lucía Fernández
+N:Fernández;Lucía;;;
+ADR;TYPE=HOME:;;Calle Mayor 3;Madrid;;28013;España
+EMAIL;TYPE=HOME:lucia@example.es
+TEL;TYPE=HOME,VOICE:+34 91 123 45 67
+CATEGORIES:Amigos
+REV:20250102T101112Z
+X-NC-CUSTOM:valeur
+END:VCARD

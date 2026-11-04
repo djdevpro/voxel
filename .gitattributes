@@ -1,0 +1,2 @@
+# vCard de test : fins de ligne CRLF d origine (RFC 6350), gardees telles quelles
+*.vcf -text

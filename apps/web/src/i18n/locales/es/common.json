@@ -1,0 +1,67 @@
+{
+  "actions": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Eliminar",
+    "close": "Cerrar",
+    "retry": "Reintentar",
+    "ok": "Aceptar",
+    "undo": "Deshacer",
+    "more": "Más",
+    "refresh": "Actualizar",
+    "save": "Guardar",
+    "back": "Volver",
+    "copy": "Copiar",
+    "copied": "Copiado"
+  },
+  "errors": {
+    "generic": "Error"
+  },
+  "time": {
+    "justNow": "ahora mismo"
+  },
+  "offline": {
+    "banner": "Sin conexión: las acciones se sincronizarán al volver",
+    "offline": "Sin conexión",
+    "pending_one": "{{count}} pendiente",
+    "pending_other": "{{count}} pendientes",
+    "pending_many": "{{count}} pendientes",
+    "pendingActions_one": "{{count}} acción pendiente",
+    "pendingActions_other": "{{count}} acciones pendientes",
+    "pendingActions_many": "{{count}} acciones pendientes",
+    "backOnline": "De nuevo en línea",
+    "synced_one": "{{count}} acción sincronizada",
+    "synced_other": "{{count}} acciones sincronizadas",
+    "synced_many": "{{count}} acciones sincronizadas",
+    "failed_one": "{{count}} acción ha fallado",
+    "failed_other": "{{count}} acciones han fallado",
+    "failed_many": "{{count}} acciones han fallado"
+  },
+  "nav": {
+    "main": "Navegación principal",
+    "menu": "Menú",
+    "inbox": "Recibidos",
+    "folders": "Carpetas",
+    "compose": "Redactar",
+    "search": "Buscar",
+    "settings": "Ajustes"
+  },
+  "noAccounts": {
+    "title": "Añade tu primer buzón",
+    "description": "Inicia sesión en un buzón para empezar. Tus credenciales se cifran en el servidor.",
+    "add": "Añadir un buzón"
+  },
+  "slider": {
+    "delay": "Retraso"
+  },
+  "title": {
+    "folder": "{{folder}} — {{mailbox}} · {{app}}",
+    "folderUnread": "({{n}}) {{folder}} — {{mailbox}} · {{app}}",
+    "thread": "{{subject}} · {{app}}",
+    "signIn": "Iniciar sesión · {{app}}"
+  },
+  "routing": {
+    "threadNotFound": "No se encuentra esta conversación. Puede que se haya eliminado o movido.",
+    "folderNotFound": "Esta carpeta ya no existe. Volviendo a la bandeja de entrada."
+  }
+}

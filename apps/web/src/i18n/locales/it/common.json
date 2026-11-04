@@ -1,0 +1,67 @@
+{
+  "actions": {
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "delete": "Elimina",
+    "close": "Chiudi",
+    "retry": "Riprova",
+    "ok": "OK",
+    "undo": "Annulla",
+    "more": "Altro",
+    "refresh": "Aggiorna",
+    "save": "Salva",
+    "back": "Indietro",
+    "copy": "Copia",
+    "copied": "Copiato"
+  },
+  "errors": {
+    "generic": "Errore"
+  },
+  "time": {
+    "justNow": "proprio ora"
+  },
+  "offline": {
+    "banner": "Offline: le azioni verranno sincronizzate al ritorno della connessione",
+    "offline": "Offline",
+    "pending_one": "{{count}} in attesa",
+    "pending_other": "{{count}} in attesa",
+    "pending_many": "{{count}} in attesa",
+    "pendingActions_one": "{{count}} azione in attesa",
+    "pendingActions_other": "{{count}} azioni in attesa",
+    "pendingActions_many": "{{count}} azioni in attesa",
+    "backOnline": "Di nuovo online",
+    "synced_one": "{{count}} azione sincronizzata",
+    "synced_other": "{{count}} azioni sincronizzate",
+    "synced_many": "{{count}} azioni sincronizzate",
+    "failed_one": "{{count}} azione non riuscita",
+    "failed_other": "{{count}} azioni non riuscite",
+    "failed_many": "{{count}} azioni non riuscite"
+  },
+  "nav": {
+    "main": "Navigazione principale",
+    "menu": "Menu",
+    "inbox": "In arrivo",
+    "folders": "Cartelle",
+    "compose": "Scrivi",
+    "search": "Cerca",
+    "settings": "Impostazioni"
+  },
+  "noAccounts": {
+    "title": "Aggiungi la tua prima casella",
+    "description": "Accedi a una casella di posta per iniziare. Le tue credenziali sono cifrate sul server.",
+    "add": "Aggiungi una casella"
+  },
+  "slider": {
+    "delay": "Ritardo"
+  },
+  "title": {
+    "folder": "{{folder}} — {{mailbox}} · {{app}}",
+    "folderUnread": "({{n}}) {{folder}} — {{mailbox}} · {{app}}",
+    "thread": "{{subject}} · {{app}}",
+    "signIn": "Accedi · {{app}}"
+  },
+  "routing": {
+    "threadNotFound": "Questa conversazione non è più disponibile. Potrebbe essere stata eliminata o spostata.",
+    "folderNotFound": "Questa cartella non esiste più. Torno alla posta in arrivo."
+  }
+}

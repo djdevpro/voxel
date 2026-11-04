@@ -1,0 +1,12 @@
+node_modules
+dist
+dev-dist
+data
+.env
+.env.*
+*.sqlite*
+*.log
+# config.json de votre déploiement (voir config.example.json)
+/config.json
+.claude/
+.DS_Store

@@ -1,0 +1,126 @@
+{
+  "title": {
+    "new": "Nouveau message",
+    "reply": "Réponse",
+    "forward": "Transfert"
+  },
+  "send": "Envoyer",
+  "sendTooltip": "Envoyer ({{shortcut}})",
+  "attach": "Joindre des fichiers",
+  "formatting": "Mise en forme",
+  "saving": "Enregistrement…",
+  "discardDraft": "Supprimer le brouillon",
+  "dropFiles": "Déposez les fichiers pour les joindre",
+  "remove": "Retirer {{name}}",
+  "inline": {
+    "reply": "Répondre",
+    "replyAll": "Répondre à tous",
+    "forward": "Transférer",
+    "openWindow": "Ouvrir dans une fenêtre",
+    "discard": "Supprimer la réponse"
+  },
+  "fields": {
+    "from": "De",
+    "to": "À",
+    "cc": "Cc",
+    "bcc": "Cci",
+    "subject": "Objet",
+    "account": "Boîte d’envoi",
+    "identity": "Identité d’envoi",
+    "identityPlaceholder": "Identité"
+  },
+  "recipients": {
+    "label": "Destinataires {{field}}"
+  },
+  "signature": {
+    "add": "Ajouter la signature",
+    "remove": "Retirer la signature"
+  },
+  "quote": {
+    "show": "Afficher le message cité",
+    "hide": "Masquer le message cité",
+    "wrote": "Le {{date}}, {{who}} a écrit :",
+    "unknownSender": "Inconnu"
+  },
+  "forwarded": {
+    "header": "Message transféré",
+    "from": "De :",
+    "date": "Date :",
+    "subject": "Objet :",
+    "to": "À :",
+    "cc": "Cc :",
+    "fileName": "message"
+  },
+  "schedule": {
+    "options": "Options d’envoi",
+    "title": "Programmer l’envoi",
+    "tomorrowMorning": "Demain matin",
+    "mondayMorning": "Lundi matin"
+  },
+  "confirm": {
+    "noSubject": "Envoyer sans objet ?",
+    "deleteDraft": "Supprimer ce brouillon ?"
+  },
+  "toasts": {
+    "uploading": "Patientez, des pièces jointes sont en cours d’envoi",
+    "noIdentity": "Aucune identité d’envoi pour cette boîte",
+    "noRecipient": "Ajoutez au moins un destinataire",
+    "invalidAddress": "Adresse invalide : {{email}}",
+    "attachFailed": "Impossible de joindre « {{name}} »",
+    "draftDeleted": "Brouillon supprimé",
+    "draftSaved": "Brouillon enregistré",
+    "futureDate": "Choisissez une date future"
+  },
+  "editor": {
+    "placeholder": "Écrivez votre message…",
+    "label": "Corps du message",
+    "linkPrompt": "Adresse du lien",
+    "bold": "Gras ({{mod}}+B)",
+    "italic": "Italique ({{mod}}+I)",
+    "underline": "Souligné ({{mod}}+U)",
+    "strike": "Barré",
+    "bulletList": "Liste à puces",
+    "orderedList": "Liste numérotée",
+    "quote": "Citation",
+    "code": "Code",
+    "link": "Lien ({{mod}}+K)",
+    "clear": "Effacer la mise en forme",
+    "undo": "Annuler ({{mod}}+Z)",
+    "redo": "Rétablir"
+  },
+  "window": {
+    "label": "Rédaction",
+    "fullscreenLabel": "Rédaction plein écran",
+    "expand": "Agrandir",
+    "minimize": "Réduire",
+    "fullscreen": "Plein écran",
+    "exitFullscreen": "Quitter le plein écran",
+    "closeKeep": "Fermer (le brouillon est conservé)"
+  },
+  "outbox": {
+    "send": "Envoi : {{subject}}",
+    "draft": "Brouillon",
+    "draftDeleted": "Brouillon supprimé"
+  },
+  "errors": {
+    "noDrafts": "Dossier Brouillons introuvable"
+  },
+  "templates": {
+    "insert": "Insérer une réponse type",
+    "shortcut": "Alt+T",
+    "title": "Réponses types",
+    "empty": "Aucune réponse type",
+    "manage": "Gérer les réponses types…"
+  },
+  "options": {
+    "title": "Options d’envoi",
+    "priority": "Priorité",
+    "priorities": {
+      "high": "Haute",
+      "normal": "Normale",
+      "low": "Basse"
+    },
+    "receipt": "Demander un accusé de lecture",
+    "language": "Langue du correcteur"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "title": {
+    "new": "رسالة جديدة",
+    "reply": "رد",
+    "forward": "إعادة توجيه"
+  },
+  "send": "إرسال",
+  "sendTooltip": "إرسال ({{shortcut}})",
+  "attach": "إرفاق ملفات",
+  "formatting": "التنسيق",
+  "saving": "جارٍ الحفظ…",
+  "discardDraft": "تجاهل المسودة",
+  "dropFiles": "أفلت الملفات لإرفاقها",
+  "remove": "إزالة {{name}}",
+  "inline": {
+    "reply": "رد",
+    "replyAll": "رد على الكل",
+    "forward": "إعادة توجيه",
+    "openWindow": "فتح في نافذة",
+    "discard": "تجاهل الرد"
+  },
+  "fields": {
+    "from": "من",
+    "to": "إلى",
+    "cc": "نسخة",
+    "bcc": "نسخة مخفية",
+    "subject": "الموضوع",
+    "account": "صندوق الإرسال",
+    "identity": "هوية الإرسال",
+    "identityPlaceholder": "الهوية"
+  },
+  "recipients": {
+    "label": "مستلمو «{{field}}»"
+  },
+  "signature": {
+    "add": "إضافة التوقيع",
+    "remove": "إزالة التوقيع"
+  },
+  "quote": {
+    "show": "عرض الرسالة المقتبسة",
+    "hide": "إخفاء الرسالة المقتبسة",
+    "wrote": "في {{date}}، كتب {{who}}:",
+    "unknownSender": "غير معروف"
+  },
+  "forwarded": {
+    "header": "رسالة معاد توجيهها",
+    "from": "من:",
+    "date": "التاريخ:",
+    "subject": "الموضوع:",
+    "to": "إلى:",
+    "cc": "نسخة:",
+    "fileName": "رسالة"
+  },
+  "schedule": {
+    "options": "خيارات الإرسال",
+    "title": "جدولة الإرسال",
+    "tomorrowMorning": "صباح الغد",
+    "mondayMorning": "صباح الاثنين"
+  },
+  "confirm": {
+    "noSubject": "إرسال بدون موضوع؟",
+    "deleteDraft": "حذف هذه المسودة؟"
+  },
+  "toasts": {
+    "uploading": "يُرجى الانتظار، لا يزال رفع المرفقات جاريًا",
+    "noIdentity": "لا توجد هوية إرسال لصندوق البريد هذا",
+    "noRecipient": "أضف مستلمًا واحدًا على الأقل",
+    "invalidAddress": "عنوان غير صالح: {{email}}",
+    "attachFailed": "تعذّر إرفاق «{{name}}»",
+    "draftDeleted": "تم حذف المسودة",
+    "draftSaved": "تم حفظ المسودة",
+    "futureDate": "اختر تاريخًا في المستقبل"
+  },
+  "editor": {
+    "placeholder": "اكتب رسالتك…",
+    "label": "نص الرسالة",
+    "linkPrompt": "عنوان الرابط",
+    "bold": "غامق ({{mod}}+B)",
+    "italic": "مائل ({{mod}}+I)",
+    "underline": "تسطير ({{mod}}+U)",
+    "strike": "يتوسطه خط",
+    "bulletList": "قائمة نقطية",
+    "orderedList": "قائمة مرقّمة",
+    "quote": "اقتباس",
+    "code": "رمز برمجي",
+    "link": "رابط ({{mod}}+K)",
+    "clear": "مسح التنسيق",
+    "undo": "تراجع ({{mod}}+Z)",
+    "redo": "إعادة"
+  },
+  "window": {
+    "label": "كتابة رسالة",
+    "fullscreenLabel": "كتابة رسالة بملء الشاشة",
+    "expand": "توسيع",
+    "minimize": "تصغير",
+    "fullscreen": "ملء الشاشة",
+    "exitFullscreen": "الخروج من ملء الشاشة",
+    "closeKeep": "إغلاق (يتم الاحتفاظ بالمسودة)"
+  },
+  "outbox": {
+    "send": "إرسال: {{subject}}",
+    "draft": "مسودة",
+    "draftDeleted": "تم حذف المسودة"
+  },
+  "errors": {
+    "noDrafts": "مجلد المسودات غير موجود"
+  },
+  "templates": {
+    "insert": "إدراج رد جاهز",
+    "shortcut": "Alt+T",
+    "title": "الردود الجاهزة",
+    "empty": "لا توجد ردود جاهزة بعد",
+    "manage": "إدارة الردود الجاهزة…"
+  },
+  "options": {
+    "title": "خيارات الإرسال",
+    "priority": "الأولوية",
+    "priorities": {
+      "high": "عالية",
+      "normal": "عادية",
+      "low": "منخفضة"
+    },
+    "receipt": "طلب إشعار بالقراءة",
+    "language": "لغة التدقيق الإملائي"
+  }
+}

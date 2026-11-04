@@ -1,0 +1,236 @@
+{
+  "noSubject": "(no subject)",
+  "roles": {
+    "inbox": "Inbox",
+    "flagged": "Flagged",
+    "drafts": "Drafts",
+    "sent": "Sent",
+    "scheduled": "Scheduled",
+    "archive": "Archive",
+    "junk": "Spam",
+    "trash": "Trash"
+  },
+  "actions": {
+    "archive": "Archive",
+    "delete": "Delete",
+    "spam": "Report spam",
+    "notSpam": "Not spam",
+    "markRead": "Mark as read",
+    "markUnread": "Mark as unread",
+    "flag": "Flag",
+    "unflag": "Unflag",
+    "moveTo": "Move to",
+    "markAllRead": "Mark all as read"
+  },
+  "toasts": {
+    "archived_one": "Conversation archived",
+    "archived_other": "{{count}} conversations archived",
+    "trashed_one": "Conversation moved to Trash",
+    "trashed_other": "{{count}} conversations moved to Trash",
+    "spammed_one": "Reported as spam",
+    "spammed_other": "{{count}} conversations reported as spam",
+    "movedToInbox": "Moved to Inbox",
+    "movedTo": "Moved to “{{name}}”",
+    "destroyed_one": "Conversation permanently deleted",
+    "destroyed_other": "{{count}} conversations permanently deleted",
+    "markedRead": "Marked as read",
+    "markedUnread": "Marked as unread",
+    "pendingSync": "waiting to sync",
+    "changePending": "Change waiting to sync",
+    "view": "View"
+  },
+  "errors": {
+    "move": "Couldn't move",
+    "delete": "Couldn't delete",
+    "update": "Couldn't update",
+    "undo": "Couldn't undo",
+    "action": "Action failed",
+    "createFolder": "Couldn't create the folder",
+    "rename": "Couldn't rename",
+    "archiveOffline": "The Archive folder will be created when you're back online",
+    "archiveCreate": "Couldn't create the Archive folder",
+    "destinationNotFound": "Destination folder not found"
+  },
+  "outbox": {
+    "undo": "Undo",
+    "destroy": "Permanent deletion",
+    "read": "Read"
+  },
+  "confirm": {
+    "destroyTitle_one": "Permanently delete this conversation?",
+    "destroyTitle_other": "Permanently delete {{count}} conversations?",
+    "irreversible": "This can't be undone."
+  },
+  "sidebar": {
+    "compose": "New message",
+    "folders": "Folders",
+    "systemFolders": "System folders",
+    "newFolder": "New folder",
+    "folderName": "Folder name",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "actionsFor": "Actions for {{name}}",
+    "rename": "Rename",
+    "newSubfolder": "New subfolder",
+    "color": "Color",
+    "noColor": "No color",
+    "colorValue": "Color {{color}}",
+    "markedRead_one": "{{count}} message marked as read",
+    "markedRead_other": "{{count}} messages marked as read",
+    "noUnread": "No unread messages",
+    "deleteTitle": "Delete the folder “{{name}}”?",
+    "deleteDesc": "The messages it contains will be moved to Trash.",
+    "deleteDescChildren": "Its subfolders will be deleted too. The messages will be moved to Trash.",
+    "deleteConfirm": "Delete folder",
+    "deleting": "Deleting folder…",
+    "folderCreated": "Folder “{{name}}” created",
+    "folderDeleted": "Folder “{{name}}” deleted",
+    "otherAccountDrop": "Conversations from another mailbox can't be moved here",
+    "cannotMoveHere": "Conversations can't be moved here",
+    "hideFolder": "Hide from sidebar",
+    "folderHidden": "“{{name}}” is hidden",
+    "manageFolders": "Manage folders…",
+    "emptyFolder": "Empty…"
+  },
+  "list": {
+    "region": "Conversation list",
+    "conversations": "Conversations",
+    "results": "Results",
+    "folder": "Folder",
+    "allMailboxes": "All mailboxes",
+    "selectAll": "Select all",
+    "selected_one": "selected",
+    "selected_other": "selected",
+    "multiAccountSelection": "Selection spans several mailboxes",
+    "clearSelection": "Clear selection",
+    "quick": {
+      "unread": "Unread",
+      "unreadLong": "Unread",
+      "flagged": "Flagged",
+      "flaggedLong": "Flagged",
+      "attachment": "Files",
+      "attachmentLong": "With attachments"
+    },
+    "oldestFirst": "Oldest first",
+    "newestFirst": "Newest first",
+    "loadError": "Couldn't load messages",
+    "serverDown": "The server isn't responding.",
+    "partialError": "{{accounts}}: couldn't load",
+    "end": "End of list"
+  },
+  "empty": {
+    "search": {
+      "title": "No results",
+      "description": "Try other keywords or remove a filter."
+    },
+    "inbox": {
+      "title": "Inbox is empty",
+      "description": "You're all caught up. Enjoy the calm."
+    },
+    "flagged": {
+      "title": "No flagged messages",
+      "description": "Press S to flag an important conversation."
+    },
+    "drafts": {
+      "title": "No drafts",
+      "description": "Messages you're writing will show up here."
+    },
+    "sent": {
+      "title": "No sent messages"
+    },
+    "archive": {
+      "title": "Archive is empty",
+      "description": "Archive with E to keep a tidy inbox."
+    },
+    "junk": {
+      "title": "No spam",
+      "description": "Nothing suspicious for now."
+    },
+    "trash": {
+      "title": "Trash is empty"
+    },
+    "folder": {
+      "title": "This folder is empty"
+    }
+  },
+  "row": {
+    "to": "To: {{names}}",
+    "noRecipient": "(no recipients)",
+    "unknownSender": "(unknown sender)",
+    "draft": "Draft",
+    "unread": "unread",
+    "attachment": "Attachment",
+    "flagged": "Flagged",
+    "select": "Select",
+    "conversations_one": "{{count}} conversation",
+    "conversations_other": "{{count}} conversations"
+  },
+  "search": {
+    "placeholder": "Search",
+    "label": "Search messages",
+    "removeFilter": "Remove filter",
+    "clear": "Clear search",
+    "filters": "Filters",
+    "operators": {
+      "from": "From",
+      "to": "To",
+      "subject": "Subject",
+      "has": "Has",
+      "is": "Status",
+      "before": "Before",
+      "after": "After",
+      "in": "In"
+    },
+    "chips": {
+      "attachment": "Has attachment",
+      "unread": "Unread",
+      "read": "Read",
+      "flagged": "Flagged",
+      "keyValue": "{{key}}: {{value}}"
+    },
+    "aliases": {
+      "from": "sender",
+      "to": "recipient",
+      "subject": "title",
+      "has": "with",
+      "is": "status",
+      "before": "until",
+      "after": "since",
+      "in": "folder",
+      "has_attachment": "attachments,file,files",
+      "is_unread": "new",
+      "is_read": "seen",
+      "is_flagged": "starred,star",
+      "in_inbox": "",
+      "in_sent": "",
+      "in_drafts": "draft",
+      "in_archive": "archived,archives",
+      "in_trash": "deleted,bin",
+      "in_junk": "spam"
+    }
+  },
+  "quota": {
+    "title": "Storage",
+    "usage": "{{used}} of {{limit}}",
+    "warnToast": "{{mailbox}}: storage {{percent}} % full"
+  },
+  "priority": {
+    "high": "High priority",
+    "low": "Low priority"
+  },
+  "transfer": {
+    "export": "Export (.mbox)",
+    "import": "Import messages (.eml, .mbox)…",
+    "exporting": "Exporting “{{name}}”: {{done}} / {{total}}",
+    "cancel": "Cancel",
+    "cancelled": "Cancelled",
+    "exported": "“{{name}}” exported. Messages: {{count}}",
+    "exportFailed": "Export failed",
+    "importing": "Importing into “{{name}}”: {{count}}",
+    "imported": "Imported into “{{name}}”. Messages: {{count}}",
+    "importFailedSome": "Not imported: {{count}}",
+    "importFailed": "Import failed",
+    "importWaiting": "Import into “{{name}}” paused: the server limits uploads. Resuming around {{time}}. Messages imported: {{count}}",
+    "importSkipped": "Already there, skipped: {{count}}"
+  }
+}

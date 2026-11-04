@@ -1,0 +1,86 @@
+{
+  "rail": {
+    "label": "Boîtes mail",
+    "all": "Toutes les boîtes",
+    "add": "Ajouter une boîte",
+    "palette": "Palette de commandes",
+    "lightTheme": "Thème clair",
+    "darkTheme": "Thème sombre",
+    "settings": "Paramètres",
+    "accountMenu": "Menu du compte {{email}}",
+    "needsReconnect": "reconnexion nécessaire",
+    "unread_one": "{{count}} non lu",
+    "unread_other": "{{count}} non lus",
+    "unread_many": "{{count}} non lus"
+  },
+  "menu": {
+    "rename": "Renommer",
+    "color": "Couleur",
+    "settings": "Paramètres de la boîte",
+    "add": "Ajouter une autre boîte",
+    "logout": "Se déconnecter de cette boîte",
+    "logoutAll": "Se déconnecter de tout"
+  },
+  "rename": {
+    "title": "Renommer la boîte",
+    "label": "Nom affiché",
+    "placeholder": "Pro, Perso…"
+  },
+  "common": {
+    "cancel": "Annuler",
+    "save": "Enregistrer"
+  },
+  "add": {
+    "title": "Ajouter une boîte",
+    "text": "Connectez-vous à une autre boîte pour l’utiliser avec celles déjà ouvertes.",
+    "reconnectTitle": "Se reconnecter",
+    "reconnectText": "Le serveur mail a refusé les identifiants enregistrés pour {{email}}. Saisissez le mot de passe actuel.",
+    "added": "{{email}} ajoutée",
+    "reconnected": "{{email}} reconnectée"
+  },
+  "reconnect": {
+    "title": "Reconnectez-vous à {{email}}",
+    "text": "Le serveur mail a refusé le mot de passe. Il a peut-être changé.",
+    "action": "Se reconnecter",
+    "dismiss": "Ignorer"
+  },
+  "logout": {
+    "confirmTitle": "Se déconnecter de {{email}} ?",
+    "confirmText": "Son cache, ses brouillons locaux et ses actions en attente seront effacés de cet appareil. Rien n’est supprimé sur le serveur mail.",
+    "confirm": "Se déconnecter",
+    "done": "Déconnecté de {{email}}"
+  },
+  "logoutAll": {
+    "confirmTitle": "Se déconnecter de toutes les boîtes ?",
+    "confirmText": "Votre session se termine et tout ce qui est en cache sur cet appareil est effacé.",
+    "confirm": "Tout déconnecter"
+  },
+  "toast": {
+    "updateFailed": "Modification impossible",
+    "logoutFailed": "Déconnexion impossible"
+  },
+  "section": {
+    "intro": "Boîtes ouvertes dans cette session. Les identifiants sont chiffrés sur le serveur et ne reviennent jamais dans le navigateur. L’ordre définit les raccourcis Ctrl+1…9.",
+    "details": "Détails",
+    "displayName": "Nom affiché",
+    "displayNameHint": "Partagé entre vos appareils.",
+    "color": "Couleur d’accent",
+    "capabilities": "Prend en charge :",
+    "test": "Tester la connexion",
+    "testOk": "Connexion OK",
+    "testFail": "Échec de connexion",
+    "storedOnDevice": "Mot de passe gardé sur cet appareil, chiffré",
+    "manageAccount": "Gérer mon compte"
+  },
+  "capability": {
+    "vacation": "répondeur",
+    "sieve": "filtres",
+    "contacts": "contacts",
+    "submissionDelay": "envoi programmé",
+    "quota": "quota"
+  },
+  "notification": {
+    "newMessage": "Nouveau message",
+    "noSubject": "(sans objet)"
+  }
+}

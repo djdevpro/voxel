@@ -1,0 +1,14 @@
+{
+  "invalid_credentials": "Dirección de correo o contraseña incorrectas.",
+  "rate_limited": "Demasiados intentos. Espera unos minutos y vuelve a intentarlo.",
+  "upstream_unreachable": "Ahora mismo no se puede contactar con el servidor de correo.",
+  "upstream_auth": "El servidor de correo rechazó la contraseña. Vuelve a iniciar sesión en este buzón.",
+  "not_found": "No encontrado.",
+  "forbidden": "No tienes acceso a esto.",
+  "validation": "Falta información o no es válida.",
+  "internal": "Algo ha fallado en el servidor. Vuelve a intentarlo.",
+  "network": "Estás sin conexión o no se puede contactar con el servidor.",
+  "unknown": "Error inesperado (HTTP {{status}}).",
+  "discovery_failed": "No encontramos la configuración de esta dirección. Usa la configuración avanzada.",
+  "domain_not_allowed": "Este servidor no acepta direcciones de este dominio."
+}

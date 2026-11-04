@@ -1,0 +1,236 @@
+{
+  "noSubject": "(kein Betreff)",
+  "roles": {
+    "inbox": "Posteingang",
+    "flagged": "Markiert",
+    "drafts": "Entwürfe",
+    "sent": "Gesendet",
+    "scheduled": "Geplant",
+    "archive": "Archiv",
+    "junk": "Spam",
+    "trash": "Papierkorb"
+  },
+  "actions": {
+    "archive": "Archivieren",
+    "delete": "Löschen",
+    "spam": "Als Spam melden",
+    "notSpam": "Kein Spam",
+    "markRead": "Als gelesen markieren",
+    "markUnread": "Als ungelesen markieren",
+    "flag": "Markieren",
+    "unflag": "Markierung entfernen",
+    "moveTo": "Verschieben nach",
+    "markAllRead": "Alle als gelesen markieren"
+  },
+  "toasts": {
+    "archived_one": "Unterhaltung archiviert",
+    "archived_other": "{{count}} Unterhaltungen archiviert",
+    "trashed_one": "Unterhaltung in den Papierkorb verschoben",
+    "trashed_other": "{{count}} Unterhaltungen in den Papierkorb verschoben",
+    "spammed_one": "Als Spam gemeldet",
+    "spammed_other": "{{count}} Unterhaltungen als Spam gemeldet",
+    "movedToInbox": "In den Posteingang verschoben",
+    "movedTo": "Nach „{{name}}“ verschoben",
+    "destroyed_one": "Unterhaltung endgültig gelöscht",
+    "destroyed_other": "{{count}} Unterhaltungen endgültig gelöscht",
+    "markedRead": "Als gelesen markiert",
+    "markedUnread": "Als ungelesen markiert",
+    "pendingSync": "wartet auf Synchronisierung",
+    "changePending": "Änderung wartet auf Synchronisierung",
+    "view": "Anzeigen"
+  },
+  "errors": {
+    "move": "Verschieben fehlgeschlagen",
+    "delete": "Löschen fehlgeschlagen",
+    "update": "Aktualisierung fehlgeschlagen",
+    "undo": "Rückgängig machen fehlgeschlagen",
+    "action": "Aktion fehlgeschlagen",
+    "createFolder": "Ordner konnte nicht erstellt werden",
+    "rename": "Umbenennen fehlgeschlagen",
+    "archiveOffline": "Der Archivordner wird erstellt, sobald du wieder online bist",
+    "archiveCreate": "Der Archivordner konnte nicht erstellt werden",
+    "destinationNotFound": "Zielordner nicht gefunden"
+  },
+  "outbox": {
+    "undo": "Rückgängig",
+    "destroy": "Endgültiges Löschen",
+    "read": "Gelesen"
+  },
+  "confirm": {
+    "destroyTitle_one": "Diese Unterhaltung endgültig löschen?",
+    "destroyTitle_other": "{{count}} Unterhaltungen endgültig löschen?",
+    "irreversible": "Diese Aktion kann nicht rückgängig gemacht werden."
+  },
+  "sidebar": {
+    "compose": "Neue Nachricht",
+    "folders": "Ordner",
+    "systemFolders": "Systemordner",
+    "newFolder": "Neuer Ordner",
+    "folderName": "Ordnername",
+    "expand": "Aufklappen",
+    "collapse": "Zuklappen",
+    "actionsFor": "Aktionen für {{name}}",
+    "rename": "Umbenennen",
+    "newSubfolder": "Neuer Unterordner",
+    "color": "Farbe",
+    "noColor": "Keine Farbe",
+    "colorValue": "Farbe {{color}}",
+    "markedRead_one": "{{count}} Nachricht als gelesen markiert",
+    "markedRead_other": "{{count}} Nachrichten als gelesen markiert",
+    "noUnread": "Keine ungelesenen Nachrichten",
+    "deleteTitle": "Ordner „{{name}}“ löschen?",
+    "deleteDesc": "Die enthaltenen Nachrichten werden in den Papierkorb verschoben.",
+    "deleteDescChildren": "Die Unterordner werden ebenfalls gelöscht. Die Nachrichten werden in den Papierkorb verschoben.",
+    "deleteConfirm": "Ordner löschen",
+    "deleting": "Ordner wird gelöscht…",
+    "folderCreated": "Ordner „{{name}}“ erstellt",
+    "folderDeleted": "Ordner „{{name}}“ gelöscht",
+    "otherAccountDrop": "Unterhaltungen aus einem anderen Postfach können nicht hierher verschoben werden",
+    "cannotMoveHere": "Unterhaltungen können nicht hierher verschoben werden",
+    "hideFolder": "In der Seitenleiste ausblenden",
+    "folderHidden": "„{{name}}“ ist ausgeblendet",
+    "manageFolders": "Ordner verwalten…",
+    "emptyFolder": "Leeren…"
+  },
+  "list": {
+    "region": "Liste der Unterhaltungen",
+    "conversations": "Unterhaltungen",
+    "results": "Ergebnisse",
+    "folder": "Ordner",
+    "allMailboxes": "Alle Postfächer",
+    "selectAll": "Alle auswählen",
+    "selected_one": "ausgewählt",
+    "selected_other": "ausgewählt",
+    "multiAccountSelection": "Auswahl umfasst mehrere Postfächer",
+    "clearSelection": "Auswahl aufheben",
+    "quick": {
+      "unread": "Ungelesen",
+      "unreadLong": "Ungelesen",
+      "flagged": "Markiert",
+      "flaggedLong": "Markiert",
+      "attachment": "Anhänge",
+      "attachmentLong": "Mit Anhang"
+    },
+    "oldestFirst": "Älteste zuerst",
+    "newestFirst": "Neueste zuerst",
+    "loadError": "Nachrichten konnten nicht geladen werden",
+    "serverDown": "Der Server antwortet nicht.",
+    "partialError": "{{accounts}}: Laden fehlgeschlagen",
+    "end": "Ende der Liste"
+  },
+  "empty": {
+    "search": {
+      "title": "Keine Ergebnisse",
+      "description": "Versuche andere Suchbegriffe oder entferne einen Filter."
+    },
+    "inbox": {
+      "title": "Posteingang leer",
+      "description": "Alles erledigt. Genieße die Ruhe."
+    },
+    "flagged": {
+      "title": "Keine markierten Nachrichten",
+      "description": "Drücke S, um eine wichtige Unterhaltung zu markieren."
+    },
+    "drafts": {
+      "title": "Keine Entwürfe",
+      "description": "Nachrichten, die du gerade schreibst, erscheinen hier."
+    },
+    "sent": {
+      "title": "Keine gesendeten Nachrichten"
+    },
+    "archive": {
+      "title": "Archiv leer",
+      "description": "Archiviere mit E, um deinen Posteingang aufgeräumt zu halten."
+    },
+    "junk": {
+      "title": "Kein Spam",
+      "description": "Derzeit nichts Verdächtiges."
+    },
+    "trash": {
+      "title": "Papierkorb leer"
+    },
+    "folder": {
+      "title": "Ordner leer"
+    }
+  },
+  "row": {
+    "to": "An: {{names}}",
+    "noRecipient": "(keine Empfänger)",
+    "unknownSender": "(unbekannter Absender)",
+    "draft": "Entwurf",
+    "unread": "ungelesen",
+    "attachment": "Anhang",
+    "flagged": "Markiert",
+    "select": "Auswählen",
+    "conversations_one": "{{count}} Unterhaltung",
+    "conversations_other": "{{count}} Unterhaltungen"
+  },
+  "search": {
+    "placeholder": "Suchen",
+    "label": "Nachrichten durchsuchen",
+    "removeFilter": "Filter entfernen",
+    "clear": "Suche löschen",
+    "filters": "Filter",
+    "operators": {
+      "from": "Von",
+      "to": "An",
+      "subject": "Betreff",
+      "has": "Enthält",
+      "is": "Status",
+      "before": "Vor",
+      "after": "Nach",
+      "in": "In"
+    },
+    "chips": {
+      "attachment": "Mit Anhang",
+      "unread": "Ungelesen",
+      "read": "Gelesen",
+      "flagged": "Markiert",
+      "keyValue": "{{key}}: {{value}}"
+    },
+    "aliases": {
+      "from": "von",
+      "to": "an",
+      "subject": "betreff",
+      "has": "mit,hat",
+      "is": "ist,status",
+      "before": "vor,bis",
+      "after": "nach,seit",
+      "in": "ordner",
+      "has_attachment": "anhang,anhänge,anhaenge",
+      "is_unread": "ungelesen",
+      "is_read": "gelesen",
+      "is_flagged": "markiert",
+      "in_inbox": "posteingang",
+      "in_sent": "gesendet",
+      "in_drafts": "entwürfe,entwuerfe,entwurf",
+      "in_archive": "archiv",
+      "in_trash": "papierkorb",
+      "in_junk": "junk"
+    }
+  },
+  "quota": {
+    "title": "Speicher",
+    "usage": "{{used}} von {{limit}}",
+    "warnToast": "{{mailbox}}: Speicher zu {{percent}} % voll"
+  },
+  "priority": {
+    "high": "Hohe Priorität",
+    "low": "Niedrige Priorität"
+  },
+  "transfer": {
+    "export": "Exportieren (.mbox)",
+    "import": "Nachrichten importieren (.eml, .mbox)…",
+    "exporting": "Export von „{{name}}“: {{done}} / {{total}}",
+    "cancel": "Abbrechen",
+    "cancelled": "Abgebrochen",
+    "exported": "„{{name}}“ exportiert. Nachrichten: {{count}}",
+    "exportFailed": "Export fehlgeschlagen",
+    "importing": "Import in „{{name}}“: {{count}}",
+    "imported": "In „{{name}}“ importiert. Nachrichten: {{count}}",
+    "importFailedSome": "Nicht importiert: {{count}}",
+    "importFailed": "Import fehlgeschlagen",
+    "importWaiting": "Import in „{{name}}“ pausiert: Der Server begrenzt Uploads. Weiter gegen {{time}}. Importierte Nachrichten: {{count}}",
+    "importSkipped": "Bereits vorhanden, übersprungen: {{count}}"
+  }
+}

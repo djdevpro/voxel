@@ -1,0 +1,63 @@
+{
+  "actions": {
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "delete": "Löschen",
+    "close": "Schließen",
+    "retry": "Erneut versuchen",
+    "ok": "OK",
+    "undo": "Rückgängig",
+    "more": "Mehr",
+    "refresh": "Aktualisieren",
+    "save": "Speichern",
+    "back": "Zurück",
+    "copy": "Kopieren",
+    "copied": "Kopiert"
+  },
+  "errors": {
+    "generic": "Fehler"
+  },
+  "time": {
+    "justNow": "gerade eben"
+  },
+  "offline": {
+    "banner": "Offline – Aktionen werden synchronisiert, sobald du wieder online bist",
+    "offline": "Offline",
+    "pending_one": "{{count}} ausstehend",
+    "pending_other": "{{count}} ausstehend",
+    "pendingActions_one": "{{count}} Aktion ausstehend",
+    "pendingActions_other": "{{count}} Aktionen ausstehend",
+    "backOnline": "Wieder online",
+    "synced_one": "{{count}} Aktion synchronisiert",
+    "synced_other": "{{count}} Aktionen synchronisiert",
+    "failed_one": "{{count}} Aktion fehlgeschlagen",
+    "failed_other": "{{count}} Aktionen fehlgeschlagen"
+  },
+  "nav": {
+    "main": "Hauptnavigation",
+    "menu": "Menü",
+    "inbox": "Posteingang",
+    "folders": "Ordner",
+    "compose": "Schreiben",
+    "search": "Suchen",
+    "settings": "Einstellungen"
+  },
+  "noAccounts": {
+    "title": "Füge dein erstes Postfach hinzu",
+    "description": "Melde dich bei einem Postfach an, um loszulegen. Deine Zugangsdaten werden auf dem Server verschlüsselt.",
+    "add": "Postfach hinzufügen"
+  },
+  "slider": {
+    "delay": "Verzögerung"
+  },
+  "title": {
+    "folder": "{{folder}} — {{mailbox}} · {{app}}",
+    "folderUnread": "({{n}}) {{folder}} — {{mailbox}} · {{app}}",
+    "thread": "{{subject}} · {{app}}",
+    "signIn": "Anmelden · {{app}}"
+  },
+  "routing": {
+    "threadNotFound": "Diese Unterhaltung wurde nicht gefunden. Sie wurde möglicherweise gelöscht oder verschoben.",
+    "folderNotFound": "Dieser Ordner existiert nicht mehr. Zurück zum Posteingang."
+  }
+}

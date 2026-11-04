@@ -1,0 +1,94 @@
+{
+  "region": "جزء القراءة",
+  "placeholder": {
+    "title": "لم يتم تحديد أي محادثة",
+    "hint": "<j>J</j> <k>K</k> للتنقل · <help>?</help> للمساعدة"
+  },
+  "toolbar": {
+    "back": "العودة إلى القائمة",
+    "more": "مزيد من الإجراءات",
+    "print": "طباعة",
+    "source": "عرض الرسالة الأصلية",
+    "unsubscribe": "إلغاء الاشتراك",
+    "createFilter": "إنشاء عامل تصفية…"
+  },
+  "openError": "تعذّر فتح المحادثة",
+  "reply": "رد",
+  "replyAll": "رد على الكل",
+  "forward": "إعادة توجيه",
+  "olderMessages_zero": "لا توجد رسائل أقدم",
+  "olderMessages_one": "رسالة واحدة أقدم",
+  "olderMessages_two": "رسالتان أقدم",
+  "olderMessages_few": "{{count}} رسائل أقدم",
+  "olderMessages_many": "{{count}} رسالة أقدم",
+  "olderMessages_other": "{{count}} رسالة أقدم",
+  "messageFrom": "رسالة من {{name}}",
+  "unknownSender": "(غير معروف)",
+  "toLine": "إلى {{list}}",
+  "ccLine": "نسخة إلى {{list}}",
+  "nobody": "(لا أحد)",
+  "details": {
+    "from": "من",
+    "to": "إلى",
+    "cc": "نسخة",
+    "replyTo": "الرد إلى",
+    "date": "التاريخ"
+  },
+  "images": {
+    "blocked": "تم إخفاء الصور الخارجية لحماية خصوصيتك.",
+    "show": "عرض الصور",
+    "always": "دائمًا لهذا المرسل",
+    "alwaysToast": "سيتم عرض الصور دائمًا من {{email}}",
+    "showInline_one": "عرض صورة مضمّنة واحدة",
+    "showInline_other": "عرض {{count}} صورة مضمّنة",
+    "showInline_zero": "عرض الصور المضمّنة",
+    "showInline_two": "عرض صورتين مضمّنتين",
+    "showInline_few": "عرض {{count}} صور مضمّنة",
+    "showInline_many": "عرض {{count}} صورة مضمّنة"
+  },
+  "sourceTitle": "الرسالة الأصلية",
+  "sourceError": "تعذّر تحميل الرسالة الأصلية: {{message}}",
+  "unsubscribeOpened": "تم فتح صفحة إلغاء الاشتراك في علامة تبويب جديدة",
+  "frameTitle": "محتوى الرسالة",
+  "print": {
+    "from": "من: {{list}}",
+    "to": "إلى: {{list}}"
+  },
+  "attachments": {
+    "count_zero": "لا توجد مرفقات",
+    "count_one": "مرفق واحد",
+    "count_two": "مرفقان",
+    "count_few": "{{count}} مرفقات",
+    "count_many": "{{count}} مرفقًا",
+    "count_other": "{{count}} مرفق",
+    "defaultName": "مرفق-{{n}}",
+    "file": "ملف",
+    "preview": "معاينة {{name}}",
+    "download": "تنزيل {{name}}",
+    "downloadButton": "تنزيل"
+  },
+  "block": {
+    "address": "حظر {{address}}",
+    "domain": "حظر النطاق {{domain}}",
+    "done": "تم حظر {{who}}: ستذهب رسائله القادمة إلى البريد العشوائي.",
+    "moved": "تم نقل {{count}} رسالة",
+    "undo": "تراجع",
+    "pending": "سيُطبَّق الحظر عند إيقاف الرد التلقائي.",
+    "failed": "تعذّر الحظر",
+    "unblocked": "تم إلغاء حظر {{who}}"
+  },
+  "forwardAttachment": "إعادة التوجيه كمرفق",
+  "receipt": {
+    "title": "إشعار القراءة",
+    "asks": "يطلب المرسل إشعارًا بالقراءة ({{email}}).",
+    "send": "إرسال",
+    "ignore": "تجاهل",
+    "sent": "تم إرسال إشعار القراءة إلى {{email}}",
+    "failed": "تعذّر إرسال إشعار القراءة",
+    "offline": "أنت غير متصل: يمكن إرسال الإشعار عند عودة الاتصال.",
+    "subject": "مقروءة: {{subject}}",
+    "body": "رسالتك\n\n  إلى: {{to}}\n  الموضوع: {{subject}}\n  أُرسلت: {{date}}\n\nعُرضت في {{read}}.\nهذا يعني فقط أنها فُتحت، وليس أنها قُرئت أو فُهمت.",
+    "outboxIgnore": "تم تجاهل إشعار القراءة",
+    "outboxSend": "إشعار القراءة: {{subject}}"
+  }
+}

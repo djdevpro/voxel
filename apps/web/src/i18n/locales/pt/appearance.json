@@ -1,0 +1,77 @@
+{
+  "collection": {
+    "title": "Tema",
+    "description": "As cores de toda a aplicação. Cada tema tem uma variante clara e uma escura, que seguem o modo abaixo.",
+    "label": "Coleção de temas"
+  },
+  "mode": {
+    "title": "Modo",
+    "description": "Claro, escuro ou conforme a definição do sistema.",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "language": {
+    "title": "Idioma",
+    "description": "Idioma da interface, das datas e dos números."
+  },
+  "density": {
+    "title": "Densidade",
+    "description": "Altura das linhas na lista de mensagens.",
+    "comfortable": "Confortável",
+    "compact": "Compacta"
+  },
+  "readingPane": {
+    "title": "Painel de leitura",
+    "description": "Onde a mensagem aberta é mostrada.",
+    "right": "À direita",
+    "bottom": "Em baixo",
+    "none": "Nenhum"
+  },
+  "accentHint": "A cor de destaque define-se para cada caixa no separador «Caixas» e tem prioridade sobre a do tema.",
+  "reading": {
+    "undoSend": {
+      "title": "Prazo para anular o envio",
+      "label": "Prazo para anular o envio em segundos",
+      "description_one": "Tem {{count}} segundo para anular depois de clicar em Enviar.",
+      "description_other": "Tem {{count}} segundos para anular depois de clicar em Enviar.",
+      "description_many": "Tem {{count}} segundos para anular depois de clicar em Enviar.",
+      "value": "{{count}} s"
+    },
+    "remoteImages": {
+      "title": "Imagens remotas",
+      "description": "As imagens alojadas externamente podem ser usadas para o rastrear. Pode mostrá-las caso a caso.",
+      "block": "Bloquear",
+      "allow": "Mostrar sempre"
+    },
+    "trusted": {
+      "title": "Remetentes de confiança",
+      "description_one": "{{count}} remetente cujas imagens são sempre mostradas.",
+      "description_other": "{{count}} remetentes cujas imagens são sempre mostradas.",
+      "description_many": "{{count}} remetentes cujas imagens são sempre mostradas.",
+      "reset": "Repor"
+    },
+    "notifications": {
+      "title": "Notificações",
+      "description": "Notificação do navegador quando chega uma mensagem à Caixa de entrada.",
+      "denied": "O navegador bloqueou as notificações"
+    },
+    "mailto": {
+      "title": "Aplicação de email predefinida",
+      "description": "Abrir no Voxel as ligações «mailto:» de outros sites. O navegador pede confirmação.",
+      "button": "Usar para ligações de email",
+      "done": "Confirme no navegador para concluir.",
+      "unsupported": "O seu navegador não permite que os sites tratem ligações de email."
+    },
+    "receipts": {
+      "title": "Confirmações de leitura",
+      "description": "Quando um remetente pede uma confirmação de leitura.",
+      "ask": "Perguntar",
+      "always": "Enviar sempre",
+      "never": "Nunca"
+    }
+  },
+  "shortcuts": {
+    "hint": "Prima «?» em qualquer lado para mostrar esta ajuda."
+  }
+}

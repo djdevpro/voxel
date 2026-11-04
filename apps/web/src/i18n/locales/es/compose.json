@@ -1,0 +1,126 @@
+{
+  "title": {
+    "new": "Nuevo mensaje",
+    "reply": "Respuesta",
+    "forward": "Reenvío"
+  },
+  "send": "Enviar",
+  "sendTooltip": "Enviar ({{shortcut}})",
+  "attach": "Adjuntar archivos",
+  "formatting": "Formato",
+  "saving": "Guardando…",
+  "discardDraft": "Descartar borrador",
+  "dropFiles": "Suelta los archivos para adjuntarlos",
+  "remove": "Quitar {{name}}",
+  "inline": {
+    "reply": "Responder",
+    "replyAll": "Responder a todos",
+    "forward": "Reenviar",
+    "openWindow": "Abrir en una ventana",
+    "discard": "Descartar respuesta"
+  },
+  "fields": {
+    "from": "De",
+    "to": "Para",
+    "cc": "Cc",
+    "bcc": "Cco",
+    "subject": "Asunto",
+    "account": "Buzón de envío",
+    "identity": "Identidad de envío",
+    "identityPlaceholder": "Identidad"
+  },
+  "recipients": {
+    "label": "Destinatarios {{field}}"
+  },
+  "signature": {
+    "add": "Añadir firma",
+    "remove": "Quitar firma"
+  },
+  "quote": {
+    "show": "Mostrar mensaje citado",
+    "hide": "Ocultar mensaje citado",
+    "wrote": "El {{date}}, {{who}} escribió:",
+    "unknownSender": "Desconocido"
+  },
+  "forwarded": {
+    "header": "Mensaje reenviado",
+    "from": "De:",
+    "date": "Fecha:",
+    "subject": "Asunto:",
+    "to": "Para:",
+    "cc": "Cc:",
+    "fileName": "mensaje"
+  },
+  "schedule": {
+    "options": "Opciones de envío",
+    "title": "Programar envío",
+    "tomorrowMorning": "Mañana por la mañana",
+    "mondayMorning": "El lunes por la mañana"
+  },
+  "confirm": {
+    "noSubject": "¿Enviar sin asunto?",
+    "deleteDraft": "¿Eliminar este borrador?"
+  },
+  "toasts": {
+    "uploading": "Espera, todavía se están subiendo archivos adjuntos",
+    "noIdentity": "No hay ninguna identidad de envío para este buzón",
+    "noRecipient": "Añade al menos un destinatario",
+    "invalidAddress": "Dirección no válida: {{email}}",
+    "attachFailed": "No se pudo adjuntar «{{name}}»",
+    "draftDeleted": "Borrador eliminado",
+    "draftSaved": "Borrador guardado",
+    "futureDate": "Elige una fecha futura"
+  },
+  "editor": {
+    "placeholder": "Escribe tu mensaje…",
+    "label": "Cuerpo del mensaje",
+    "linkPrompt": "Dirección del enlace",
+    "bold": "Negrita ({{mod}}+B)",
+    "italic": "Cursiva ({{mod}}+I)",
+    "underline": "Subrayado ({{mod}}+U)",
+    "strike": "Tachado",
+    "bulletList": "Lista con viñetas",
+    "orderedList": "Lista numerada",
+    "quote": "Cita",
+    "code": "Código",
+    "link": "Enlace ({{mod}}+K)",
+    "clear": "Borrar formato",
+    "undo": "Deshacer ({{mod}}+Z)",
+    "redo": "Rehacer"
+  },
+  "window": {
+    "label": "Redacción",
+    "fullscreenLabel": "Redacción a pantalla completa",
+    "expand": "Ampliar",
+    "minimize": "Minimizar",
+    "fullscreen": "Pantalla completa",
+    "exitFullscreen": "Salir de pantalla completa",
+    "closeKeep": "Cerrar (el borrador se conserva)"
+  },
+  "outbox": {
+    "send": "Envío: {{subject}}",
+    "draft": "Borrador",
+    "draftDeleted": "Borrador eliminado"
+  },
+  "errors": {
+    "noDrafts": "No se encontró la carpeta Borradores"
+  },
+  "templates": {
+    "insert": "Insertar una plantilla",
+    "shortcut": "Alt+T",
+    "title": "Plantillas",
+    "empty": "Aún no hay plantillas",
+    "manage": "Gestionar plantillas…"
+  },
+  "options": {
+    "title": "Opciones de envío",
+    "priority": "Prioridad",
+    "priorities": {
+      "high": "Alta",
+      "normal": "Normal",
+      "low": "Baja"
+    },
+    "receipt": "Solicitar confirmación de lectura",
+    "language": "Idioma del corrector"
+  }
+}

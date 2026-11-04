@@ -1,0 +1,81 @@
+{
+  "groups": {
+    "navigation": "Navegación",
+    "actions": "Acciones",
+    "application": "Aplicación",
+    "calendar": "Calendario"
+  },
+  "items": {
+    "next": "Conversación siguiente",
+    "previous": "Conversación anterior",
+    "open": "Abrir",
+    "backToList": "Volver a la lista",
+    "goInbox": "Ir a Recibidos",
+    "goFlagged": "Ir a Destacados",
+    "goDrafts": "Ir a Borradores",
+    "goSent": "Ir a Enviados",
+    "switchMailbox": "Cambiar de buzón",
+    "allMailboxes": "Todos los buzones",
+    "compose": "Nuevo mensaje",
+    "archive": "Archivar",
+    "delete": "Eliminar",
+    "spam": "Marcar como spam",
+    "flag": "Destacar / quitar destacado",
+    "markRead": "Marcar como leído",
+    "markUnread": "Marcar como no leído",
+    "select": "Seleccionar la conversación",
+    "reply": "Responder",
+    "replyAll": "Responder a todos",
+    "forward": "Reenviar",
+    "send": "Enviar",
+    "search": "Buscar",
+    "palette": "Paleta de comandos",
+    "help": "Ayuda de atajos",
+    "escape": "Cerrar / deseleccionar",
+    "goContacts": "Ir a Contactos",
+    "goCalendar": "Ir al calendario",
+    "calToday": "Hoy",
+    "calNext": "Periodo siguiente",
+    "calPrevious": "Periodo anterior",
+    "calMonth": "Vista de mes",
+    "calWeek": "Vista de semana",
+    "calDay": "Vista de día",
+    "calAgenda": "Vista de lista",
+    "calNew": "Nuevo evento"
+  },
+  "keys": {
+    "enter": "Intro",
+    "esc": "Esc"
+  },
+  "help": {
+    "title": "Atajos de teclado",
+    "description": "Inspirados en Gmail. Desactivados mientras escribes."
+  },
+  "palette": {
+    "title": "Paleta de comandos",
+    "placeholder": "Busca un comando, una carpeta o un buzón…",
+    "empty": "Sin resultados",
+    "groups": {
+      "search": "Búsqueda",
+      "actions": "Acciones",
+      "goTo": "Ir a",
+      "mailboxes": "Buzones",
+      "appearance": "Apariencia",
+      "session": "Sesión"
+    },
+    "searchFor": "Buscar «{{query}}» en los mensajes",
+    "searchKeyword": "buscar",
+    "folderKeyword": "carpeta",
+    "mailboxKeyword": "buzón",
+    "settings": "Ajustes",
+    "themeLight": "Tema claro",
+    "themeDark": "Tema oscuro",
+    "themeSystem": "Tema del sistema",
+    "densityComfortable": "Densidad cómoda",
+    "densityCompact": "Densidad compacta",
+    "paneRight": "Panel de lectura a la derecha",
+    "paneBottom": "Panel de lectura abajo",
+    "paneNone": "Sin panel de lectura",
+    "logout": "Cerrar sesión"
+  }
+}

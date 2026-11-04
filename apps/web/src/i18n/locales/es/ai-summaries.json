@@ -1,0 +1,47 @@
+{
+  "nav": "Resúmenes",
+  "title": "Resúmenes",
+  "subtitle": "Una síntesis diaria de tus correos",
+  "list": {
+    "region": "Resúmenes diarios",
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "emails_one": "{{count}} correo",
+    "emails_other": "{{count}} correos",
+    "generating": "Redactando el resumen…"
+  },
+  "actions": {
+    "today": "Resumir hoy",
+    "regenerate": "Regenerar",
+    "copy": "Copiar",
+    "copied": "Resumen copiado",
+    "delete": "Eliminar",
+    "deleteTitle": "¿Eliminar este resumen?",
+    "configure": "Configurar la IA",
+    "stop": "Detener"
+  },
+  "empty": {
+    "title": "Aún no hay resúmenes",
+    "description": "Cada día, la IA resume los correos recibidos: primero lo que requiere una acción y luego el resto. El spam se ignora.",
+    "day": "No se recibió ningún correo ese día."
+  },
+  "notReady": {
+    "title": "Recibe un resumen cada día",
+    "description": "Configura un proveedor de IA para recibir cada día un resumen de tus correos."
+  },
+  "reader": {
+    "region": "Resumen",
+    "pick": "Elige un día a la izquierda",
+    "back": "Volver a los resúmenes",
+    "generatedAt": "Generado a las {{time}}",
+    "sources": "Conversaciones resumidas ({{count}})",
+    "collecting": "Leyendo tus correos…",
+    "read_one": "{{count}} correo leído",
+    "read_other": "{{count}} correos leídos"
+  },
+  "error": {
+    "retry": "Reintentar",
+    "settings": "Ajustes de IA"
+  },
+  "fallbackTitle": "Resumen del {{date}}"
+}

@@ -1,0 +1,77 @@
+{
+  "collection": {
+    "title": "Tema",
+    "description": "I colori di tutta l’app. Ogni tema ha una variante chiara e una scura, che seguono la modalità qui sotto.",
+    "label": "Raccolta di temi"
+  },
+  "mode": {
+    "title": "Modalità",
+    "description": "Chiara, scura o in base all’impostazione di sistema.",
+    "light": "Chiara",
+    "dark": "Scura",
+    "system": "Sistema"
+  },
+  "language": {
+    "title": "Lingua",
+    "description": "Lingua dell’interfaccia, delle date e dei numeri."
+  },
+  "density": {
+    "title": "Densità",
+    "description": "Altezza delle righe nell’elenco dei messaggi.",
+    "comfortable": "Comoda",
+    "compact": "Compatta"
+  },
+  "readingPane": {
+    "title": "Riquadro di lettura",
+    "description": "Dove viene mostrato il messaggio aperto.",
+    "right": "A destra",
+    "bottom": "In basso",
+    "none": "Nessuno"
+  },
+  "accentHint": "Il colore d’accento si imposta per ogni casella nella scheda «Caselle» e ha la precedenza su quello del tema.",
+  "reading": {
+    "undoSend": {
+      "title": "Tempo per annullare l’invio",
+      "label": "Tempo per annullare l’invio in secondi",
+      "description_one": "Hai {{count}} secondo per annullare dopo aver fatto clic su Invia.",
+      "description_other": "Hai {{count}} secondi per annullare dopo aver fatto clic su Invia.",
+      "description_many": "Hai {{count}} secondi per annullare dopo aver fatto clic su Invia.",
+      "value": "{{count}} s"
+    },
+    "remoteImages": {
+      "title": "Immagini remote",
+      "description": "Le immagini ospitate altrove possono servire a tracciarti. Puoi mostrarle caso per caso.",
+      "block": "Blocca",
+      "allow": "Mostra sempre"
+    },
+    "trusted": {
+      "title": "Mittenti attendibili",
+      "description_one": "{{count}} mittente le cui immagini vengono sempre mostrate.",
+      "description_other": "{{count}} mittenti le cui immagini vengono sempre mostrate.",
+      "description_many": "{{count}} mittenti le cui immagini vengono sempre mostrate.",
+      "reset": "Reimposta"
+    },
+    "notifications": {
+      "title": "Notifiche",
+      "description": "Notifica del browser all’arrivo di un messaggio in Posta in arrivo.",
+      "denied": "Notifiche bloccate dal browser"
+    },
+    "mailto": {
+      "title": "App di posta predefinita",
+      "description": "Apri in Voxel i link «mailto:» degli altri siti. Il browser chiede conferma.",
+      "button": "Usa per i link email",
+      "done": "Conferma nel browser per completare.",
+      "unsupported": "Il tuo browser non consente ai siti di gestire i link email."
+    },
+    "receipts": {
+      "title": "Conferme di lettura",
+      "description": "Quando un mittente richiede una conferma di lettura.",
+      "ask": "Chiedi",
+      "always": "Invia sempre",
+      "never": "Mai"
+    }
+  },
+  "shortcuts": {
+    "hint": "Premi «?» ovunque per mostrare questa guida."
+  }
+}

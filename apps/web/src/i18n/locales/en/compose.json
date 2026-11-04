@@ -1,0 +1,126 @@
+{
+  "title": {
+    "new": "New message",
+    "reply": "Reply",
+    "forward": "Forward"
+  },
+  "send": "Send",
+  "sendTooltip": "Send ({{shortcut}})",
+  "attach": "Attach files",
+  "formatting": "Formatting",
+  "saving": "Saving…",
+  "discardDraft": "Discard draft",
+  "dropFiles": "Drop files to attach them",
+  "remove": "Remove {{name}}",
+  "inline": {
+    "reply": "Reply",
+    "replyAll": "Reply all",
+    "forward": "Forward",
+    "openWindow": "Open in a window",
+    "discard": "Discard reply"
+  },
+  "fields": {
+    "from": "From",
+    "to": "To",
+    "cc": "Cc",
+    "bcc": "Bcc",
+    "subject": "Subject",
+    "account": "Sending mailbox",
+    "identity": "Sending identity",
+    "identityPlaceholder": "Identity"
+  },
+  "recipients": {
+    "label": "{{field}} recipients"
+  },
+  "signature": {
+    "add": "Add signature",
+    "remove": "Remove signature"
+  },
+  "quote": {
+    "show": "Show quoted message",
+    "hide": "Hide quoted message",
+    "wrote": "On {{date}}, {{who}} wrote:",
+    "unknownSender": "Unknown"
+  },
+  "forwarded": {
+    "header": "Forwarded message",
+    "from": "From:",
+    "date": "Date:",
+    "subject": "Subject:",
+    "to": "To:",
+    "cc": "Cc:",
+    "fileName": "message"
+  },
+  "schedule": {
+    "options": "Send options",
+    "title": "Schedule send",
+    "tomorrowMorning": "Tomorrow morning",
+    "mondayMorning": "Monday morning"
+  },
+  "confirm": {
+    "noSubject": "Send without a subject?",
+    "deleteDraft": "Delete this draft?"
+  },
+  "toasts": {
+    "uploading": "Please wait, attachments are still uploading",
+    "noIdentity": "No sending identity for this mailbox",
+    "noRecipient": "Add at least one recipient",
+    "invalidAddress": "Invalid address: {{email}}",
+    "attachFailed": "Couldn't attach “{{name}}”",
+    "draftDeleted": "Draft deleted",
+    "draftSaved": "Draft saved",
+    "futureDate": "Pick a date in the future"
+  },
+  "editor": {
+    "placeholder": "Write your message…",
+    "label": "Message body",
+    "linkPrompt": "Link address",
+    "bold": "Bold ({{mod}}+B)",
+    "italic": "Italic ({{mod}}+I)",
+    "underline": "Underline ({{mod}}+U)",
+    "strike": "Strikethrough",
+    "bulletList": "Bulleted list",
+    "orderedList": "Numbered list",
+    "quote": "Quote",
+    "code": "Code",
+    "link": "Link ({{mod}}+K)",
+    "clear": "Clear formatting",
+    "undo": "Undo ({{mod}}+Z)",
+    "redo": "Redo"
+  },
+  "window": {
+    "label": "New message",
+    "fullscreenLabel": "New message (full screen)",
+    "expand": "Expand",
+    "minimize": "Minimize",
+    "fullscreen": "Full screen",
+    "exitFullscreen": "Exit full screen",
+    "closeKeep": "Close (the draft is kept)"
+  },
+  "outbox": {
+    "send": "Sending: {{subject}}",
+    "draft": "Draft",
+    "draftDeleted": "Draft deleted"
+  },
+  "errors": {
+    "noDrafts": "Drafts folder not found"
+  },
+  "templates": {
+    "insert": "Insert a template",
+    "shortcut": "Alt+T",
+    "title": "Templates",
+    "empty": "No templates yet",
+    "manage": "Manage templates…"
+  },
+  "options": {
+    "title": "Sending options",
+    "priority": "Priority",
+    "priorities": {
+      "high": "High",
+      "normal": "Normal",
+      "low": "Low"
+    },
+    "receipt": "Request a read receipt",
+    "language": "Spelling language"
+  }
+}

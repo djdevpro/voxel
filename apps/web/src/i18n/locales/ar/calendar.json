@@ -1,0 +1,202 @@
+{
+  "nav": "التقويم",
+  "untitled": "(بلا عنوان)",
+  "repeating": "حدث متكرر",
+  "more_zero": "لا مزيد",
+  "more_one": "واحد آخر",
+  "more_two": "اثنان آخران",
+  "more_few": "{{count}} أخرى",
+  "more_many": "{{count}} أخرى",
+  "more_other": "{{count}} أخرى",
+  "actions": {
+    "new": "حدث جديد",
+    "today": "اليوم",
+    "previous": "الفترة السابقة",
+    "next": "الفترة التالية",
+    "cancel": "إلغاء",
+    "create": "إنشاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "backToMail": "العودة إلى البريد"
+  },
+  "views": {
+    "label": "العرض",
+    "month": "شهر",
+    "week": "أسبوع",
+    "day": "يوم",
+    "agenda": "قائمة"
+  },
+  "calendars": {
+    "title": "التقويمات",
+    "description": "اختر التقويمات المعروضة.",
+    "none": "لا يوجد تقويم",
+    "export": "تصدير «{{name}}» (.ics)"
+  },
+  "empty": {
+    "title": "لا شيء مُبرمج",
+    "range": "لا توجد أحداث في هذه الفترة."
+  },
+  "unavailable": {
+    "title": "لا يوجد تقويم",
+    "description": "لا يوفّر أيٌّ من صناديق بريدك تقويمًا."
+  },
+  "dialog": {
+    "newTitle": "حدث جديد",
+    "editTitle": "حدث",
+    "description": "عنوان الحدث وتاريخه وتكراره وتذكيراته والمشاركون فيه."
+  },
+  "fields": {
+    "title": "العنوان",
+    "titlePlaceholder": "أضف عنوانًا",
+    "calendar": "التقويم",
+    "allDay": "طوال اليوم",
+    "start": "البداية",
+    "startTime": "وقت البداية",
+    "end": "النهاية",
+    "endTime": "وقت النهاية",
+    "timeZone": "المنطقة الزمنية",
+    "repeat": "التكرار",
+    "reminders": "التذكيرات",
+    "location": "المكان",
+    "description": "الوصف",
+    "participants": "المشاركون",
+    "availability": "الإتاحة"
+  },
+  "repeat": {
+    "none": "لا يتكرر",
+    "daily": "يوميًا",
+    "weekly": "أسبوعيًا",
+    "monthly": "شهريًا",
+    "yearly": "سنويًا",
+    "custom": "قاعدة مخصّصة",
+    "customHint": "أُنشئ هذا التكرار في مكان آخر، ويُحفظ كما هو.",
+    "every": "كل",
+    "onDays": "التكرار يوم",
+    "never": "بلا نهاية",
+    "until": "حتى",
+    "after": "عدد المرات",
+    "untilDate": "آخر تاريخ",
+    "times": "مرات"
+  },
+  "reminders": {
+    "add": "إضافة تذكير",
+    "atStart": "عند البداية",
+    "remove": "إزالة التذكير «{{label}}»",
+    "minutes_zero": "قبل 0 دقيقة",
+    "minutes_one": "قبل دقيقة واحدة",
+    "minutes_two": "قبل دقيقتين",
+    "minutes_few": "قبل {{count}} دقائق",
+    "minutes_many": "قبل {{count}} دقيقة",
+    "minutes_other": "قبل {{count}} دقيقة",
+    "hours_zero": "قبل 0 ساعة",
+    "hours_one": "قبل ساعة واحدة",
+    "hours_two": "قبل ساعتين",
+    "hours_few": "قبل {{count}} ساعات",
+    "hours_many": "قبل {{count}} ساعة",
+    "hours_other": "قبل {{count}} ساعة",
+    "days_zero": "قبل 0 يوم",
+    "days_one": "قبل يوم واحد",
+    "days_two": "قبل يومين",
+    "days_few": "قبل {{count}} أيام",
+    "days_many": "قبل {{count}} يومًا",
+    "days_other": "قبل {{count}} يوم"
+  },
+  "participants": {
+    "placeholder": "name@example.com",
+    "add": "إضافة مشارك",
+    "remove": "إزالة {{email}}",
+    "noInvites": "لا يستطيع صندوق البريد هذا إرسال دعوات: يُحفظ المشاركون في الحدث فقط."
+  },
+  "availability": {
+    "busy": "مشغول",
+    "free": "متاح"
+  },
+  "errors": {
+    "endBeforeStart": "النهاية قبل البداية.",
+    "badEmail": "أحد عناوين المشاركين غير صالح.",
+    "badUntil": "اختر آخر تاريخ بعد البداية.",
+    "noDays": "اختر يومًا واحدًا على الأقل من الأسبوع."
+  },
+  "scope": {
+    "editTitle": "تعديل حدث متكرر",
+    "deleteTitle": "حذف حدث متكرر",
+    "description": "هل تريد التطبيق على هذا الحدث فقط أم على السلسلة كلها؟",
+    "this": "هذا الحدث",
+    "all": "السلسلة كلها"
+  },
+  "delete": {
+    "title": "حذف هذا الحدث؟",
+    "description": "سيُزال «{{title}}» من التقويم.",
+    "confirm": "حذف"
+  },
+  "toast": {
+    "created": "أُنشئ الحدث",
+    "saved": "حُفظ الحدث",
+    "deleted": "حُذف الحدث",
+    "queued": "حُفظ دون اتصال: سيُرسل عند عودة الاتصال.",
+    "exported_zero": "لم يُصدَّر أي حدث",
+    "exported_one": "صُدِّر حدث واحد",
+    "exported_two": "صُدِّر حدثان",
+    "exported_few": "صُدِّرت {{count}} أحداث",
+    "exported_many": "صُدِّر {{count}} حدثًا",
+    "exported_other": "صُدِّر {{count}} حدث"
+  },
+  "import": {
+    "open": "استيراد (.ics)",
+    "title": "استيراد الأحداث",
+    "description": "أضف أحداث ملف ‎.ics إلى أحد تقويماتك.",
+    "into": "التقويم",
+    "choose": "اختر ملف ‎.ics",
+    "reading": "جارٍ قراءة الملف…",
+    "found_zero": "لم يُعثر على أي حدث",
+    "found_one": "عُثر على حدث واحد",
+    "found_two": "عُثر على حدثين",
+    "found_few": "عُثر على {{count}} أحداث",
+    "found_many": "عُثر على {{count}} حدثًا",
+    "found_other": "عُثر على {{count}} حدث",
+    "duplicate": "موجود مسبقًا",
+    "duplicates_zero": "لا أحداث موجودة مسبقًا:",
+    "duplicates_one": "حدث واحد موجود مسبقًا في تقويمك:",
+    "duplicates_two": "حدثان موجودان مسبقًا في تقويمك:",
+    "duplicates_few": "{{count}} أحداث موجودة مسبقًا في تقويمك:",
+    "duplicates_many": "{{count}} حدثًا موجودًا مسبقًا في تقويمك:",
+    "duplicates_other": "{{count}} حدث موجود مسبقًا في تقويمك:",
+    "skip": "تجاهل",
+    "replace": "استبدال",
+    "both": "الاحتفاظ بالاثنين",
+    "run": "استيراد",
+    "done": "اكتمل الاستيراد: أُضيف {{created}}، واستُبدل {{replaced}}، وتُجوهل {{skipped}}.",
+    "empty": "لا توجد أحداث في هذا الملف.",
+    "tooLarge": "الملف كبير جدًا (10 ميغابايت كحد أقصى)."
+  },
+  "invite": {
+    "label": "دعوة",
+    "loading": "جارٍ قراءة الدعوة…",
+    "cancelled": "أُلغي الحدث",
+    "reply": "رد على دعوة",
+    "organizer": "المنظِّم: {{name}}",
+    "conflict": "يتعارض مع «{{title}}»",
+    "inCalendar": "في تقويمك",
+    "inCalendarStatus": "في تقويمك · {{status}}",
+    "accept": "قبول",
+    "maybe": "ربما",
+    "decline": "رفض",
+    "add": "إضافة إلى التقويم",
+    "show": "عرض في التقويم",
+    "added": "أُضيف إلى تقويمك.",
+    "replySent": "أُرسل ردك إلى المنظِّم.",
+    "replyNotSent": "أُضيف إلى تقويمك؛ لم يُرسل الخادم ردك.",
+    "imapNote": "لا يستطيع صندوق البريد هذا الرد على الدعوات: يمكن فقط إضافة الحدث إلى تقويمك."
+  },
+  "status": {
+    "needs-action": "بلا رد بعد",
+    "accepted": "مقبول",
+    "tentative": "ربما",
+    "declined": "مرفوض",
+    "delegated": "مفوَّض"
+  },
+  "reminder": {
+    "body": "يبدأ {{when}}",
+    "open": "فتح"
+  }
+}

@@ -1,0 +1,20 @@
+BEGIN:VCARD
+VERSION:4.0
+PRODID:-//Thunderbird//NONSGML Thunderbird 128//EN
+UID:5c1f2a3b-4d5e-6f70-8192-a3b4c5d6e7f8
+FN:Giulia Rossi
+N:Rossi;Giulia;Maria;Dott.;
+NICKNAME:Giuli
+EMAIL;PREF=1:giulia.rossi@example.it
+EMAIL;TYPE=work:g.rossi@lavoro.example.it
+TEL;TYPE=cell;VALUE=TEXT:+39 333 1234567
+TEL;VALUE=URI;TYPE=work:tel:+39-02-1234567
+ADR;TYPE=work:;;Via Roma 1;Milano;MI;20121;Italia
+BDAY;VALUE=DATE:19920229
+ANNIVERSARY:20150612
+URL;VALUE=URL:https://giulia.example.it
+NOTE:Collega\, progetto X
+IMPP:xmpp:giulia@example.it
+GENDER:F
+TZ:Europe/Rome
+END:VCARD

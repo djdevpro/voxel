@@ -1,0 +1,83 @@
+{
+  "bar": {
+    "placeholder": "Search or ask AI…",
+    "ask": "Ask AI: “{{text}}”",
+    "search": "Search “{{text}}”",
+    "openChat": "Chat",
+    "resume": "Resume the conversation"
+  },
+  "header": {
+    "title": "Assistant",
+    "newChat": "New conversation",
+    "close": "Close"
+  },
+  "conversation": {
+    "label": "Conversation with the assistant",
+    "scrollToEnd": "Scroll to the latest message"
+  },
+  "empty": {
+    "greeting": "Hello {{name}}",
+    "greetingAnonymous": "Hello",
+    "subtitle": "Find an email, summarize your day, write to someone.",
+    "tip": "Operators like from: and is:unread still work in the bar for a classic search."
+  },
+  "input": {
+    "placeholder": "Write to the assistant…",
+    "send": "Send",
+    "stop": "Stop",
+    "dictate": "Dictate",
+    "stopDictation": "Stop dictation"
+  },
+  "reasoning": {
+    "running": "Thinking…",
+    "done": "Thoughts"
+  },
+  "tools": {
+    "search": "Search: {{criteria}}",
+    "latest": "Latest emails",
+    "from": "from “{{value}}”",
+    "to": "to “{{value}}”",
+    "subject": "subject “{{value}}”",
+    "text": "“{{value}}”",
+    "since": "since {{date}}",
+    "until": "until {{date}}",
+    "unread": "unread",
+    "read": "read",
+    "flagged": "flagged",
+    "attachments": "with attachment",
+    "folder": "in {{folder}}",
+    "mailbox": "mailbox {{mailbox}}",
+    "count_one": "{{count}} result",
+    "count_other": "{{count}} results",
+    "readTitle": "Reading: “{{subject}}”",
+    "contactsTitle": "Contacts: “{{query}}”",
+    "contactsCount_one": "{{count}} found",
+    "contactsCount_other": "{{count}} found",
+    "composeTitle": "Draft opened for {{to}}",
+    "openTitle": "Conversation opened: “{{subject}}”"
+  },
+  "results": {
+    "count_one": "{{count}} email",
+    "count_other": "{{count}} emails",
+    "showMore_one": "Show {{count}} more",
+    "showMore_other": "Show {{count}} more",
+    "showInList": "Show in list",
+    "none": "No emails found."
+  },
+  "contacts": {
+    "write": "Write",
+    "emails": "Their emails",
+    "pick": "{{name}} <{{email}}>",
+    "emailsPrompt": "Show me the emails from {{name}} <{{email}}>",
+    "none": "No contacts found."
+  },
+  "message": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "regenerate": "Regenerate"
+  },
+  "error": {
+    "retry": "Retry",
+    "settings": "AI settings"
+  }
+}

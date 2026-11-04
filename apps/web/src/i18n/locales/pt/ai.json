@@ -1,0 +1,211 @@
+{
+  "nav": "IA",
+  "errors": {
+    "not_configured": "A IA ainda não está configurada. Escolha um fornecedor e um modelo em Definições → IA.",
+    "missing_key": "Não há chave de API para {{provider}}. Adicione-a em Definições → IA.",
+    "network": "Não foi possível contactar {{host}} a partir do navegador. O servidor pode estar indisponível ou não aceitar pedidos deste site (CORS).",
+    "auth": "{{provider}} recusou a chave de API.",
+    "not_found": "Modelo ou endereço não encontrado em {{provider}}.",
+    "rate_limited": "Demasiados pedidos: {{provider}} pede para aguardar um momento.",
+    "server": "{{provider}} devolveu um erro ({{status}}).",
+    "bad_request": "{{provider}} recusou o pedido: {{detail}}",
+    "tools_unsupported": "Este modelo não suporta ferramentas.",
+    "aborted": "Parado.",
+    "unknown": "Algo correu mal com a IA."
+  },
+  "templates": {
+    "fix": "Corrigir ortografia e gramática",
+    "improve": "Melhorar a escrita",
+    "shorter": "Encurtar",
+    "formal": "Mais formal",
+    "friendly": "Mais caloroso",
+    "reply": "Redigir uma resposta",
+    "dictation": "Limpar um ditado",
+    "translate_en": "Traduzir para inglês",
+    "today": "Resumir os e-mails de hoje",
+    "waiting": "O que aguarda a minha resposta?",
+    "attachments": "Anexos desta semana",
+    "from_person": "E-mails de alguém…"
+  },
+  "presets": {
+    "openai": "OpenAI",
+    "anthropic": "Anthropic (Claude)",
+    "hetzner": "Hetzner",
+    "ollama": "Ollama (local)",
+    "custom": "Compatível com OpenAI",
+    "demo": "Demonstração (IA simulada)"
+  },
+  "model": {
+    "none": "Nenhum modelo",
+    "manage": "Gerir modelos…",
+    "pick": "Escolher um modelo",
+    "default": "Predefinido"
+  },
+  "dictation": {
+    "unsupported": "Este navegador não suporta ditado.",
+    "denied": "O acesso ao microfone foi recusado.",
+    "failed": "Ditado interrompido: {{detail}}"
+  },
+  "settings": {
+    "tabs": {
+      "general": "Geral",
+      "models": "Modelos",
+      "prompts": "Prompts",
+      "summaries": "Resumos",
+      "dictation": "Ditado"
+    },
+    "general": {
+      "enable": "Ativar o assistente de IA",
+      "enableHint": "Pesquisa por conversa, ajuda na escrita, resumos diários e ícone na barra.",
+      "language": "Idioma das respostas",
+      "languageAuto": "Idioma da interface ({{name}})",
+      "ready": "Pronto: {{model}} via {{provider}}",
+      "test": "Testar",
+      "testOk": "Resposta em {{ms}} ms · ferramentas suportadas",
+      "testOkNoTools": "Resposta em {{ms}} ms · sem ferramentas: a pesquisa usará o modo simplificado",
+      "notReady": "Escolha um fornecedor e um modelo para começar.",
+      "configure": "Configurar",
+      "privacy": "As suas chaves são cifradas e nunca saem deste dispositivo. Os pedidos vão diretamente do seu navegador para o fornecedor escolhido: o servidor Voxel não vê as suas chaves nem as suas conversas com a IA."
+    },
+    "providers": {
+      "intro": "Ligue um fornecedor de IA. São suportadas as API compatíveis com OpenAI (OpenAI, Hetzner, Ollama, vLLM…) e a Anthropic.",
+      "presetHelp": {
+        "hetzner": "Compatível com OpenAI. Cole o URL da API e o seu token.",
+        "openai": "api.openai.com, chave sk-…",
+        "anthropic": "Modelos Claude, chave sk-ant-…",
+        "ollama": "Modelos locais, sem chave (o Ollama tem de permitir esta origem: OLLAMA_ORIGINS)",
+        "custom": "vLLM, LM Studio, OpenRouter…",
+        "demo": "Respostas simuladas para experimentar a interface (desenvolvimento)"
+      },
+      "key": {
+        "saved": "Chave guardada",
+        "missing": "Chave em falta",
+        "none": "Sem chave"
+      },
+      "modelCount_one": "{{count}} modelo",
+      "modelCount_other": "{{count}} modelos",
+      "remove": "Remover o fornecedor",
+      "removeTitle": "Remover {{name}}?",
+      "removeText": "A chave e os modelos são apagados deste dispositivo.",
+      "name": "Nome",
+      "baseUrl": "URL base",
+      "baseUrlHint": "Endereço da API compatível com OpenAI, normalmente termina em /v1.",
+      "baseUrlHintAnthropic": "Mantenha https://api.anthropic.com/v1.",
+      "apiKey": "Chave de API",
+      "models": "Modelos",
+      "addModel": "Adicionar um modelo…",
+      "removeModel": "Remover {{model}}",
+      "fetch": "Obter os modelos",
+      "fetched_one": "{{count}} modelo encontrado",
+      "fetched_other": "{{count}} modelos encontrados",
+      "noModelList": "Este servidor não publica a sua lista: adicione os modelos à mão.",
+      "test": "Testar",
+      "testOk": "✓ {{ms}} ms · ferramentas suportadas",
+      "testOkNoTools": "✓ {{ms}} ms · sem ferramentas",
+      "advanced": "Avançado",
+      "extraBody": "Parâmetros adicionais (JSON)",
+      "extraBodyHint": "Fundidos em cada pedido. Exemplo para Qwen sem raciocínio: {\"chat_template_kwargs\":{\"enable_thinking\":false}}",
+      "devProxy": "Proxy de desenvolvimento (contorna o CORS)",
+      "devProxyHint": "Passa pelo servidor Vite local. Não existe em produção.",
+      "add": "Adicionar um fornecedor",
+      "defaultModel": "Modelo predefinido",
+      "feature": {
+        "chat": "Conversa e pesquisa",
+        "writing": "Escrita",
+        "summary": "Resumos"
+      },
+      "sameAsDefault": "Igual ao modelo predefinido",
+      "modelCount_many": "{{count}} modelos",
+      "fetched_many": "{{count}} modelos encontrados"
+    },
+    "secret": {
+      "saved": "Chave guardada",
+      "optional": "(opcional)",
+      "show": "Mostrar a chave",
+      "hide": "Ocultar a chave",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "replace": "Substituir",
+      "clear": "Apagar",
+      "hint": "Cifrada neste dispositivo."
+    },
+    "prompts": {
+      "systemTitle": "Prompts de sistema",
+      "intro": "Estas instruções orientam a IA. Estão em inglês para melhores resultados, mas pode escrevê-las no seu idioma.",
+      "variables": "Variáveis:",
+      "vars": {
+        "language": "Idioma de resposta (o da interface ou o escolhido em Geral)",
+        "date": "Data e hora locais",
+        "user": "As suas caixas: Nome <endereço>, separadas por «; »",
+        "mailboxes": "Uma linha por caixa: - Nome <endereço>",
+        "mailbox_style": "Estilo de escrita da caixa em uso (abaixo)"
+      },
+      "keys": {
+        "base": {
+          "title": "Comum a todas as funções",
+          "description": "Enviado antes de cada um dos outros prompts: identidade, data, regras de segurança."
+        },
+        "chat": {
+          "title": "Pesquisa e conversa",
+          "description": "O assistente da lista de mensagens, com as suas ferramentas."
+        },
+        "writing": {
+          "title": "Escrita",
+          "description": "O botão ✨ do editor."
+        },
+        "summary": {
+          "title": "Resumo diário",
+          "description": "O resumo dos e-mails recebidos cada dia."
+        },
+        "planner": {
+          "title": "Pesquisa simplificada (modelos sem ferramentas)",
+          "description": "Transforma a pergunta numa pesquisa quando o modelo não consegue usar ferramentas."
+        }
+      },
+      "modified": "Modificado",
+      "reset": "Repor",
+      "styleTitle": "Estilo de escrita por caixa",
+      "mailbox": "Caixa",
+      "stylePlaceholder": "Exemplo: tom profissional e caloroso, tratamento formal, frases curtas, sem emojis.",
+      "styleHint": "Adicionado às instruções de escrita quando escreve a partir desta caixa.",
+      "templatesTitle": "Modelos de prompts",
+      "scope": {
+        "compose": "Editor",
+        "chat": "Conversa"
+      },
+      "moveUp": "Mover para cima",
+      "moveDown": "Mover para baixo",
+      "newTemplate": "Novo modelo",
+      "resetTemplates": "Repor os modelos predefinidos",
+      "resetTemplatesTitle": "Repor os modelos predefinidos?",
+      "resetTemplatesText": "As suas alterações e os modelos que criou serão perdidos.",
+      "name": "Nome",
+      "usedIn": "Usado em",
+      "prompt": "Prompt",
+      "send": "Enviar diretamente",
+      "replyOnly": "Apenas ao responder ou reencaminhar",
+      "delete": "Eliminar",
+      "deleteTitle": "Eliminar o modelo «{{name}}»?"
+    },
+    "summaries": {
+      "auto": "Resumo do dia automático",
+      "autoHint": "Criado ao abrir «Resumos» se ainda não existir.",
+      "maxEmails": "Número máximo de e-mails",
+      "maxChars": "Comprimento máximo por e-mail",
+      "chars": "caracteres",
+      "includeRead": "Incluir os e-mails já lidos",
+      "mailboxes": "Caixas resumidas",
+      "never": "O spam, o lixo, os rascunhos e os enviados nunca são resumidos."
+    },
+    "dictation": {
+      "enable": "Ditado por voz",
+      "enableHint": "Botão de microfone no editor e na conversa, transcrição em direto pela Deepgram.",
+      "key": "Chave de API da Deepgram",
+      "createKey": "Criar uma chave",
+      "model": "Modelo",
+      "language": "Idioma",
+      "langAuto": "Idioma da mensagem",
+      "langMulti": "Deteção automática (vários idiomas)"
+    }
+  }
+}

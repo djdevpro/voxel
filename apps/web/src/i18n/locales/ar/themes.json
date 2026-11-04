@@ -1,0 +1,42 @@
+{
+  "porcelain": {
+    "name": "خزف",
+    "description": "رماديات دافئة، هادئة ومشرقة"
+  },
+  "graphite": {
+    "name": "غرافيت",
+    "description": "محايد بارد وتباين واضح"
+  },
+  "nord": {
+    "name": "Nord",
+    "description": "زرقة قطبية وصقيع"
+  },
+  "rose-pine": {
+    "name": "Rosé Pine",
+    "description": "فجر ناعم وضوء قمر خافت"
+  },
+  "catppuccin": {
+    "name": "Catppuccin",
+    "description": "ألوان باستيل Latte وMocha"
+  },
+  "solarized": {
+    "name": "Solarized",
+    "description": "لوحة الألوان الدقيقة الكلاسيكية"
+  },
+  "sepia": {
+    "name": "سيبيا",
+    "description": "درجات الورق للقراءة الطويلة"
+  },
+  "forest": {
+    "name": "غابة",
+    "description": "خُضرة عميقة وهادئة"
+  },
+  "ocean": {
+    "name": "محيط",
+    "description": "زُرقة صافية وعميقة"
+  },
+  "midnight": {
+    "name": "منتصف الليل",
+    "description": "أسود حالك، وفاتح ناعم جدًا"
+  }
+}
