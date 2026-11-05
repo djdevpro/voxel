@@ -321,3 +321,74 @@ export function splitVcards(text: string): string[] {
   }
   return out;
 }
+
+/** Applique K1, K2, K3, K6 et K9 à une entrée ; renvoie l'entrée elle-même s'il n'y a rien à corriger. */
+function fixCardEntry(entry: unknown, table: string): unknown {
+  if (!entry || typeof entry !== 'object') return entry;
+  const e = entry as Record<string, unknown>;
+  let out: Record<string, unknown> | null = null;
+  const edit = () => (out ??= { ...e });
+  const ctx = e.contexts as Record<string, unknown> | undefined;
+  if (ctx && typeof ctx === 'object' && (ctx.pref === true || 'internet' in ctx)) {
+    const { pref, internet: _i, ...rest } = ctx;
+    const o = edit();
+    if (pref === true) {
+      if (o.pref === undefined) o.pref = 1;
+    } else if (pref !== undefined) rest.pref = pref;
+    if (Object.keys(rest).length) o.contexts = rest;
+    else delete o.contexts;
+  }
+  const label = typeof e.label === 'string' ? /^_\$!<(.*)>!\$_$/.exec(e.label) : null;
+  if (label) edit().label = label[1];
+  if (table === 'phones' && typeof e.number === 'string' && e.number.slice(0, 4).toLowerCase() === 'tel:') edit().number = e.number.slice(4);
+  if ((table === 'links' || table === 'onlineServices') && typeof e.uri === 'string' && /\\[:,;]/.test(e.uri)) {
+    edit().uri = e.uri.replace(/\\([:,;])/g, '$1');
+  }
+  return out ?? entry;
+}
+
+/**
+ * Fiche lue d'un serveur → modèle de l'interface. Corrige ce que Stalwart (conversion calcard) et Cyrus renvoient
+ * pour des vCard venues de téléphones ou de logiciels (mesuré sur les jeux d'essai DAV). Pure et idempotente ;
+ * renvoie la fiche elle-même s'il n'y a rien à corriger.
+ */
+export function fromServerCard<T extends object>(card: T): T {
+  const c = card as Record<string, unknown>;
+  let out: Record<string, unknown> | null = null;
+  for (const table of ['emails', 'phones', 'addresses', 'links', 'onlineServices']) {
+    const map = c[table] as Record<string, unknown> | undefined;
+    if (!map || typeof map !== 'object') continue;
+    let copy: Record<string, unknown> | null = null;
+    for (const [k, v] of Object.entries(map)) {
+      const fixed = fixCardEntry(v, table);
+      if (fixed !== v) (copy ??= { ...map })[k] = fixed;
+    }
+    if (copy) (out ??= { ...c })[table] = copy;
+  }
+  // K8 : année 1604, écrite par Apple quand l'année manque (`X-APPLE-OMIT-YEAR` n'est pas visible en JMAP)
+  const ann = c.anniversaries as Record<string, unknown> | undefined;
+  if (ann && typeof ann === 'object') {
+    let copy: Record<string, unknown> | null = null;
+    for (const [k, v] of Object.entries(ann)) {
+      const date = (v as { date?: Record<string, unknown> } | null)?.date;
+      if (!date || typeof date !== 'object' || date.year !== 1604) continue;
+      if (date['@type'] !== undefined && date['@type'] !== 'PartialDate') continue;
+      const { year: _y, ...rest } = date;
+      (copy ??= { ...ann })[k] = { ...(v as Record<string, unknown>), date: rest };
+    }
+    if (copy) (out ??= { ...c }).anniversaries = copy;
+  }
+  return (out ?? card) as T;
+}
+
+/** Arguments de `ContactCard/set` pour un compte JMAP : `version: '1.0'` ajoutée à chaque création qui n'en a pas (Cyrus l'exige). Copie ; le reste passe tel quel. */
+export function toServerCardSet<A extends Record<string, unknown>>(args: A): A {
+  const out: Record<string, unknown> = { ...args };
+  const create = args.create as Record<string, Record<string, unknown>> | null | undefined;
+  if (create) {
+    const c: Record<string, unknown> = {};
+    for (const [id, card] of Object.entries(create)) c[id] = card.version === undefined ? { ...card, version: '1.0' } : { ...card };
+    out.create = c;
+  }
+  return out as A;
+}

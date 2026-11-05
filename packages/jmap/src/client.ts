@@ -16,6 +16,7 @@ import {
   type WithRefs,
 } from './types.ts';
 import { createSseParser } from './sse.ts';
+import { DEFAULT_LIMITS, Semaphore, evalPointer, limitError, limitsOf, type SessionLimits } from './limits.ts';
 
 export type FetchLike = (input: string, init?: RequestInit) => Promise<Response>;
 
@@ -205,12 +206,133 @@ export interface EventSourceOptions {
   onError?: (err: unknown) => void;
 }
 
+/** Sous-appel envoyé au serveur ; `round` = numéro de sa sous-requête (-1 : pas encore placé). */
+interface Part {
+  group: Group;
+  call: Invocation;
+  round: number;
+  replies: Invocation[];
+}
+
+/** Appel d'origine et ses sous-appels (un seul s'il n'est pas découpé). */
+interface Group {
+  call: Invocation;
+  parts: Part[];
+  split: boolean;
+  seq: number;
+  replayed: boolean;
+}
+
+/** Sous-appel répondu par le client sans envoi (référence vers un appel en échec). */
+const LOCAL = -2;
+
+type SetEntry = ['create' | 'update', string, unknown] | ['destroy', string];
+
+function setParts(g: Group, calls: Invocation[]): void {
+  g.parts = calls.map((call) => ({ group: g, call, round: -1, replies: [] }));
+  g.split = calls.length > 1;
+}
+
+/** Entrées littérales d'un `…/set`, dans l'ordre create, update, destroy. */
+function setEntries(args: Record<string, unknown>): SetEntry[] {
+  const out: SetEntry[] = [];
+  const obj = (v: unknown) => (v && typeof v === 'object' && !Array.isArray(v) ? (v as Record<string, unknown>) : {});
+  for (const [k, v] of Object.entries(obj(args.create))) out.push(['create', k, v]);
+  for (const [k, v] of Object.entries(obj(args.update))) out.push(['update', k, v]);
+  if (Array.isArray(args.destroy)) for (const id of args.destroy as string[]) out.push(['destroy', id]);
+  return out;
+}
+
+function setChunk(args: Record<string, unknown>, entries: SetEntry[], first: boolean): Record<string, unknown> {
+  const { create: _c, update: _u, destroy: _d, ifInState, ...rest } = args;
+  const out: Record<string, unknown> = { ...rest };
+  if (first && ifInState !== undefined) out.ifInState = ifInState;
+  for (const e of entries) {
+    if (e[0] === 'destroy') ((out.destroy ??= []) as string[]).push(e[1]);
+    else ((out[e[0]] ??= {}) as Record<string, unknown>)[e[1]] = e[2];
+  }
+  return out;
+}
+
+/** Découpe d'un appel trop gros (`ids` d'un `…/get`, entrées d'un `…/set`), identifiants `<callId>~<n>`. */
+function splitCall(g: Group, call: Invocation, limits: SessionLimits): Invocation[] {
+  const [name, args, id] = call;
+  const chunks: Record<string, unknown>[] = [];
+  if (name.endsWith('/get') && Array.isArray(args.ids) && args.ids.length > limits.maxObjectsInGet) {
+    for (let i = 0; i < args.ids.length; i += limits.maxObjectsInGet) chunks.push({ ...args, ids: args.ids.slice(i, i + limits.maxObjectsInGet) });
+  } else if (name.endsWith('/set')) {
+    const entries = setEntries(args);
+    if (entries.length > limits.maxObjectsInSet)
+      for (let i = 0; i < entries.length; i += limits.maxObjectsInSet) chunks.push(setChunk(args, entries.slice(i, i + limits.maxObjectsInSet), i === 0));
+  }
+  if (!chunks.length) return [call];
+  return chunks.map((a): Invocation => [name, a, `${id}~${g.seq++}`]);
+}
+
+function refsOf(args: Record<string, unknown>): ResultReference[] {
+  return Object.keys(args)
+    .filter((k) => k.startsWith('#'))
+    .map((k) => args[k] as ResultReference);
+}
+
+/** Réponses d'un appel d'origine, sous son identifiant ; un groupe découpé est réuni en une réponse. */
+function groupResult(g: Group): Invocation[] {
+  const id = g.call[2];
+  if (!g.split) return g.parts[0]?.replies ?? [];
+  const firsts = g.parts.map((p) => p.replies[0]).filter((r): r is Invocation => !!r);
+  const err = firsts.find((r) => r[0] === 'error');
+  if (err) return [['error', err[1], id]];
+  if (!firsts.length) return [];
+  const bodies = firsts.map((r) => r[1]);
+  const first = bodies[0]!;
+  const lastBody = bodies[bodies.length - 1]!;
+  const name = firsts[0]![0];
+  if (g.call[0].endsWith('/get')) {
+    return [
+      [
+        name,
+        {
+          ...first,
+          state: lastBody.state,
+          list: bodies.flatMap((b) => (b.list as unknown[] | undefined) ?? []),
+          notFound: bodies.flatMap((b) => (b.notFound as unknown[] | null | undefined) ?? []),
+        },
+        id,
+      ],
+    ];
+  }
+  const merged = (k: string) => {
+    const o = Object.assign({}, ...bodies.map((b) => b[k] ?? {})) as Record<string, unknown>;
+    return Object.keys(o).length ? o : null;
+  };
+  const destroyed = bodies.flatMap((b) => (b.destroyed as unknown[] | null | undefined) ?? []);
+  return [
+    [
+      name,
+      {
+        ...first,
+        oldState: first.oldState,
+        newState: lastBody.newState,
+        created: merged('created'),
+        updated: merged('updated'),
+        destroyed: destroyed.length ? destroyed : null,
+        notCreated: merged('notCreated'),
+        notUpdated: merged('notUpdated'),
+        notDestroyed: merged('notDestroyed'),
+      },
+      id,
+    ],
+  ];
+}
+
 export class JmapClient {
   readonly sessionUrl: string;
   private readonly fetchImpl: FetchLike;
   private readonly opts: JmapClientOptions;
   private session: Session | undefined;
   private sessionPromise: Promise<Session> | undefined;
+  private requestGate = new Semaphore(DEFAULT_LIMITS.maxConcurrentRequests);
+  private uploadGate = new Semaphore(DEFAULT_LIMITS.maxConcurrentUpload);
 
   constructor(opts: JmapClientOptions) {
     this.opts = opts;
@@ -339,6 +461,201 @@ export class JmapClient {
   /** Envoie une requête JMAP brute. */
   async rawRequest(req: JmapRequest): Promise<JmapResponse> {
     const s = await this.getSession();
+    const limits = limitsOf(s);
+    this.requestGate.max = limits.maxConcurrentRequests;
+    const release = await this.requestGate.acquire();
+    let json: JmapResponse;
+    try {
+      json = await this.sendWithinLimits(req, limits);
+    } finally {
+      release();
+    }
+    if (this.session && json.sessionState && json.sessionState !== this.session.state) {
+      // la session a changé : on la rechargera au prochain besoin
+      this.session = undefined;
+    }
+    return json;
+  }
+
+  /**
+   * Envoie une requête en respectant les limites de la session : appels `…/get` et `…/set` trop gros découpés,
+   * sous-requêtes successives (nombre d'appels, taille), références arrière résolues localement entre sous-requêtes,
+   * repli sur `requestTooLarge`, puis réponses réunies dans l'ordre des appels d'origine.
+   */
+  private async sendWithinLimits(req: JmapRequest, limits: SessionLimits): Promise<JmapResponse> {
+    const enc = new TextEncoder();
+    const sizeOf = (r: JmapRequest) => enc.encode(JSON.stringify(r)).length;
+    const groups: Group[] = req.methodCalls.map((call) => {
+      const g: Group = { call, parts: [], split: false, seq: 0, replayed: false };
+      setParts(g, splitCall(g, call, limits));
+      return g;
+    });
+    const byId = new Map<string, Group>();
+    const created: Record<Id, Id> = {};
+    let pending: Part[] = [];
+    let round = 0;
+    let last: JmapResponse | undefined;
+    let replayed = false;
+
+    const isDone = (g: Group) => g.parts.every((p) => p.round === LOCAL || (p.round >= 0 && p.round < round));
+    const inPending = (g: Group) => g.parts.some((p) => p.round === round);
+    const bodyOf = (calls: Invocation[]): JmapRequest => {
+      const r: JmapRequest = { using: this.usingFor(calls, req.using), methodCalls: calls };
+      if (round > 0) r.createdIds = { ...req.createdIds, ...created };
+      else if (req.createdIds) r.createdIds = req.createdIds;
+      return r;
+    };
+    /** Valeur d'une référence vers un appel terminé ; `undefined` si l'appel visé a échoué ou si le chemin est introuvable. */
+    const resolve = (t: Group, ref: ResultReference): { value: unknown } | undefined => {
+      const hit = groupResult(t).find((r) => r[0] === ref.name);
+      if (!hit) return undefined;
+      try {
+        return { value: evalPointer(hit[1], ref.path) };
+      } catch {
+        return undefined;
+      }
+    };
+
+    const flush = async (body?: JmapRequest): Promise<void> => {
+      const sent = pending;
+      pending = [];
+      const res = await this.post(body ?? bodyOf(sent.map((p) => p.call)));
+      last = res;
+      const own = new Map(sent.map((p) => [p.call[2], p]));
+      for (const inv of res.methodResponses) own.get(inv[2])?.replies.push(inv);
+      round++;
+      if (res.createdIds) Object.assign(created, res.createdIds);
+      else
+        for (const [name, body] of res.methodResponses) {
+          if (!name.endsWith('/set')) continue;
+          for (const [cid, o] of Object.entries((body.created ?? {}) as Record<string, { id?: Id } | null>)) if (o?.id) created[cid] = o.id;
+        }
+      await fallback(sent);
+    };
+
+    /** Repli `requestTooLarge` : `…/get` dont `ids` venait d'une référence, rejoué avec ses `ids` résolus et découpés, puis ses dépendants. */
+    const fallback = async (sent: Part[]): Promise<void> => {
+      const replay: Group[] = [];
+      const ids = new Set<string>();
+      for (const p of sent) {
+        const g = p.group;
+        const [name, body] = p.replies[0] ?? [];
+        if (name !== 'error') continue;
+        const type = (body as unknown as MethodErrorBody).type;
+        const ref = g.call[1]['#ids'] as ResultReference | undefined;
+        if (type === 'requestTooLarge' && !g.replayed && g.call[0].endsWith('/get') && ref) {
+          const t = byId.get(ref.resultOf);
+          if (!t || !t.parts.some((x) => sent.includes(x))) continue;
+          const v = resolve(t, ref);
+          if (!v || !Array.isArray(v.value)) continue;
+          const { '#ids': _, ...rest } = g.call[1];
+          g.replayed = true;
+          setParts(g, splitCall(g, [g.call[0], { ...rest, ids: v.value }, g.call[2]], limits));
+          replay.push(g);
+          ids.add(g.call[2]);
+        } else if (type === 'invalidResultReference' && refsOf(g.call[1]).some((r) => ids.has(r.resultOf))) {
+          setParts(g, [g.call]);
+          replay.push(g);
+          ids.add(g.call[2]);
+        }
+      }
+      if (!replay.length) return;
+      replayed = true;
+      await run(replay);
+    };
+
+    const place = async (g: Group, i: number): Promise<void> => {
+      for (;;) {
+        const p = g.parts[i]!;
+        const args = { ...p.call[1] };
+        let blocked = false;
+        let failed = false;
+        for (const k of Object.keys(args)) {
+          if (!k.startsWith('#')) continue;
+          const ref = args[k] as ResultReference;
+          const t = byId.get(ref.resultOf);
+          if (!t || t === g) continue;
+          if (isDone(t)) {
+            const v = resolve(t, ref);
+            if (!v) {
+              failed = true;
+              break;
+            }
+            delete args[k];
+            args[k.slice(1)] = v.value;
+          } else if (inPending(t) && t.split) blocked = true;
+        }
+        if (failed) {
+          p.round = LOCAL;
+          p.replies = [['error', { type: 'invalidResultReference' }, p.call[2]]];
+          return;
+        }
+        const call: Invocation = [p.call[0], args, p.call[2]];
+        if (
+          pending.length &&
+          (blocked || pending.length >= limits.maxCallsInRequest || sizeOf(bodyOf([...pending.map((x) => x.call), call])) > limits.maxSizeRequest)
+        ) {
+          await flush();
+          continue;
+        }
+        if (!pending.length && sizeOf(bodyOf([call])) > limits.maxSizeRequest) {
+          const entries = call[0].endsWith('/set') ? setEntries(args) : undefined;
+          if (!entries || entries.length < 2) throw limitError('maxSizeRequest');
+          const half = Math.ceil(entries.length / 2);
+          const halves = [setChunk(args, entries.slice(0, half), true), setChunk(args, entries.slice(half), false)].map(
+            (a): Part => ({ group: g, call: [call[0], a, `${g.call[2]}~${g.seq++}`], round: -1, replies: [] }),
+          );
+          g.parts.splice(i, 1, ...halves);
+          g.split = true;
+          continue;
+        }
+        p.call = call;
+        p.round = round;
+        pending.push(p);
+        return;
+      }
+    };
+
+    const run = async (list: Group[]): Promise<void> => {
+      for (const g of list) {
+        byId.set(g.call[2], g);
+        for (let i = 0; i < g.parts.length; i++) await place(g, i);
+      }
+      if (pending.length) await flush();
+    };
+
+    // contrôle préalable (C15) : chaque appel, ou chaque entrée d'un `…/set`, doit tenir seul avant tout envoi
+    for (const g of groups)
+      for (const { call } of g.parts) {
+        if (sizeOf(bodyOf([call])) <= limits.maxSizeRequest) continue;
+        const entries = call[0].endsWith('/set') ? setEntries(call[1]) : [];
+        const fits = entries.length > 0 && entries.every((e, i) => sizeOf(bodyOf([[call[0], setChunk(call[1], [e], i === 0), call[2]]])) <= limits.maxSizeRequest);
+        if (!fits) throw limitError('maxSizeRequest');
+      }
+
+    const fast =
+      groups.every((g) => !g.split) && req.methodCalls.length <= limits.maxCallsInRequest && sizeOf(req) <= limits.maxSizeRequest;
+    if (fast) {
+      for (const g of groups) {
+        byId.set(g.call[2], g);
+        for (const p of g.parts) p.round = round;
+        pending.push(...g.parts);
+      }
+      await flush(req);
+      if (!replayed) return last!;
+    } else await run(groups);
+
+    const out: JmapResponse = {
+      methodResponses: groups.flatMap(groupResult),
+      sessionState: last?.sessionState ?? this.session?.state ?? '',
+    };
+    if (req.createdIds) out.createdIds = { ...req.createdIds, ...created };
+    return out;
+  }
+
+  /** Envoie une requête JMAP telle quelle (un aller-retour). */
+  private async post(req: JmapRequest): Promise<JmapResponse> {
+    const s = await this.getSession();
     const url = resolveUrl(s.apiUrl, this.sessionUrl);
     const res = await this.doFetch(url, {
       method: 'POST',
@@ -355,12 +672,7 @@ export class JmapClient {
       const type = (body as { type?: string } | undefined)?.type ?? 'http';
       throw new JmapError(`JMAP request rejected (HTTP ${res.status})`, type, res.status, body, retryAfterSecs(res));
     }
-    const json = (await res.json()) as JmapResponse;
-    if (this.session && json.sessionState && json.sessionState !== this.session.state) {
-      // la session a changé : on la rechargera au prochain besoin
-      this.session = undefined;
-    }
-    return json;
+    return (await res.json()) as JmapResponse;
   }
 
   /** Crée un lot d'appels. */
@@ -401,15 +713,23 @@ export class JmapClient {
   /** Téléverse un blob ; renvoie blobId/type/taille. */
   async upload(accountId: Id, data: Blob | ArrayBuffer | Uint8Array, type?: string): Promise<UploadResponse> {
     const s = await this.getSession();
+    const limits = limitsOf(s);
+    if ((data instanceof Blob ? data.size : data.byteLength) > limits.maxSizeUpload) throw limitError('maxSizeUpload');
     const url = resolveUrl(expandUrlTemplate(s.uploadUrl, { accountId }), this.sessionUrl);
     const contentType = type ?? (data instanceof Blob ? data.type : '') ?? 'application/octet-stream';
-    const res = await this.doFetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': contentType || 'application/octet-stream' },
-      body: data as BodyInit,
-    });
-    if (!res.ok) throw new JmapError(`Upload failed (HTTP ${res.status})`, 'upload', res.status, await errorBody(res), retryAfterSecs(res));
-    return (await res.json()) as UploadResponse;
+    this.uploadGate.max = limits.maxConcurrentUpload;
+    const release = await this.uploadGate.acquire();
+    try {
+      const res = await this.doFetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': contentType || 'application/octet-stream' },
+        body: data as BodyInit,
+      });
+      if (!res.ok) throw new JmapError(`Upload failed (HTTP ${res.status})`, 'upload', res.status, await errorBody(res), retryAfterSecs(res));
+      return (await res.json()) as UploadResponse;
+    } finally {
+      release();
+    }
   }
 
   /** URL de téléchargement d'un blob (nécessite une session déjà chargée). */

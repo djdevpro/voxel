@@ -21,6 +21,7 @@
  * - `CalendarEvent/get` avec une liste `properties` explicite omet `recurrenceRules` (même demandé) : le
  *   webmail lit les événements avec `properties: null` (sans `iCalendar`, que le serveur garde de toute façon) ;
  * - `Calendar/set` : `color` accepté ; `sendSchedulingMessages: true` accepté sur `CalendarEvent/set`.
+ * - JSCalendar 2.0 : une seule règle `recurrenceRule` ; `recurrenceRules` est gardé sans effet sur CalDAV (Cyrus 3.13 le refuse) : voir `fromServerEvent` et `toServerEventSet`.
  */
 
 export type LocalDateTime = string; // AAAA-MM-JJTHH:MM:SS, sans fuseau
@@ -472,4 +473,78 @@ export function cleanParsedEvent(ev: Record<string, unknown>): CalendarEventCrea
     out[k] = v;
   }
   return out as CalendarEventCreate;
+}
+
+/** Règle avec ses `@type` (`RecurrenceRule`, `NDay` sur `byDay`), forme du modèle de l'interface. */
+function typedRule(rule: unknown): unknown {
+  if (!rule || typeof rule !== 'object') return rule;
+  const r = rule as Record<string, unknown>;
+  const out: Record<string, unknown> = { '@type': 'RecurrenceRule', ...r };
+  if (Array.isArray(r.byDay)) out.byDay = r.byDay.map((d) => (d && typeof d === 'object' ? { '@type': 'NDay', ...d } : d));
+  return out;
+}
+
+/** Règle sans aucune clé `@type`, forme JSCalendar 2.0 envoyée au serveur. */
+function untypedRule(rule: unknown): unknown {
+  if (!rule || typeof rule !== 'object') return rule;
+  const { '@type': _t, ...r } = rule as Record<string, unknown>;
+  if (Array.isArray(r.byDay)) {
+    r.byDay = r.byDay.map((d) => {
+      if (!d || typeof d !== 'object') return d;
+      const { '@type': _d, ...rest } = d as Record<string, unknown>;
+      return rest;
+    });
+  }
+  return r;
+}
+
+/**
+ * Événement lu d'un serveur → modèle de l'interface (RFC 8984). JSCalendar 2.0 (Stalwart, Cyrus 3.13) porte une
+ * seule règle `recurrenceRule` : elle devient `recurrenceRules: [règle]`. Sans `recurrenceRule`, l'objet revient
+ * tel quel (passerelle, ou événement écrit par une version précédente de Voxel). Pure et idempotente.
+ */
+export function fromServerEvent<T extends object>(ev: T): T {
+  if (!Object.prototype.hasOwnProperty.call(ev, 'recurrenceRule')) return ev;
+  // `recurrenceRule` fait foi : c'est lui que le serveur traduit en RRULE
+  const { recurrenceRule: rule, recurrenceRules: _r, excludedRecurrenceRules: _x, ...rest } = ev as Record<string, unknown>;
+  const out: Record<string, unknown> = rest;
+  if (rule && typeof rule === 'object') out.recurrenceRules = [typedRule(rule)];
+  return out as T;
+}
+
+/**
+ * Arguments de `CalendarEvent/set` pour un compte JMAP (jamais pour la passerelle) : créations et patchs passent
+ * en JSCalendar 2.0 (`recurrenceRule`, `version`). Renvoie une copie ; le reste des arguments passe tel quel.
+ */
+export function toServerEventSet<A extends Record<string, unknown>>(args: A): A {
+  const out: Record<string, unknown> = { ...args };
+  const create = args.create as Record<string, Record<string, unknown>> | null | undefined;
+  if (create) {
+    const c: Record<string, unknown> = {};
+    for (const [id, ev] of Object.entries(create)) {
+      const { recurrenceRules: rules, excludedRecurrenceRules: _x, ...rest } = ev;
+      const e: Record<string, unknown> = { ...rest };
+      if (e.version === undefined) e.version = '2.0';
+      if (Array.isArray(rules) && rules.length > 0) e.recurrenceRule = untypedRule(rules[0]);
+      c[id] = e;
+    }
+    out.create = c;
+  }
+  const update = args.update as Record<string, Record<string, unknown>> | null | undefined;
+  if (update) {
+    const u: Record<string, unknown> = {};
+    for (const [id, patch] of Object.entries(update)) {
+      const p: Record<string, unknown> = {};
+      for (const [k, v] of Object.entries(patch)) {
+        if (k === 'recurrenceRules') p.recurrenceRule = Array.isArray(v) && v.length > 0 ? untypedRule(v[0]) : null;
+        else if (k === 'recurrenceRules/0') p.recurrenceRule = v == null ? null : untypedRule(v);
+        else if (k.startsWith('recurrenceRules/0/')) p[`recurrenceRule/${k.slice('recurrenceRules/0/'.length)}`] = v;
+        else if (k.startsWith('recurrenceRules/') || k === 'excludedRecurrenceRules' || k.startsWith('excludedRecurrenceRules/')) continue;
+        else p[k] = v;
+      }
+      u[id] = p;
+    }
+    out.update = u;
+  }
+  return out as A;
 }
