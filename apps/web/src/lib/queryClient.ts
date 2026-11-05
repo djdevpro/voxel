@@ -31,6 +31,7 @@ function flushPersist() {
   pending = undefined;
   void db.kv.put({ key: 'rq-cache', value: c }).catch(() => undefined);
 }
+export { flushPersist as flushPersistedCache };
 if (typeof window !== 'undefined') {
   window.addEventListener('pagehide', flushPersist);
   document.addEventListener('visibilitychange', () => {

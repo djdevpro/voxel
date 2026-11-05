@@ -7,7 +7,7 @@ import { db } from './db';
 import { errorMessage } from './api';
 import i18n, { currentLocale } from '@/i18n';
 
-const pending = new Map<string, { timer: ReturnType<typeof setTimeout>; tick: ReturnType<typeof setInterval> }>();
+const pending = new Map<string, { timer: ReturnType<typeof setTimeout>; tick: ReturnType<typeof setInterval>; send: () => Promise<void> }>();
 const t = (key: string, opts?: Record<string, unknown>) => i18n.t(`settings:sending.${key}`, opts);
 
 /**
@@ -81,11 +81,21 @@ export function scheduleSend(msg: OutgoingMessage, restore: ComposerState) {
     clearInterval(tick);
     void doSend();
   }, delay * 1000);
-  pending.set(id, { timer, tick });
+  pending.set(id, { timer, tick, send: doSend });
 }
 
 export function hasPendingSends() {
   return pending.size > 0;
+}
+
+/** Envoie tout de suite les messages en attente d'annulation (fermeture de la fenêtre du bureau). */
+export async function flushPendingSends(): Promise<void> {
+  const sends = [...pending.values()].map((p) => {
+    clearTimeout(p.timer);
+    clearInterval(p.tick);
+    return p.send();
+  });
+  await Promise.allSettled(sends);
 }
 
 // Fermer ou recharger l'onglet pendant le délai d'annulation annulerait l'envoi :

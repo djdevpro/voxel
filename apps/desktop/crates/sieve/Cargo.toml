@@ -1,0 +1,19 @@
+[package]
+name = "voxel-sieve"
+description = "Client ManageSieve et façade JMAP for Sieve de Voxel."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+voxel-core = { workspace = true }        # types JMAP, connexion TLS
+serde_json = { workspace = true }        # objets JMAP
+tokio = { workspace = true }             # flux, verrous, minuteries
+futures-util = { workspace = true }      # futures en boîte
+bytes = { workspace = true }             # contenu des scripts
+base64 = { workspace = true }            # AUTHENTICATE PLAIN

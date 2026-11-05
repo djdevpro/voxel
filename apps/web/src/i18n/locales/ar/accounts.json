@@ -73,7 +73,8 @@
     "testOk": "الاتصال سليم",
     "testFail": "فشل الاتصال",
     "storedOnDevice": "كلمة المرور محفوظة على هذا الجهاز ومشفّرة",
-    "manageAccount": "إدارة حسابي"
+    "manageAccount": "إدارة حسابي",
+    "storedTokenOnDevice": "رمز API محفوظ على هذا الجهاز ومشفّر"
   },
   "capability": {
     "vacation": "الرد التلقائي",

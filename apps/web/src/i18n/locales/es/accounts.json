@@ -70,7 +70,8 @@
     "testOk": "Conexión correcta",
     "testFail": "Error de conexión",
     "storedOnDevice": "Contraseña guardada en este dispositivo, cifrada",
-    "manageAccount": "Gestionar mi cuenta"
+    "manageAccount": "Gestionar mi cuenta",
+    "storedTokenOnDevice": "Token de API guardado en este dispositivo, cifrado"
   },
   "capability": {
     "vacation": "respuesta automática",

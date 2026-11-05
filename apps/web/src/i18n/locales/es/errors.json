@@ -10,5 +10,6 @@
   "network": "Estás sin conexión o no se puede contactar con el servidor.",
   "unknown": "Error inesperado (HTTP {{status}}).",
   "discovery_failed": "No encontramos la configuración de esta dirección. Usa la configuración avanzada.",
-  "domain_not_allowed": "Este servidor no acepta direcciones de este dominio."
+  "domain_not_allowed": "Este servidor no acepta direcciones de este dominio.",
+  "too_large": "El servidor de correo rechaza un envío tan grande."
 }

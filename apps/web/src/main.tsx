@@ -7,13 +7,15 @@ import '@fontsource-variable/inter';
 import './styles/globals.css';
 import { RouterProvider } from '@tanstack/react-router';
 import { router } from './router';
-import { queryClient, dexiePersister } from './lib/queryClient';
+import { queryClient, dexiePersister, flushPersistedCache } from './lib/queryClient';
 import { TooltipProvider } from './components/ui/tooltip';
 import { AppToaster } from './components/common/AppToaster';
 import { i18nReady } from './i18n';
 import { applyThemeId, getThemeId } from './lib/themes';
 import { loadConfig } from './lib/config';
 import { unlockAccounts } from './lib/accounts';
+import { desktopInfo, installDesktopNotifications, isDesktop } from './lib/platform';
+import { flushPendingSends } from './lib/sendQueue';
 import { Direction } from 'radix-ui';
 import { useDirection } from './hooks/useDirection';
 import type { ReactNode } from 'react';
@@ -23,7 +25,24 @@ function DirectionRoot({ children }: { children: ReactNode }) {
   return <Direction.Provider dir={useDirection()}>{children}</Direction.Provider>;
 }
 
-if (import.meta.env.PROD) registerSW({ immediate: true });
+if (import.meta.env.PROD && !isDesktop) registerSW({ immediate: true });
+
+if (isDesktop) {
+  installDesktopNotifications();
+  // fermeture : envoi immédiat des messages en attente d'annulation et cache enregistré, sans confirmation
+  void import('@tauri-apps/api/window').then(({ getCurrentWindow }) =>
+    getCurrentWindow().onCloseRequested(async (event) => {
+      event.preventDefault();
+      flushPersistedCache();
+      await flushPendingSends();
+      await getCurrentWindow().destroy();
+    }),
+  );
+  // auto-test : seulement dans un binaire de débogage lancé pour lui (module à part, jamais chargé sinon)
+  void desktopInfo().then((i) => {
+    if (i.selftest) void import('./desktop/selftest').then((m) => m.startSelftest());
+  });
+}
 
 applyThemeId(getThemeId());
 // config.json et comptes de l'appareil (secrets déchiffrés en mémoire) avant le premier rendu

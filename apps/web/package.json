@@ -21,6 +21,7 @@
     "@tanstack/react-query-persist-client": "^5.105.3",
     "@tanstack/react-router": "^1.170.46",
     "@tanstack/react-virtual": "^3.14.25",
+    "@tauri-apps/api": "2.12.4",
     "@tiptap/extension-image": "^3.32.2",
     "@tiptap/extensions": "^3.32.2",
     "@tiptap/pm": "^3.32.2",

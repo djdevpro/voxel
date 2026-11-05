@@ -1,0 +1,17 @@
+{
+  "name": "@voxel/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Voxel sur le bureau (Tauri 2) : l'interface d'apps/web et son cœur Rust local.",
+  "scripts": {
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "build:debug": "tauri build --debug --no-bundle",
+    "licenses": "node scripts/licenses.mjs"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.4"
+  }
+}

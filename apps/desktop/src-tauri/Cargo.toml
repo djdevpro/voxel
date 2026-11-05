@@ -1,0 +1,43 @@
+[package]
+name = "voxel-desktop"
+description = "Voxel sur le bureau : l'interface web dans une fenêtre native, avec son cœur Rust local."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+name = "voxel_desktop_lib"
+path = "src/lib.rs"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { workspace = true }                   # contexte et droits de l'appli
+
+[dependencies]
+tauri = { workspace = true }                         # fenêtre, WebView, IPC
+tauri-plugin-dialog = { workspace = true }           # Enregistrer sous
+tauri-plugin-notification = { workspace = true }     # notifications natives
+tauri-plugin-single-instance = { workspace = true }  # instance unique
+voxel-core = { workspace = true }                    # client HTTP, stockage
+voxel-gateway = { workspace = true }                 # routes /imap/*
+voxel-mail = { workspace = true }                    # façade IMAP
+voxel-sieve = { workspace = true }                   # ManageSieve
+voxel-dav = { workspace = true }                     # CardDAV, CalDAV
+serde = { workspace = true }                         # arguments des commandes
+serde_json = { workspace = true }                    # en-tête IPC, événements
+tokio = { workspace = true }                         # tâches des requêtes
+futures-util = { workspace = true }                  # flux des corps
+bytes = { workspace = true }                         # corps
+http = { workspace = true }                          # en-têtes vers la passerelle
+percent-encoding = { workspace = true }              # en-têtes IPC
+keyring = { workspace = true }                       # clé d'appareil
+getrandom = { workspace = true }                     # création de la clé
+base64 = { workspace = true }                        # clé vers l'interface, captures
+url = { workspace = true }                           # liens externes, navigation
+
+# Ouverture des liens et captures de l'auto-test par le protocole DevTools de WebView2.
+[target.'cfg(windows)'.dependencies]
+webview2-com = { workspace = true }                  # protocole DevTools
+windows = { workspace = true }                       # ShellExecuteW

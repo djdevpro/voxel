@@ -1,0 +1,91 @@
+# Espace de travail Rust de Voxel Desktop : l'application Tauri et les crates de son cœur local.
+[workspace]
+resolver = "3"
+members = ["src-tauri", "crates/core", "crates/imap", "crates/mail", "crates/sieve", "crates/dav", "crates/gateway"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+# Rust du poste ; le résolveur 3 choisit d'office des versions compatibles.
+rust-version = "1.92"
+license = "MIT"
+publish = false
+
+[workspace.dependencies]
+voxel-core = { path = "crates/core" }
+voxel-imap = { path = "crates/imap" }
+voxel-mail = { path = "crates/mail" }
+voxel-sieve = { path = "crates/sieve" }
+voxel-dav = { path = "crates/dav" }
+voxel-gateway = { path = "crates/gateway" }
+# Fenêtre, WebView et IPC, comme le studio Interactive Learning.
+tauri = "2.12"
+tauri-build = "2.7"
+# « Enregistrer sous » natif, appelé depuis Rust.
+tauri-plugin-dialog = "2.8"
+# Notifications natives du système.
+tauri-plugin-notification = "2.8"
+# Un second lancement ramène la fenêtre existante au premier plan.
+tauri-plugin-single-instance = "2.5"
+# Tâches, réseau et minuteries ; déjà le moteur asynchrone de Tauri.
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "io-util", "fs"] }
+# Requêtes HTTP du cœur, en flux, avec le TLS et le proxy du système ; déjà tirée par Tauri.
+reqwest = { version = "0.13", default-features = false, features = ["native-tls", "stream", "system-proxy", "http2"] }
+# TLS du système (SChannel sous Windows) pour IMAP et ManageSieve.
+native-tls = "0.2"
+tokio-native-tls = "0.3"
+# Client IMAP éprouvé (Delta Chat), sur tokio.
+async-imap = { version = "0.12", default-features = false, features = ["runtime-tokio"] }
+# Envoi SMTP d'un message brut ; pas de constructeur de messages.
+lettre = { version = "0.11", default-features = false, features = ["smtp-transport", "tokio1", "tokio1-native-tls"] }
+# Lecture MIME et tous les jeux de caractères (0.11 : la 1.0 exige Rust 1.98).
+mail-parser = { version = "0.11", features = ["full_encoding"] }
+# Écriture MIME ; même version que celle de calcard.
+mail-builder = { version = "1.0", default-features = false }
+# vCard, iCalendar, JSContact, JSCalendar, fuseaux et récurrences (Stalwart).
+calcard = "0.3"
+# Lecture des réponses WebDAV, sans dépendance.
+roxmltree = "0.21"
+# Enregistrements MX, SRV et TXT de la découverte.
+hickory-resolver = { version = "0.26", default-features = false, features = ["tokio", "system-config"] }
+# Table clé-valeur de la façade IMAP, SQLite embarqué.
+rusqlite = { version = "0.41", features = ["bundled"] }
+# Clé d'appareil dans le coffre du système (Gestionnaire d'identifiants Windows).
+keyring = "4"
+# Objets JMAP sérialisés dans l'ordre d'insertion, comme JSON.stringify.
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+# Dates IMAP et ISO ; déjà tirée par async-imap et calcard.
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+# Empreintes des identifiants et des états ; déjà tirée par wry.
+sha2 = "0.10"
+# Basic, base64url des états, AUTHENTICATE PLAIN ; déjà dans l'arbre.
+base64 = "0.23"
+# Aléa du système pour les identifiants et la clé d'appareil ; déjà dans l'arbre.
+getrandom = "0.4"
+# UUID v4 des Message-ID et des UID de fiches et d'événements ; déjà dans l'arbre.
+uuid = { version = "1", features = ["v4"] }
+# Expressions reprises de la façade Node ; déjà dans l'arbre.
+regex = "1"
+# En-têtes IPC percent-encodés ; déjà dans l'arbre.
+percent-encoding = "2"
+# URL au standard WHATWG, comme Node ; déjà dans l'arbre.
+url = "2"
+# Décomposition NFD des recherches sans accents ; déjà dans l'arbre (idna).
+icu_normalizer = "2"
+# Futures en boîte et flux ; déjà dans l'arbre.
+futures-util = "0.3"
+# Octets partagés des corps ; déjà dans l'arbre.
+bytes = "1"
+# Méthodes et en-têtes HTTP ; déjà dans l'arbre.
+http = "1"
+# WebView2 lu par son protocole DevTools (captures de l'auto-test) ; mêmes versions que Tauri.
+webview2-com = "0.39"
+windows = { version = "0.62", features = ["Win32_Foundation", "Win32_UI_Shell", "Win32_UI_WindowsAndMessaging"] }
+
+[profile.release]
+# Installeur léger (CA9) : un seul module optimisé pour la taille, symboles retirés.
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

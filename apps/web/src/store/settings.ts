@@ -13,6 +13,7 @@ import { db } from '@/lib/db';
 import { queryClient } from '@/lib/queryClient';
 import { scheduleSyncedWrite, setSyncedApplier } from '@/lib/syncedSettings';
 import { updateAccount } from '@/lib/accounts';
+import { isDesktop } from '@/lib/platform';
 
 export type Theme = 'system' | 'light' | 'dark';
 export type Density = 'comfortable' | 'compact';
@@ -54,7 +55,7 @@ export const DEFAULT_SETTINGS: SyncedSettings = {
   readingPane: 'right',
   undoSendSeconds: 10,
   remoteImages: 'block',
-  notifications: false,
+  notifications: isDesktop,
   defaultIdentity: {},
   folderColors: {},
   trustedSenders: [],

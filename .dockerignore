@@ -9,3 +9,5 @@ data
 *.log
 .claude
 /config.json
+apps/desktop
+packages/jmap/compat

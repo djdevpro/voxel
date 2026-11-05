@@ -1,13 +1,21 @@
 import { onlineManager } from '@tanstack/react-query';
-import { JmapError, type ArgsOf, type Invocation, type MethodName, type WithRefs } from '@voxel/jmap';
+import { JmapError, toServerCardSet, toServerEventSet, type ArgsOf, type Invocation, type MethodName, type WithRefs } from '@voxel/jmap';
+import { accountRow } from './accounts';
 import { db, type OutboxRow } from './db';
 import { jmap } from './jmap';
 import { isNetworkError } from './api';
 
 export type Call = { [M in MethodName]: [M, WithRefs<ArgsOf<M>>] }[MethodName];
 
-function toInvocations(calls: Call[]): Invocation[] {
-  return calls.map(([name, args], i) => [name, args as Record<string, unknown>, `o${i}`]);
+function toInvocations(accountId: string, calls: Call[]): Invocation[] {
+  // boîte JMAP : agenda et contacts au dialecte du serveur (JSCalendar 2.0, JSContact) ; la passerelle IMAP garde celui de l'interface
+  const row = accountRow(accountId);
+  const direct = !!row && (row.protocol ?? 'jmap') === 'jmap';
+  return calls.map(([name, args], i) => {
+    const a = args as Record<string, unknown>;
+    const out = !direct ? a : name === 'CalendarEvent/set' ? toServerEventSet(a) : name === 'ContactCard/set' ? toServerCardSet(a) : a;
+    return [name, out, `o${i}`];
+  });
 }
 
 export function isOffline(): boolean {
@@ -37,7 +45,7 @@ export function responseErrors(responses: Invocation[]): string[] {
  * d'attente Dexie pour les rejouer au retour en ligne.
  */
 export async function runCalls(accountId: string, calls: Call[], meta: { kind: OutboxRow['kind']; label: string }): Promise<RunResult> {
-  const methodCalls = toInvocations(calls);
+  const methodCalls = toInvocations(accountId, calls);
   const enqueue = async () => {
     await db.outbox.add({ accountId, kind: meta.kind, label: meta.label, calls: methodCalls, createdAt: Date.now(), attempts: 0 });
     window.dispatchEvent(new CustomEvent('voxel:queued'));

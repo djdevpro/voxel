@@ -11,6 +11,7 @@ import { AiError, hostOf } from './errors';
 import { getAiSecret } from './secrets';
 import { findProvider, modelRefFor, useAiSettings } from './store';
 import type { AiFeature, AiModelRef, AiProvider } from './types';
+import { platformFetch } from '../platform';
 
 /** En-tête exigé par le proxy de développement (`dev/ai-proxy.ts`). */
 const DEV_PROXY_HEADER = 'x-voxel-dev-proxy';
@@ -44,7 +45,7 @@ export async function languageModelFor(p: AiProvider, model: string): Promise<La
   const proxyHeaders: Record<string, string> = viaDevProxy(p) ? { [DEV_PROXY_HEADER]: '1' } : {};
   if (p.protocol === 'anthropic') {
     if (!key) throw new AiError('missing_key', { provider: p.name });
-    return createAnthropic({ apiKey: key, baseURL: base, headers: { 'anthropic-dangerous-direct-browser-access': 'true', ...proxyHeaders } })(model);
+    return createAnthropic({ apiKey: key, baseURL: base, headers: { 'anthropic-dangerous-direct-browser-access': 'true', ...proxyHeaders }, fetch: platformFetch })(model);
   }
   const presetNeedsKey = PROVIDER_PRESETS.find((x) => x.id === p.preset)?.needsKey;
   if (presetNeedsKey && !key) throw new AiError('missing_key', { provider: p.name });
@@ -55,6 +56,7 @@ export async function languageModelFor(p: AiProvider, model: string): Promise<La
     apiKey: key || undefined,
     includeUsage: true,
     headers: proxyHeaders,
+    fetch: platformFetch,
     ...(extra ? { transformRequestBody: (args: Record<string, unknown>) => ({ ...args, ...extra }) } : {}),
   });
   // Qwen, DeepSeek… peuvent renvoyer leur raisonnement dans <think>…</think>
@@ -91,7 +93,7 @@ export async function listModels(p: AiProvider): Promise<string[]> {
   }
   let res: Response;
   try {
-    res = await fetch(url, { headers });
+    res = await platformFetch(url, { headers });
   } catch (e) {
     if (e instanceof TypeError) throw new AiError('network', { host: hostOf(p) });
     throw e;

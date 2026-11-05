@@ -10,5 +10,6 @@
   "network": "Sie sind offline oder der Server ist nicht erreichbar.",
   "unknown": "Unerwarteter Fehler (HTTP {{status}}).",
   "discovery_failed": "Für diese Adresse wurden keine Einstellungen gefunden. Nutzen Sie die erweiterten Einstellungen.",
-  "domain_not_allowed": "Dieser Server akzeptiert keine Adressen dieser Domain."
+  "domain_not_allowed": "Dieser Server akzeptiert keine Adressen dieser Domain.",
+  "too_large": "Der Mailserver lehnt eine so große Anfrage ab."
 }

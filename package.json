@@ -13,6 +13,12 @@
     "dev:web": "npm -w @voxel/web run dev",
     "dev:mock": "npm -w @voxel/web run dev:mock",
     "dev:demo": "npm -w @voxel/web run dev:demo",
+    "dev:desktop": "npm -w @voxel/desktop run dev",
+    "build:desktop": "npm -w @voxel/desktop run build",
+    "build:desktop:debug": "npm -w @voxel/desktop run build:debug",
+    "test:desktop": "cargo test --manifest-path apps/desktop/Cargo.toml --workspace",
+    "compat:jmap": "node --import tsx packages/jmap/compat/run.ts",
+    "release:desktop": "gh workflow run desktop-release.yml --repo djdevpro/voxel --ref main",
     "build": "npm -w @voxel/web run build && npm -w @voxel/server run build",
     "typecheck": "npm run -ws --if-present typecheck",
     "test": "node --test \"packages/jmap/test/*.test.ts\" && npm -w @voxel/server test"

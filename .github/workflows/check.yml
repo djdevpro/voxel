@@ -1,0 +1,68 @@
+name: Check
+
+# Checks the webmail and Voxel Desktop on every push to main and every pull request, on Linux and
+# Windows: types, tests and build of the web, then Rust format, lints and tests. No secret is
+# given: the live tests skip themselves without .env.test.local.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: check (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-2025]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the Linux libraries of Tauri
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf libssl-dev rpm
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Check types
+        run: npm run typecheck
+      - name: Run tests
+        run: npm test
+      # Also builds apps/web/dist, the frontendDist that Tauri reads at compile time.
+      - name: Build
+        run: npm run build
+      # The same Rust as the development machine: Cargo.lock was resolved for 1.92.
+      - name: Install Rust 1.92
+        run: |
+          rustup toolchain install 1.92.0 --profile minimal --component rustfmt,clippy
+          rustup default 1.92.0
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+        with:
+          workspaces: apps/desktop -> target
+      - name: Check Cargo.lock
+        run: cargo metadata --format-version 1 --locked --manifest-path apps/desktop/Cargo.toml > /dev/null
+      - name: Check Rust format
+        run: cargo fmt --manifest-path apps/desktop/Cargo.toml --all --check
+      - name: Lint Rust
+        run: cargo clippy --manifest-path apps/desktop/Cargo.toml --workspace --all-targets -- -D warnings
+      - name: Test Rust
+        run: cargo test --manifest-path apps/desktop/Cargo.toml --workspace

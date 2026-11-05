@@ -69,7 +69,8 @@
     "testOk": "Connection OK",
     "testFail": "Connection failed",
     "storedOnDevice": "Password stored on this device, encrypted",
-    "manageAccount": "Manage my account"
+    "manageAccount": "Manage my account",
+    "storedTokenOnDevice": "API token stored on this device, encrypted"
   },
   "capability": {
     "vacation": "auto-reply",

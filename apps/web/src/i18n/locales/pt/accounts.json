@@ -70,7 +70,8 @@
     "testOk": "Ligação OK",
     "testFail": "Falha na ligação",
     "storedOnDevice": "Senha guardada neste dispositivo, criptografada",
-    "manageAccount": "Gerir a minha conta"
+    "manageAccount": "Gerir a minha conta",
+    "storedTokenOnDevice": "Token de API guardado neste dispositivo, criptografado"
   },
   "capability": {
     "vacation": "resposta automática",

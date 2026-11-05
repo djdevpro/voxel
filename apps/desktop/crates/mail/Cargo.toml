@@ -1,0 +1,23 @@
+[package]
+name = "voxel-mail"
+description = "Façade IMAP/SMTP → JMAP Mail de Voxel."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+voxel-core = { workspace = true }        # types JMAP, stockage, erreurs
+voxel-imap = { workspace = true }        # IMAP, MIME, SMTP
+serde = { workspace = true }             # métadonnées des blobs
+serde_json = { workspace = true }        # objets JMAP
+tokio = { workspace = true }             # tâches, verrous, fichiers
+futures-util = { workspace = true }      # futures en boîte
+bytes = { workspace = true }             # blobs
+regex = { workspace = true }             # rôles par nom, mots-clés
+uuid = { workspace = true }              # Message-ID
+chrono = { workspace = true }            # dates de recherche

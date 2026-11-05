@@ -10,5 +10,6 @@
   "network": "Está offline ou não é possível contactar o servidor.",
   "unknown": "Erro inesperado (HTTP {{status}}).",
   "discovery_failed": "Não encontrámos as definições deste endereço. Use as definições avançadas.",
-  "domain_not_allowed": "Este servidor não aceita endereços deste domínio."
+  "domain_not_allowed": "Este servidor não aceita endereços deste domínio.",
+  "too_large": "O servidor de e-mail recusa um envio tão grande."
 }

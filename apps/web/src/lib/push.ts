@@ -17,6 +17,7 @@ import { CAP, type WebPushVapidCapability } from '@voxel/jmap';
 import { db } from './db';
 import { jmap } from './jmap';
 import i18n from '@/i18n';
+import { isDesktop } from './platform';
 
 // ------------------------------------------------------------------ IndexedDB partagée avec le service worker
 
@@ -60,6 +61,7 @@ interface PushState {
 }
 
 export function pushSupported(): boolean {
+  if (isDesktop) return false;
   return typeof window !== 'undefined' && 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
 }
 

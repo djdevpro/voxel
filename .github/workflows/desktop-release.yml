@@ -1,0 +1,226 @@
+name: Release desktop
+
+# Builds Voxel Desktop for Windows and Linux and publishes the installer and the packages as a GitHub release named
+# desktop-v<version>, with the version of apps/desktop/src-tauri/tauri.conf.json. It runs only by
+# hand, with `npm run release:desktop`, never on a push.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-release
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    name: Draft
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    outputs:
+      id: ${{ steps.draft.outputs.id }}
+      version: ${{ steps.draft.outputs.version }}
+    steps:
+      - name: Refuse other branches
+        env:
+          REF_NAME: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          if [ "$REF_NAME" != "$DEFAULT_BRANCH" ]; then
+            echo "::error::Run this workflow from $DEFAULT_BRANCH, not $REF_NAME."
+            exit 1
+          fi
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # A draft left by a failed run is reused; a published version is never overwritten.
+      - name: Draft the release of this version
+        id: draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BODY: |
+            Voxel Desktop is the Voxel webmail as a desktop app for Windows and Linux. It works with any JMAP server, without CORS, and with any IMAP/SMTP mailbox. Its server part runs inside the app, so Node is not needed and the app opens no network port.
+
+            Download the setup.exe installer below and run it. It installs Voxel for the current user. Windows may say the publisher is unknown, because the installer is not signed yet. Choose More info, then Run anyway.
+
+            On Linux, make the `.AppImage` executable and open it, or install the `.deb` or `.rpm` package.
+
+            Linux needs WebKitGTK 4.1 (Ubuntu 22.04, Debian 12, Fedora 38 or later) and a Secret Service, such as GNOME Keyring or KWallet, to keep the device key.
+
+            The .sha256 file next to each file holds its SHA-256 checksum.
+        run: |
+          set -euo pipefail
+          version=$(jq -r .version apps/desktop/src-tauri/tauri.conf.json)
+          tag="desktop-v$version"
+          existing=$(gh api "repos/$GITHUB_REPOSITORY/releases" --paginate \
+            --jq ".[] | select(.tag_name == \"$tag\") | \"\(.id) \(.draft)\"" | sed -n 1p)
+          if [ -z "$existing" ]; then
+            if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" --silent 2>/dev/null; then
+              echo "::error::The tag $tag already exists. Raise the version in apps/desktop/src-tauri/tauri.conf.json."
+              exit 1
+            fi
+            id=$(gh api "repos/$GITHUB_REPOSITORY/releases" -f tag_name="$tag" \
+              -f target_commitish="$GITHUB_SHA" -f name="Voxel Desktop $version" \
+              -f body="$BODY" -F draft=true --jq .id)
+          elif [ "${existing#* }" = "true" ]; then
+            id=${existing%% *}
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/$id" -f target_commitish="$GITHUB_SHA" \
+              -f name="Voxel Desktop $version" -f body="$BODY" --silent
+          else
+            echo "::error::$tag is already released. Raise the version in apps/desktop/src-tauri/tauri.conf.json."
+            exit 1
+          fi
+          {
+            echo "id=$id"
+            echo "version=$version"
+          } >> "$GITHUB_OUTPUT"
+
+  windows:
+    name: Windows
+    needs: draft
+    runs-on: windows-2025
+    timeout-minutes: 60
+    # No write token here: npm and Cargo run third-party build scripts.
+    permissions:
+      contents: read
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      # The same Rust as the development machine: Cargo.lock was resolved for 1.92.
+      - name: Install Rust 1.92
+        run: |
+          rustup toolchain install 1.92.0 --profile minimal
+          rustup default 1.92.0
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+        with:
+          workspaces: apps/desktop -> target
+      - run: npm ci --no-audit --no-fund
+      # Fails if Cargo.lock would change: the release is built from the committed lockfile.
+      - name: Check Cargo.lock
+        run: cargo metadata --format-version 1 --locked --manifest-path apps/desktop/Cargo.toml > /dev/null
+      - name: Check the licenses of the Rust dependencies
+        run: npm -w @voxel/desktop run licenses
+      - run: npm run build:desktop
+      - name: Name the installer and its checksum
+        env:
+          VERSION: ${{ needs.draft.outputs.version }}
+        run: |
+          set -euo pipefail
+          asset="voxel-$VERSION-windows-x64-setup.exe"
+          mkdir -p release-assets
+          cp "apps/desktop/target/release/bundle/nsis/Voxel_${VERSION}_x64-setup.exe" "release-assets/$asset"
+          (cd release-assets && sha256sum "$asset" > "$asset.sha256")
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: windows-installer
+          path: release-assets/
+          if-no-files-found: error
+          retention-days: 7
+
+  linux:
+    name: Linux
+    needs: draft
+    # The oldest supported Ubuntu keeps the packages compatible with older distributions.
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    # No write token here: npm and Cargo run third-party build scripts.
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install the Linux libraries of Tauri
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf libssl-dev rpm
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      # The same Rust as the development machine: Cargo.lock was resolved for 1.92.
+      - name: Install Rust 1.92
+        run: |
+          rustup toolchain install 1.92.0 --profile minimal
+          rustup default 1.92.0
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+        with:
+          workspaces: apps/desktop -> target
+      - run: npm ci --no-audit --no-fund
+      # Fails if Cargo.lock would change: the release is built from the committed lockfile.
+      - name: Check Cargo.lock
+        run: cargo metadata --format-version 1 --locked --manifest-path apps/desktop/Cargo.toml > /dev/null
+      - name: Check the licenses of the Rust dependencies
+        run: npm -w @voxel/desktop run licenses
+      - run: npm run build:desktop
+      - name: Name the packages and their checksums
+        env:
+          VERSION: ${{ needs.draft.outputs.version }}
+        run: |
+          set -euo pipefail
+          bundle=apps/desktop/target/release/bundle
+          mkdir -p release-assets
+          take() {
+            local found
+            found=$(compgen -G "$1" || true)
+            if [ "$(printf '%s' "$found" | grep -c .)" != 1 ]; then
+              echo "::error::Expected exactly one file for $1, found: ${found:-none}"
+              exit 1
+            fi
+            cp "$found" "release-assets/$2"
+            (cd release-assets && sha256sum "$2" > "$2.sha256")
+          }
+          take "$bundle/appimage/*.AppImage" "voxel-$VERSION-linux-x86_64.AppImage"
+          take "$bundle/deb/*.deb" "voxel-$VERSION-linux-amd64.deb"
+          take "$bundle/rpm/*.rpm" "voxel-$VERSION-linux-x86_64.rpm"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: linux-packages
+          path: release-assets/
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    name: Publish
+    needs: [draft, windows, linux]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: '*'
+          merge-multiple: true
+          path: release-assets
+      # Assets of a draft left by a failed run are replaced; the release is published last.
+      - name: Attach the installer and the packages and publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ID: ${{ needs.draft.outputs.id }}
+        run: |
+          set -euo pipefail
+          upload=$(gh api "repos/$GITHUB_REPOSITORY/releases/$ID" --jq .upload_url)
+          upload=${upload%%\{*}
+          for file in release-assets/*; do
+            name=$(basename "$file")
+            old=$(gh api "repos/$GITHUB_REPOSITORY/releases/$ID/assets" --paginate \
+              --jq ".[] | select(.name == \"$name\") | .id")
+            for asset in $old; do
+              gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$asset" --silent
+            done
+            curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Content-Type: application/octet-stream" \
+              --data-binary "@$file" "$upload?name=$name" -o /dev/null
+          done
+          gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/$ID" -F draft=false --silent

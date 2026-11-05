@@ -7,6 +7,7 @@
 import { CAP, type Session } from '@voxel/jmap';
 import { db, requestPersistentStorage, type AccountRow, type MailEndpoint, type SecretBox } from './db';
 import { ACCOUNT_COLORS, ApiError, codeOfStatus, isKnownCode, type ApiErrorCode, type MailboxCapabilities, type MailboxInfo } from './api';
+import { desktopDeviceKey, isDesktop, platformFetch } from './platform';
 
 const KEY_ID = 'device-key';
 const passwords = new Map<string, string>();
@@ -41,7 +42,7 @@ async function loadOrCreateKey(): Promise<CryptoKey> {
 /** Clé d'appareil, partagée par les appels concurrents (une seule lecture/création). */
 function deviceKey(): Promise<CryptoKey> {
   if (!keyPromise) {
-    keyPromise = loadOrCreateKey().catch((e: unknown) => {
+    keyPromise = (isDesktop ? desktopDeviceKey() : loadOrCreateKey()).catch((e: unknown) => {
       keyPromise = undefined;
       throw e;
     });
@@ -82,8 +83,8 @@ export function endpointHeader(e: MailEndpoint): string {
   return `${e.host}:${e.port}:${e.security}`;
 }
 
-function headersFor(r: Pick<AccountRow, 'protocol' | 'email' | 'username' | 'imap' | 'smtp' | 'sieve' | 'carddav' | 'caldav'>, password: string): Record<string, string> {
-  const h: Record<string, string> = { Authorization: basicAuth(r.username, password) };
+function headersFor(r: Pick<AccountRow, 'protocol' | 'email' | 'username' | 'imap' | 'smtp' | 'sieve' | 'carddav' | 'caldav' | 'auth'>, password: string): Record<string, string> {
+  const h: Record<string, string> = { Authorization: r.auth === 'bearer' ? `Bearer ${password}` : basicAuth(r.username, password) };
   if (r.protocol === 'imap' && r.imap && r.smtp) {
     h['X-Voxel-Imap'] = endpointHeader(r.imap);
     h['X-Voxel-Smtp'] = endpointHeader(r.smtp);
@@ -166,6 +167,7 @@ function toInfo(r: AccountRow, s: Session | undefined): MailboxInfo {
     color: r.color,
     capabilities: capabilitiesOf(s),
     sortOrder: r.sortOrder,
+    ...(r.auth ? { auth: r.auth } : {}),
   };
 }
 
@@ -231,6 +233,8 @@ export interface LoginInput {
   /** Service CalDAV (boîte IMAP), facultatif : URL https. */
   caldav?: string;
   password: string;
+  /** Mot de passe (Basic, défaut) ou jeton d'API (Bearer, boîte JMAP seulement). */
+  auth?: 'basic' | 'bearer';
   /** « Rester connecté sur cet appareil » : secret chiffré dans Dexie, sinon en mémoire seulement. */
   remember: boolean;
 }
@@ -245,13 +249,15 @@ export async function loginAccount(input: LoginInput): Promise<MailboxInfo> {
   const username = input.username?.trim() || email;
   const imap = input.protocol === 'imap';
   if (imap && (!input.imap || !input.smtp)) throw new ApiError('IMAP and SMTP servers required', 400, undefined, 'validation');
+  const bearer = input.auth === 'bearer';
+  if (imap && bearer) throw new ApiError('Bearer tokens are for JMAP servers', 400, undefined, 'validation');
   if (!imap && !input.sessionUrl) throw new ApiError('JMAP session URL required', 400, undefined, 'validation');
   const sessionUrl = imap ? IMAP_SESSION_URL : input.sessionUrl!;
   let res: Response;
   try {
-    res = await fetch(sessionUrl, {
+    res = await platformFetch(sessionUrl, {
       method: 'GET',
-      headers: { ...headersFor({ protocol: input.protocol, email, username, imap: input.imap, smtp: input.smtp, sieve: input.sieve, carddav: input.carddav, caldav: input.caldav }, input.password), Accept: 'application/json' },
+      headers: { ...headersFor({ protocol: input.protocol, email, username, imap: input.imap, smtp: input.smtp, sieve: input.sieve, carddav: input.carddav, caldav: input.caldav, ...(bearer ? { auth: 'bearer' as const } : {}) }, input.password), Accept: 'application/json' },
       credentials: 'omit',
       cache: 'no-store',
     });
@@ -311,6 +317,8 @@ export async function loginAccount(input: LoginInput): Promise<MailboxInfo> {
     delete row.carddav;
     delete row.caldav;
   }
+  if (bearer) row.auth = 'bearer';
+  else delete row.auth;
   if (input.remember) row.secret = await encrypt(input.password);
   else delete row.secret;
   await db.accounts.put(row);

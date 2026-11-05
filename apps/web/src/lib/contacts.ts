@@ -13,6 +13,7 @@ import {
   cardEmails,
   cardSearchText,
   cardSortKey,
+  fromServerCard,
   newCardUid,
   splitVcards,
   type AddressBook,
@@ -23,6 +24,7 @@ import {
 import { db, getState, setState, type BookRow, type CardRow } from './db';
 import { jmap } from './jmap';
 import { isOffline, runCalls } from './outbox';
+import { isDesktop, saveFile } from './platform';
 
 const GET_CHUNK = 200;
 const SET_CHUNK = 100;
@@ -70,8 +72,8 @@ async function fullReload(accountId: string, aid: string) {
     // les fiches créées hors ligne et pas encore rejouées restent visibles
     const pending = await db.cards.where('accountId').equals(accountId).filter((x) => x.id.startsWith(LOCAL)).toArray();
     await db.cards.where('accountId').equals(accountId).delete();
-    const uids = new Set(r.list.map((x) => x.uid).filter(Boolean));
-    await db.cards.bulkPut([...r.list.map((card) => rowOf(accountId, card)), ...pending.filter((p) => !p.uid || !uids.has(p.uid))]);
+    const uids = new Set(r.list.map(fromServerCard).map((x) => x.uid).filter(Boolean));
+    await db.cards.bulkPut([...r.list.map(fromServerCard).map((card) => rowOf(accountId, card)), ...pending.filter((p) => !p.uid || !uids.has(p.uid))]);
   });
   await setState(accountId, 'ContactCard', r.state);
 }
@@ -102,7 +104,7 @@ async function syncOnce(accountId: string) {
   const fetched: ContactCard[] = [];
   for (let i = 0; i < want.length; i += GET_CHUNK) {
     const r = await c.call('ContactCard/get', { accountId: aid, ids: want.slice(i, i + GET_CHUNK) });
-    fetched.push(...r.list);
+    fetched.push(...r.list.map(fromServerCard));
   }
   await db.transaction('rw', db.cards, async () => {
     if (changes.destroyed.length) await db.cards.bulkDelete(changes.destroyed.map((id) => [accountId, id] as [string, string]));
@@ -355,8 +357,8 @@ export async function parseVcfForImport(accountId: string, text: string, onProgr
     for (const id of ids) {
       const v = r.parsed?.[id];
       if (!v) invalid++;
-      else if (Array.isArray(v)) cards.push(...v);
-      else cards.push(v);
+      else if (Array.isArray(v)) cards.push(...v.map(fromServerCard));
+      else cards.push(fromServerCard(v));
     }
   }
   const existing = await db.cards.where('accountId').equals(accountId).toArray();
@@ -423,7 +425,12 @@ export async function exportCards(cards: ContactCard[], fileName = 'contacts.vcf
     return rest;
   });
   const text = cardsToVcf(clean, { version: '4.0' });
-  const url = URL.createObjectURL(new Blob([text], { type: 'text/vcard;charset=utf-8' }));
+  const blob = new Blob([text], { type: 'text/vcard;charset=utf-8' });
+  if (isDesktop) {
+    await saveFile(fileName, blob);
+    return;
+  }
+  const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = fileName;

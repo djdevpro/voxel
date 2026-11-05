@@ -11,6 +11,7 @@ import { runCalls } from './outbox';
 import { invalidateAccount } from './actions';
 import { longDate } from './format';
 import i18n from '@/i18n';
+import { isDesktop } from './platform';
 
 /** Propriété JMAP de l'en-tête de demande d'accusé. */
 export const DNT_PROPERTY = 'header:Disposition-Notification-To:asAddresses';
@@ -61,7 +62,7 @@ export async function sendReceipt(accountId: string, e: Email, identity: Identit
     originalMessageId: e.messageId?.[0] ?? null,
     finalRecipient: identity.email,
     mode,
-    reportingUa: `${location.host}; Voxel`,
+    reportingUa: `${isDesktop ? 'Voxel Desktop' : location.host}; Voxel`,
   });
   const c = jmap(accountId);
   const blob = await c.upload(aid, new Blob([raw], { type: 'message/rfc822' }), 'message/rfc822');

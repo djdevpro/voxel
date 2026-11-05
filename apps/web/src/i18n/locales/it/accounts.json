@@ -70,7 +70,8 @@
     "testOk": "Connessione OK",
     "testFail": "Connessione non riuscita",
     "storedOnDevice": "Password salvata su questo dispositivo, cifrata",
-    "manageAccount": "Gestisci il mio account"
+    "manageAccount": "Gestisci il mio account",
+    "storedTokenOnDevice": "Token API salvato su questo dispositivo, cifrato"
   },
   "capability": {
     "vacation": "risposta automatica",

@@ -17,6 +17,7 @@ import { LANGUAGES, setLanguage, currentLocale, type LanguageCode } from '@/i18n
 import { THEMES, useThemeId, type ThemeId } from '@/lib/themes';
 import { tBase } from '@/lib/motion';
 import { cn } from '@/lib/utils';
+import { isDesktop } from '@/lib/platform';
 
 /**
  * Miniature de l'appli dans les couleurs réelles d'une collection : le conteneur porte
@@ -215,11 +216,13 @@ export function ReadingSection() {
           </button>
         </SettingRow>
       )}
-      <SettingRow title={t('reading.mailto.title')} description={t('reading.mailto.description')}>
-        <Button variant="outline" size="sm" onClick={() => registerMailtoHandler(t)}>
-          <AtSign /> {t('reading.mailto.button')}
-        </Button>
-      </SettingRow>
+      {!isDesktop && (
+        <SettingRow title={t('reading.mailto.title')} description={t('reading.mailto.description')}>
+          <Button variant="outline" size="sm" onClick={() => registerMailtoHandler(t)}>
+            <AtSign /> {t('reading.mailto.button')}
+          </Button>
+        </SettingRow>
+      )}
       <SettingRow title={t('reading.notifications.title')} description={t('reading.notifications.description')}>
         <Switch
           checked={s.notifications}
@@ -234,7 +237,7 @@ export function ReadingSection() {
           }}
         />
       </SettingRow>
-      <PushSettings />
+      {!isDesktop && <PushSettings />}
     </div>
   );
 }

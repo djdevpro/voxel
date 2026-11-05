@@ -1,0 +1,25 @@
+[package]
+name = "voxel-dav"
+description = "Client WebDAV et façades CardDAV → JMAP Contacts, CalDAV → JMAP Calendars de Voxel."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+voxel-core = { workspace = true }        # types JMAP, client HTTP
+calcard = { workspace = true }           # vCard, iCalendar, JSContact, JSCalendar, récurrences
+roxmltree = { workspace = true }         # réponses multistatus
+serde_json = { workspace = true }        # objets JMAP
+tokio = { workspace = true }             # verrous, minuteries
+futures-util = { workspace = true }      # futures en boîte
+bytes = { workspace = true }             # corps
+url = { workspace = true }               # href absolus
+chrono = { workspace = true }            # plages de dates
+uuid = { workspace = true }              # UID des fiches et des événements
+base64 = { workspace = true }            # Basic, états
+http = { workspace = true }              # méthodes WebDAV

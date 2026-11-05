@@ -117,6 +117,8 @@ export interface AccountRow {
   sortOrder: number;
   /** Mot de passe chiffré ; absent si « Rester connecté » était décoché. */
   secret?: SecretBox;
+  /** Jeton d'API (`Bearer`) ; absent = mot de passe (Basic). */
+  auth?: 'bearer';
   createdAt: number;
 }
 

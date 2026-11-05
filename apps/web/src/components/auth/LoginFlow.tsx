@@ -18,6 +18,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { cn } from '@/lib/utils';
 import { tBase, tFast } from '@/lib/motion';
 import { useIsRtl } from './session';
+import { isDesktop, platformFetch } from '@/lib/platform';
 
 /** Pastille « JMAP · mail.example.com » ou « IMAP · imap.example.com ». */
 export function ServerPill({ protocol, host, className }: { protocol: 'jmap' | 'imap'; host: string; className?: string }) {
@@ -297,7 +298,7 @@ type DiscoverResult =
 /** `POST /imap/discover` (passerelle) ; `null` si elle est injoignable ou refuse. */
 async function discoverViaGateway(email: string): Promise<DiscoverResult | null> {
   try {
-    const res = await fetch('/imap/discover', {
+    const res = await platformFetch('/imap/discover', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({ email }),
@@ -338,6 +339,11 @@ export function LoginFlow({ initialEmail, lockEmail, onSuccess, onBack }: LoginF
   const [remember, setRemember] = useState(true);
   const [advOpen, setAdvOpen] = useState(false);
   const [adv, setAdv] = useState<AdvancedForm>({ protocol: 'jmap', sessionUrl: '', imap: EMPTY_IMAP, smtp: EMPTY_SMTP, sieve: EMPTY_SIEVE, carddav: '', caldav: '', username: '' });
+  /** Secret saisi : mot de passe (Basic) ou jeton d'API (Bearer, boîte JMAP seulement). */
+  const [authKind, setAuthKind] = useState<'password' | 'token'>('password');
+  useEffect(() => {
+    if (adv.protocol === 'imap') setAuthKind('password');
+  }, [adv.protocol]);
   /** Configuration trouvée automatiquement (sinon : réglages manuels). */
   const [detected, setDetected] = useState<'config' | 'discovered' | null>(null);
   const [discovering, setDiscovering] = useState(false);
@@ -379,6 +385,7 @@ export function LoginFlow({ initialEmail, lockEmail, onSuccess, onBack }: LoginF
     const username = known && known.username !== clean ? known.username : '';
     if (known) {
       setAdv({ protocol: known.protocol ?? 'jmap', sessionUrl: known.protocol === 'imap' ? '' : known.sessionUrl, imap: toForm(known.imap, EMPTY_IMAP), smtp: toForm(known.smtp, EMPTY_SMTP), sieve: toForm(known.sieve, EMPTY_SIEVE), carddav: known.carddav ?? '', caldav: known.caldav ?? '', username });
+      if (known.auth === 'bearer') setAuthKind('token');
       setDetected('config');
       setAdvOpen(!!username);
       goPassword();
@@ -451,13 +458,14 @@ export function LoginFlow({ initialEmail, lockEmail, onSuccess, onBack }: LoginF
         carddav: adv.protocol === 'imap' && adv.carddav ? adv.carddav : undefined,
         caldav: adv.protocol === 'imap' && adv.caldav ? adv.caldav : undefined,
         password,
+        auth: authKind === 'token' ? 'bearer' : 'basic',
         remember,
       });
       setPassword('');
       onSuccess(m);
     } catch (err) {
       // serveur JMAP découvert mais injoignable depuis le navigateur : très souvent le CORS
-      const cors = adv.protocol === 'jmap' && detected === 'discovered' && err instanceof ApiError && err.code === 'upstream_unreachable' && err.status === 0;
+      const cors = !isDesktop && adv.protocol === 'jmap' && detected === 'discovered' && err instanceof ApiError && err.code === 'upstream_unreachable' && err.status === 0;
       setError(cors ? t('loginError.jmapCors') : errorMessage(err));
       setBusy(false);
       setTimeout(() => pwRef.current?.select(), 30);
@@ -587,8 +595,20 @@ export function LoginFlow({ initialEmail, lockEmail, onSuccess, onBack }: LoginF
             {/* aide aux gestionnaires de mots de passe */}
             <input type="email" name="username" autoComplete="username" value={email} readOnly hidden />
 
+            {adv.protocol === 'jmap' && (
+              <Seg
+                label={t('password.kindLabel')}
+                value={authKind}
+                onChange={setAuthKind}
+                options={[
+                  { value: 'password', label: t('password.kindPassword') },
+                  { value: 'token', label: t('password.kindToken') },
+                ]}
+              />
+            )}
+
             <div>
-              <Label htmlFor={`${id}-pw`}>{t('password.label')}</Label>
+              <Label htmlFor={`${id}-pw`}>{authKind === 'token' ? t('password.tokenLabel') : t('password.label')}</Label>
               <div className="relative">
                 <input
                   ref={pwRef}
@@ -599,7 +619,7 @@ export function LoginFlow({ initialEmail, lockEmail, onSuccess, onBack }: LoginF
                     setPassword(e.target.value);
                     if (error) setError(null);
                   }}
-                  autoComplete="current-password"
+                  autoComplete={authKind === 'token' ? 'off' : 'current-password'}
                   aria-invalid={!!error || undefined}
                   className={cn(fieldCls, 'pe-11 rtl:ps-11 rtl:pe-3.5')}
                   dir="ltr"
@@ -614,6 +634,7 @@ export function LoginFlow({ initialEmail, lockEmail, onSuccess, onBack }: LoginF
                   {showPw ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
                 </button>
               </div>
+              {authKind === 'token' && <p className="mt-1 text-[11.5px] text-text-3">{t('password.tokenHint')}</p>}
             </div>
 
             <label htmlFor={`${id}-remember`} className="flex cursor-pointer items-center gap-2.5 text-[12.5px] text-text-2 select-none">

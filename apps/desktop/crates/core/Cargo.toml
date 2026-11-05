@@ -1,0 +1,30 @@
+[package]
+name = "voxel-core"
+description = "Socle du cœur local de Voxel : types JMAP, erreurs, stockage, réseau et DNS."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+serde = { workspace = true }             # types JMAP
+serde_json = { workspace = true }        # objets JMAP
+tokio = { workspace = true }             # connexions, canaux, minuteries
+reqwest = { workspace = true }           # client HTTP de net_fetch, de la découverte et de DAV
+native-tls = { workspace = true }        # TLS de ManageSieve
+tokio-native-tls = { workspace = true }  # TLS de ManageSieve sur tokio
+hickory-resolver = { workspace = true }  # MX, SRV, TXT
+rusqlite = { workspace = true }          # table imap_kv
+sha2 = { workspace = true }              # empreintes
+base64 = { workspace = true }            # base64url des états
+getrandom = { workspace = true }         # identifiants aléatoires
+chrono = { workspace = true }            # dates ISO
+icu_normalizer = { workspace = true }    # recherche sans accents
+futures-util = { workspace = true }      # futures en boîte, flux
+bytes = { workspace = true }             # corps
+http = { workspace = true }              # méthodes, en-têtes
+url = { workspace = true }               # URL des requêtes

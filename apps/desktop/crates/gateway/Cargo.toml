@@ -1,0 +1,23 @@
+[package]
+name = "voxel-gateway"
+description = "Routes /imap/* de Voxel, pool des façades, découverte et limites."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+voxel-core = { workspace = true }        # types partagés, client HTTP, DNS
+serde = { workspace = true }             # corps JSON
+serde_json = { workspace = true }        # corps JSON
+tokio = { workspace = true }             # tâches, canaux, minuteries
+futures-util = { workspace = true }      # futures en boîte
+bytes = { workspace = true }             # corps
+http = { workspace = true }              # méthodes, en-têtes
+regex = { workspace = true }             # validation des en-têtes
+base64 = { workspace = true }            # Authorization: Basic
+url = { workspace = true }               # URL CardDAV, CalDAV, découverte

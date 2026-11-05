@@ -112,7 +112,7 @@ function AccountCard({ a, defaultOpen }: { a: MailboxInfo; defaultOpen: boolean 
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[12px] text-text-2 sm:col-span-2">
                 <span className="inline-flex items-center gap-1.5">
                   <ShieldCheck className="size-3.5 text-text-3" />
-                  {t('section.storedOnDevice')}
+                  {t(a.auth === 'bearer' ? 'section.storedTokenOnDevice' : 'section.storedOnDevice')}
                 </span>
                 {caps.length > 0 && (
                   <span>

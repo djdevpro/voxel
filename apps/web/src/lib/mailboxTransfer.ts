@@ -14,6 +14,7 @@ import { jmap } from './jmap';
 import { invalidateAccount } from './actions';
 import { errorMessage } from './api';
 import i18n from '@/i18n';
+import { isDesktop, saveFile } from './platform';
 
 const t = (k: string, o?: Record<string, unknown>) => i18n.t(`mail:transfer.${k}`, o);
 
@@ -50,7 +51,12 @@ async function openSink(fileName: string): Promise<Sink | null> {
   return {
     write: async (c) => void parts.push(c),
     close: async () => {
-      const url = URL.createObjectURL(new Blob(parts, { type: 'application/mbox' }));
+      const blob = new Blob(parts, { type: 'application/mbox' });
+      if (isDesktop) {
+        await saveFile(fileName, blob);
+        return;
+      }
+      const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = fileName;

@@ -71,6 +71,7 @@ import { ReceiptBanner } from './ReceiptBanner';
 import { Composer } from '@/components/compose/Composer';
 import { emailDocument, sanitizeEmailHtml } from '@/lib/sanitize';
 import { useIsMobile } from '@/hooks/useEnvironment';
+import { openExternal } from '@/lib/platform';
 
 export function Reader({ className }: { className?: string }) {
   const openThread = useNav().thread;
@@ -836,7 +837,7 @@ function unsubscribe(email: Email, accountId: string) {
   const mailto = urls.find((u) => u.toLowerCase().startsWith('mailto:'));
   const http = urls.find((u) => /^https?:/i.test(u));
   if (http) {
-    window.open(http, '_blank', 'noopener,noreferrer');
+    openExternal(http);
     toast(i18n.t('reader:unsubscribeOpened'));
   } else if (mailto) {
     startMailto(mailto.includes('subject=') ? mailto : `${mailto}${mailto.includes('?') ? '&' : '?'}subject=unsubscribe`, accountId);

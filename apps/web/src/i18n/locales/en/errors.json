@@ -10,5 +10,6 @@
   "network": "You're offline or the server can't be reached.",
   "unknown": "Unexpected error (HTTP {{status}}).",
   "discovery_failed": "We couldn't find the settings for this address. Use the advanced settings.",
-  "domain_not_allowed": "This server does not accept addresses from this domain."
+  "domain_not_allowed": "This server does not accept addresses from this domain.",
+  "too_large": "The mail server refuses a request this large."
 }

@@ -2,13 +2,14 @@ import { JmapClient } from '@voxel/jmap';
 import { reportUpstreamAuth } from './api';
 import { accountRow, authHeader, peekSession, saveSession } from './accounts';
 import { queryClient } from './queryClient';
+import { platformFetch } from './platform';
 
 const clients = new Map<string, JmapClient>();
 
 /** `fetch` d'un compte : signale un 401 (bandeau « Reconnectez-vous ») sans modifier la réponse. */
 export function accountFetch(accountId: string) {
   return async (input: string, init?: RequestInit): Promise<Response> => {
-    const res = await globalThis.fetch(input, init);
+    const res = await platformFetch(input, init);
     if (res.status === 401) reportUpstreamAuth(accountId);
     return res;
   };

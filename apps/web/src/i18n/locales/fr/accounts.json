@@ -70,7 +70,8 @@
     "testOk": "Connexion OK",
     "testFail": "Échec de connexion",
     "storedOnDevice": "Mot de passe gardé sur cet appareil, chiffré",
-    "manageAccount": "Gérer mon compte"
+    "manageAccount": "Gérer mon compte",
+    "storedTokenOnDevice": "Jeton d'API gardé sur cet appareil, chiffré"
   },
   "capability": {
     "vacation": "répondeur",

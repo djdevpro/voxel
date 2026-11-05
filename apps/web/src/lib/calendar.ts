@@ -14,6 +14,7 @@ import {
   eventPatch,
   eventSpan,
   findParticipant,
+  fromServerEvent,
   formatUtc,
   newEventUid,
   type Calendar,
@@ -29,6 +30,7 @@ import { isOffline, runCalls } from './outbox';
 import { fetchBlob } from './blobs';
 import type { Account } from './api';
 import { peekSession } from './accounts';
+import { isDesktop, saveFile } from './platform';
 
 const LOCAL = 'local-';
 const GET_CHUNK = 200;
@@ -108,7 +110,7 @@ async function syncCalendarsList(accountId: string, aid: string) {
 async function getEvents(accountId: string, aid: string, ids: string[]): Promise<CalendarEvent[]> {
   const out: CalendarEvent[] = [];
   // propriétés par défaut : avec une liste explicite, Stalwart omet `recurrenceRules`
-  for (let i = 0; i < ids.length; i += GET_CHUNK) out.push(...(await jmap(accountId).call('CalendarEvent/get', { accountId: aid, ids: ids.slice(i, i + GET_CHUNK) })).list);
+  for (let i = 0; i < ids.length; i += GET_CHUNK) out.push(...(await jmap(accountId).call('CalendarEvent/get', { accountId: aid, ids: ids.slice(i, i + GET_CHUNK) })).list.map(fromServerEvent));
   return out;
 }
 
@@ -188,7 +190,7 @@ export async function loadRange(accountId: string, from: number, to: number, for
     .primaryKeys();
   const inRange = (await q.result).ids.length;
   if (stale.length && inRange === got.list.length) await db.events.bulkDelete(stale);
-  await putEvents(accountId, got.list);
+  await putEvents(accountId, got.list.map(fromServerEvent));
   if (!(await getState(accountId, 'CalendarEvent'))) await setState(accountId, 'CalendarEvent', got.state);
   seen.add(key);
   loadedRanges.set(accountId, seen);
@@ -419,7 +421,7 @@ export async function parseIcsForImport(accountId: string, text: string): Promis
       const blob = await c.upload(aid, new TextEncoder().encode(text), 'text/calendar');
       const r = await c.call('CalendarEvent/parse', { accountId: aid, blobIds: [blob.blobId] });
       const v = r.parsed?.[blob.blobId];
-      events = (Array.isArray(v) ? v : v ? [v] : []).map((e) => cleanParsedEvent(e as Record<string, unknown>));
+      events = (Array.isArray(v) ? v : v ? [v] : []).map((e) => cleanParsedEvent(fromServerEvent(e as Record<string, unknown>)));
     } catch {
       events = [];
     }
@@ -475,8 +477,13 @@ export async function importEvents(account: Account, calendarId: string, items: 
   return { created: ck.length, replaced: uk.length, skipped, queued };
 }
 
-function download(text: string, fileName: string, type: string) {
-  const url = URL.createObjectURL(new Blob([text], { type }));
+async function download(text: string, fileName: string, type: string) {
+  const blob = new Blob([text], { type });
+  if (isDesktop) {
+    await saveFile(fileName, blob);
+    return;
+  }
+  const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = fileName;
@@ -497,7 +504,7 @@ export async function exportEvents(events: CalendarEvent[], fileName: string): P
     void _b;
     return rest;
   });
-  download(eventsToIcs(clean), fileName.replace(/[\\/:*?"<>|]+/g, '-') || 'calendar.ics', 'text/calendar;charset=utf-8');
+  await download(eventsToIcs(clean), fileName.replace(/[\\/:*?"<>|]+/g, '-') || 'calendar.ics', 'text/calendar;charset=utf-8');
 }
 
 // ------------------------------------------------------------------ invitations reçues
@@ -521,7 +528,7 @@ export async function readInvitation(account: Account, jmapAccountId: string, bl
       const list = Array.isArray(v) ? v : v ? [v] : [];
       if (list[0]) {
         const raw = list[0] as Record<string, unknown>;
-        return { method: typeof raw.method === 'string' ? raw.method.toLowerCase() : null, event: cleanParsedEvent(raw) };
+        return { method: typeof raw.method === 'string' ? raw.method.toLowerCase() : null, event: cleanParsedEvent(fromServerEvent(raw)) };
       }
     } catch {
       /* repli côté client */

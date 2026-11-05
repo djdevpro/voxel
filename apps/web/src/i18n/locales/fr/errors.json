@@ -10,5 +10,6 @@
   "network": "Vous êtes hors ligne ou le serveur est injoignable.",
   "unknown": "Erreur inattendue (HTTP {{status}}).",
   "discovery_failed": "Impossible de trouver les réglages de cette adresse. Utilisez les réglages avancés.",
-  "domain_not_allowed": "Ce serveur n’accepte pas les adresses de ce domaine."
+  "domain_not_allowed": "Ce serveur n’accepte pas les adresses de ce domaine.",
+  "too_large": "Le serveur de messagerie refuse un envoi aussi volumineux."
 }

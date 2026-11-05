@@ -5,6 +5,8 @@
 import { useEffect, useState } from 'react';
 import type { EmailBodyPart } from '@voxel/jmap';
 import { jmap } from './jmap';
+import { authHeader } from './accounts';
+import { downloadToFile, isDesktop } from './platform';
 
 /** Petit cache mémoire des blobs téléchargés (plafonné en taille), partagé entre aperçus et vignettes. */
 const CACHE_MAX = 40 * 1024 * 1024;
@@ -58,6 +60,11 @@ export function useBlobUrl(accountId: string, jmapAccountId: string, blobId: str
 
 /** Télécharge puis enregistre le fichier (lien `<a download>` temporaire). */
 export async function saveBlob(accountId: string, jmapAccountId: string, blobId: string, name: string, type?: string) {
+  if (isDesktop) {
+    await jmap(accountId).getSession();
+    await downloadToFile(name || 'file', jmap(accountId).downloadUrl(jmapAccountId, blobId, name || 'file', type), authHeader(accountId));
+    return;
+  }
   const b = await fetchBlob(accountId, jmapAccountId, blobId, name, type);
   const url = URL.createObjectURL(b);
   const a = document.createElement('a');

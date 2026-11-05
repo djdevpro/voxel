@@ -1,0 +1,24 @@
+[package]
+name = "voxel-imap"
+description = "IMAP, MIME et SMTP pour la façade IMAP → JMAP de Voxel."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+async-imap = { workspace = true }        # session IMAP
+tokio = { workspace = true }             # connexions, verrous, minuteries
+native-tls = { workspace = true }        # TLS IMAP
+tokio-native-tls = { workspace = true }  # TLS IMAP sur tokio
+lettre = { workspace = true }            # SMTP
+mail-parser = { workspace = true }       # en-têtes, décodages, HTML → texte
+mail-builder = { workspace = true }      # composition des messages
+chrono = { workspace = true }            # dates IMAP
+regex = { workspace = true }             # analyse des en-têtes
+futures-util = { workspace = true }      # flux de FETCH
+base64 = { workspace = true }            # AUTHENTICATE PLAIN, base64 tolérant

@@ -10,5 +10,6 @@
   "network": "Sei offline o il server non è raggiungibile.",
   "unknown": "Errore imprevisto (HTTP {{status}}).",
   "discovery_failed": "Impossibile trovare le impostazioni di questo indirizzo. Usa le impostazioni avanzate.",
-  "domain_not_allowed": "Questo server non accetta indirizzi di questo dominio."
+  "domain_not_allowed": "Questo server non accetta indirizzi di questo dominio.",
+  "too_large": "Il server di posta rifiuta una richiesta così grande."
 }

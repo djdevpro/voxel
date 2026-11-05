@@ -62,6 +62,7 @@ export function errorMessage(e: unknown): string {
     if (e.code === 'unknown') return i18n.t('errors:unknown', { status: e.status });
     return i18n.t(`errors:${e.code}`);
   }
+  if (e instanceof JmapError && e.type === 'urn:ietf:params:jmap:error:limit') return i18n.t('errors:too_large');
   if (e instanceof JmapError && e.status) {
     // passerelle IMAP : corps `{ error, message }`
     const c = e.body && typeof e.body === 'object' ? (e.body as { error?: unknown }).error : undefined;
@@ -117,6 +118,8 @@ export interface MailboxInfo {
   capabilities: MailboxCapabilities;
   /** Ordre d'affichage dans le rail. */
   sortOrder?: number;
+  /** Jeton d'API (`Bearer`) ; absent = mot de passe. */
+  auth?: 'bearer';
 }
 
 /** Alias historique : le reste du front parle de « compte ». */

@@ -69,7 +69,8 @@
     "testOk": "Verbindung OK",
     "testFail": "Verbindung fehlgeschlagen",
     "storedOnDevice": "Passwort verschlüsselt auf diesem Gerät gespeichert",
-    "manageAccount": "Mein Konto verwalten"
+    "manageAccount": "Mein Konto verwalten",
+    "storedTokenOnDevice": "API-Token verschlüsselt auf diesem Gerät gespeichert"
   },
   "capability": {
     "vacation": "Abwesenheitsnotiz",

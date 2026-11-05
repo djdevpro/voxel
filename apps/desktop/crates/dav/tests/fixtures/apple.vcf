@@ -1,0 +1,31 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 17.0//EN
+N:Martin;Claire;;;
+FN:Claire Martin
+ORG:Société Exemple;Ventes
+TITLE:Directrice commerciale
+item1.EMAIL;type=INTERNET;type=pref:claire.martin@example.com
+item1.X-ABLabel:_$!<Other>!$_
+EMAIL;type=INTERNET;type=HOME:claire@example.org
+TEL;type=CELL;type=VOICE;type=pref:+33 6 12 34 56 78
+TEL;type=WORK;type=VOICE:+33 1 23 45 67 89
+item2.ADR;type=HOME;type=pref:;;12 rue de la Paix;Paris;;75002;France
+item2.X-ABADR:fr
+BDAY;X-APPLE-OMIT-YEAR=1604:1604-07-14
+item3.URL;type=pref:https\://claire.example.com
+item3.X-ABLabel:_$!<HomePage>!$_
+NOTE:Rencontrée au salon\, 2024.\nÀ rappeler.
+X-SOCIALPROFILE;type=linkedin:https://linkedin.com/in/claire
+PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAAQABAAD
+UID:4D2C1F3A-1B2C-4D5E-8F90-ABCDEF012345
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//AddressBook 13.0//EN
+N:;;;;
+FN:Famille
+X-ADDRESSBOOKSERVER-KIND:group
+X-ADDRESSBOOKSERVER-MEMBER:urn:uuid:4D2C1F3A-1B2C-4D5E-8F90-ABCDEF012345
+UID:9A8B7C6D-0000-1111-2222-333344445555
+END:VCARD
