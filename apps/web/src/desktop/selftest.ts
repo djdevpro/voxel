@@ -184,6 +184,12 @@ const steps: Record<string, (a: Args) => Promise<Data>> = {
     return { draftId };
   },
 
+  /** Message de la Réception par son objet (ménage de l'étape « fenêtre fermée »). */
+  async lookup(a) {
+    const e = await inboxEmail(str(a, 'subject'));
+    return e ? { emailId: e.id } : undefined;
+  },
+
   async receive(a) {
     const started = Date.now();
     goTarget(inboxTarget(accountId));

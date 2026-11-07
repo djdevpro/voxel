@@ -173,6 +173,13 @@ pub fn set_badge(
     Ok(())
 }
 
+/// Nombre de la pastille, lu par l'auto-test.
+#[cfg(debug_assertions)]
+pub(crate) fn badge_count(app: &AppHandle) -> u32 {
+    app.try_state::<Badge>()
+        .map_or(0, |state| state.count.load(Ordering::SeqCst))
+}
+
 /// Libellés du menu de l'icône, dans la langue de l'interface ; un libellé vide garde le précédent.
 #[tauri::command]
 pub fn set_tray_labels(app: AppHandle, open: String, quit: String) -> Result<(), String> {

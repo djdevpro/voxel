@@ -1,4 +1,4 @@
-//! `VOXEL_DESKTOP_SELFTEST=<dossier>` joue le parcours de CA2 sans personne : connexion, dossiers, rédaction, envoi à soi, réception sans recharger, lecture, téléchargement de la pièce jointe sur le disque, recherche, marquage, déplacement, piège HTML, suppression, réglages, fonctions montrées selon les capacités du serveur ; une capture PNG par écran et `report.txt` dans ce dossier, puis l'appli se ferme. `VOXEL_DESKTOP_SELFTEST_PHASE=resume` relance sur le même dossier et vérifie que la boîte et les réglages ont survécu, puis nettoie. Profil, données et entrée de coffre de l'auto-test sont à part. Module compilé seulement avec `debug_assertions` : `tauri dev`, ou `tauri build --debug` pour vérifier le frontend de production ; jamais dans l'appli publiée.
+//! `VOXEL_DESKTOP_SELFTEST=<dossier>` joue le parcours de CA2 sans personne : connexion, dossiers, rédaction, envoi à soi, réception sans recharger, lecture, téléchargement de la pièce jointe sur le disque, recherche, marquage, déplacement, piège HTML, suppression, réglages, fonctions montrées selon les capacités du serveur, puis fenêtre fermée (zone de notification) : un message reçu montre une notification et ajoute 1 à la pastille ; une capture PNG par écran et `report.txt` dans ce dossier, puis l'appli se ferme. `VOXEL_DESKTOP_SELFTEST_PHASE=resume` relance sur le même dossier et vérifie que la boîte et les réglages ont survécu, puis nettoie. Profil, données et entrée de coffre de l'auto-test sont à part. Module compilé seulement avec `debug_assertions` : `tauri dev`, ou `tauri build --debug` pour vérifier le frontend de production ; jamais dans l'appli publiée.
 
 mod screenshot;
 
@@ -373,6 +373,84 @@ impl Runner {
             .await;
         self.play("sections", json!({}), Some("13-sections.png"), shown)
             .await;
+        self.background(&email).await;
+    }
+
+    /// Fenêtre fermée : l'interface la cache (réglage « arrière-plan », actif par défaut) et Voxel reste dans la zone de notification. Un message qui arrive montre alors une notification native et ajoute 1 à la pastille, sans rouvrir la fenêtre. La fenêtre revient ensuite comme par l'icône, et le message est supprimé.
+    async fn background(&mut self, email: &str) {
+        let started = Instant::now();
+        let Some(window) = self.app.get_webview_window(MAIN) else {
+            self.line("background", false, started, "vue absente");
+            return;
+        };
+        // Fermeture comme par la croix : `CloseRequested`, que l'interface transforme en `hide()`.
+        let _ = window.close();
+        let hide_deadline = Instant::now() + Duration::from_secs(10);
+        while window.is_visible().unwrap_or(false) && Instant::now() < hide_deadline {
+            tokio::time::sleep(Duration::from_millis(200)).await;
+        }
+        if window.is_visible().unwrap_or(true) {
+            self.line(
+                "background",
+                false,
+                started,
+                "window still visible after close",
+            );
+            return;
+        }
+        // La première fermeture montre une notification d'aide : elle passe avant les relevés.
+        tokio::time::sleep(Duration::from_secs(2)).await;
+        let notified_before = self.app.state::<Notified>().0.load(Ordering::SeqCst);
+        let badge_before = crate::tray::badge_count(&self.app);
+        let subject = format!("Voxel selftest background {}", random_base36(8));
+        let sent = self
+            .ask(
+                "send",
+                json!({
+                    "to": email,
+                    "subject": subject,
+                    "text": "Voxel selftest, window closed",
+                    "attachmentName": "background.txt",
+                    "attachmentBase64": base64::engine::general_purpose::STANDARD.encode("background"),
+                }),
+                STEP_TIMEOUT,
+            )
+            .await;
+        let waited = Instant::now();
+        let mut notified = false;
+        let mut badge_after = badge_before;
+        if sent.ok {
+            let deadline = Instant::now() + RECEIVE_TIMEOUT;
+            loop {
+                notified = self.app.state::<Notified>().0.load(Ordering::SeqCst) > notified_before;
+                badge_after = crate::tray::badge_count(&self.app);
+                if (notified && badge_after > badge_before) || Instant::now() > deadline {
+                    break;
+                }
+                tokio::time::sleep(Duration::from_millis(500)).await;
+            }
+        }
+        let hidden = !window.is_visible().unwrap_or(true);
+        crate::tray::show_main(&self.app);
+        let ok = sent.ok && notified && badge_after > badge_before && hidden;
+        let detail = if sent.ok {
+            format!(
+                "window closed to the tray, still hidden={hidden}, notification shown={notified}, badge {badge_before}->{badge_after}, delay {}ms",
+                waited.elapsed().as_millis()
+            )
+        } else {
+            format!("send: {}", sent.detail)
+        };
+        self.line("background", ok, started, &detail);
+        // Ménage : le message reçu et sa copie dans Envoyés.
+        let found = self
+            .ask("lookup", json!({ "subject": subject }), STEP_TIMEOUT)
+            .await;
+        if let Some(id) = found.data["emailId"].as_str() {
+            let _ = self
+                .ask("delete", json!({ "emailId": id }), STEP_TIMEOUT)
+                .await;
+        }
     }
 
     /// Piège HTML (C10) : aucun script, et l'IPC du cadre ne répond pas ; une notification venue du cadre est un échec.
