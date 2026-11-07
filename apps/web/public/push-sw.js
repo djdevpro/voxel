@@ -4,8 +4,9 @@
  * - `PushVerification` (RFC 8620 §7.2.2) : le code est rangé dans IndexedDB (`voxel-push`) pour la page, qui le
  *   renvoie au serveur ; rien n'est affiché.
  * - `StateChange` avec `EmailDelivery` : notification générique « Nouveau message » + nom de la boîte (texte
- *   traduit rangé par la page), sans identifiant de message ni contenu. Rien si l'appli est visible
- *   (elle affiche ses propres notifications).
+ *   traduit rangé par la page), sans identifiant de message ni contenu, et +1 sur la pastille de l'icône
+ *   (Badging API ; nombre rangé par la page, clé `badge`). Rien si l'appli est visible (elle affiche ses propres
+ *   notifications et tient la pastille à jour).
  * Les secrets ne sont jamais ici : le service worker ne parle pas au serveur de messagerie.
  */
 /* eslint-disable no-restricted-globals */
@@ -49,6 +50,10 @@
     if (!accounts.length) return;
     const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
     if (windows.some((w) => w.visibilityState === 'visible')) return;
+    // +1 sur l'icône par boîte qui reçoit : la page remet le nombre exact de non-lus à sa prochaine ouverture
+    const badge = (Number(await get('badge').catch(() => 0)) || 0) + accounts.length;
+    await put('badge', badge).catch(() => undefined);
+    if (self.navigator.setAppBadge) await self.navigator.setAppBadge(badge).catch(() => undefined);
     const labels = (await get('labels').catch(() => null)) || {};
     const strings = (await get('strings').catch(() => null)) || {};
     const names = [...new Set(accounts.map((a) => labels[a]).filter(Boolean))];

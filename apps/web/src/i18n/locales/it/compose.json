@@ -122,5 +122,14 @@
     },
     "receipt": "Richiedi conferma di lettura",
     "language": "Lingua del correttore"
+  },
+  "largeFiles": {
+    "accountNotice": "I file oltre {{threshold}} vengono inviati come link. Verrà creato per te un account S3 con {{quota}} di spazio.",
+    "quotaFull": "Il tuo spazio S3 è pieno ({{used}} su {{quota}}): «{{name}}» viene allegato al messaggio.",
+    "failed": "Impossibile creare il link di «{{name}}»: il file viene allegato al messaggio.",
+    "chipTitle": "Inviato come link, disponibile fino al {{date}}",
+    "block_one": "{{count}} file condiviso tramite link, disponibile fino al {{date}}:",
+    "block_many": "{{count}} file condivisi tramite link, disponibili fino al {{date}}:",
+    "block_other": "{{count}} file condivisi tramite link, disponibili fino al {{date}}:"
   }
 }

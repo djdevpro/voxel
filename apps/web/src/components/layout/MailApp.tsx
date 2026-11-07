@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Inbox, PenLine, Search, Menu, Plus, Mail, Settings } from 'lucide-react';
 import { useAccounts, useAllMailboxData } from '@/hooks/useData';
 import { useSync } from '@/hooks/useSync';
+import { useUnreadBadge } from '@/lib/badge';
 import { useReminders } from '@/hooks/useReminders';
 import { useReconnect, useIsMobile } from '@/hooks/useEnvironment';
 import { useShortcuts } from '@/hooks/useShortcuts';
@@ -306,6 +307,7 @@ export default function MailApp() {
   const mobile = useIsMobile();
   const dir = useDirection();
   useSync(accounts);
+  useUnreadBadge();
   useReminders(accounts);
   useReconnect();
   useShortcuts();

@@ -83,7 +83,7 @@ function fileResponse(path: string, c: Context, isIndex: boolean): Response {
 }
 
 /** Préfixes jamais servis par le front (gérés par leurs routes ; 404 propre si inconnus). */
-const RESERVED = /^\/(?:imap|healthz)(?:\/|$)/;
+const RESERVED = /^\/(?:imap|healthz|files|f)(?:\/|$)/;
 
 /**
  * Requête de navigation (barre d'adresse, lien, rechargement) : elle reçoit toujours index.html,

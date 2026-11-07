@@ -31,6 +31,8 @@ export interface SyncedSettings {
   trustedSenders: string[];
   /** Accusés de lecture demandés par l'expéditeur : demander, toujours envoyer, jamais. */
   readReceipts: 'ask' | 'always' | 'never';
+  /** Bureau : fermer la fenêtre laisse Voxel dans la zone de notification (notifications, pastille). */
+  background: boolean;
 }
 
 interface LocalLayout {
@@ -60,10 +62,11 @@ export const DEFAULT_SETTINGS: SyncedSettings = {
   folderColors: {},
   trustedSenders: [],
   readReceipts: 'ask',
+  background: true,
 };
 
 /** Clés propres à l'appareil (localStorage). */
-const DEVICE_KEYS = ['theme', 'density', 'readingPane', 'undoSendSeconds', 'remoteImages', 'notifications', 'trustedSenders', 'readReceipts'] as const;
+const DEVICE_KEYS = ['theme', 'density', 'readingPane', 'undoSendSeconds', 'remoteImages', 'notifications', 'trustedSenders', 'readReceipts', 'background'] as const;
 
 function sessionMailboxIds(): string[] {
   return queryClient.getQueryData<SessionInfo>(['session'])?.mailboxes.map((m) => m.id) ?? [];

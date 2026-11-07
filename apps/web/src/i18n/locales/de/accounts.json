@@ -82,5 +82,14 @@
   "notification": {
     "newMessage": "Neue Nachricht",
     "noSubject": "(kein Betreff)"
+  },
+  "badge": {
+    "unread_one": "{{count}} ungelesene Unterhaltung",
+    "unread_other": "{{count}} ungelesene Unterhaltungen"
+  },
+  "tray": {
+    "open": "Voxel öffnen",
+    "quit": "Voxel beenden",
+    "backgroundNotice": "Voxel bleibt im Infobereich geöffnet, um dich über neue Nachrichten zu informieren. Das kannst du in den Einstellungen ändern."
   }
 }

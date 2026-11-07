@@ -27,6 +27,8 @@ tauri-plugin-dialog = "2.8"
 tauri-plugin-notification = "2.8"
 # Un second lancement ramène la fenêtre existante au premier plan.
 tauri-plugin-single-instance = "2.5"
+# Ouverture avec la session, en arrière-plan (2.7 : Rust 1.90).
+tauri-plugin-autostart = "2.7"
 # Tâches, réseau et minuteries ; déjà le moteur asynchrone de Tauri.
 tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "io-util", "fs"] }
 # Requêtes HTTP du cœur, en flux, avec le TLS et le proxy du système ; déjà tirée par Tauri.

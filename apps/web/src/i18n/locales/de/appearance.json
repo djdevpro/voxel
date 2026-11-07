@@ -51,7 +51,7 @@
     },
     "notifications": {
       "title": "Benachrichtigungen",
-      "description": "Browser-Benachrichtigung, wenn eine Nachricht im Posteingang eintrifft.",
+      "description": "Benachrichtigung, wenn eine Nachricht im Posteingang eintrifft, auch bei geschlossener App, und Anzahl ungelesener Unterhaltungen auf dem App-Symbol.",
       "denied": "Benachrichtigungen werden vom Browser blockiert"
     },
     "mailto": {
@@ -67,6 +67,21 @@
       "ask": "Fragen",
       "always": "Immer senden",
       "never": "Nie"
+    },
+    "background": {
+      "title": "Im Hintergrund weiterlaufen",
+      "description": "Beim Schließen des Fensters bleibt Voxel im Infobereich: Neue Nachrichten werden weiter gemeldet und auf dem Symbol gezählt. Beenden kannst du Voxel über „Voxel beenden“ an diesem Symbol."
+    },
+    "autostart": {
+      "title": "Beim Anmelden starten",
+      "description": "Voxel startet bei der Anmeldung im Hintergrund, damit dir keine Nachricht entgeht.",
+      "failed": "Der automatische Start konnte nicht geändert werden"
+    },
+    "largeFiles": {
+      "title": "Große Anhänge",
+      "description": "Anhänge über {{threshold}} werden als Link gesendet, {{days}} Tage gültig, aus {{quota}} S3-Speicher pro Postfach. Das S3-Konto wird bei der ersten Nutzung automatisch angelegt.",
+      "used": "{{used}} von {{quota}} belegt",
+      "noAccount": "Noch kein Konto"
     }
   },
   "shortcuts": {

@@ -1,7 +1,7 @@
 # Exemple de déploiement : un conteneur derrière un proxy HTTPS (ici Traefik, à adapter au vôtre).
 #   cp config.example.json config.json   # domaines de vos boîtes → serveur JMAP
 #   VOXEL_HOST=webmail.example.com docker compose up -d --build
-# Le volume ne garde que le petit stockage de la passerelle IMAP (aucun identifiant).
+# Le volume garde le petit stockage de la passerelle IMAP et la liste des pièces jointes volumineuses (aucun identifiant).
 name: voxel
 services:
   voxel:
@@ -13,6 +13,11 @@ services:
       VOXEL_TRUST_PROXY: "1"
       # facultatif : domaines autorisés sur la passerelle IMAP, vide = tous
       VOXEL_ALLOWED_EMAIL_DOMAINS: ${VOXEL_ALLOWED_EMAIL_DOMAINS:-}
+      # facultatif : pièces jointes volumineuses (> 1 Mo) envoyées par lien depuis un bucket S3, vide = désactivé
+      VOXEL_S3_BUCKET: ${VOXEL_S3_BUCKET:-}
+      VOXEL_S3_ENDPOINT: ${VOXEL_S3_ENDPOINT:-}
+      VOXEL_S3_ACCESS_KEY_ID: ${VOXEL_S3_ACCESS_KEY_ID:-}
+      VOXEL_S3_SECRET_ACCESS_KEY: ${VOXEL_S3_SECRET_ACCESS_KEY:-}
     volumes:
       - data:/data
       - ./config.json:/app/apps/web/dist/config.json:ro

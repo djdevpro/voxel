@@ -2,9 +2,10 @@ import { Hono } from 'hono';
 import { bodyLimit } from 'hono/body-limit';
 import { apiError, handleError, type AppEnv } from './http.js';
 import { imapRoutes } from './routes/imap.js';
+import { createFiles, type FilesModule } from './files/index.js';
 import { securityHeaders, serveWeb } from './static.js';
 
-export function createApp(): Hono<AppEnv> {
+export function createApp(files: FilesModule = createFiles()): Hono<AppEnv> {
   const app = new Hono<AppEnv>();
   app.onError(handleError);
   // En-têtes de sécurité sur toutes les réponses
@@ -26,6 +27,12 @@ export function createApp(): Hono<AppEnv> {
   // Passerelle IMAP ; la découverte reçoit un petit JSON.
   app.use('/imap/discover', bodyLimit({ maxSize: 16 * 1024, onError: (c) => apiError(c, 413, 'validation', 'body too large') }));
   app.route('/imap', imapRoutes);
+
+  // Pièces jointes volumineuses (S3) : API de la rédaction, petits corps JSON sauf le relais des octets ;
+  // /f/… : liens des messages, publics.
+  app.use('/files/uploads', bodyLimit({ maxSize: 16 * 1024, onError: (c) => apiError(c, 413, 'validation', 'body too large') }));
+  app.route('/files', files.api);
+  app.route('/f', files.links);
 
   app.notFound((c) => serveWeb(c) ?? c.text('Not found', 404));
   return app;

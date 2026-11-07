@@ -51,7 +51,7 @@
     },
     "notifications": {
       "title": "Notifications",
-      "description": "Browser notification when a message arrives in the Inbox.",
+      "description": "Notification when a message arrives in the Inbox, even when the app is closed, and the number of unread conversations on the app icon.",
       "denied": "Notifications are blocked by the browser"
     },
     "mailto": {
@@ -67,6 +67,21 @@
       "ask": "Ask",
       "always": "Always send",
       "never": "Never"
+    },
+    "background": {
+      "title": "Keep running in the background",
+      "description": "Closing the window leaves Voxel in the notification area: new mail is still notified and counted on its icon. To quit, use “Quit Voxel” on that icon."
+    },
+    "autostart": {
+      "title": "Start with your computer",
+      "description": "Voxel starts in the background when you sign in, so no message is missed.",
+      "failed": "Could not change the startup setting"
+    },
+    "largeFiles": {
+      "title": "Large attachments",
+      "description": "Attachments over {{threshold}} are sent as a link, valid for {{days}} days, from {{quota}} of S3 space per mailbox. The S3 account is created automatically the first time.",
+      "used": "{{used}} of {{quota}} used",
+      "noAccount": "No account yet"
     }
   },
   "shortcuts": {

@@ -122,5 +122,14 @@
     },
     "receipt": "Solicitar confirmación de lectura",
     "language": "Idioma del corrector"
+  },
+  "largeFiles": {
+    "accountNotice": "Los archivos de más de {{threshold}} se envían como enlace. Se te creará una cuenta S3 con {{quota}} de espacio.",
+    "quotaFull": "Tu espacio S3 está lleno ({{used}} de {{quota}}): «{{name}}» se adjunta al mensaje.",
+    "failed": "No se pudo crear el enlace de «{{name}}»: el archivo se adjunta al mensaje.",
+    "chipTitle": "Enviado como enlace, disponible hasta el {{date}}",
+    "block_one": "{{count}} archivo compartido por enlace, disponible hasta el {{date}}:",
+    "block_many": "{{count}} archivos compartidos por enlace, disponibles hasta el {{date}}:",
+    "block_other": "{{count}} archivos compartidos por enlace, disponibles hasta el {{date}}:"
   }
 }

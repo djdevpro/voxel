@@ -82,5 +82,14 @@
   "notification": {
     "newMessage": "New message",
     "noSubject": "(no subject)"
+  },
+  "badge": {
+    "unread_one": "{{count}} unread conversation",
+    "unread_other": "{{count}} unread conversations"
+  },
+  "tray": {
+    "open": "Open Voxel",
+    "quit": "Quit Voxel",
+    "backgroundNotice": "Voxel keeps running in the notification area to tell you about new mail. You can change this in Settings."
   }
 }

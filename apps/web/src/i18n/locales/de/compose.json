@@ -122,5 +122,13 @@
     },
     "receipt": "Lesebestätigung anfordern",
     "language": "Sprache der Rechtschreibprüfung"
+  },
+  "largeFiles": {
+    "accountNotice": "Dateien über {{threshold}} werden als Link gesendet. Dafür wird ein S3-Konto mit {{quota}} Speicherplatz für dich angelegt.",
+    "quotaFull": "Dein S3-Speicher ist voll ({{used}} von {{quota}}): „{{name}}“ wird stattdessen an die Nachricht angehängt.",
+    "failed": "Der Link für „{{name}}“ konnte nicht erstellt werden: Die Datei wird stattdessen angehängt.",
+    "chipTitle": "Als Link gesendet, verfügbar bis {{date}}",
+    "block_one": "{{count}} Datei als Link geteilt, verfügbar bis {{date}}:",
+    "block_other": "{{count}} Dateien als Link geteilt, verfügbar bis {{date}}:"
   }
 }

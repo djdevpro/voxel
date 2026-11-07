@@ -16,6 +16,8 @@ export type ErrorCode =
   | 'not_found'
   | 'forbidden'
   | 'validation'
+  | 'quota_exceeded'
+  | 'storage_error'
   | 'internal';
 
 /** Erreur à renvoyer telle quelle au client. */

@@ -15,6 +15,26 @@ VOXEL_HOST=webmail.example.com docker compose up -d --build
 
 The JMAP server must allow the webmail's origin (CORS).
 
+Installed as an app, the webmail shows the number of unread conversations on its icon. Once notifications are on, mailboxes whose JMAP server offers Web Push are also notified while the app is closed, and each new message adds one to the icon.
+
+### Large attachments
+
+With an S3 bucket, an attachment over 1 MB is not put in the message: it goes to S3 and the message carries a download link, valid for 30 days. Each sender gets 1 GB of space. Voxel creates the sender's account the first time they attach a large file and only tells them so. The webmail server checks the sender with their mail server, which must be one of the servers of `config.json`; IMAP mailboxes and the desktop app attach files as before. The S3 engine is the one of [S3 Drive](https://github.com/djdevpro/s3drive), in `apps/server/src/vendor/ud-s3`.
+
+| Variable | Default | |
+|---|---|---|
+| `VOXEL_S3_BUCKET` | | Turns the feature on |
+| `VOXEL_S3_ENDPOINT` | | `https://…`, for example `https://nbg1.your-objectstorage.com` |
+| `VOXEL_S3_ACCESS_KEY_ID`, `VOXEL_S3_SECRET_ACCESS_KEY` | | Keys of the bucket |
+| `VOXEL_S3_REGION`, `VOXEL_S3_ADDRESSING` | from the endpoint | `path` or `virtual` |
+| `VOXEL_S3_PREFIX` | `voxel/` | Folder of the files in the bucket |
+| `VOXEL_S3_THRESHOLD_BYTES` | `1048576` (1 MB) | Size over which a file goes by link |
+| `VOXEL_S3_QUOTA_BYTES` | `1073741824` (1 GB) | Space of each sender |
+| `VOXEL_S3_LINK_DAYS` | `30` | Life of a link; the file is then deleted |
+| `VOXEL_S3_ALLOW_PRIVATE` | | `1` for an endpoint on a private network, such as MinIO next to Voxel |
+
+To check the sender, the webmail sends the server the mailbox's `Authorization` header, the one it sends the JMAP server, and the server shows it to that JMAP server once. It keeps no password, only a hash of the header for 10 minutes. Browsers send the files straight to S3, so the bucket's CORS rule should allow `PUT` from the webmail's origin. Without it, files go through the webmail server, and your proxy must then accept long uploads. The server keeps its list of accounts and files in `files.sqlite`, in its data folder.
+
 ## Develop
 
 Node 24 or later.
@@ -55,7 +75,7 @@ sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librs
 - The app opens no network port. The interface calls the Rust core through Tauri commands, which only the app's own view may use. A web page or another program cannot reach it. The HTML of an email stays in a sandboxed frame where no script can run, so it cannot call the app's commands.
 - Every network request of the interface goes through the core. The core talks to JMAP servers directly, so they do not need to allow CORS. Push events, downloads and AI streams flow back to the interface as they arrive.
 - The key that encrypts saved passwords, API tokens and AI keys stays in the Windows Credential Manager. On disk, the app keeps only encrypted secrets, in its data folder under `%LOCALAPPDATA%\dev.voxel.desktop`.
-- New mail shows a native notification while the app runs. On Windows, clicking a notification closes it but does not open the message yet.
+- Closing the window keeps Voxel running in the notification area, so new mail still shows a native notification and the number of unread conversations appears on the taskbar button and on the notification area icon. Quit Voxel from the menu of that icon. Voxel also starts in the background when you sign in to your computer. Both can be turned off in Settings, Reading & sending. On Windows, clicking a notification closes it but does not open the message yet.
 - Links open in your default browser, and files are saved through a Save as dialog. A second launch brings the open window to the front.
 - The desktop app can reach servers on your local network. It uses plain `http://` only for this computer and TLS everywhere else.
 

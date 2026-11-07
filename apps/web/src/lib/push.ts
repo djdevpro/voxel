@@ -50,6 +50,11 @@ const idbGet = <T>(k: string) => idbOp<T | undefined>('readonly', (s) => s.get(k
 const idbPut = (k: string, v: unknown) => idbOp('readwrite', (s) => s.put(v, k));
 const idbDel = (k: string) => idbOp('readwrite', (s) => s.delete(k));
 
+/** Nombre de la pastille de l'icône, relu par le service worker qui l'augmente à chaque nouveau message. */
+export function writeBadgeCount(count: number): Promise<unknown> {
+  return idbPut('badge', count);
+}
+
 // ------------------------------------------------------------------ état local
 
 interface PushState {
@@ -201,6 +206,32 @@ export async function disablePush(accountId: string, opts: { remote?: boolean } 
     const reg = await navigator.serviceWorker.getRegistration();
     await (await reg?.pushManager.getSubscription())?.unsubscribe().catch(() => undefined);
   }
+}
+
+/**
+ * Notifications push sans réglage par boîte : une boîte qui les permet les reçoit dès que les notifications de
+ * l'appli sont actives et autorisées par le navigateur, appli fermée comprise, sauf si l'utilisateur les a
+ * coupées pour elle (`push-off:<id>`). Un essai manqué (autre serveur déjà abonné, vérification trop lente) est
+ * repris au plus une fois par jour. Ne lève jamais.
+ */
+export async function ensurePush(accountId: string, opts: { now?: boolean } = {}): Promise<void> {
+  try {
+    if (!pushSupported() || Notification.permission !== 'granted') return;
+    if (await pushState(accountId)) return;
+    if ((await db.kv.get(`push-off:${accountId}`))?.value) return;
+    const last = (await db.kv.get(`push-try:${accountId}`))?.value;
+    if (!opts.now && typeof last === 'number' && Date.now() - last < 86400_000) return;
+    await db.kv.put({ key: `push-try:${accountId}`, value: Date.now() });
+    await enablePush(accountId);
+  } catch (e) {
+    console.warn('push: automatic subscription failed', e);
+  }
+}
+
+/** Choix explicite de l'utilisateur pour une boîte (interrupteur des réglages). */
+export async function setPushOptOut(accountId: string, off: boolean): Promise<void> {
+  if (off) await db.kv.put({ key: `push-off:${accountId}`, value: true });
+  else await db.kv.delete(`push-off:${accountId}`);
 }
 
 /** Désactive toutes les boîtes (« Tout déconnecter »). */

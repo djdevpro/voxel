@@ -1,11 +1,14 @@
-//! Voxel sur le bureau : une fenêtre native affiche l'interface d'apps/web et lui donne, par des commandes Tauri, un cœur Rust local — la passerelle IMAP/SMTP → JMAP, ManageSieve, CardDAV, CalDAV et l'accès JMAP sans CORS. Aucun port n'est ouvert : seule la vue de l'appli atteint ce cœur.
+//! Voxel sur le bureau : une fenêtre native affiche l'interface d'apps/web et lui donne, par des commandes Tauri, un cœur Rust local — la passerelle IMAP/SMTP → JMAP, ManageSieve, CardDAV, CalDAV et l'accès JMAP sans CORS. Aucun port n'est ouvert : seule la vue de l'appli atteint ce cœur. Fenêtre fermée, Voxel reste dans la zone de notification.
 
+mod autostart;
+mod badge;
 mod factory;
 mod files;
 mod net;
 #[cfg(debug_assertions)]
 mod selftest; // jamais compilé dans l'appli publiée (profil release) : rien ne peut y déclencher l'auto-test
 mod system;
+mod tray;
 
 use std::path::PathBuf;
 use std::sync::Arc;
@@ -49,20 +52,23 @@ pub fn run() {
     #[cfg(not(debug_assertions))]
     let selftest: Option<String> = None;
 
+    // Lancement avec la session : Voxel démarre dans la zone de notification.
+    let background = std::env::args().any(|arg| arg == autostart::BACKGROUND_ARG);
+
     let mut builder = tauri::Builder::default();
     // L'auto-test a son propre profil : il ne doit pas se rabattre sur une fenêtre déjà ouverte.
     if selftest.is_none() {
-        builder = builder.plugin(tauri_plugin_single_instance::init(|app, _, _| {
-            if let Some(window) = app.get_webview_window(MAIN) {
-                let _ = window.unminimize();
-                let _ = window.show();
-                let _ = window.set_focus();
+        builder = builder.plugin(tauri_plugin_single_instance::init(|app, args, _| {
+            // Un lancement avec la session pendant que Voxel tourne déjà ne montre rien.
+            if !args.iter().any(|arg| arg == autostart::BACKGROUND_ARG) {
+                tray::show_main(app);
             }
         }));
     }
     let app = builder
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_notification::init())
+        .plugin(autostart::plugin())
         .invoke_handler(tauri::generate_handler![
             net::net_fetch,
             net::net_cancel,
@@ -71,7 +77,11 @@ pub fn run() {
             system::open_external,
             system::notify,
             system::device_key,
-            system::desktop_info
+            system::desktop_info,
+            tray::set_badge,
+            tray::set_tray_labels,
+            autostart::autostart_get,
+            autostart::autostart_set
         ])
         .setup(move |app| {
             app.manage(system::SelftestMode(selftest.is_some()));
@@ -100,10 +110,13 @@ pub fn run() {
                 requests: net::Requests::default(),
             });
             app.manage(system::Notified::default());
+            // Sans icône dans la zone de notification, une fenêtre cachée ne se retrouverait pas : elle se montre.
+            let in_tray = tray::install(app.handle());
 
             let mut window =
                 WebviewWindowBuilder::new(app, MAIN, WebviewUrl::App("index.html".into()))
                     .title("Voxel")
+                    .visible(!(background && in_tray))
                     .inner_size(1280.0, 820.0)
                     .min_inner_size(800.0, 560.0)
                     .use_https_scheme(false)
@@ -130,6 +143,14 @@ pub fn run() {
                 window = window.data_directory(PathBuf::from(folder).join("profile"));
             }
             window.build()?;
+            #[cfg(windows)]
+            tray::keep_overlay(app.handle());
+
+            // Appli publiée seulement ; l'auto-test, lui, n'existe qu'en debug.
+            #[cfg(not(debug_assertions))]
+            if selftest.is_none() {
+                autostart::first_run(app.handle());
+            }
 
             #[cfg(debug_assertions)]
             if let Some(folder) = selftest.clone() {

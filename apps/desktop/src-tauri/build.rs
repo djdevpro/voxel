@@ -9,6 +9,10 @@ fn main() {
         "notify",
         "device_key",
         "desktop_info",
+        "set_badge",
+        "set_tray_labels",
+        "autostart_get",
+        "autostart_set",
     ];
     tauri_build::try_build(
         tauri_build::Attributes::new()

@@ -16,10 +16,11 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 tauri-build = { workspace = true }                   # contexte et droits de l'appli
 
 [dependencies]
-tauri = { workspace = true }                         # fenêtre, WebView, IPC
+tauri = { workspace = true, features = ["tray-icon"] } # fenêtre, WebView, IPC, zone de notification
 tauri-plugin-dialog = { workspace = true }           # Enregistrer sous
 tauri-plugin-notification = { workspace = true }     # notifications natives
 tauri-plugin-single-instance = { workspace = true }  # instance unique
+tauri-plugin-autostart = { workspace = true }        # ouverture avec la session
 voxel-core = { workspace = true }                    # client HTTP, stockage
 voxel-gateway = { workspace = true }                 # routes /imap/*
 voxel-mail = { workspace = true }                    # façade IMAP
@@ -37,7 +38,7 @@ getrandom = { workspace = true }                     # création de la clé
 base64 = { workspace = true }                        # clé vers l'interface, captures
 url = { workspace = true }                           # liens externes, navigation
 
-# Ouverture des liens et captures de l'auto-test par le protocole DevTools de WebView2.
+# Ouverture des liens, captures de l'auto-test par le protocole DevTools de WebView2, pastille du bouton de la barre des tâches.
 [target.'cfg(windows)'.dependencies]
 webview2-com = { workspace = true }                  # protocole DevTools
-windows = { workspace = true }                       # ShellExecuteW
+windows = { workspace = true }                       # ShellExecuteW, sous-classe de la fenêtre

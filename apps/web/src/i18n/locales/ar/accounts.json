@@ -86,5 +86,18 @@
   "notification": {
     "newMessage": "رسالة جديدة",
     "noSubject": "(بلا موضوع)"
+  },
+  "badge": {
+    "unread_zero": "لا محادثات غير مقروءة",
+    "unread_one": "محادثة واحدة غير مقروءة",
+    "unread_two": "محادثتان غير مقروءتين",
+    "unread_few": "{{count}} محادثات غير مقروءة",
+    "unread_many": "{{count}} محادثة غير مقروءة",
+    "unread_other": "{{count}} محادثة غير مقروءة"
+  },
+  "tray": {
+    "open": "فتح Voxel",
+    "quit": "إنهاء Voxel",
+    "backgroundNotice": "يبقى Voxel مفتوحًا في منطقة الإشعارات لينبّهك بالرسائل الجديدة. يمكنك تغيير ذلك من الإعدادات."
   }
 }

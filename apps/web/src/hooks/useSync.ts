@@ -6,7 +6,7 @@ import { syncContacts } from '@/lib/contacts';
 import { getMailboxData, roleId } from '@/lib/mail';
 import { invalidateAccount } from '@/lib/actions';
 import { pullSyncedSettings } from '@/lib/syncedSettings';
-import { renewPushSubscriptions } from '@/lib/push';
+import { ensurePush, renewPushSubscriptions } from '@/lib/push';
 import { isOffline } from '@/lib/outbox';
 import { displayName } from '@/lib/format';
 import { useSettings } from '@/store/settings';
@@ -142,8 +142,11 @@ export function useSync(accounts: Account[] | undefined) {
       pullContacts();
       pullCalendarOf(account);
       void pullSyncedSettings(account.id);
-      // notifications push : prolongation ou recréation de l'abonnement de la boîte
-      if (account.capabilities?.webpush) void renewPushSubscriptions([account.id]);
+      // notifications push (appli fermée) : prolongation ou recréation de l'abonnement de la boîte, puis
+      // abonnement automatique si les notifications de l'appli sont actives
+      if (account.capabilities?.webpush) {
+        void renewPushSubscriptions([account.id]).then(() => (notifRef.current ? ensurePush(account.id) : undefined));
+      }
       jmap(account.id)
         .subscribe({ types: '*', ping: 30, onStateChange: onChange, onOpen: () => (lastPush.t = Date.now()) })
         .then((close) => {

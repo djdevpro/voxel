@@ -122,5 +122,13 @@
     },
     "receipt": "Request a read receipt",
     "language": "Spelling language"
+  },
+  "largeFiles": {
+    "accountNotice": "Files over {{threshold}} are sent as a link. An S3 account will be created for you, with {{quota}} of space.",
+    "quotaFull": "Your S3 space is full ({{used}} of {{quota}}): “{{name}}” is attached to the message instead.",
+    "failed": "Could not create the link for “{{name}}”: the file is attached to the message instead.",
+    "chipTitle": "Sent as a link, available until {{date}}",
+    "block_one": "{{count}} file shared by link, available until {{date}}:",
+    "block_other": "{{count}} files shared by link, available until {{date}}:"
   }
 }

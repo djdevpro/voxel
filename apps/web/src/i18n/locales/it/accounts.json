@@ -83,5 +83,15 @@
   "notification": {
     "newMessage": "Nuovo messaggio",
     "noSubject": "(nessun oggetto)"
+  },
+  "badge": {
+    "unread_one": "{{count}} conversazione non letta",
+    "unread_many": "{{count}} conversazioni non lette",
+    "unread_other": "{{count}} conversazioni non lette"
+  },
+  "tray": {
+    "open": "Apri Voxel",
+    "quit": "Esci da Voxel",
+    "backgroundNotice": "Voxel resta aperto nell’area di notifica per avvisarti dei nuovi messaggi. Puoi cambiarlo nelle impostazioni."
   }
 }

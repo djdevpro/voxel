@@ -1,5 +1,7 @@
 import { useId } from 'react';
 import { PushSettings } from './PushSettings';
+import { LargeFilesSettings } from './LargeFilesSettings';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 import { Check, Monitor, Moon, Sun, Rows3, Rows2, PanelRight, PanelBottom, PanelRightClose, PenLine, AtSign } from 'lucide-react';
@@ -17,7 +19,9 @@ import { LANGUAGES, setLanguage, currentLocale, type LanguageCode } from '@/i18n
 import { THEMES, useThemeId, type ThemeId } from '@/lib/themes';
 import { tBase } from '@/lib/motion';
 import { cn } from '@/lib/utils';
-import { isDesktop } from '@/lib/platform';
+import { desktopAutostart, isDesktop, setDesktopAutostart } from '@/lib/platform';
+import { ensurePush } from '@/lib/push';
+import { useAccounts } from '@/hooks/useData';
 
 /**
  * Miniature de l'appli dans les couleurs réelles d'une collection : le conteneur porte
@@ -180,6 +184,8 @@ export function AppearanceSection() {
 export function ReadingSection() {
   const { t } = useTranslation('appearance');
   const s = useSettings();
+  const qc = useQueryClient();
+  const { data: accounts } = useAccounts();
   return (
     <div className="max-w-[680px]">
       <SettingRow title={t('reading.undoSend.title')} description={t('reading.undoSend.description', { count: s.undoSendSeconds })}>
@@ -234,11 +240,52 @@ export function ReadingSection() {
               if (p !== 'granted') return toast.error(t('reading.notifications.denied'));
             }
             s.set({ notifications: v });
+            // appli fermée aussi : abonnement push des boîtes qui le permettent
+            if (v) for (const a of accounts ?? []) if (a.capabilities?.webpush) void ensurePush(a.id, { now: true }).then(() => qc.invalidateQueries({ queryKey: ['push-state'] }));
           }}
         />
       </SettingRow>
       {!isDesktop && <PushSettings />}
+      {isDesktop && (
+        <>
+          <SettingRow title={t('reading.background.title')} description={t('reading.background.description')}>
+            <Switch
+              checked={s.background}
+              aria-label={t('reading.background.title')}
+              className="data-[state=checked]:bg-voxel-accent"
+              onCheckedChange={(background) => s.set({ background })}
+            />
+          </SettingRow>
+          <AutostartSetting />
+        </>
+      )}
+      {!isDesktop && <LargeFilesSettings />}
     </div>
+  );
+}
+
+/** Bureau : lancement de Voxel, en arrière-plan, à l'ouverture de la session. */
+function AutostartSetting() {
+  const { t } = useTranslation('appearance');
+  const qc = useQueryClient();
+  const { data: enabled } = useQuery({ queryKey: ['autostart'], queryFn: desktopAutostart });
+  return (
+    <SettingRow title={t('reading.autostart.title')} description={t('reading.autostart.description')}>
+      <Switch
+        checked={!!enabled}
+        disabled={enabled === undefined}
+        aria-label={t('reading.autostart.title')}
+        className="data-[state=checked]:bg-voxel-accent"
+        onCheckedChange={async (v) => {
+          try {
+            await setDesktopAutostart(v);
+          } catch {
+            toast.error(t('reading.autostart.failed'));
+          }
+          void qc.invalidateQueries({ queryKey: ['autostart'] });
+        }}
+      />
+    </SettingRow>
   );
 }
 

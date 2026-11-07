@@ -16,7 +16,10 @@
     "test:facade": "tsx --test test/imap/facade.test.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "3.1153.0",
+    "@aws-sdk/s3-request-presigner": "3.1153.0",
     "@hono/node-server": "^2.1.6",
+    "@smithy/node-http-handler": "4.12.1",
     "fast-xml-parser": "^5.12.0",
     "hono": "^4.13.16",
     "imapflow": "^2.10.0",

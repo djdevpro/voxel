@@ -83,5 +83,15 @@
   "notification": {
     "newMessage": "Nova mensagem",
     "noSubject": "(sem assunto)"
+  },
+  "badge": {
+    "unread_one": "{{count}} conversa por ler",
+    "unread_many": "{{count}} conversas por ler",
+    "unread_other": "{{count}} conversas por ler"
+  },
+  "tray": {
+    "open": "Abrir o Voxel",
+    "quit": "Sair do Voxel",
+    "backgroundNotice": "O Voxel continua aberto na área de notificação para o avisar de novas mensagens. Pode alterar isto nas definições."
   }
 }

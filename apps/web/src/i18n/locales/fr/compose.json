@@ -122,5 +122,14 @@
     },
     "receipt": "Demander un accusé de lecture",
     "language": "Langue du correcteur"
+  },
+  "largeFiles": {
+    "accountNotice": "Les fichiers de plus de {{threshold}} sont envoyés par lien. Un compte S3 va être créé pour vous, avec {{quota}} d’espace.",
+    "quotaFull": "Votre espace S3 est plein ({{used}} sur {{quota}}) : « {{name}} » est joint au message.",
+    "failed": "Impossible de créer le lien de « {{name}} » : le fichier est joint au message.",
+    "chipTitle": "Envoyé par lien, disponible jusqu’au {{date}}",
+    "block_one": "{{count}} fichier partagé par lien, disponible jusqu’au {{date}} :",
+    "block_many": "{{count}} fichiers partagés par lien, disponibles jusqu’au {{date}} :",
+    "block_other": "{{count}} fichiers partagés par lien, disponibles jusqu’au {{date}} :"
   }
 }

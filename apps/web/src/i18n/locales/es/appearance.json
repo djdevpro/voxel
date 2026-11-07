@@ -53,7 +53,7 @@
     },
     "notifications": {
       "title": "Notificaciones",
-      "description": "Notificación del navegador cuando llega un mensaje a la bandeja de entrada.",
+      "description": "Notificación cuando llega un mensaje a la bandeja de entrada, incluso con la aplicación cerrada, y número de conversaciones sin leer en el icono de la aplicación.",
       "denied": "El navegador ha bloqueado las notificaciones"
     },
     "mailto": {
@@ -69,6 +69,21 @@
       "ask": "Preguntar",
       "always": "Enviar siempre",
       "never": "Nunca"
+    },
+    "background": {
+      "title": "Mantener en segundo plano",
+      "description": "Al cerrar la ventana, Voxel sigue en el área de notificación: los mensajes nuevos se siguen notificando y contando en su icono. Para salir, usa «Salir de Voxel» en ese icono."
+    },
+    "autostart": {
+      "title": "Iniciar con el equipo",
+      "description": "Voxel se inicia en segundo plano al iniciar sesión, para no perderte ningún mensaje.",
+      "failed": "No se pudo cambiar el inicio automático"
+    },
+    "largeFiles": {
+      "title": "Adjuntos grandes",
+      "description": "Los adjuntos de más de {{threshold}} se envían como enlace, válido {{days}} días, desde un espacio S3 de {{quota}} por buzón. La cuenta S3 se crea automáticamente la primera vez.",
+      "used": "{{used}} usados de {{quota}}",
+      "noAccount": "Aún sin cuenta"
     }
   },
   "shortcuts": {

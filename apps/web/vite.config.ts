@@ -38,7 +38,8 @@ const plugins: PluginOption[] = [
       // notifications push : gestionnaires `push` et `notificationclick`
       importScripts: ['/push-sw.js'],
       navigateFallback: '/index.html',
-      navigateFallbackDenylist: [/^\/imap\//, /^\/healthz/, /^\/config\.json/],
+      // liens des pièces jointes volumineuses (/f/…) et leur API : jamais l'appli, toujours le serveur
+      navigateFallbackDenylist: [/^\/imap\//, /^\/healthz/, /^\/config\.json/, /^\/files\//, /^\/f\//],
       // config.json : réseau d'abord, copie en cache pour démarrer hors ligne
       runtimeCaching: [{ urlPattern: ({ url }) => url.pathname === '/config.json', handler: 'NetworkFirst' }],
       maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
@@ -67,6 +68,9 @@ export default defineConfig({
     // passerelle IMAP locale (npm run dev:server), aussi en mode dev:mock
     proxy: {
       '/imap': { target: backend, changeOrigin: false },
+      // pièces jointes volumineuses (npm run dev:server avec VOXEL_S3_*)
+      '/files': { target: backend, changeOrigin: false },
+      '/f/': { target: backend, changeOrigin: false },
     },
   },
   build: {

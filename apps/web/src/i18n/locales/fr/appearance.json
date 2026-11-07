@@ -53,7 +53,7 @@
     },
     "notifications": {
       "title": "Notifications",
-      "description": "Notification du navigateur à l’arrivée d’un message en Réception.",
+      "description": "Notification à l’arrivée d’un message en Réception, même appli fermée, et nombre de conversations non lues sur l’icône de l’appli.",
       "denied": "Notifications refusées par le navigateur"
     },
     "mailto": {
@@ -69,6 +69,21 @@
       "ask": "Demander",
       "always": "Toujours envoyer",
       "never": "Jamais"
+    },
+    "background": {
+      "title": "Garder Voxel en arrière-plan",
+      "description": "Fermer la fenêtre laisse Voxel dans la zone de notification : les nouveaux messages restent notifiés et comptés sur son icône. Pour quitter, utilisez « Quitter Voxel » sur cette icône."
+    },
+    "autostart": {
+      "title": "Lancer au démarrage",
+      "description": "Voxel démarre en arrière-plan à l’ouverture de votre session, pour ne manquer aucun message.",
+      "failed": "Impossible de modifier le lancement au démarrage"
+    },
+    "largeFiles": {
+      "title": "Pièces jointes volumineuses",
+      "description": "Au-delà de {{threshold}}, une pièce jointe est envoyée par lien, valable {{days}} jours, depuis un espace S3 de {{quota}} par boîte. Le compte S3 est créé automatiquement à la première utilisation.",
+      "used": "{{used}} utilisés sur {{quota}}",
+      "noAccount": "Pas encore de compte"
     }
   },
   "shortcuts": {

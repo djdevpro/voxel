@@ -176,3 +176,26 @@ export async function desktopInfo(): Promise<{ version: string; selftest: boolea
   const { invoke } = await core();
   return invoke('desktop_info');
 }
+
+/** Pastille des non-lus : bouton de la barre des tâches et icône de la zone de notification, avec son info-bulle. */
+export async function desktopSetBadge(count: number, tooltip: string): Promise<void> {
+  const { invoke } = await core();
+  await invoke('set_badge', { count, tooltip });
+}
+
+/** Libellés du menu de l'icône de la zone de notification, dans la langue de l'interface. */
+export async function desktopTrayLabels(open: string, quit: string): Promise<void> {
+  const { invoke } = await core();
+  await invoke('set_tray_labels', { open, quit });
+}
+
+/** Lancement de Voxel, en arrière-plan, à l'ouverture de la session. */
+export async function desktopAutostart(): Promise<boolean> {
+  const { invoke } = await core();
+  return invoke<boolean>('autostart_get');
+}
+
+export async function setDesktopAutostart(enabled: boolean): Promise<void> {
+  const { invoke } = await core();
+  await invoke('autostart_set', { enabled });
+}

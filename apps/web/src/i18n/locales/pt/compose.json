@@ -122,5 +122,14 @@
     },
     "receipt": "Pedir confirmação de leitura",
     "language": "Idioma do corretor"
+  },
+  "largeFiles": {
+    "accountNotice": "Os ficheiros com mais de {{threshold}} são enviados como ligação. Vai ser criada uma conta S3 para si, com {{quota}} de espaço.",
+    "quotaFull": "O seu espaço S3 está cheio ({{used}} de {{quota}}): «{{name}}» é anexado à mensagem.",
+    "failed": "Não foi possível criar a ligação de «{{name}}»: o ficheiro é anexado à mensagem.",
+    "chipTitle": "Enviado como ligação, disponível até {{date}}",
+    "block_one": "{{count}} ficheiro partilhado por ligação, disponível até {{date}}:",
+    "block_many": "{{count}} ficheiros partilhados por ligação, disponíveis até {{date}}:",
+    "block_other": "{{count}} ficheiros partilhados por ligação, disponíveis até {{date}}:"
   }
 }

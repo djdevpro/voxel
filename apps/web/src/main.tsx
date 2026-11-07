@@ -10,12 +10,13 @@ import { router } from './router';
 import { queryClient, dexiePersister, flushPersistedCache } from './lib/queryClient';
 import { TooltipProvider } from './components/ui/tooltip';
 import { AppToaster } from './components/common/AppToaster';
-import { i18nReady } from './i18n';
+import i18n, { i18nReady } from './i18n';
 import { applyThemeId, getThemeId } from './lib/themes';
 import { loadConfig } from './lib/config';
 import { unlockAccounts } from './lib/accounts';
-import { desktopInfo, installDesktopNotifications, isDesktop } from './lib/platform';
+import { desktopInfo, desktopTrayLabels, installDesktopNotifications, isDesktop } from './lib/platform';
 import { flushPendingSends } from './lib/sendQueue';
+import { useSettings } from './store/settings';
 import { Direction } from 'radix-ui';
 import { useDirection } from './hooks/useDirection';
 import type { ReactNode } from 'react';
@@ -29,15 +30,31 @@ if (import.meta.env.PROD && !isDesktop) registerSW({ immediate: true });
 
 if (isDesktop) {
   installDesktopNotifications();
-  // fermeture : envoi immédiat des messages en attente d'annulation et cache enregistré, sans confirmation
-  void import('@tauri-apps/api/window').then(({ getCurrentWindow }) =>
-    getCurrentWindow().onCloseRequested(async (event) => {
-      event.preventDefault();
+  void import('@tauri-apps/api/window').then(({ getCurrentWindow }) => {
+    // quitter : envoi immédiat des messages en attente d'annulation et cache enregistré, sans confirmation
+    const quit = async () => {
       flushPersistedCache();
       await flushPendingSends();
       await getCurrentWindow().destroy();
-    }),
-  );
+    };
+    // fermer la fenêtre : Voxel reste dans la zone de notification (synchronisation, notifications, pastille),
+    // sauf si l'arrière-plan est désactivé dans les réglages ; « Quitter Voxel » de l'icône quitte vraiment
+    void getCurrentWindow().onCloseRequested(async (event) => {
+      event.preventDefault();
+      if (!useSettings.getState().background) return quit();
+      flushPersistedCache();
+      await getCurrentWindow().hide();
+      if (!localStorage.getItem('voxel.backgroundNotice')) {
+        localStorage.setItem('voxel.backgroundNotice', '1');
+        new Notification('Voxel', { body: i18n.t('accounts:tray.backgroundNotice') });
+      }
+    });
+    void import('@tauri-apps/api/event').then(({ listen }) => listen('voxel:quit', () => void quit()));
+  });
+  // menu de l'icône de la zone de notification, dans la langue de l'interface
+  const trayLabels = () => void desktopTrayLabels(i18n.t('accounts:tray.open'), i18n.t('accounts:tray.quit')).catch(() => undefined);
+  void i18nReady.then(trayLabels);
+  i18n.on('languageChanged', trayLabels);
   // auto-test : seulement dans un binaire de débogage lancé pour lui (module à part, jamais chargé sinon)
   void desktopInfo().then((i) => {
     if (i.selftest) void import('./desktop/selftest').then((m) => m.startSelftest());

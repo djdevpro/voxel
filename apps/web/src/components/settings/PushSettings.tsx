@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { useAccounts } from '@/hooks/useData';
-import { disablePush, enablePush, pushState, pushSupported, PushSetupError } from '@/lib/push';
+import { disablePush, enablePush, pushState, pushSupported, PushSetupError, setPushOptOut } from '@/lib/push';
 import { errorMessage } from '@/lib/api';
 import { Switch } from '@/components/ui/switch';
 import { AccountDot } from '@/components/common/bits';
@@ -32,6 +32,7 @@ export function PushSettings() {
   const toggle = async (id: string, on: boolean) => {
     setBusy(id);
     try {
+      await setPushOptOut(id, !on);
       if (on) {
         await enablePush(id);
         toast(t('reading.push.enabled'));

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import type { LinkedFile } from '@/lib/largeFiles';
 import type { EmailAddress, ComposeAttachment, Priority } from '@voxel/jmap';
 
 export type SystemRole = 'inbox' | 'flagged' | 'drafts' | 'sent' | 'scheduled' | 'archive' | 'junk' | 'trash';
@@ -58,6 +59,8 @@ export interface ComposerState {
   requestReceipt?: boolean;
   /** Langue du message : attribut `lang` de l'éditeur pour le correcteur orthographique. */
   lang?: string;
+  /** Pièces jointes volumineuses envoyées par lien S3 (bloc de liens ajouté au message). */
+  links?: LinkedFile[];
 }
 
 export function threadKey(accountId: string, threadId: string) {

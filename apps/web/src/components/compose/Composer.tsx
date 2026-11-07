@@ -14,6 +14,7 @@ import {
   ExternalLink,
   Upload,
   File as FileIcon,
+  Link2,
   FileText,
   SlidersHorizontal,
   Settings2,
@@ -25,6 +26,18 @@ import { useSettings } from '@/store/settings';
 import { useAccount, useAccounts, useIdentities, useMailboxData } from '@/hooks/useData';
 import { pickIdentity } from '@/lib/mail';
 import { saveDraft, destroyDraft, uploadAttachment } from '@/lib/send';
+import { accountRow } from '@/lib/accounts';
+import {
+  deleteLargeFile,
+  largeFilesAccount,
+  largeFilesConfig,
+  largeFilesEligible,
+  LargeFileError,
+  linksHtml,
+  uploadLargeFile,
+  type LargeFilesConfig,
+  type LinkedFile,
+} from '@/lib/largeFiles';
 import { scheduleSend } from '@/lib/sendQueue';
 import { db } from '@/lib/db';
 import { fileSize, shortDateTime } from '@/lib/format';
@@ -88,6 +101,19 @@ interface Uploading {
   id: string;
   name: string;
   size: number;
+  /** Envoi par lien S3 : part envoyée, de 0 à 1. */
+  progress?: number;
+}
+
+/** Boîtes déjà prévenues de la création de leur compte S3 (une fois par page). */
+const accountNoticeShown = new Set<string>();
+
+function percent(ratio: number): string {
+  return new Intl.NumberFormat(currentLocale(), { style: 'percent', maximumFractionDigits: 0 }).format(ratio);
+}
+
+function linkExpiry(l: LinkedFile): string {
+  return new Intl.DateTimeFormat(currentLocale(), { dateStyle: 'medium' }).format(new Date(l.expiresAt));
 }
 
 /** Raccourci d'insertion d'une réponse type : Alt+T (touche physique, indépendante de la disposition). */
@@ -183,7 +209,7 @@ export function Composer({ state, floating }: { state: ComposerState; floating?:
   const hasContent = () => {
     const s = stateRef.current;
     const text = htmlRef.current.replace(/<[^>]+>/g, '').trim();
-    if (text || s.attachments.some((a) => a.disposition !== 'inline')) return true;
+    if (text || s.attachments.some((a) => a.disposition !== 'inline') || (s.links?.length ?? 0) > 0) return true;
     // une réponse sans texte n'est pas un brouillon
     return s.mode === 'new' && !!(s.subject.trim() || s.to.length);
   };
@@ -196,6 +222,8 @@ export function Composer({ state, floating }: { state: ComposerState; floating?:
       let html = editorRef.current?.getHTML() ?? htmlRef.current;
       if (forSend) for (const [url, cid] of inlineImages.current) html = html.split(url).join(`cid:${cid}`);
       const s = stateRef.current;
+      // pièces jointes volumineuses : liens de téléchargement, avant la signature
+      if (s.links?.length) html += linksHtml(s.links, s.lang ?? currentLocale());
       const sig = s.signature ? signatureHtml(identity) : '';
       if (sig) html += `<div class="voxel-signature"><br>-- <br>${sig}</div>`;
       if (s.quoteHtml) html += `<br><div class="voxel-quoted">${s.quoteHtml}</div>`;
@@ -260,15 +288,53 @@ export function Composer({ state, floating }: { state: ComposerState; floating?:
     }
     scheduleSave();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.to, state.cc, state.bcc, state.subject, state.attachments, state.identityId, state.signature, state.priority, state.requestReceipt, state.lang]);
+  }, [state.to, state.cc, state.bcc, state.subject, state.attachments, state.links, state.identityId, state.signature, state.priority, state.requestReceipt, state.lang]);
 
   // ------- pièces jointes
+  /**
+   * Pièce jointe volumineuse : envoyée dans le stockage S3 de l'expéditeur, le message portera son lien. La
+   * première fois, l'utilisateur est seulement prévenu que son compte S3 va être créé. `false` : le fichier doit
+   * être joint normalement (espace plein, stockage indisponible).
+   */
+  const attachByLink = useCallback(
+    async (accountId: string, f: File, upId: string, cfg: LargeFilesConfig): Promise<boolean> => {
+      try {
+        const acc = await largeFilesAccount(accountId).catch(() => null);
+        if (acc && !acc.exists && !accountNoticeShown.has(accountId)) {
+          accountNoticeShown.add(accountId);
+          toast(i18n.t('compose:largeFiles.accountNotice', { threshold: fileSize(cfg.threshold), quota: fileSize(cfg.quota) }), { duration: 10_000 });
+        }
+        if (acc && acc.used + f.size > acc.quota) throw new LargeFileError('quota_exceeded', acc.used, acc.quota);
+        const { file } = await uploadLargeFile(accountId, f, {
+          onProgress: (p) => setUploading((u) => u.map((x) => (x.id === upId ? { ...x, progress: p } : x))),
+        });
+        const linked: LinkedFile = { ...file, accountId };
+        if (closed.current) {
+          void deleteLargeFile(accountId, file.id);
+          return true;
+        }
+        update(stateRef.current.id, { links: [...(stateRef.current.links ?? []), linked] });
+        return true;
+      } catch (e) {
+        if (e instanceof LargeFileError && e.code === 'quota_exceeded') {
+          toast(i18n.t('compose:largeFiles.quotaFull', { name: f.name, used: fileSize(e.used ?? 0), quota: fileSize(e.quota ?? cfg.quota) }));
+        } else toast(i18n.t('compose:largeFiles.failed', { name: f.name }));
+        return false;
+      }
+    },
+    [update],
+  );
+
   const addFiles = useCallback(
     async (files: File[], inline = false) => {
+      const cfg = await largeFilesConfig();
       for (const f of files) {
-        const up: Uploading = { id: Math.random().toString(36).slice(2), name: f.name, size: f.size };
+        const accountId = stateRef.current.accountId;
+        const byLink = !inline && cfg.enabled && f.size > cfg.threshold && largeFilesEligible(accountRow(accountId));
+        const up: Uploading = { id: Math.random().toString(36).slice(2), name: f.name, size: f.size, ...(byLink ? { progress: 0 } : {}) };
         setUploading((u) => [...u, up]);
         try {
+          if (byLink && (await attachByLink(accountId, f, up.id, cfg))) continue;
           const a = await uploadAttachment(stateRef.current.accountId, f);
           let att: ComposeAttachment = a;
           if (inline && f.type.startsWith('image/')) {
@@ -286,8 +352,14 @@ export function Composer({ state, floating }: { state: ComposerState; floating?:
         }
       }
     },
-    [update],
+    [update, attachByLink],
   );
+
+  /** Retire un fichier envoyé par lien : il quitte aussi le stockage S3. */
+  const removeLink = (l: LinkedFile) => {
+    update(state.id, { links: (stateRef.current.links ?? []).filter((x) => x.id !== l.id) });
+    void deleteLargeFile(l.accountId ?? stateRef.current.accountId, l.id);
+  };
 
   const sendRef = useRef<(d?: Date) => void>(() => undefined);
   const onPasteFiles = useCallback((files: File[]) => {
@@ -354,6 +426,8 @@ export function Composer({ state, floating }: { state: ComposerState; floating?:
     clearTimeout(localTimer.current);
     const s = stateRef.current;
     await db.drafts.delete(s.id).catch(() => undefined);
+    // brouillon abandonné : ses fichiers envoyés par lien quittent le stockage S3
+    for (const l of s.links ?? []) void deleteLargeFile(l.accountId ?? s.accountId, l.id);
     if (draftIdRef.current && s.mode !== 'draft') void destroyDraft(s.accountId, draftIdRef.current);
     else if (draftIdRef.current && s.mode === 'draft') {
       const ok = await confirmDialog({ title: i18n.t('compose:confirm.deleteDraft'), confirmLabel: i18n.t('common:actions.delete'), destructive: true });
@@ -594,7 +668,7 @@ export function Composer({ state, floating }: { state: ComposerState; floating?:
             </div>
           )}
           {/* pièces jointes */}
-          {(state.attachments.filter((a) => a.disposition !== 'inline').length > 0 || uploading.length > 0) && (
+          {(state.attachments.filter((a) => a.disposition !== 'inline').length > 0 || (state.links?.length ?? 0) > 0 || uploading.length > 0) && (
             <div className="mt-3 flex flex-wrap gap-1.5">
               <AnimatePresence initial={false}>
                 {state.attachments
@@ -622,6 +696,30 @@ export function Composer({ state, floating }: { state: ComposerState; floating?:
                       </button>
                     </motion.div>
                   ))}
+                {(state.links ?? []).map((l) => (
+                  <motion.div
+                    key={l.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={tFast}
+                    title={t('largeFiles.chipTitle', { date: linkExpiry(l) })}
+                    className="group/att flex h-8 max-w-[240px] items-center gap-2 rounded-lg border border-line bg-muted/50 pe-1 ps-2.5 text-[12.5px]"
+                  >
+                    <Link2 className="size-3.5 shrink-0 text-text-3" />
+                    <span className="truncate text-text-1">{l.name}</span>
+                    <span className="shrink-0 text-text-3">{fileSize(l.size)}</span>
+                    <button
+                      type="button"
+                      aria-label={t('remove', { name: l.name })}
+                      onClick={() => removeLink(l)}
+                      className="flex size-6 items-center justify-center rounded text-text-3 hover:bg-accent hover:text-text-1"
+                    >
+                      <X className="size-3.5" />
+                    </button>
+                  </motion.div>
+                ))}
                 {uploading.map((u) => (
                   <motion.div
                     key={u.id}
@@ -632,8 +730,9 @@ export function Composer({ state, floating }: { state: ComposerState; floating?:
                     className="relative flex h-8 max-w-[240px] items-center gap-2 overflow-hidden rounded-lg border border-line px-2.5 text-[12.5px] text-text-2"
                   >
                     <div className="voxel-skeleton absolute inset-0 rounded-none opacity-40" />
-                    <Loader2 className="relative size-3.5 animate-spin" />
+                    {u.progress !== undefined ? <Link2 className="relative size-3.5 shrink-0" /> : <Loader2 className="relative size-3.5 animate-spin" />}
                     <span className="relative truncate">{u.name}</span>
+                    {u.progress !== undefined && <span className="relative shrink-0 tabular text-text-3">{percent(u.progress)}</span>}
                   </motion.div>
                 ))}
               </AnimatePresence>
