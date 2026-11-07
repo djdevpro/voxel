@@ -82,6 +82,11 @@
       "description": "Attachments over {{threshold}} are sent as a link, valid for {{days}} days, from {{quota}} of S3 space per mailbox. The S3 account is created automatically the first time.",
       "used": "{{used}} of {{quota}} used",
       "noAccount": "No account yet"
+    },
+    "updates": {
+      "title": "Updates",
+      "description": "Voxel {{version}}. New versions are looked for at startup and every 6 hours, and are installed only when you choose to.",
+      "check": "Check now"
     }
   },
   "shortcuts": {

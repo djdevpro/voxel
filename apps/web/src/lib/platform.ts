@@ -199,3 +199,28 @@ export async function setDesktopAutostart(enabled: boolean): Promise<void> {
   const { invoke } = await core();
   await invoke('autostart_set', { enabled });
 }
+
+export interface DesktopUpdate {
+  version: string;
+  currentVersion: string;
+  notes?: string | null;
+}
+
+/** Version plus récente publiée sur GitHub, signée par la clé de Voxel ; `null` si l'appli est à jour. */
+export async function desktopUpdateCheck(): Promise<DesktopUpdate | null> {
+  const { invoke } = await core();
+  return invoke<DesktopUpdate | null>('update_check');
+}
+
+/** Télécharge et installe la version trouvée, puis relance Voxel ; `onProgress` reçoit la part téléchargée (0 à 1, ou `null`). */
+export async function desktopUpdateInstall(onProgress: (ratio: number | null) => void): Promise<void> {
+  const [{ invoke }, { listen }] = await Promise.all([core(), import('@tauri-apps/api/event')]);
+  const stop = await listen<{ downloaded: number; total: number | null }>('voxel:update-progress', (e) =>
+    onProgress(e.payload.total ? Math.min(1, e.payload.downloaded / e.payload.total) : null),
+  );
+  try {
+    await invoke('update_install');
+  } finally {
+    stop();
+  }
+}

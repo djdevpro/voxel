@@ -17,6 +17,7 @@ import { unlockAccounts } from './lib/accounts';
 import { desktopInfo, desktopTrayLabels, installDesktopNotifications, isDesktop } from './lib/platform';
 import { flushPendingSends } from './lib/sendQueue';
 import { useSettings } from './store/settings';
+import { scheduleUpdateChecks } from './lib/updates';
 import { Direction } from 'radix-ui';
 import { useDirection } from './hooks/useDirection';
 import type { ReactNode } from 'react';
@@ -55,6 +56,8 @@ if (isDesktop) {
   const trayLabels = () => void desktopTrayLabels(i18n.t('accounts:tray.open'), i18n.t('accounts:tray.quit')).catch(() => undefined);
   void i18nReady.then(trayLabels);
   i18n.on('languageChanged', trayLabels);
+  // mises à jour signées depuis les releases GitHub (appli publiée seulement : le cœur ignore les binaires de développement)
+  void i18nReady.then(scheduleUpdateChecks);
   // auto-test : seulement dans un binaire de débogage lancé pour lui (module à part, jamais chargé sinon)
   void desktopInfo().then((i) => {
     if (i.selftest) void import('./desktop/selftest').then((m) => m.startSelftest());

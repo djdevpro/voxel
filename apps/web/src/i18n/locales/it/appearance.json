@@ -84,6 +84,11 @@
       "description": "Gli allegati oltre {{threshold}} vengono inviati come link, valido {{days}} giorni, da uno spazio S3 di {{quota}} per casella. L’account S3 viene creato automaticamente al primo utilizzo.",
       "used": "{{used}} usati su {{quota}}",
       "noAccount": "Nessun account per ora"
+    },
+    "updates": {
+      "title": "Aggiornamenti",
+      "description": "Voxel {{version}}. Le nuove versioni vengono cercate all’avvio e ogni 6 ore, e si installano solo se lo scegli tu.",
+      "check": "Cerca ora"
     }
   },
   "shortcuts": {

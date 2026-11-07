@@ -13,6 +13,8 @@ fn main() {
         "set_tray_labels",
         "autostart_get",
         "autostart_set",
+        "update_check",
+        "update_install",
     ];
     tauri_build::try_build(
         tauri_build::Attributes::new()

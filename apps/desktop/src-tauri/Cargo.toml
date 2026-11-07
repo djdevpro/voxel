@@ -21,6 +21,7 @@ tauri-plugin-dialog = { workspace = true }           # Enregistrer sous
 tauri-plugin-notification = { workspace = true }     # notifications natives
 tauri-plugin-single-instance = { workspace = true }  # instance unique
 tauri-plugin-autostart = { workspace = true }        # ouverture avec la session
+tauri-plugin-updater = { workspace = true }          # mises à jour signées
 voxel-core = { workspace = true }                    # client HTTP, stockage
 voxel-gateway = { workspace = true }                 # routes /imap/*
 voxel-mail = { workspace = true }                    # façade IMAP

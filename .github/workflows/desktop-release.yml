@@ -2,7 +2,9 @@ name: Release desktop
 
 # Builds Voxel Desktop for Windows and Linux and publishes the installer and the packages as a GitHub release named
 # desktop-v<version>, with the version of apps/desktop/src-tauri/tauri.conf.json. It runs only by
-# hand, with `npm run release:desktop`, never on a push.
+# hand, with `npm run release:desktop`, never on a push. The installer and the packages are signed for the updater
+# of the installed apps, which read latest.json from the latest release: the signing key is used only by the sign
+# job, never while npm and Cargo build.
 on:
   workflow_dispatch:
 
@@ -47,6 +49,8 @@ jobs:
             Download the setup.exe installer below and run it. It installs Voxel for the current user. Windows may say the publisher is unknown, because the installer is not signed yet. Choose More info, then Run anyway.
 
             On Linux, make the `.AppImage` executable and open it, or install the `.deb` or `.rpm` package.
+
+            Once installed, Voxel updates itself: when a new version is out, it offers to install it and restart.
 
             Linux needs WebKitGTK 4.1 (Ubuntu 22.04, Debian 12, Fedora 38 or later) and a Secret Service, such as GNOME Keyring or KWallet, to keep the device key.
 
@@ -191,9 +195,70 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  sign:
+    name: Sign updates
+    needs: [draft, windows, linux]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    # The only job with the signing key: no write token, and no install script runs.
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: '*'
+          merge-multiple: true
+          path: release-assets
+      # The Tauri CLI of the repository, alone and without install scripts.
+      - name: Install the Tauri CLI
+        run: |
+          set -euo pipefail
+          version=$(jq -r '.devDependencies["@tauri-apps/cli"]' apps/desktop/package.json)
+          npm install --prefix "$RUNNER_TEMP/tauri-cli" --no-save --ignore-scripts --no-audit --no-fund "@tauri-apps/cli@$version"
+      # Each signature is checked against the public key of tauri.conf.json before latest.json is written.
+      - name: Sign the installer and the packages, write latest.json
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+          VERSION: ${{ needs.draft.outputs.version }}
+        run: |
+          set -euo pipefail
+          if [ -z "$TAURI_SIGNING_PRIVATE_KEY" ]; then
+            echo "::error::Add the TAURI_SIGNING_PRIVATE_KEY and TAURI_SIGNING_PRIVATE_KEY_PASSWORD secrets to the repository: see Updates in the README."
+            exit 1
+          fi
+          tauri="$RUNNER_TEMP/tauri-cli/node_modules/.bin/tauri"
+          mkdir -p updater
+          files=(
+            "voxel-$VERSION-windows-x64-setup.exe"
+            "voxel-$VERSION-linux-x86_64.AppImage"
+            "voxel-$VERSION-linux-amd64.deb"
+            "voxel-$VERSION-linux-x86_64.rpm"
+          )
+          for name in "${files[@]}"; do
+            "$tauri" signer sign "release-assets/$name" > /dev/null
+            cp "release-assets/$name.sig" updater/
+          done
+          base="https://github.com/$GITHUB_REPOSITORY/releases/download/desktop-v$VERSION"
+          node apps/desktop/scripts/updater-manifest.mjs release-assets "$VERSION" "$base"
+          cp release-assets/latest.json updater/
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: updater
+          path: updater/
+          if-no-files-found: error
+          retention-days: 7
+
   publish:
     name: Publish
-    needs: [draft, windows, linux]
+    needs: [draft, windows, linux, sign]
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
@@ -204,7 +269,8 @@ jobs:
           pattern: '*'
           merge-multiple: true
           path: release-assets
-      # Assets of a draft left by a failed run are replaced; the release is published last.
+      # Assets of a draft left by a failed run are replaced; the release is published last, as the latest one: the
+      # updater of the installed apps reads its latest.json.
       - name: Attach the installer and the packages and publish the release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -223,4 +289,4 @@ jobs:
             curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Content-Type: application/octet-stream" \
               --data-binary "@$file" "$upload?name=$name" -o /dev/null
           done
-          gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/$ID" -F draft=false --silent
+          gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/$ID" -F draft=false -f make_latest=true --silent

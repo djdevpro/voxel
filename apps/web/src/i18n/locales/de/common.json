@@ -59,5 +59,13 @@
   "routing": {
     "threadNotFound": "Diese Unterhaltung wurde nicht gefunden. Sie wurde möglicherweise gelöscht oder verschoben.",
     "folderNotFound": "Dieser Ordner existiert nicht mehr. Zurück zum Posteingang."
+  },
+  "update": {
+    "available": "Voxel {{version}} ist verfügbar.",
+    "install": "Installieren und neu starten",
+    "downloading": "Voxel {{version}} wird heruntergeladen …",
+    "failed": "Das Update konnte nicht installiert werden.",
+    "checkFailed": "Die Suche nach Updates ist fehlgeschlagen.",
+    "upToDate": "Voxel ist auf dem neuesten Stand."
   }
 }

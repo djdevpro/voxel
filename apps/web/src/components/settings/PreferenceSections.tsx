@@ -1,10 +1,10 @@
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import { PushSettings } from './PushSettings';
 import { LargeFilesSettings } from './LargeFilesSettings';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { Check, Monitor, Moon, Sun, Rows3, Rows2, PanelRight, PanelBottom, PanelRightClose, PenLine, AtSign } from 'lucide-react';
+import { Check, Monitor, Moon, Sun, Rows3, Rows2, PanelRight, PanelBottom, PanelRightClose, PenLine, AtSign, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 import { useSettings } from '@/store/settings';
 import { Switch } from '@/components/ui/switch';
@@ -19,7 +19,8 @@ import { LANGUAGES, setLanguage, currentLocale, type LanguageCode } from '@/i18n
 import { THEMES, useThemeId, type ThemeId } from '@/lib/themes';
 import { tBase } from '@/lib/motion';
 import { cn } from '@/lib/utils';
-import { desktopAutostart, isDesktop, setDesktopAutostart } from '@/lib/platform';
+import { desktopAutostart, desktopInfo, isDesktop, setDesktopAutostart } from '@/lib/platform';
+import { checkForUpdate } from '@/lib/updates';
 import { ensurePush } from '@/lib/push';
 import { useAccounts } from '@/hooks/useData';
 
@@ -257,6 +258,7 @@ export function ReadingSection() {
             />
           </SettingRow>
           <AutostartSetting />
+          <UpdatesSetting />
         </>
       )}
       {!isDesktop && <LargeFilesSettings />}
@@ -285,6 +287,32 @@ function AutostartSetting() {
           void qc.invalidateQueries({ queryKey: ['autostart'] });
         }}
       />
+    </SettingRow>
+  );
+}
+
+/** Bureau : version installée et recherche d'une mise à jour à la demande. */
+function UpdatesSetting() {
+  const { t } = useTranslation('appearance');
+  const { data: info } = useQuery({ queryKey: ['desktop-info'], queryFn: desktopInfo, staleTime: Infinity });
+  const [busy, setBusy] = useState(false);
+  return (
+    <SettingRow title={t('reading.updates.title')} description={t('reading.updates.description', { version: info?.version ?? '' })}>
+      <Button
+        variant="outline"
+        size="sm"
+        disabled={busy}
+        onClick={async () => {
+          setBusy(true);
+          try {
+            await checkForUpdate({ manual: true });
+          } finally {
+            setBusy(false);
+          }
+        }}
+      >
+        <RefreshCw /> {t('reading.updates.check')}
+      </Button>
     </SettingRow>
   );
 }

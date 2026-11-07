@@ -75,5 +75,13 @@
   "routing": {
     "threadNotFound": "تعذّر العثور على هذه المحادثة. ربما حُذفت أو نُقلت.",
     "folderNotFound": "هذا المجلد لم يعد موجودًا. العودة إلى البريد الوارد."
+  },
+  "update": {
+    "available": "الإصدار {{version}} من Voxel متاح.",
+    "install": "التثبيت وإعادة التشغيل",
+    "downloading": "جارٍ تنزيل Voxel {{version}}…",
+    "failed": "تعذّر تثبيت التحديث.",
+    "checkFailed": "تعذّر البحث عن تحديثات.",
+    "upToDate": "Voxel محدَّث."
   }
 }

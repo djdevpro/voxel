@@ -82,6 +82,11 @@
       "description": "Anhänge über {{threshold}} werden als Link gesendet, {{days}} Tage gültig, aus {{quota}} S3-Speicher pro Postfach. Das S3-Konto wird bei der ersten Nutzung automatisch angelegt.",
       "used": "{{used}} von {{quota}} belegt",
       "noAccount": "Noch kein Konto"
+    },
+    "updates": {
+      "title": "Updates",
+      "description": "Voxel {{version}}. Nach neuen Versionen wird beim Start und alle 6 Stunden gesucht; installiert wird nur, wenn du es willst.",
+      "check": "Jetzt suchen"
     }
   },
   "shortcuts": {

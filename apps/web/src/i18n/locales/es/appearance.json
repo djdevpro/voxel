@@ -84,6 +84,11 @@
       "description": "Los adjuntos de más de {{threshold}} se envían como enlace, válido {{days}} días, desde un espacio S3 de {{quota}} por buzón. La cuenta S3 se crea automáticamente la primera vez.",
       "used": "{{used}} usados de {{quota}}",
       "noAccount": "Aún sin cuenta"
+    },
+    "updates": {
+      "title": "Actualizaciones",
+      "description": "Voxel {{version}}. Las nuevas versiones se buscan al iniciar y cada 6 horas, y solo se instalan si tú lo decides.",
+      "check": "Buscar ahora"
     }
   },
   "shortcuts": {

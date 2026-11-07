@@ -84,6 +84,11 @@
       "description": "Au-delà de {{threshold}}, une pièce jointe est envoyée par lien, valable {{days}} jours, depuis un espace S3 de {{quota}} par boîte. Le compte S3 est créé automatiquement à la première utilisation.",
       "used": "{{used}} utilisés sur {{quota}}",
       "noAccount": "Pas encore de compte"
+    },
+    "updates": {
+      "title": "Mises à jour",
+      "description": "Voxel {{version}}. Les nouvelles versions sont recherchées au démarrage puis toutes les 6 heures, et ne s’installent que si vous le choisissez.",
+      "check": "Rechercher"
     }
   },
   "shortcuts": {

@@ -69,6 +69,20 @@ sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librs
 
 `npm run release:desktop` starts the release workflow on GitHub, with `gh` signed in. It builds the Windows installer and the Linux packages and publishes them as the `desktop-v<version>` release, with the version from `apps/desktop/src-tauri/tauri.conf.json`. It never replaces a published release, so raise the version before you release again.
 
+### Updates
+
+The installed app updates itself. At startup and every 6 hours, it reads `latest.json` from the latest GitHub release. When a newer version is out, it offers to install it and restart. It installs only files signed with the Voxel update key, whose public half is in `apps/desktop/src-tauri/tauri.conf.json`. On Linux, the AppImage, `.deb` and `.rpm` each update with their own package. Development builds never look for updates. Versions before 0.2.0 have no updater, so install the next version once by hand.
+
+`npm run release:desktop` signs the installer and the packages in a job of their own, never while npm and Cargo build, checks each signature against that public key, then publishes `latest.json` with the release. It needs two repository secrets, the private key and its password:
+
+```sh
+npx tauri signer generate -w ~/.tauri/voxel-updater.key   # once; keep the key and its password safe
+gh secret set TAURI_SIGNING_PRIVATE_KEY --repo djdevpro/voxel < ~/.tauri/voxel-updater.key
+gh secret set TAURI_SIGNING_PRIVATE_KEY_PASSWORD --repo djdevpro/voxel   # paste the password
+```
+
+Without the private key, no installed app can be updated anymore: a new key means a manual reinstall for everyone.
+
 ### How it works
 
 - The server part of Voxel runs inside the app, in Rust, in the same process as the window. It contains the IMAP/SMTP gateway, ManageSieve, CardDAV, CalDAV, server discovery, network rules, limits and local storage. Node is not needed at runtime.

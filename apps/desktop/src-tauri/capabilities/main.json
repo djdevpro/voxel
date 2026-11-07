@@ -10,6 +10,7 @@
     "core:window:allow-hide", "core:window:allow-show", "core:window:allow-set-focus", "core:window:allow-unminimize",
     "allow-net-fetch", "allow-net-cancel", "allow-file-save", "allow-file-download",
     "allow-open-external", "allow-notify", "allow-device-key", "allow-desktop-info",
-    "allow-set-badge", "allow-set-tray-labels", "allow-autostart-get", "allow-autostart-set"
+    "allow-set-badge", "allow-set-tray-labels", "allow-autostart-get", "allow-autostart-set",
+    "allow-update-check", "allow-update-install"
   ]
 }

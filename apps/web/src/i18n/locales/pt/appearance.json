@@ -84,6 +84,11 @@
       "description": "Os anexos com mais de {{threshold}} são enviados como ligação, válida durante {{days}} dias, a partir de um espaço S3 de {{quota}} por caixa. A conta S3 é criada automaticamente na primeira utilização.",
       "used": "{{used}} usados de {{quota}}",
       "noAccount": "Ainda sem conta"
+    },
+    "updates": {
+      "title": "Atualizações",
+      "description": "Voxel {{version}}. As novas versões são procuradas no arranque e a cada 6 horas, e só são instaladas se o escolher.",
+      "check": "Procurar agora"
     }
   },
   "shortcuts": {

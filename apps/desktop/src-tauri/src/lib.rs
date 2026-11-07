@@ -9,6 +9,7 @@ mod net;
 mod selftest; // jamais compilé dans l'appli publiée (profil release) : rien ne peut y déclencher l'auto-test
 mod system;
 mod tray;
+mod update;
 
 use std::path::PathBuf;
 use std::sync::Arc;
@@ -69,6 +70,7 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_notification::init())
         .plugin(autostart::plugin())
+        .plugin(tauri_plugin_updater::Builder::new().build())
         .invoke_handler(tauri::generate_handler![
             net::net_fetch,
             net::net_cancel,
@@ -81,7 +83,9 @@ pub fn run() {
             tray::set_badge,
             tray::set_tray_labels,
             autostart::autostart_get,
-            autostart::autostart_set
+            autostart::autostart_set,
+            update::update_check,
+            update::update_install
         ])
         .setup(move |app| {
             app.manage(system::SelftestMode(selftest.is_some()));
@@ -110,6 +114,7 @@ pub fn run() {
                 requests: net::Requests::default(),
             });
             app.manage(system::Notified::default());
+            app.manage(update::PendingUpdate::default());
             // Sans icône dans la zone de notification, une fenêtre cachée ne se retrouverait pas : elle se montre.
             let in_tray = tray::install(app.handle());
 
